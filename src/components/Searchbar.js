@@ -29,14 +29,15 @@ const SearchBar = () => {
   };
 
   return (
-    <Container className='web3-container'>
-      <Row>
+    <>
+    <Container style={{width: '850px', borderRadius: '25px'}} className='web3-container'>
+      <Row >
         <Col className='text-center'>
-          <h2>Own your identity in the digital world</h2>
-          <h6>Search for a Web3 domain by Unstoppable Domains <img className='ud-logo-indesc' src={udLogo}/></h6>
+          <h2>Unstoppable Domain/Stripe API Integration</h2>
+          <h5>Search for a Web3 domain by Unstoppable Domains <img className='ud-logo-indesc' src={udLogo}/></h5>
         </Col>
       </Row>
-      <Row className="justify-content-center" style={{ marginTop: '20px' }}>
+      <Row md={11} className="justify-content-center" style={{ marginTop: '20px' }}>
         <Col xs='auto' className="text-center">
         <form onSubmit={handleSearchSubmit}>
           <input
@@ -53,17 +54,18 @@ const SearchBar = () => {
         </form>
         </Col>
       </Row>
-    <Container style={{ marginTop: '30px' }}>
-      <Row style={{ marginLeft: '95px' }}>
-        {searchResults.map((domain, index) => (
-          <Col md={3} className="m-4 text-center" key={index}>
-            <DomainCard domain={domain} udImg={udCardImg} searchQuery={domain.name} />
-          </Col>
-        ))}
-      </Row>
+      <Container style={{ marginTop: '30px' }}>
+        <Row style={{ marginLeft: '95px' }}>
+          {searchResults.map((domain, index) => (
+            <Col md={3} className="m-4 text-center" key={index}>
+              <DomainCard domain={domain} udImg={udCardImg} searchQuery={domain.name} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </Container>
-  </Container>
-);
+  </>
+  );
 }
 
 export default SearchBar;

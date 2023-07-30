@@ -7,9 +7,8 @@ import {
         CardTitle, 
         CardFooter
     } from 'reactstrap';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-//import PaymentModal from './PaymentModal';
-import CheckoutModal from './CheckoutModal';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import PaymentModal from './PaymentModal';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -36,7 +35,6 @@ const DomainCard = ({ domain, udImg, searchQuery }) => {
             </CardBody>
             <CardText style={{ marginTop: '15px', fontWeight: 'bold'}}>${price}</CardText>
             <CardFooter>
-                <form action='/create-checkout-session' method='POST'>
                 <Button 
                     style={{ marginRight: '10px', backgroundColor: 'rgb(77, 72, 242)' }}
                     onClick={udClick}
@@ -44,9 +42,8 @@ const DomainCard = ({ domain, udImg, searchQuery }) => {
                     UD
                 </Button>
                 <Elements stripe={stripePromise}>
-                    <CheckoutModal />
+                    <PaymentModal price={price} />
                 </Elements>
-                </form>
             </CardFooter>
       </Card>
     );

@@ -13,6 +13,11 @@
   }
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -114,6 +119,7 @@
 
 .web3-container {
   background-color: #F5F5F5;
+  width: 100%;
   border: 2px solid grey;
   padding: 25px;
   margin: 50px 0 50px 0;

@@ -9,12 +9,7 @@ app.use(bodyParser.json())
 
 app.use(cors())
 
-app.get('/secret', async (req, res) => {
-  const intent = // ... Fetch or create the PaymentIntent
-  res.json({client_secret: intent.client_secret});
-});
-
-app.post("/create-confirm-intent", cors(), async (req, res, next) => {
+app.post("/payment", cors(), async (req, res, next) => {
   const {amount, id} = req.body;
   const intent = stripe.paymentIntents.create({
     amount,
