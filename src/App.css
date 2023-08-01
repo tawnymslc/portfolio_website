@@ -42,25 +42,34 @@
   }
 }
 
+.nav-link {
+  color: black !important;
+}
+
 .header{
-  color: white;
+  color: black;
   padding: 50px;
 }
 
 .header-nav{
-  font-size: 20px;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+button.btn-contact-me {
+  font-size: 12px;
   font-weight: bold;
+  padding: 8px 25px 8px 25px;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  white-space: nowrap;
 }
 
 .fa-facebook, .fa-youtube, .fa-instagram, .fa-twitter {
-  background: white;
-  color: black;
-  }
-
-.fa-home, .fa-info, .fa-envelope {
   color: white;
-  padding-left: 15px;
-}
+  background-color: black;
+  }
 
 .header-into {
   font-size: 35px;
@@ -69,20 +78,6 @@
 
 .header-para {
   font-weight: 600;
-}
-
-.hero {
-  width: 1200px;
-  height: auto;
-  margin: 50px 0 50px 0;
-}
-
-.hero-text {
-  font-size: 20px;
-  background-color: #F5F5F5;
-  border: solid lightgray;
-  margin-bottom: 50px;
-  padding: 25px 50px;
 }
 
 .travel-card-title {

@@ -1,4 +1,5 @@
 import {
+    Button,
     Card,     
     Container,
     Row,
@@ -15,6 +16,7 @@ const introStyle = {
     backgroundColor: '#B37D4F',
     height: '450px',
     borderRadius: '15px',
+    border: 0,
     backgroundOrigin: 'padding-box',
   };
 
@@ -33,6 +35,22 @@ const HomePage = () => {
                     <Card style={introStyle}>
                         <h1 className="header-intro">Hello, I'm Tawny, an Integration Engineer with over 10 years of experience. </h1><br/>
                         <p className="header-para"> I care a lot about using design for positive impact, and enjoy creating user-centric, delightful, and human experiences.</p>
+                        <Row style={{marginTop: '75px'}}>
+                            <Col sm={3}>
+                                <Button className='btn-contact-me'>
+                                    Contact Me
+                                </Button>
+                            </Col>
+                            <Col sm={1} style={{marginLeft: '15px'}}>
+                                <a class="btn btn-social-icon btn-instagram" href="http://instagram.com/"><i className="fa fa-brands fa-instagram fa-xs"></i></a>
+                            </Col>
+                            <Col sm={1} style={{marginLeft: '15px'}}>
+                                <a class="btn btn-social-icon btn-facebook" href="http://facebook.com/"><i className="fa fa-facebook fa-xs"></i></a>
+                            </Col>
+                            <Col sm={1} style={{marginLeft: '15px'}}>
+                                <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter fa-xs"></i></a>
+                            </Col> 
+                        </Row>
                     </Card>
                 </Col>
                 <Col md={4} style={{marginTop: '50px'}}>
