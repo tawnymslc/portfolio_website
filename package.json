@@ -27,7 +27,7 @@
     "typeface-open-sans": "^1.1.13",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "http://tawny-mathi.com/",
+  "homepage": "https://portfolio-website-nine-opal.vercel.app/",
   "proxy": "portfolio-website-nine-opal.vercel.app/payment",
   "scripts": {
     "start": "react-scripts start",
