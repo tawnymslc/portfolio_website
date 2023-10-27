@@ -44,7 +44,7 @@ const PaymentModal = ({price}) => {
     if (!error) {
       const {id} = paymentMethod;
 
-      axios.post("http://localhost:4243/payment", {
+      axios.post("https://backend-stripe-git-main-tawnys-projects.vercel.app/payment", {
         amount: price * 100,
         id
       })
