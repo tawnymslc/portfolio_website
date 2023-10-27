@@ -28,7 +28,6 @@
     "web-vitals": "^2.1.4"
   },
   "homepage": "https://portfolio-website-nine-opal.vercel.app/",
-  "proxy": "portfolio-website-nine-opal.vercel.app/payment",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
