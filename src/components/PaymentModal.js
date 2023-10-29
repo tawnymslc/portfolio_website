@@ -40,13 +40,13 @@ const PaymentModal = ({price}) => {
       type: 'card',
       card: elements.getElement(CardElement)
     });
-
     if (!error) {
       const {id} = paymentMethod;
 
       axios.post("https://backend-stripe-git-main-tawnys-projects.vercel.app/payment", {
         amount: price * 100,
-        id
+        paymentMethodType: "card",
+        currency: "usd",
       })
       .then(response => {
         if (response.data.success) {
