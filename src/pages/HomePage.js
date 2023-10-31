@@ -34,21 +34,23 @@ const HomePage = () => {
                 <Col md={7}>
                     <Card style={introStyle}>
                         <h1 className="header-intro">Hello, I'm Tawny, an Integration Engineer with over 10 years of experience. </h1><br/>
-                        <p className="header-para"> I care a lot about using design for positive impact, and enjoy creating user-centric, delightful, and human experiences.</p>
+                        <p className="header-para">I started my career as chat rep at eBay. My most recent role was an integration engineer at Unstoppable Domains.</p>
                         <Row style={{marginTop: '75px'}}>
-                            <Col sm={3}>
-                                <Button className='btn-contact-me'>
+                            <Col>
+                                <Button className='btn-contact-me'   onClick={() => {
+                                        window.location.href = 'mailto:tawnymslc@gmail.com';
+                                    }}>
                                     Contact Me
                                 </Button>
                             </Col>
-                            <Col sm={1} style={{marginLeft: '15px'}}>
-                                <a class="btn btn-social-icon btn-instagram" href="http://instagram.com/"><i className="fa fa-brands fa-instagram fa-xs"></i></a>
+                            <Col>
+                                <a className="btn btn-social-icon btn-instagram" href="http://instagram.com/"><i className="fa fa-brands fa-instagram fa-xs"></i></a>
                             </Col>
-                            <Col sm={1} style={{marginLeft: '15px'}}>
-                                <a class="btn btn-social-icon btn-facebook" href="http://facebook.com/"><i className="fa fa-facebook fa-xs"></i></a>
+                            <Col>
+                                <a className="btn btn-social-icon btn-facebook" href="http://facebook.com/"><i className="fa fa-facebook fa-xs"></i></a>
                             </Col>
-                            <Col sm={1} style={{marginLeft: '15px'}}>
-                                <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter fa-xs"></i></a>
+                            <Col>
+                                <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter fa-xs"></i></a>
                             </Col> 
                         </Row>
                     </Card>

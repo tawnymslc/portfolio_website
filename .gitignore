@@ -1,2 +1,6 @@
 node_modules
 vercel.json
+.vercel
+.env
+.env.development
+.env.production

@@ -8,8 +8,8 @@ const Footer = () => {
           <Col sm={6} className='text-center'>
             <h3>Newsletter</h3>
             <form>
-                <div class="col-12 newsletter-input">
-                    <input type="email" class="form-control form-control-sm" id="emailNews" placeholder="EMAIL" />
+                <div className="col-12 newsletter-input">
+                    <input type="email" className="form-control form-control-sm" id="emailNews" placeholder="EMAIL" />
                 </div>
             </form>
           </Col>

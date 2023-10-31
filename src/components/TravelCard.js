@@ -54,9 +54,9 @@ const TravelCard = () => {
 
             <div className="card">
                 <div className="img-wrapper">
-                    <img src={loungeImg} class="card-img-top" alt="..."/>
+                    <img src={loungeImg} className="card-img-top" alt="..."/>
                 </div>
-                <div class="card-body">
+                <div className="card-body">
                     <h5 className="travel-card-title">AIRPORT LOUNGE GUIDE</h5>
                     <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                 </div>
@@ -74,7 +74,7 @@ const TravelCard = () => {
 
             <div className="card">
                 <div className="img-wrapper">
-                    <img src={blogImg} class="card-img-top" alt="..."/>
+                    <img src={blogImg} className="card-img-top" alt="..."/>
                 </div>
                 <div className="card-body">
                     <h5 className="travel-card-title">BLOG</h5>

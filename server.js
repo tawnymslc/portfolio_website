@@ -9,24 +9,21 @@ app.use(bodyParser.json())
 
 app.use(cors())
 
-app.post("/payment", cors(), async (req, res, next) => {
-  const {amount, id} = req.body;
-  const intent = stripe.paymentIntents.create({
-    amount,
-    currency: "usd",
-    description: "Domain Purchase",
-    payment_method: id,
-    confirm: true
-  })
-  .then(payment => {
-    console.log("Payment", payment);
-    res.json({
-      message: "Payment Successful",
-      success: true,
-      client_secret: intent.client_secret
+app.post('/payment', async (req, res) => {
+  const {paymentMethodType, currency, amount} = req.body;
+
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: amount,
+      currency: currency,
+      payment_method_types: [paymentMethodType],
     });
-  })
-  .catch(err => next(err));
+
+    res.json({clientSecret: paymentIntent.client_secret, success: true});
+
+  } catch(e) {
+    res.status(400).json({error: { message: e.message}});
+  }
 });
 
 app.listen(4243, () => console.log('Running on port 4243'));

@@ -12,6 +12,7 @@ const PaymentModal = ({price}) => {
 
   const stripe = useStripe();
   const elements = useElements();
+  const apiBaseUrl = process.env.REACT_APP_API_URL;
 
   const cardElementOptions = {
     style: {
@@ -43,7 +44,7 @@ const PaymentModal = ({price}) => {
     if (!error) {
       const {id} = paymentMethod;
 
-      axios.post("https://backend-stripe-git-main-tawnys-projects.vercel.app/payment", {
+      axios.post(`${apiBaseUrl}/payment`, {
         amount: price * 100,
         paymentMethodType: "card",
         currency: "usd",
@@ -94,7 +95,7 @@ const PaymentModal = ({price}) => {
         </Modal>
           : 
         <Modal isOpen={loginModalOpen}>
-          <ModalHeader toggle={() => setLoginModalOpen(false)}>
+          <ModalHeader style={{color: 'white', backgroundColor: 'rgb(77, 72, 242)' }} toggle={() => setLoginModalOpen(false)}>
             Payment Successful!
           </ModalHeader>
           <ModalBody>

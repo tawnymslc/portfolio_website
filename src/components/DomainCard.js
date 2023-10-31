@@ -34,7 +34,7 @@ const DomainCard = ({ domain, udImg, searchQuery }) => {
                 <CardText className='domain-tld'>.{domainName[1]}</CardText>
             </CardBody>
             <CardText style={{ marginTop: '15px', fontWeight: 'bold'}}>${price}</CardText>
-            <CardFooter>
+            <CardFooter style={{ display: 'flex', justifyContent: 'center' }}>
                 <Button 
                     style={{ marginRight: '10px', backgroundColor: 'rgb(77, 72, 242)' }}
                     onClick={udClick}
