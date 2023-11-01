@@ -30,7 +30,7 @@ const SearchBar = () => {
 
   return (
     <>
-    <Container style={{width: '850px', borderRadius: '25px'}} className='web3-container'>
+    <Container style={{borderRadius: '25px'}} className='web3-container container-fluid'>
       <Row >
         <Col className='text-center'>
           <h2>Unstoppable Domain/Stripe API Integration</h2>
@@ -55,7 +55,7 @@ const SearchBar = () => {
         </Col>
       </Row>
       <Container style={{ marginTop: '30px' }}>
-        <Row style={{ marginLeft: '95px' }}>
+        <Row className="justify-content-center">
           {searchResults.map((domain, index) => (
             <Col md={3} className="m-4 text-center" key={index}>
               <DomainCard domain={domain} udImg={udCardImg} searchQuery={domain.name} />

@@ -30,8 +30,8 @@ const heroStyle = {
 const HomePage = () => {
     return (
         <Container>
-            <Row className="justify-content-center">
-                <Col md={7}>
+            <Row className="justify-content-center align-items-center">
+                <Col md={7} className='order-md-first order-sm-last order-xs-last'>
                     <Card style={introStyle}>
                         <h1 className="header-intro">Hello, I'm Tawny, an Integration Engineer with over 10 years of experience. </h1><br/>
                         <p className="header-para">I started my career as chat rep at eBay. My most recent role was an integration engineer at Unstoppable Domains.</p>
@@ -55,7 +55,7 @@ const HomePage = () => {
                         </Row>
                     </Card>
                 </Col>
-                <Col md={4} style={{marginTop: '50px'}}>
+                <Col md={4} style={{marginTop: '50px'}} className='order-xs-first'>
                     <img src={tawnyHeroImg} style={heroStyle}/>
                 </Col>
             </Row>
