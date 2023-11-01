@@ -35,21 +35,21 @@ const HomePage = () => {
                     <Card style={introStyle}>
                         <h1 className="header-intro">Hello, I'm Tawny, an Integration Engineer with over 10 years of experience. </h1><br/>
                         <p className="header-para">I started my career as chat rep at eBay. My most recent role was an integration engineer at Unstoppable Domains.</p>
-                        <Row style={{marginTop: '75px'}}>
-                            <Col>
+                        <Row className="justify-content-center" style={{marginTop: '75px'}}>
+                            <Col xs="auto" className="mb-2">
                                 <Button className='btn-contact-me'   onClick={() => {
                                         window.location.href = 'mailto:tawnymslc@gmail.com';
                                     }}>
                                     Contact Me
                                 </Button>
                             </Col>
-                            <Col>
+                            <Col xs="auto" className="mb-2">
                                 <a className="btn btn-social-icon btn-instagram" href="http://instagram.com/"><i className="fa fa-brands fa-instagram fa-xs"></i></a>
                             </Col>
-                            <Col>
+                            <Col xs="auto" className="mb-2"> 
                                 <a className="btn btn-social-icon btn-facebook" href="http://facebook.com/"><i className="fa fa-facebook fa-xs"></i></a>
                             </Col>
-                            <Col>
+                            <Col xs="auto" className="mb-2">
                                 <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter fa-xs"></i></a>
                             </Col> 
                         </Row>
