@@ -42,7 +42,7 @@ const DomainCard = ({ domain, udImg, searchQuery }) => {
                     UD
                 </Button>
                 <Elements stripe={stripePromise}>
-                    <PaymentModal price={price} />
+                    <PaymentModal price={price} domain={name} />
                 </Elements>
             </CardFooter>
       </Card>

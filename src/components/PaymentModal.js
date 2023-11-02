@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from "axios";
 
-const PaymentModal = ({price}) => {
+const PaymentModal = ({price, domain}) => {
 
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [success, setSuccess ] = useState(false)
@@ -96,10 +96,11 @@ const PaymentModal = ({price}) => {
           : 
         <Modal isOpen={loginModalOpen}>
           <ModalHeader style={{color: 'white', backgroundColor: 'rgb(77, 72, 242)' }} toggle={() => setLoginModalOpen(false)}>
-            Payment Successful!
+            Congratulations
           </ModalHeader>
           <ModalBody>
-            You have completed your purchase. 
+          <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>Purchase Details: </p>
+          <p>Domain: {domain} <br />Paid: ${price}</p>
           </ModalBody>
         </Modal>
       }
