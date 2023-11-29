@@ -31,7 +31,7 @@ const SearchBar = () => {
   return (
     <>
     <Container style={{borderRadius: '25px'}} className='web3-container container-fluid'>
-      <Row >
+      <Row> 
         <Col className='text-center'>
           <h2>Unstoppable Domain/Stripe API Integration</h2>
           <h5>Search for a Web3 domain by Unstoppable Domains <img className='ud-logo-indesc' src={udLogo}/></h5>
