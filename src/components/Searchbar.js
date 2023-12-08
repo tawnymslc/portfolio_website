@@ -20,17 +20,19 @@ const SearchBar = () => {
 
     axios.get(API_ENDPOINT, { params: { search: searchQuery }})
       .then((response) => {
-        setSearchResults(response.data);
+        const maxResults = 9;
+
+        const nineResults = response.data.slice(0, maxResults);
+        setSearchResults(nineResults);
       })
       .catch((error) => {
         console.error(error);
       });
-      //setSearchQuery("");
   };
 
   return (
     <>
-    <Container style={{borderRadius: '25px'}} className='web3-container container-fluid'>
+    <Container style={{borderRadius: '25px', marginBottom: "50px"}} className='web3-container container-fluid'>
       <Row> 
         <Col className='text-center'>
           <h2>Unstoppable Domain/Stripe API Integration</h2>
@@ -48,7 +50,7 @@ const SearchBar = () => {
           />
           <Button 
             type='submit' 
-            style={{ backgroundColor: 'rgb(77, 72, 242)', marginBottom: '4px' }}>
+            style={{ backgroundColor: 'rgb(77, 72, 242)', marginBottom: '4px', color: 'white', lineHeight: "16px", display: 'inline-block', textAlign: 'center', fontWeight: 'bold' }}>
               Search
           </Button>
         </form>

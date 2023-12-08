@@ -9,7 +9,8 @@ import axios from "axios";
 const SpotifyApp = () => {
 
     const [searchQuery, setSearchQuery] = useState("");
-    const [searchResults, setSearchResults] = useState(null);
+    const [searchResults, setSearchResults] = useState(false);
+    const [searchClicked, setSearchClicked] = useState(true);
     const [tracks, setTracks] = useState(null);
 
     const handleInputChange = (event) => {
@@ -22,7 +23,6 @@ const SpotifyApp = () => {
         try{
             const response = await axios.post(process.env.REACT_APP_SPOTIFY_TOKEN_URL);
             const accessToken = response.data.accessToken;
-            console.log('Received access token:', accessToken);
     
             const searchResponse = await axios.get("https://api.spotify.com/v1/search?", {
                 params: { q: searchQuery, type: "artist" },
@@ -30,18 +30,26 @@ const SpotifyApp = () => {
                     'Authorization': `Bearer ${accessToken}`
                 }
             });
+            if (searchResponse.data.artists.items.length == 0) {
+                console.log("no artist");
+                setSearchClicked(false);
+                setSearchResults(false);
+            } else {
             const artistId = searchResponse.data.artists.items[0].id;
-            console.log(artistId);
-            setSearchResults(searchResponse);
-            console.log("This is the log: ", searchResponse);
-
+            setSearchResults(true);
+            
             const tracksResponse = await axios.get(`https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }
             });
-            setTracks(tracksResponse.data.tracks);
 
+            const maxResults = 9;
+
+            const nineResults = tracksResponse.data.tracks.slice(0, maxResults);
+
+            setTracks(nineResults);
+            }
         } catch (error) {
             console.error('Error:', error);
         }
@@ -50,7 +58,7 @@ const SpotifyApp = () => {
     return(
         <>
         <div 
-        style={{  backgroundImage: `url(${require('../img/wp2775382.jpg')})`,borderRadius: '25px' }}>
+        style={{  backgroundImage: `url(${require('../img/wp2775382.jpg')})`, borderRadius: '25px', marginBottom: "50px" }}>
         <Container className="container-fluid spotify-container">
             <Row> 
                 <Col className='text-center'>
@@ -59,7 +67,7 @@ const SpotifyApp = () => {
                 </Col>
             </Row>
             <Row sm={11} className="justify-content-center" style={{marginBottom: "40px"}}>
-                <Col xs='auto' className="mx-auto" style={{ marginTop: '40px' }}>
+                <Col xs='auto' className="text-center" style={{ marginTop: '40px' }}>
                     <form onSubmit={handleSearchSubmit}>
                         <input
                             type="text"
@@ -76,7 +84,11 @@ const SpotifyApp = () => {
                     </form>
                 </Col>
             </Row>
-                <Row className="justify-content-center">
+                {!searchResults && !searchClicked ?
+                <Row>
+                    <Col className="text-center" style={{fontWeight: 'bold'}}>No Results. Search Again</Col>    
+                </Row>
+                : <Row className="justify-content-center">
                 {tracks && tracks.map((track, index) => (
                 <Col md={3} className="m-4 text-center" key={index}>
                     <Card className='spotify-card' style={{backgroundColor: 'black'}}>
@@ -89,7 +101,7 @@ const SpotifyApp = () => {
                     </Card>
                 </Col>
                 ))}
-            </Row>
+            </Row> }
         </Container>
         </div>
         </>
