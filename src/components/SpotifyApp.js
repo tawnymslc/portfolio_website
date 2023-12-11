@@ -6,7 +6,7 @@ import { Button, Container, Col, Row, Card,
     Dropdown, DropdownToggle, DropdownMenu, DropdownItem
  } from 'reactstrap';
 import axios from "axios";
-import SpotifySelectApi from "./SpotifySelectApi";
+import ArtistCard from "./ArtistCard";
 
 const SpotifyApp = () => {
 
@@ -15,10 +15,11 @@ const SpotifyApp = () => {
     const [searchClicked, setSearchClicked] = useState(true);
     const [tracks, setTracks] = useState(null);
     const [albums, setAlbums] = useState(null);
+    const [artist, setArtist] = useState(null);
     const [selectedApi, setSelectedApi] = useState("Search Artist's");
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const apiOptions = ['top-tracks', 'albums'];
+    const apiOptions = ['top-tracks', 'albums', 'artist-info'];
     const toggle = () => setDropdownOpen((prevState) => !prevState);
 
     const handleInputChange = (event) => {
@@ -79,7 +80,19 @@ const SpotifyApp = () => {
                 const nineResults = albumsResponse.data.items.slice(0, maxResults);
                 console.log(nineResults);
                 setAlbums(nineResults);
-            }
+            } else if(selectedApi == 'artist-info') {
+                const artistId = searchResponse.data.artists.items[0].id;
+                setSearchResults(true);
+            
+                const artistResponse = await axios.get(`https://api.spotify.com/v1/artists/${artistId}`, {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+                });
+
+                setArtist(artistResponse);
+                console.log(artist);
+            } 
         } catch (error) {
             console.error('Error:', error);
         }
@@ -155,6 +168,14 @@ const SpotifyApp = () => {
                         </Card>
                     </Col>
                 ))}
+                </Row>
+            ) : selectedApi === 'artist-info' ? (
+                <Row className="justify-content-center">
+                    {artist &&
+                    <Col md={6} className="m-4 text-center">
+                        <ArtistCard artist={artist} />
+                    </Col>
+                    }
                 </Row>
             ) : null } 
         </Container>
