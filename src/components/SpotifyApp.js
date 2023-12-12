@@ -177,6 +177,10 @@ const SpotifyApp = () => {
                     </Col>
                     }
                 </Row>
+            ) : selectedApi === "Search Artist's" ? (
+                <Row>
+                  <Col className="text-center" style={{fontWeight: 'bold'}}>Please select from the dropdown</Col>   
+                </Row>
             ) : null } 
         </Container>
         </div>
