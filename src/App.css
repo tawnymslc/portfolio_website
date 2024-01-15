@@ -159,6 +159,12 @@ button.btn-contact-me {
   box-shadow: 0 0 5px 5px rgb(241, 244, 241);
 }
 
+.news-link {
+  color: rgb(168, 166, 164) !important;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .site-footer {
   background-color: black;
   padding: 50px; 

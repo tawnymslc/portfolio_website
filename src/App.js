@@ -5,6 +5,7 @@ import SearchBar from './components/Searchbar';
 import { Container } from 'reactstrap';
 import 'font-awesome/css/font-awesome.css';
 import SpotifyApp from './components/SpotifyApp';
+import NewHomePage from './components/NewHomePage';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <HomePage />
     <SearchBar />
     <SpotifyApp />
+    <NewHomePage />
     </Container>
     </>
   );
