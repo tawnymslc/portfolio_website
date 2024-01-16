@@ -159,10 +159,100 @@ button.btn-contact-me {
   box-shadow: 0 0 5px 5px rgb(241, 244, 241);
 }
 
+.news-container {
+  padding: 25px;
+}
+
 .news-link {
   color: rgb(168, 166, 164) !important;
   font-size: 12px;
   font-weight: bold;
+  padding-right: 0;
+}
+
+.navbar-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.main-img {
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.main-head {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 0.90;
+}
+
+.main-para {
+  color: rgb(168, 166, 164);
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.main-btn {
+  color: white;
+  background-color: rgb(228, 111, 66) !important;
+  font-size: 10px !important;
+  margin-top: 5px !important;
+  border-radius: 0 !important;
+  padding: 7px 20px 7px 20px !important;
+  font-weight: bold !important;
+  letter-spacing: 2px !important; 
+}
+
+.right-box {
+  background-color: rgb(0, 1, 25);
+}
+
+.right-headline {
+  color: rgb(223, 177, 90);
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.right-heading {
+  color: rgb(216, 219, 227);
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.right-para {
+  color: rgb(123, 124, 142);
+  font-size: 12px;
+  padding-bottom: 5px; 
+  margin-left: 5px;
+}
+
+.line {
+  border-bottom: 1px solid #ccc;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.img-thumbnail {
+  width: 100px;
+  height: 110px;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.footer-num {
+  color: rgb(191, 189, 188);
+}
+
+.footer-head {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-para {
+  color: rgb(191, 189, 188);
+  font-size: 11px;
 }
 
 .site-footer {
