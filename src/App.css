@@ -160,10 +160,21 @@ button.btn-contact-me {
 }
 
 .news-container {
-  padding: 25px 0 25px 50px !important;
   border: 2px solid;
   border-radius: 25px;
 }
+
+@media (min-width: 768px) {
+  /* Apply padding only on devices with a viewport width of 768 pixels or more (desktop) */
+  .news-container {
+    padding: 25px 0 25px 50px !important;
+  }
+}
+
+.nav-margin-right {
+  margin-right: 30px; /* Adjust the margin value as needed */
+}
+
 
 .news-link {
   color: rgb(168, 166, 164) !important;
@@ -203,6 +214,13 @@ button.btn-contact-me {
   background-color: rgb(0, 1, 25);
 }
 
+@media (max-width: 768px) {
+  .right-box {
+    margin-top: 12px !important;
+  }
+}
+
+
 .right-headline {
   color: rgb(223, 177, 90);
   margin-top: 20px;
@@ -235,6 +253,12 @@ button.btn-contact-me {
   border: none !important;
   border-radius: 0 !important;
   padding: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .footer-col {
+    margin-bottom: 10px !important;
+  }
 }
 
 .footer-num {

@@ -1,14 +1,15 @@
 import {
-    Button,
-    Card,     
+    Button,     
     Container,
-    Navbar,
+    Col,
+    Collapse,
     Nav,
+    NavbarToggler,
+    Navbar,
     NavItem,
     NavLink,
-    Collapse,
     Row,
-    Col
+    NavbarBrand
 } from 'reactstrap';
 import { useState } from 'react';
 import logo from '../img/logo.svg'
@@ -22,49 +23,48 @@ const NewHomePage = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <>
-        <Container className='container-fluid news-container'>
-        <Row> 
+        <Container className='container-fluid news-container'>     
+            <Row> 
                 <Col className='text-center'>
                     <h2>News Front-End Site</h2>
                     <h5>React/Bootstrap</h5>
                 </Col>
             </Row>
-            <Row style={{marginBottom:'15px'}}>
-                <Col sm={1}><img className="img-thumbnail" src={logo}/></Col>
-                <Col sm={10}>
-                    <Navbar expand='md'>
-                        <Collapse isOpen={menuOpen} navbar>
-                            <Nav className="ms-auto" navbar>
-                                <NavItem>
-                                    <NavLink className='nav-link news-link' style={{color: 'red'}} to="/">
-                                        Home
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className='nav-link news-link' to='/directory'>
-                                        New
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className='nav-link news-link' to='/directory'>
-                                        Popular
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className='nav-link news-link' to='/directory'>
-                                        Trending
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className='nav-link news-link' to='/directory'>
-                                        Categories
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                    </Navbar>
-                </Col>
-            </Row>
+            <Navbar expand='xs'>
+                <NavbarBrand  href='/'>
+                    <img src={logo} alt='nucamp logo' className='float-start'/>
+                </NavbarBrand>
+                <NavbarToggler onClick={() => setMenuOpen(!menuOpen)}/>
+                    <Collapse isOpen={menuOpen} navbar>
+                        <Nav className="ms-auto nav-margin-right" navbar>
+                            <NavItem>
+                                <NavLink className='nav-link news-link' style={{color: 'red'}} to="/">
+                                    Home
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className='nav-link news-link' to='/directory'>
+                                    New
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className='nav-link news-link' to='/directory'>
+                                    Popular
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className='nav-link news-link' to='/directory'>
+                                    Trending
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className='nav-link news-link' to='/directory'>
+                                    Categories
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
+            </Navbar>      
             <Row style={{marginBottom:'20px'}}>
                 <Col sm={8} style={{marginRight: '12px'}}>
                     <Row className='main-img'>
@@ -98,30 +98,30 @@ const NewHomePage = () => {
                 </Col>
             </Row>
             <Row>
-                <Col sm={4}>
+                <Col sm={4} className='footer-col'>
                     <Row>
-                        <Col sm={4}><img className="img-thumbnail d-flex" src={oneImgFooter}/></Col>
-                        <Col sm={7}>
+                        <Col xs={4}><img className="img-thumbnail d-flex" src={oneImgFooter}/></Col>
+                        <Col xs={7}>
                             <h5 className="footer-num">01</h5>
                             <p className="footer-head">Reviving Retro PCs</p>
                             <p className="footer-para">What happens when old PCs are given modern upgrades?</p>
                         </Col>
                     </Row>
                 </Col>
-                <Col sm={4}>
+                <Col sm={4} className='footer-col'>
                     <Row>
-                        <Col sm={4}><img class="img-thumbnail" src={twoImgFooter}/></Col>
-                        <Col sm={7}>
+                        <Col xs={4}><img class="img-thumbnail" src={twoImgFooter}/></Col>
+                        <Col xs={7}>
                             <h5 className="footer-num">02</h5>
                             <p className="footer-head">Top 10 Laptops of 2022</p>
                             <p className="footer-para">Our best picks for various needs and budgets.</p>
                         </Col>
                     </Row>
                 </Col>
-                <Col sm={4}>
-                <Row>
-                        <Col sm={4}><img class="img-thumbnail" src={threeImgFooter}/></Col>
-                        <Col sm={7}>
+                <Col sm={4} className='footer-col'>
+                    <Row>
+                        <Col xs={4}><img class="img-thumbnail" src={threeImgFooter}/></Col>
+                        <Col xs={7}>
                             <h5 class="footer-num">03</h5>
                             <p class="footer-head">The Growth of Gaming</p>
                             <p class="footer-para">How the pandemic has sparked fresh opportunities.</p>
