@@ -11,6 +11,7 @@ import {
     Col
 } from 'reactstrap';
 import { useState } from 'react';
+import logo from '../img/logo.svg'
 import newsMain from '../img/image-web-3-desktop.jpg'
 import oneImgFooter from '../img/image-retro-pcs.jpg'
 import twoImgFooter from '../img/image-top-laptops.jpg'
@@ -22,8 +23,15 @@ const NewHomePage = () => {
     return (
         <>
         <Container className='container-fluid news-container'>
-            <Row >
-                <Col sm={11}>
+        <Row> 
+                <Col className='text-center'>
+                    <h2>News Front-End Site</h2>
+                    <h5>React/Bootstrap</h5>
+                </Col>
+            </Row>
+            <Row style={{marginBottom:'15px'}}>
+                <Col sm={1}><img className="img-thumbnail" src={logo}/></Col>
+                <Col sm={10}>
                     <Navbar expand='md'>
                         <Collapse isOpen={menuOpen} navbar>
                             <Nav className="ms-auto" navbar>
@@ -58,7 +66,7 @@ const NewHomePage = () => {
                 </Col>
             </Row>
             <Row style={{marginBottom:'20px'}}>
-                <Col sm={8} style={{marginRight: '10px'}}>
+                <Col sm={8} style={{marginRight: '12px'}}>
                     <Row className='main-img'>
                         <Col sm={12}>
                             <img src={newsMain} className='img-fluid' />

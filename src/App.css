@@ -160,19 +160,15 @@ button.btn-contact-me {
 }
 
 .news-container {
-  padding: 25px;
+  padding: 25px 0 25px 50px !important;
+  border: 2px solid;
+  border-radius: 25px;
 }
 
 .news-link {
   color: rgb(168, 166, 164) !important;
   font-size: 12px;
   font-weight: bold;
-  padding-right: 0;
-}
-
-.navbar-nav {
-  margin: 0;
-  padding: 0;
 }
 
 .main-img {
@@ -237,6 +233,7 @@ button.btn-contact-me {
   width: 100px;
   height: 110px;
   border: none !important;
+  border-radius: 0 !important;
   padding: 0 !important;
 }
 
