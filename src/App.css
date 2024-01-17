@@ -43,18 +43,15 @@
   }
 }
 
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  color: #000;
+  padding-bottom: 25px;
+}
+
 .nav-link {
   color: black !important;
-}
-
-.header{
-  color: black;
-  padding: 50px;
-}
-
-.header-nav{
-  font-size: 15px;
-  margin-right: 10px;
+  font-weight: bold;
 }
 
 button.btn-contact-me {
@@ -70,6 +67,12 @@ button.btn-contact-me {
 .fa-facebook, .fa-youtube, .fa-instagram, .fa-twitter {
   color: white;
   background-color: black;
+  }
+
+  @media (max-width: 768px) {
+    .icon-col {
+      margin-right: -20px;
+    }
   }
 
 .header-into {
@@ -214,7 +217,7 @@ button.btn-contact-me {
   background-color: rgb(0, 1, 25);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 561px) {
   .right-box {
     margin-top: 12px !important;
   }

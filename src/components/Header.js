@@ -13,12 +13,12 @@ const Header = () => {
                     <Nav className="ms-auto" navbar>
                         <NavItem>
                             <NavLink className='nav-link' to="/">
-                                Home
+                                HOME
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink className='nav-link' to='/directory'>
-                                Projects
+                                PROJECTS
                             </NavLink>
                         </NavItem>
                     </Nav>
