@@ -18,31 +18,40 @@ import oneImgFooter from '../img/image-retro-pcs.jpg'
 import twoImgFooter from '../img/image-top-laptops.jpg'
 import threeImgFooter from '../img/image-gaming-growth.jpg'
 import mobileMenu from '../img/icon-menu.svg'
+import mobileMenuClose from '../img/icon-menu-close.svg'
 
 const NewHomePage = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <>
-        <Container className='container-fluid news-container'>     
+        <Container className='container-fluid news-container' style={{paddingRight: '-25px'}}>     
             <Row> 
                 <Col className='text-center'>
                     <h2>News Front-End Site</h2>
                     <h5>React/Bootstrap</h5>
                 </Col>
             </Row>
+            <Row>
+            <Col sm={11}>
             <Navbar expand='md'>
                 <NavbarBrand  href='/'>
                     <img src={logo} alt='nucamp logo' className='float-start'/>
                 </NavbarBrand>
-                <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} style={{
-          outline: 'none', // Remove the outline
-          boxShadow: 'none', // Remove any box shadow
-        }}>
-                    <img src={mobileMenu} alt='Toggle Menu'/>
+                <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} 
+                    style={{
+                        outline: 'none', // Remove the outline
+                        boxShadow: 'none', // Remove any box shadow
+                    }}>
+                    {menuOpen ? (
+                            <img src={mobileMenuClose} alt='Toggle Menu'/>
+                        ) : (
+                            <img src={mobileMenu}/>
+                        )
+                    }
                 </NavbarToggler>
                     <Collapse isOpen={menuOpen} navbar>
-                        <Nav className="ms-auto nav-margin-right" navbar>
+                        <Nav className="ms-auto" navbar>
                             <NavItem>
                                 <NavLink className='nav-link news-link' style={{color: 'red'}} to="/">
                                     Home
@@ -70,7 +79,9 @@ const NewHomePage = () => {
                             </NavItem>
                         </Nav>
                     </Collapse>
-            </Navbar>      
+            </Navbar>  
+            </Col> 
+            </Row>   
             <Row style={{marginBottom:'20px'}}>
                 <Col sm={8} style={{marginRight: '12px'}}>
                     <Row className='main-img'>

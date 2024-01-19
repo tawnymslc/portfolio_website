@@ -167,6 +167,24 @@ button.btn-contact-me {
   border-radius: 25px;
 }
 
+@font-face {
+  font-family: 'newsfonts';
+  src: url('./fonts/Inter-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'newsfonts';
+  src: url('./fonts/Inter-ExtraBold.ttf') format('truetype');
+  font-weight: 800; 
+}
+
+@font-face {
+  font-family: 'newsfonts';
+  src: url('./fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: normal; 
+}
+
 @media (min-width: 768px) {
   /* Apply padding only on devices with a viewport width of 768 pixels or more (desktop) */
   .news-container {
@@ -174,15 +192,12 @@ button.btn-contact-me {
   }
 }
 
-.nav-margin-right {
-  margin-right: 30px; /* Adjust the margin value as needed */
-}
-
-
 .news-link {
+  font-family: 'newsfonts', sans-serif;
+  font-weight: bold;
   color: rgb(168, 166, 164) !important;
   font-size: 12px;
-  font-weight: bold;
+  margin-right: 10px;
 }
 
 .main-img {
@@ -191,8 +206,9 @@ button.btn-contact-me {
 }
 
 .main-head {
-  font-size: 40px;
+  font-family: 'newsfonts', sans-serif;
   font-weight: bold;
+  font-size: 40px;
   line-height: 0.90;
 }
 
@@ -209,6 +225,7 @@ button.btn-contact-me {
   margin-top: 5px !important;
   border-radius: 0 !important;
   padding: 7px 20px 7px 20px !important;
+  font-family: 'newsfonts', sans-serif !important;
   font-weight: bold !important;
   letter-spacing: 2px !important; 
 }
@@ -225,6 +242,8 @@ button.btn-contact-me {
 
 
 .right-headline {
+  font-family: 'newsfonts', sans-serif;
+  font-weight: 800;
   color: rgb(223, 177, 90);
   margin-top: 20px;
   margin-left: 5px;
@@ -232,6 +251,7 @@ button.btn-contact-me {
 
 .right-heading {
   color: rgb(216, 219, 227);
+  font-family: 'newsfonts', sans-serif;
   font-weight: bold;
   margin-top: 20px;
   margin-left: 5px;
@@ -270,6 +290,7 @@ button.btn-contact-me {
 
 .footer-head {
   font-size: 12px;
+  font-family: 'newsfonts', sans-serif;
   font-weight: bold;
   margin-bottom: 10px;
 }
