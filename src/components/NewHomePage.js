@@ -19,10 +19,20 @@ import twoImgFooter from '../img/image-top-laptops.jpg'
 import threeImgFooter from '../img/image-gaming-growth.jpg'
 import mobileMenu from '../img/icon-menu.svg'
 import mobileMenuClose from '../img/icon-menu-close.svg'
+import MobileMenu from './MobileMenu';
+import { useMediaQuery } from 'react-responsive'; 
 
 const NewHomePage = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+      };
+
     return (
         <>
         <Container className='container-fluid news-container' style={{paddingRight: '-25px'}}>     
@@ -38,18 +48,7 @@ const NewHomePage = () => {
                 <NavbarBrand  href='/'>
                     <img src={logo} alt='nucamp logo' className='float-start'/>
                 </NavbarBrand>
-                <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} 
-                    style={{
-                        outline: 'none', // Remove the outline
-                        boxShadow: 'none', // Remove any box shadow
-                    }}>
-                    {menuOpen ? (
-                            <img src={mobileMenuClose} alt='Toggle Menu'/>
-                        ) : (
-                            <img src={mobileMenu}/>
-                        )
-                    }
-                </NavbarToggler>
+                
                     <Collapse isOpen={menuOpen} navbar>
                         <Nav className="ms-auto" navbar>
                             <NavItem>
@@ -79,7 +78,9 @@ const NewHomePage = () => {
                             </NavItem>
                         </Nav>
                     </Collapse>
+                    {isMobile &&  <MobileMenu />}      
             </Navbar>  
+            
             </Col> 
             </Row>   
             <Row style={{marginBottom:'20px'}}>
