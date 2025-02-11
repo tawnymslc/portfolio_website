@@ -17,12 +17,10 @@ import newsMain from '../img/image-web-3-desktop.jpg'
 import oneImgFooter from '../img/image-retro-pcs.jpg'
 import twoImgFooter from '../img/image-top-laptops.jpg'
 import threeImgFooter from '../img/image-gaming-growth.jpg'
-import mobileMenu from '../img/icon-menu.svg'
-import mobileMenuClose from '../img/icon-menu-close.svg'
 import MobileMenu from './MobileMenu';
 import { useMediaQuery } from 'react-responsive'; 
 
-const NewHomePage = () => {
+const NewsHomePage = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -152,4 +150,4 @@ const NewHomePage = () => {
     )
 }
 
-export default NewHomePage;
+export default NewsHomePage;

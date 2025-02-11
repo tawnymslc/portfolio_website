@@ -1,9 +1,11 @@
 import { useState} from 'react';
-import {Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink} from 'reactstrap'
+import {Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink} from 'reactstrap';
 
 
 const Header = () => {
+
     const [menuOpen, setMenuOpen] = useState(false);
+
 
     return(
         <>
@@ -17,7 +19,7 @@ const Header = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className='nav-link' to='/directory'>
+                            <NavLink>
                                 PROJECTS
                             </NavLink>
                         </NavItem>

@@ -14,14 +14,14 @@ const introStyle = {
     backgroundPosition: 'top right',
     backgroundRepeat: 'no-repeat',
     backgroundColor: '#B37D4F',
-    height: '450px',
+    height: '625px',
     borderRadius: '15px',
     border: 0,
     backgroundOrigin: 'padding-box',
   };
 
 const heroStyle = {
-    height: '450px', 
+    height: '625px', 
     width: '100%', 
     objectFit: 'cover', 
     borderRadius: '15px'
@@ -33,9 +33,14 @@ const HomePage = () => {
             <Row className="justify-content-center align-items-center">
                 <Col md={7} className='order-md-first order-sm-last order-sm-last'>
                     <Card style={introStyle}>
-                        <h1 className="header-intro">Hello, I'm Tawny, an Integration Engineer with over 10 years of experience. </h1><br/>
-                        <p className="header-para">I started my career as chat rep at eBay. My most recent role was an integration engineer at Unstoppable Domains.</p>
-                        <Row className="justify-content-center" style={{marginTop: '75px'}}>
+                        <h1 className="header-intro">I'm Tawny. Welcome to my page. </h1><br/>
+                        <p className="header-para">
+                            <p>Hey there!</p>
+                            <p>For the past two years, I’ve been focused on growing my online business, exploring new opportunities, and leveling up my technical skills by completing a full-stack coding bootcamp. It’s been an exciting journey, but now I’m ready to jump back into what I do best—helping customers succeed through seamless implementations and strong technical solutions.</p>
+                            <p>With a background in implementation consulting, integrations, and customer success, I thrive at the intersection of technology and customer experience. I’ve worked with enterprise clients, solving complex challenges and ensuring smooth product adoption. Now, I’m excited for the next chapter—bringing my experience, fresh perspective, and renewed energy to a team that values innovation and customer impact.</p>
+                            Let’s build something great together!
+                        </p>
+                        <Row className="justify-content-center" style={{marginTop: '50px'}}>
                             <Col xs="auto" className="mb-2">
                                 <Button className='btn-contact-me'   onClick={() => {
                                         window.location.href = 'mailto:tawnymslc@gmail.com';

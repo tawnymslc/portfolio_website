@@ -5,8 +5,9 @@ import SearchBar from './components/Searchbar';
 import { Container } from 'reactstrap';
 import 'font-awesome/css/font-awesome.css';
 import SpotifyApp from './components/SpotifyApp';
-import NewHomePage from './components/NewHomePage';
-
+import NewsHomePage from './components/NewsHomePage';
+//import { Routes, Route, Router} from 'react-router-dom';
+import FitnessApp from './components/FitnessApp';
 
 function App() {
   
@@ -17,7 +18,8 @@ function App() {
     <HomePage />
     <SearchBar />
     <SpotifyApp />
-    <NewHomePage />
+    <NewsHomePage />
+    <FitnessApp />
     </Container>
     </>
   );

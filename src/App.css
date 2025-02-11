@@ -444,3 +444,8 @@ button.btn-contact-me {
   margin-bottom: 50px;
   align-self: flex-start;
 }
+
+.news-container .btn {
+  width: 100%; /* Makes the button fill the container's width */
+  max-width: 200px; /* Optional: set a max-width to keep it from getting too wide */
+}
