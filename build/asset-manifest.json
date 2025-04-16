@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7986c0e3.css",
-    "main.js": "/static/js/main.a5bd4c57.js",
+    "main.css": "/static/css/main.b96b2c79.css",
+    "main.js": "/static/js/main.a41d7459.js",
     "static/js/787.d4b2d523.chunk.js": "/static/js/787.d4b2d523.chunk.js",
     "static/media/tawny_portfolio.jpg": "/static/media/tawny_portfolio.04eaf131cbfe7a3da0c6.jpg",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
@@ -19,12 +19,12 @@
     "index.html": "/index.html",
     "static/media/icon-menu-close.svg": "/static/media/icon-menu-close.ca20d86e8364ad748c947025ef771994.svg",
     "static/media/icon-menu.svg": "/static/media/icon-menu.f967d833be0e64002eeaadab0bae9ac5.svg",
-    "main.7986c0e3.css.map": "/static/css/main.7986c0e3.css.map",
-    "main.a5bd4c57.js.map": "/static/js/main.a5bd4c57.js.map",
+    "main.b96b2c79.css.map": "/static/css/main.b96b2c79.css.map",
+    "main.a41d7459.js.map": "/static/js/main.a41d7459.js.map",
     "787.d4b2d523.chunk.js.map": "/static/js/787.d4b2d523.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7986c0e3.css",
-    "static/js/main.a5bd4c57.js"
+    "static/css/main.b96b2c79.css",
+    "static/js/main.a41d7459.js"
   ]
 }

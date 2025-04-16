@@ -33,12 +33,11 @@ const HomePage = () => {
             <Row className="justify-content-center align-items-center">
                 <Col md={7} className='order-md-first order-sm-last order-sm-last'>
                     <Card style={introStyle}>
-                        <h1 className="header-intro">I'm Tawny. Welcome to my page. </h1><br/>
+                        <h1 className="header-intro">Hi, I'm Tawny. </h1><br/>
                         <p className="header-para">
-                            <p>Hey there!</p>
-                            <p>For the past two years, I’ve been focused on growing my online business, exploring new opportunities, and leveling up my technical skills by completing a full-stack coding bootcamp. It’s been an exciting journey, but now I’m ready to jump back into what I do best—helping customers succeed through seamless implementations and strong technical solutions.</p>
-                            <p>With a background in implementation consulting, integrations, and customer success, I thrive at the intersection of technology and customer experience. I’ve worked with enterprise clients, solving complex challenges and ensuring smooth product adoption. Now, I’m excited for the next chapter—bringing my experience, fresh perspective, and renewed energy to a team that values innovation and customer impact.</p>
-                            Let’s build something great together!
+                            <p>I have 10+ years of experience in implementation and onboarding, working with thousands of accounts in SaaS, across industries like EdTech, Retail, and Web3.</p>
+                            <p>I thrive in customer-facing roles, helping clients integrate and maximize technology to achieve their goals. My expertise includes API integrations, troubleshooting, and solution architecture, with hands-on experience at Salsify and Instructure supporting enterprise accounts.</p>
+                            <p>Most recently, I scratched an itch to run my own Amazon fulfillment business. Now,I’m eager to return to my passion, working with customers, driving successful implementations, and continuing to grow as a leader and dev in this space.</p>
                         </p>
                         <Row className="justify-content-center" style={{marginTop: '50px'}}>
                             <Col xs="auto" className="mb-2">
@@ -49,14 +48,11 @@ const HomePage = () => {
                                 </Button>
                             </Col>
                             <Col xs="auto" className="icon-col">
-                                <a className="btn btn-social-icon btn-instagram" href="http://instagram.com/"><i className="fa fa-brands fa-instagram fa-xs"></i></a>
+                                <a className="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/tawny-mathi-9081356a/"><i className="fa fa-brands fa-linkedin fa-xs"></i></a>
                             </Col>
                             <Col xs="auto" className="icon-col"> 
-                                <a className="btn btn-social-icon btn-facebook" href="http://facebook.com/"><i className="fa fa-facebook fa-xs"></i></a>
+                                <a className="btn btn-social-icon btn-github" href="http://www.github.com/tawnymslc"><i className="fa fa-brands fa-github fa-xs"></i></a>
                             </Col>
-                            <Col xs="auto" className="icon-col">
-                                <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter fa-xs"></i></a>
-                            </Col> 
                         </Row>
                     </Card>
                 </Col>
