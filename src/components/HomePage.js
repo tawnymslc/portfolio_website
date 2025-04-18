@@ -37,9 +37,9 @@ const HomePage = () => {
                         <p className="header-para">
                             <p>I have 10+ years of experience in implementation and onboarding, working with thousands of accounts in SaaS, across industries like EdTech, Retail, and Web3.</p>
                             <p>I thrive in customer-facing roles, helping clients integrate and maximize technology to achieve their goals. My expertise includes API integrations, troubleshooting, and solution architecture, with hands-on experience at Salsify and Instructure supporting enterprise accounts.</p>
-                            <p>Most recently, I scratched an itch to run my own Amazon fulfillment business. Now,I’m eager to return to my passion, working with customers, driving successful implementations, and continuing to grow as a leader and dev in this space.</p>
+                            <p>Most recently, I scratched an itch to run my own Amazon fulfillment business. Now, I’m eager to return to my passion, working with customers, driving successful implementations, and continuing to grow as a leader and dev in this space.</p>
                         </p>
-                        <Row className="justify-content-center" style={{marginTop: '50px'}}>
+                        <Row className="justify-content-center" style={{marginTop: '25px'}}>
                             <Col xs="auto" className="mb-2">
                                 <Button className='btn-contact-me'   onClick={() => {
                                         window.location.href = 'mailto:tawnymslc@gmail.com';

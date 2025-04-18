@@ -1,13 +1,12 @@
 import './App.css';
 import Header from './components/Header';
-import HomePage from './pages/HomePage';
+import HomePage from './components/HomePage';
 import SearchBar from './components/Searchbar';
 import { Container } from 'reactstrap';
-import 'font-awesome/css/font-awesome.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import SpotifyApp from './components/SpotifyApp';
 import NewsHomePage from './components/NewsHomePage';
 //import { Routes, Route, Router} from 'react-router-dom';
-import FitnessApp from './components/FitnessApp';
 
 function App() {
   
@@ -19,7 +18,6 @@ function App() {
     <SearchBar />
     <SpotifyApp />
     <NewsHomePage />
-    <FitnessApp />
     </Container>
     </>
   );
