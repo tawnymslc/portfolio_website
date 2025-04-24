@@ -6,6 +6,7 @@ import { Container } from 'reactstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import SpotifyApp from './components/SpotifyApp';
 import NewsHomePage from './components/NewsHomePage';
+import ETLDashboard from './components/ETLDashboard';
 //import { Routes, Route, Router} from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <SearchBar />
     <SpotifyApp />
     <NewsHomePage />
+    <ETLDashboard />
     </Container>
     </>
   );
