@@ -9,7 +9,7 @@ const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const API_ENDPOINT = `${process.env.REACT_APP_API_URL}/unstoppable/domains`;
+  const UNSTOPPABLE_API_ENDPOINT = `${process.env.REACT_APP_API_URL}/unstoppable/domains`;
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -18,14 +18,13 @@ const SearchBar = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    axios.get(API_ENDPOINT, {
+    axios.get(UNSTOPPABLE_API_ENDPOINT, {
       params: { query: searchQuery }
     })
     .then((response) => {
       const maxResults = 9;
 
       const nineResults = response.data.items.slice(0, 9);
-      console.log("Nine raw results:", nineResults);
       
       const results = nineResults.map((item) => ({
         name: item.name,

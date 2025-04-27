@@ -12,7 +12,7 @@ const PaymentModal = ({price, domain}) => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const apiBaseUrl = process.env.REACT_APP_STRIPE_API_URL;
+  const STRIPE_API_ENDPOINT = process.env.REACT_APP_API_URL;
 
   const cardElementOptions = {
     style: {
@@ -44,7 +44,7 @@ const PaymentModal = ({price, domain}) => {
     if (!error) {
       const {id} = paymentMethod;
 
-      axios.post(`${apiBaseUrl}/payment`, {
+      axios.post(`${STRIPE_API_ENDPOINT}/stripe/payment`, {
         amount: price * 100,
         paymentMethodType: "card",
         currency: "usd",
