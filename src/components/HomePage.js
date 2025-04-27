@@ -34,11 +34,11 @@ const HomePage = () => {
                 <Col md={7} className='order-md-first order-sm-last order-sm-last'>
                     <Card style={introStyle}>
                         <h1 className="header-intro">Hi, I'm Tawny. </h1><br/>
-                        <p className="header-para">
+                        <div className="header-para">
                             <p>I have 10+ years of experience in implementation and onboarding, working with thousands of accounts in SaaS, across industries like EdTech, Retail, and Web3.</p>
                             <p>I thrive in customer-facing roles, helping clients integrate and maximize technology to achieve their goals. My expertise includes API integrations, troubleshooting, and solution architecture, with hands-on experience at Salsify and Instructure supporting enterprise accounts.</p>
                             <p>Most recently, I scratched an itch to run my own Amazon fulfillment business. Now, I’m eager to return to my passion, working with customers, driving successful implementations, and continuing to grow as a leader and dev in this space.</p>
-                        </p>
+                        </div>
                         <Row className="justify-content-center" style={{marginTop: '25px'}}>
                             <Col xs="auto" className="mb-2">
                                 <Button className='btn-contact-me'   onClick={() => {

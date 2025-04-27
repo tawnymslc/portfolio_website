@@ -100,7 +100,7 @@ const NewsHomePage = () => {
                     </Row>
                 </Col>
                 <Col sm={3} className='right-box'>
-                    <h3 class="right-headline">New</h3>
+                    <h3 className="right-headline">New</h3>
                     <h6 className="right-heading">Hydrogen VS Electric Cars</h6>
                     <p className="right-para">Will hydrogen-fueled cars ever catch up to EVs?</p>
                     <p className="line"></p>
@@ -126,7 +126,7 @@ const NewsHomePage = () => {
                 </Col>
                 <Col sm={4} className='footer-col'>
                     <Row>
-                        <Col xs={4}><img class="img-thumbnail" src={twoImgFooter}/></Col>
+                        <Col xs={4}><img className="img-thumbnail" src={twoImgFooter}/></Col>
                         <Col xs={7}>
                             <h5 className="footer-num">02</h5>
                             <p className="footer-head">Top 10 Laptops of 2022</p>
@@ -136,11 +136,11 @@ const NewsHomePage = () => {
                 </Col>
                 <Col sm={4} className='footer-col'>
                     <Row>
-                        <Col xs={4}><img class="img-thumbnail" src={threeImgFooter}/></Col>
+                        <Col xs={4}><img className="img-thumbnail" src={threeImgFooter}/></Col>
                         <Col xs={7}>
-                            <h5 class="footer-num">03</h5>
-                            <p class="footer-head">The Growth of Gaming</p>
-                            <p class="footer-para">How the pandemic has sparked fresh opportunities.</p>
+                            <h5 className="footer-num">03</h5>
+                            <p className="footer-head">The Growth of Gaming</p>
+                            <p className="footer-para">How the pandemic has sparked fresh opportunities.</p>
                         </Col>
                     </Row>
                 </Col>

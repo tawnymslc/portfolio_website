@@ -16,7 +16,7 @@ const DomainCard = ({ domain, udImg, searchQuery }) => {
     const {name, price} = domain;
     const domainName = name.split('.')
 
-    const stripePromise = loadStripe('pk_test_51N7udjKM0Vmt4Z7qMik5jVNKnceZRyrcNod2nUZC0JOYcvG274uQ8dQmKxUJZJPPIeNEz2XGBM2HKAm22E8OvKGl00mXFxkCl2');
+    const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
     const udClick = () => {
         const url = `https://unstoppabledomains.com/search?searchTerm=${encodeURIComponent(searchQuery)}&searchRef=home&tab=relev`;

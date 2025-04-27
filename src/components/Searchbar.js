@@ -9,7 +9,7 @@ const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const API_ENDPOINT = "https://api.ud-sandbox.com/api/v2/resellers/tawnyapp/domains/suggestions?";
+  const API_ENDPOINT = "https://api.ud-sandbox.com/partner/v3/suggestions/domains?";
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -18,16 +18,29 @@ const SearchBar = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    axios.get(API_ENDPOINT, { params: { search: searchQuery }})
-      .then((response) => {
-        const maxResults = 9;
+    axios.get('http://localhost:4243/unstoppable/domains', {
+      params: { query: searchQuery }
+    })
+    .then((response) => {
+      const maxResults = 9;
 
-        const nineResults = response.data.slice(0, maxResults);
-        setSearchResults(nineResults);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      const nineResults = response.data.items.slice(0, 9);
+      console.log("Nine raw results:", nineResults);
+      
+      const results = nineResults.map((item) => ({
+        name: item.name,
+        price: item.price?.subTotal?.usdCents
+          ? Math.round(item.price.subTotal.usdCents / 100)
+          : item.price?.listPrice?.usdCents
+            ? Math.round(item.price.listPrice.usdCents / 100)
+            : "N/A"
+      }));
+
+      setSearchResults(results);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   };
 
   return (
