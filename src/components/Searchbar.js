@@ -9,7 +9,7 @@ const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const API_ENDPOINT = "https://api.ud-sandbox.com/partner/v3/suggestions/domains?";
+  const API_ENDPOINT = `${process.env.REACT_APP_API_URL}/unstoppable/domains`;
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -18,7 +18,7 @@ const SearchBar = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    axios.get('http://localhost:4243/unstoppable/domains', {
+    axios.get(API_ENDPOINT, {
       params: { query: searchQuery }
     })
     .then((response) => {
