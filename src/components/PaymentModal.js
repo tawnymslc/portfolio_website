@@ -12,7 +12,7 @@ const PaymentModal = ({price, domain}) => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const apiBaseUrl = process.env.REACT_APP_API_URL;
+  const apiBaseUrl = process.env.REACT_APP_STRIP_API_URL;
 
   const cardElementOptions = {
     style: {
