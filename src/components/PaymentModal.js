@@ -51,7 +51,6 @@ const PaymentModal = ({price, domain}) => {
       })
       .then(response => {
         if (response.data.success) {
-          console.log("Successful payment");
           setSuccess(true);
         }
       })
@@ -96,7 +95,7 @@ const PaymentModal = ({price, domain}) => {
           : 
         <Modal isOpen={loginModalOpen}>
           <ModalHeader style={{color: 'white', backgroundColor: 'rgb(77, 72, 242)' }} toggle={() => setLoginModalOpen(false)}>
-            Congratulations
+            Congratulations!
           </ModalHeader>
           <ModalBody>
           <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>Purchase Details: </p>

@@ -1,22 +1,56 @@
-# Title
+# Tawny's Portfolio Website
 
-Tawny's React Travel Blog
+A full-stack developer portfolio showcasing integrations with Web3 and fintech APIs. Originally developed during my Nucamp full-stack bootcamp, this project continues to evolve as I incorporate new technologies and features.
 
 # About The App
 
-A travel blog I created in my full-stack bootcamp with Nucamp. I plan to keep iterating and adding new integrations. 
+My portfolio site serves as a platform to demonstrate my full-stack development skills. The application integrates various APIs to provide dynamic content and functionality, including domain search, payment processing, and news content display.
 
-Integrations: Unstoppable Domains Partner API
+# Current Integrations
 
-Future Integrations: Login with Unstoppable, Unstoppable Resolution, Stripe's API
+Unstoppable Domains Partner API: Allows users to search for available Web3 domains. Utilizes the Partner API to fetch domain suggestions based on user input, displaying domain names and pricing information. ​
+Unstoppable Domains Developer Portal
 
-# Technologies 
+Stripe Payment API: Implements a mock payment flow using Stripe's API and CardElement within a React modal. Users can simulate domain purchases using test card details (e.g., 4242 4242 4242 4242). ​
 
-I used React. I will be adding a backend using Node.js. 
+News Site Section: Built with Bootstrap components such as cards, rows, and navigation elements to showcase structured content and responsive design. 
 
-# Status
+# Future Integrations
 
-Tawny's React Travel Blog is still in progress. 
+ETL Dashboard (in progress): Developing a dashboard that extracts data from APIs, transforms it, and loads it for visualization and analysis.
+
+Login with Unstoppable: Implementing decentralized authentication using Unstoppable Domains. ​
+
+Unstoppable Resolution: Adding domain resolution features to map human-readable names to crypto addresses. ​
+
+
+# Technologies Used
+
+Frontend: React, React Router, Reactstrap, Bootstrap.​
+
+Backend: Node.js, Express.js.
+
+APIs: Unstoppable Domains Partner API, Stripe API, Spotify API
+
+Deployment: Frontend hosted on Bluehost at https://tawny-mathi.com, Backend deployed on Render.
+
+# Deployment Status
+
+Frontend: Live at https://tawny-mathi.com​
+
+Backend: Deployed on Render at https://portfolio-node-api-ehr8.onrender.com
+
+## Roadmap
+
+ Integrate Unstoppable Domains Partner API for domain search.​ (Completed)
+
+ Implement Stripe API for mock payment processing. (Completed)
+
+ Develop News section using Bootstrap components.​ (Completed)
+
+ Develop ETL Dashboard for data extraction and visualization. (In progress)
+
+ Add Login with Unstoppable for decentralized authentication. (Not yet started)
 
 ## Available Scripts
 
