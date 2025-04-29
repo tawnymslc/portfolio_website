@@ -1,12 +1,12 @@
-# Tawny's Portfolio Website
+## Tawny's Portfolio Website
 
 A full-stack developer portfolio showcasing integrations with Web3 and fintech APIs. Originally developed during my Nucamp full-stack bootcamp, this project continues to evolve as I incorporate new technologies and features.
 
-# About The App
+## About The App
 
 My portfolio site serves as a platform to demonstrate my full-stack development skills. The application integrates various APIs to provide dynamic content and functionality, including domain search, payment processing, and news content display.
 
-# Current Integrations
+## Current Integrations
 
 Unstoppable Domains Partner API: Allows users to search for available Web3 domains. Utilizes the Partner API to fetch domain suggestions based on user input, displaying domain names and pricing information. ​
 Unstoppable Domains Developer Portal
@@ -15,7 +15,7 @@ Stripe Payment API: Implements a mock payment flow using Stripe's API and CardEl
 
 News Site Section: Built with Bootstrap components such as cards, rows, and navigation elements to showcase structured content and responsive design. 
 
-# Future Integrations
+## Future Integrations
 
 ETL Dashboard (in progress): Developing a dashboard that extracts data from APIs, transforms it, and loads it for visualization and analysis.
 
@@ -24,7 +24,7 @@ Login with Unstoppable: Implementing decentralized authentication using Unstoppa
 Unstoppable Resolution: Adding domain resolution features to map human-readable names to crypto addresses. ​
 
 
-# Technologies Used
+## Technologies Used
 
 Frontend: React, React Router, Reactstrap, Bootstrap.​
 
@@ -34,7 +34,7 @@ APIs: Unstoppable Domains Partner API, Stripe API, Spotify API
 
 Deployment: Frontend hosted on Bluehost at https://tawny-mathi.com, Backend deployed on Render.
 
-# Deployment Status
+## Deployment Status
 
 Frontend: Live at https://tawny-mathi.com​
 

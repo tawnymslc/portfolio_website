@@ -120,8 +120,12 @@ button.btn-contact-me {
   background-color: #F5F5F5;
   width: 100%;
   border: 2px solid grey;
-  padding: 25px;
-  margin: 50px 0 50px 0;
+  
+  margin: 50px 0px 50px 0px;
+}
+
+.project-bullets {
+  margin-left: 15px;
 }
 
 .domain-card {
