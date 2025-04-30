@@ -57,17 +57,12 @@
 button.btn-contact-me {
   font-size: 12px;
   font-weight: bold;
-  padding: 8px 25px 8px 25px;
+  padding: 8px 25px 9px 25px;
   color: white;
   background-color: black;
-  border-radius: 20px;
+  border-radius: 15px;
   white-space: nowrap;
 }
-
-.fa-facebook, .fa-youtube, .fa-instagram, .fa-twitter {
-  color: white;
-  background-color: black;
-  }
 
   @media (max-width: 768px) {
     .icon-col {

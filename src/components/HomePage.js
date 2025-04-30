@@ -33,13 +33,12 @@ const HomePage = () => {
             <Row className="justify-content-center align-items-center">
                 <Col md={7} className='order-md-first order-sm-last order-sm-last'>
                     <Card style={introStyle}>
-                        <h1 className="header-intro">Hi, I'm Tawny. </h1><br/>
+                        <h2 className="header-intro">Hi, I'm Tawny. </h2><br/>
                         <div className="header-para">
-                            <p>I have 10+ years of experience in implementation and onboarding, working with thousands of accounts in SaaS, across industries like EdTech, Retail, and Web3.</p>
-                            <p>I thrive in customer-facing roles, helping clients integrate and maximize technology to achieve their goals. My expertise includes API integrations, troubleshooting, and solution architecture, with hands-on experience at Salsify and Instructure supporting enterprise accounts.</p>
-                            <p>Most recently, I scratched an itch to run my own Amazon fulfillment business. Now, I’m eager to return to my passion, working with customers, driving successful implementations, and continuing to grow as a leader and dev in this space.</p>
+                            <p>I'm a seasoned Partner Integration Engineer with over a decade of experience in SaaS implementations across EdTech, Retail, and Web3 sectors. At Unstoppable Domains, I led API integrations, ensuring seamless onboarding for enterprise clients. My tenure at Salsify and Instructure further honed my skills in solution architecture and client success.​</p>
+                                <p>After a rewarding venture into Amazon fulfillment, I'm eager to return to my core passion: collaborating with clients to drive impactful technological solutions.</p>
                         </div>
-                        <Row className="justify-content-center" style={{marginTop: '25px'}}>
+                        <Row className="justify-content-center align-items-center" style={{marginTop: '25px'}}>
                             <Col xs="auto" className="mb-2">
                                 <Button className='btn-contact-me'   onClick={() => {
                                         window.location.href = 'mailto:tawnymslc@gmail.com';
@@ -48,10 +47,14 @@ const HomePage = () => {
                                 </Button>
                             </Col>
                             <Col xs="auto" className="icon-col">
-                                <a className="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/tawny-mathi-9081356a/"><i className="fa fa-brands fa-linkedin fa-xs"></i></a>
+                                <a className="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/tawny-mathi-9081356a/">
+                                    <i className="fa fa-brands fa-linkedin fa-2x"></i>
+                                </a>
                             </Col>
                             <Col xs="auto" className="icon-col"> 
-                                <a className="btn btn-social-icon btn-github" href="http://www.github.com/tawnymslc"><i className="fa fa-brands fa-github fa-xs"></i></a>
+                                <a className="btn btn-social-icon btn-github" href="http://www.github.com/tawnymslc">
+                                    <i className="fa fa-brands fa-github fa-2x"></i>
+                                </a>
                             </Col>
                         </Row>
                     </Card>

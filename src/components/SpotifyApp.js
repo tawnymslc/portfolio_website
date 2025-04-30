@@ -104,21 +104,37 @@ const SpotifyApp = () => {
         style={{  backgroundImage: `url(${require('../img/wp2775382.jpg')})`, borderRadius: '25px', marginBottom: "50px" }}>
         <Container className="container-fluid spotify-container">
             <Row> 
-                <Col className='text-center'>
-                    <h2>Spotify API Integration</h2>
-                    <h5>Search Artist</h5>
+                <Col className="project-header" md={12} style={{padding: '20px 25px 5px 15px'}}>
+                    <h5>🎧 Spotify Artist Explorer</h5>
+                    <p>This feature allows users to explore detailed information about their favorite artists directly through my portfolio site. 
+                        Leveraging the Spotify Web API, users can:</p>
+                        <p><li className="project-bullets"><b>Access Artist Information:</b> Gain insights into the artist's profile, including genres, popularity, and follower count.</li>
+                        <li className="project-bullets"><b>View Top Tracks:</b> Discover the artist's most popular songs.</li>
+                        <li className="project-bullets"><b>Browse Albums:</b> Explore a list of albums released by the artist.​</li></p>
+                    <h5>🧩 Real-World Application</h5>
+                        <p>This project emulates real-world scenarios where applications need to fetch and display data from external sources based on user input. It demonstrates proficiency in:</p>
+                            <p><li className="project-bullets"><b>API Integration:</b> Connecting and interacting with external APIs to fetch and display data.​</li>
+                            <li className="project-bullets"><b>State Management:</b> Handling multiple states and conditional rendering based on user interactions.</li>
+                            <li className="project-bullets"><b>Error Handling:</b> Managing scenarios where data might be unavailable or API requests fail.</li>
+                        </p>
+                    <p>Technologies Used:
+                        <li className="project-bullets">React, Reactstrap, Axios, Node.js, Express.js, REST APIs: Spotify Web API</li>
+                    </p>        
+                </Col>
+                <Col className='text-center spotify-border'>
+                    <h5 style={{padding:'5px 0 10px 0', fontWeight: 'bold'}}>Search Artists on Spotify</h5>
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} >
-                            <DropdownToggle caret style={{ backgroundColor: 'rgb(43, 92, 36)', color: 'white', lineHeight: "16px", display: 'inline-block', textAlign: 'center', fontWeight: 'bold'}}>{selectedApi}</DropdownToggle>
+                        <DropdownToggle caret style={{ backgroundColor: 'rgb(43, 92, 36)', color: 'white', lineHeight: "16px", display: 'inline-block', textAlign: 'center', fontWeight: 'bold'}}>{selectedApi}</DropdownToggle>
                             <DropdownMenu>
                                 {apiOptions.map((select) => {
                                     return <DropdownItem key={select} onClick={() =>  handleSelectApi(select)} >{select}</DropdownItem>
                                 })}
                             </DropdownMenu>
-                        </Dropdown>
+                    </Dropdown>
                 </Col>
             </Row>
-            <Row sm={11} className="justify-content-center" style={{marginBottom: "40px"}}>
-                <Col xs='auto' className="text-center" style={{ marginTop: '40px' }}>
+            <Row sm={11} className="justify-content-center spotify-search-row" style={{marginBottom: "20px"}}>
+                <Col xs='auto' className="text-center" style={{ marginTop: '20px' }}>
                     <form onSubmit={handleSearchSubmit}>
                         <input
                             type="text"
