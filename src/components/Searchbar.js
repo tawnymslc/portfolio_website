@@ -51,7 +51,6 @@ const SearchBar = () => {
              I've also integrated Stripe's Payment API as part of this project, allowing users to simulate the purchase of a domain. 
              This demonstrates my ability to integrate third-party APIs and manage backend services securely. Mock payment processing using Stripe's test mode and test card numbers e.g., 4242 4242 4242 4242.</p>
           <h5>🧩 Real-World Application: Partner Integration Engineer at Unstoppable Domains</h5>
-          <p>Overview</p>
           <p>In my role as a Partner Integration Engineer at Unstoppable Domains, I was responsible for guiding Web3 decentralized applications (dApps) through the integration of our Partner API. 
             This involved providing technical consultation, advising on user experience design, and ensuring seamless implementation of domain search and registration functionalities.</p>
           <p>Key Responsibilities
