@@ -19,6 +19,8 @@ const SpotifyApp = () => {
     const [selectedApi, setSelectedApi] = useState("Search Artist's");
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
+    const SPOTIFY_TOKEN_ENDPOINT = `${process.env.REACT_APP_API_URL}/spotify/get-access-token`;
+
     const apiOptions = ['top-tracks', 'albums', 'artist-info'];
     const toggle = () => setDropdownOpen((prevState) => !prevState);
 
@@ -36,7 +38,7 @@ const SpotifyApp = () => {
         event.preventDefault();
     
         try{
-            const response = await axios.post(process.env.REACT_APP_SPOTIFY_TOKEN_URL);
+            const response = await axios.post(SPOTIFY_TOKEN_ENDPOINT);
             const accessToken = response.data.accessToken;
     
             const searchResponse = await axios.get("https://api.spotify.com/v1/search?", {
