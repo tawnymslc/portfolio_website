@@ -33,7 +33,7 @@ const NewsHomePage = () => {
 
     return (
         <>
-        <Container className='container-fluid news-container' style={{paddingRight: '-25px'}}>     
+        <Container className='container-fluid news-container' style={{paddingRight: '-25px', marginBottom: "50px"}}>     
             <Row> 
                 <Col className='text-center'>
                     <h2>News Front-End Site</h2>

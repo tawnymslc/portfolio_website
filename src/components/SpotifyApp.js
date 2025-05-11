@@ -103,10 +103,10 @@ const SpotifyApp = () => {
     return(
         <>
         <div 
-        style={{  backgroundImage: `url(${require('../img/wp2775382.jpg')})`, borderRadius: '25px', marginBottom: "50px" }}>
+        style={{  backgroundImage: `url(${require('../img/wp2775382.jpg')})`, borderRadius: '25px', marginBottom: "50px", paddingBottom: '25px' }}>
         <Container className="container-fluid spotify-container">
             <Row> 
-                <Col className="project-header" md={12} style={{padding: '20px 25px 5px 15px'}}>
+                <Col md={12} style={{padding: '2rem'}}>
                     <h5>🎧 Spotify Artist Explorer</h5>
                     <p>This feature allows users to explore detailed information about their favorite artists directly through my portfolio site. 
                         Leveraging the Spotify Web API, users can:</p>

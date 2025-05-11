@@ -18,8 +18,8 @@ function App() {
     <HomePage />
     <SearchBar />
     <SpotifyApp />
-    <NewsHomePage />
     <ETLDashboard />
+    <NewsHomePage />
     </Container>
     </>
   );

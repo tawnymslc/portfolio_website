@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Col, Row } from 'reactstrap';
+import { Button, Col, Row } from 'reactstrap';
 import axios from "axios";
 import DomainCard from "./DomainCard";
 import udCardImg from '../img/ud_image.png'
@@ -43,9 +43,9 @@ const SearchBar = () => {
 
   return (
     <>
-    <div style={{borderRadius: '25px', marginBottom: "50px"}} className='web3-container'>
-      <Row style={{paddingLeft: '15px'}}> 
-        <Col className="project-header" md={12} style={{padding: '20px 25px 5px 15px'}}>
+    <div style={{padding: '2rem', borderRadius: '25px', marginBottom: "50px"}} className='web3-container'>
+      <Row> 
+        <Col className="project-header" md={12}>
           <h5>🌐 Unstoppable Domains Integration & Stripe Payment Flow</h5>
           <p>This feature enables users to search for available Web3 domains directly through my portfolio site, leveraging the Unstoppable Domains Partner API. 
              I've also integrated Stripe's Payment API as part of this project, allowing users to simulate the purchase of a domain. 
