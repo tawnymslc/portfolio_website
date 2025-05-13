@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import mockProducts from './mockData';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
-import { Button, Container, Col, Row, Card, 
-  CardBody, 
-  CardImg, 
-  CardText, 
-  Dropdown, DropdownToggle, DropdownMenu, DropdownItem
-} from 'reactstrap';
+import { Button, Col } from 'reactstrap';
 
 const ETLDashboard = () => {
   const [data, setData] = useState([]);
+  const [view, setView] = useState("chart");
+
+  const rawData = mockProducts;
 
   useEffect(() => {
     // simulate fetching cleaned data
@@ -51,19 +49,49 @@ const ETLDashboard = () => {
               <li className="project-bullets">React, Axios, Recharts, Node.js, Express.js, REST APIs (mock now, live integration coming)</li>
           </p>        
       </Col>
-      <h2 style={{ color: 'white' }}>Average Price by Category</h2>
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data}>
-          <CartesianGrid stroke="#444" strokeDasharray="3 3" />
-          <XAxis dataKey="category" stroke="#aaa" />
-          <YAxis stroke="#aaa" />
-          <Tooltip 
-            contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }} 
-            itemStyle={{ color: 'white' }} 
-          />
-          <Bar dataKey="averagePrice" fill="#3b82f6" />
-        </BarChart>
-      </ResponsiveContainer>
+      {/* View Toggle Buttons */}
+      <div style={{ margin: '1rem 0' }}>
+        <Button color={view === "chart" ? "primary" : "secondary"} onClick={() => setView("chart")} className="me-2">Chart</Button>
+        <Button color={view === "raw" ? "primary" : "secondary"} onClick={() => setView("raw")} className="me-2">Raw Data</Button>
+        <Button color={view === "transformed" ? "primary" : "secondary"} onClick={() => setView("transformed")}>Transformed</Button>
+      </div>
+
+      {/* Conditional Views */}
+      {view === "chart" && (
+        <>
+          <h6 style={{ color: 'white' }}>Average Price by Category</h6>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={data}>
+              <CartesianGrid stroke="#444" strokeDasharray="3 3" />
+              <XAxis dataKey="category" stroke="#aaa" />
+              <YAxis stroke="#aaa" />
+              <Tooltip 
+                contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }} 
+                itemStyle={{ color: 'white' }} 
+              />
+              <Bar dataKey="averagePrice" fill="#3b82f6" />
+            </BarChart>
+          </ResponsiveContainer>
+        </>
+      )}
+
+      {view === "raw" && (
+        <div style={{ backgroundColor: '#2a2a40', padding: '1rem', borderRadius: '10px' }}>
+          <h6>Raw Product Data (Extracted)</h6>
+          <pre style={{ color: 'white', fontSize: '0.8rem', overflowX: 'auto' }}>
+            {JSON.stringify(rawData, null, 2)}
+          </pre>
+        </div>
+      )}
+
+      {view === "transformed" && (
+        <div style={{ backgroundColor: '#2a2a40', padding: '1rem', borderRadius: '10px' }}>
+          <h6>Transformed Data (Loaded for Chart)</h6>
+          <pre style={{ color: 'white', fontSize: '0.8rem', overflowX: 'auto' }}>
+            {JSON.stringify(data, null, 2)}
+          </pre>
+        </div>
+      )}
     </div>
   );
 };
