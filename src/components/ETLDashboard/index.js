@@ -1,53 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import mockProducts from './mockData';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 import { Button, Col } from 'reactstrap';
+import axios from "axios";
 
 const ETLDashboard = () => {
   const [data, setData] = useState([]);
+  const [rawData, setRawData] = useState([]);
   const [view, setView] = useState("chart");
 
-  const rawData = mockProducts;
+
 
   useEffect(() => {
-    // simulate fetching cleaned data
-    const summary = getAveragePriceByCategory(mockProducts);
-    setData(summary);
+  const fetchData = async () => {
+    try {
+      const rawResponse = await axios.get(`${process.env.REACT_APP_PYTHON_API_URL}/products/raw`);
+      setRawData(rawResponse.data);
+
+      const summaryResponse = await axios.get(`${process.env.REACT_APP_PYTHON_API_URL}/products/average-prices`);
+      setData(summaryResponse.data);
+
+    } catch (error) {
+      console.error("Error fetching ETL data:", error);
+    }
+  };
+
+    fetchData();
   }, []);
 
-  const getAveragePriceByCategory = (products) => {
-    const grouped = {};
-
-    products.forEach((product) => {
-      if (!grouped[product.category]) {
-        grouped[product.category] = { total: 0, count: 0 };
-      }
-      grouped[product.category].total += product.price;
-      grouped[product.category].count += 1;
-    });
-
-    return Object.entries(grouped).map(([category, { total, count }]) => ({
-      category,
-      averagePrice: (total / count).toFixed(2),
-    }));
-  };
+  const filteredData = data.filter(item => item.averagePrice <= 1000);
 
   return (
     <div style={{ marginBottom: "50px", padding: '2rem', backgroundColor: '#1e1e2f', color: 'white', borderRadius: '10px' }}>
       <Col md={12}>
           <h5>📊 ETL Dashboard</h5>
-          <p>This feature presents a real-time data visualization dashboard that summarizes product pricing by category. 
-            Initially powered by mock data, this dashboard is being updated to dynamically extract data from an external product API, transform the values, and load them into a bar chart using Recharts.</p>
-              <p>🔄 Coming Soon: The next iteration will fully automate the ETL pipeline, fetching live data from an API, processing it server-side, and rendering updated insights on the dashboard.</p>
+            <p>This feature presents a real-time data visualization dashboard that summarizes product pricing by category. 
+              Originally powered by mock data, it now extracts live data from the external API at <code>dummyjson.com/products</code>. 
+              The backend service processes this raw product data by grouping it by category and calculating the average price for each category.
+            </p>
+            <p>The cleaned and aggregated data is then sent to the frontend, where it is visually rendered using Recharts for easy insight.</p>
           <h5>🧩 Real-World Application</h5>
-              <p>This project models how ETL workflows are used in production systems for data analytics and reporting. It demonstrates the ability to:</p>
-                  <p><li className="project-bullets"><b>Extract Data </b>from external APIs using backend services.​</li>
-                  <li className="project-bullets"><b>Transform and aggregate </b>raw JSON data into meaningful visual summaries.</li>
-                  <li className="project-bullets"><b>Handle asyncrhonous data states, </b>loading indicators, and fallback cases.</li>
-              </p>
-          <p>Technologies Used:
-              <li className="project-bullets">React, Axios, Recharts, Node.js, Express.js, REST APIs (mock now, live integration coming)</li>
-          </p>        
+            <p>This project models how ETL workflows are used in production systems for data analytics and reporting. It demonstrates the ability to:</p>
+              <ul>
+                <li className="project-bullets"><b>Extract Data</b> from external APIs using a Python backend (FastAPI).</li>
+                <li className="project-bullets"><b>Transform and aggregate</b> raw JSON product data by computing category-level averages.</li>
+                <li className="project-bullets"><b>Load and visualize</b> the results through a responsive frontend dashboard using Recharts.</li>
+                <li className="project-bullets"><b>Handle asynchronous states</b>, including data loading, display toggles, and fallback messaging.</li>
+              </ul>
+              <p><b>Technologies Used:</b></p>
+              <ul>
+                <li className="project-bullets">React, Axios, Recharts</li>
+                <li className="project-bullets">Python, FastAPI, REST APIs</li>
+              </ul>     
       </Col>
       {/* View Toggle Buttons */}
       <div style={{ margin: '1rem 0' }}>
@@ -59,9 +62,9 @@ const ETLDashboard = () => {
       {/* Conditional Views */}
       {view === "chart" && (
         <>
-          <h6 style={{ color: 'white' }}>Average Price by Category</h6>
+          <h6 style={{ color: 'white' }}>Average Price of Products by Category</h6>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data}>
+            <BarChart data={filteredData}>
               <CartesianGrid stroke="#444" strokeDasharray="3 3" />
               <XAxis dataKey="category" stroke="#aaa" />
               <YAxis stroke="#aaa" />
@@ -78,8 +81,9 @@ const ETLDashboard = () => {
       {view === "raw" && (
         <div style={{ backgroundColor: '#2a2a40', padding: '1rem', borderRadius: '10px' }}>
           <h6>Raw Product Data (Extracted)</h6>
+          <p>Displaying 10 sample products (from a total of 100 returned by the API @ dummyjson.com/products)</p>
           <pre style={{ color: 'white', fontSize: '0.8rem', overflowX: 'auto' }}>
-            {JSON.stringify(rawData, null, 2)}
+            {JSON.stringify(rawData.slice(0, 10), null, 2)}
           </pre>
         </div>
       )}

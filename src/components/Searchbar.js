@@ -9,7 +9,7 @@ const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const UNSTOPPABLE_API_ENDPOINT = `${process.env.REACT_APP_API_URL}/unstoppable/domains`;
+  const UNSTOPPABLE_API_ENDPOINT = `${process.env.REACT_APP_NODE_API_URL}/unstoppable/domains`;
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);

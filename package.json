@@ -31,8 +31,7 @@
     "typeface-open-sans": "^1.1.13",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://portfolio-website-nine-opal.vercel.app/",
-  "proxy": "http://localhost:8080",
+  "homepage": "https://tawny-mathi.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

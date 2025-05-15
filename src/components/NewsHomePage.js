@@ -35,9 +35,33 @@ const NewsHomePage = () => {
         <>
         <Container className='container-fluid news-container' style={{paddingRight: '-25px', marginBottom: "50px"}}>     
             <Row> 
-                <Col className='text-center'>
-                    <h2>News Front-End Site</h2>
-                    <h5>React/Bootstrap</h5>
+                <Col>
+                    <h5>📰 News Front-End Homepage</h5>
+                        <p>This project showcases my front-end development skills by recreating a modern, editorial-style homepage layout using React and Reactstrap (Bootstrap for React). 
+                        It focuses on structure, visual alignment, and responsiveness. The content is laid out clearly across devices using grid-based design.</p>
+                        <p>
+                            <li className="project-bullets"><b>Responsive Layout:</b> Built with Bootstrap’s row/column system to ensure each section adapts to screen size properly.</li>
+                            <li className="project-bullets"><b>Header Navigation:</b> Includes both a desktop navbar and a custom mobile menu toggle using media queries.</li>
+                            <li className="project-bullets"><b>Featured Content:</b> Split-section design that showcases a lead story with a headline, description, and call-to-action.</li>
+                            <li className="project-bullets"><b>Sidebar & Footer Stories:</b> Highlights smaller stories in styled containers, using consistent column spacing and visual hierarchy.</li>
+                        </p>
+                    <h5>🧩 Real-World Application</h5>
+                        <p>This project models the type of layout work commonly found in digital media or content-heavy web apps. It demonstrates:</p>
+                        <p>
+                            <li className="project-bullets"><b>UI Composition:</b> Leveraging grid systems and component-based architecture to create reusable and scalable layouts.</li>
+                            <li className="project-bullets"><b>Media Query Logic:</b> Using JavaScript-based responsiveness to render custom components based on screen size.</li>
+                            <li className="project-bullets"><b>Component Styling:</b> Integration of images, text, and buttons in visually balanced ways using Reactstrap and custom CSS.</li>
+                        </p>
+                        <p>Technologies Used:
+                            <li className="project-bullets">React, Reactstrap (Bootstrap), JSX, CSS, JavaScript, react-responsive</li>
+                        </p>
+                    <h5>🚧 Coming Soon</h5>
+                        <p>Future enhancements for this front-end project will include:</p>
+                        <p>
+                            <li className="project-bullets"><b>Theme Toggle:</b> Letting users switch between light and dark mode to improve accessibility and personalization.</li>
+                            <li className="project-bullets"><b>Expandable Article Views:</b> Clicking summaries to reveal full content, simulating blog/article functionality.</li>
+                            <li className="project-bullets"><b>Category Filter:</b> Enabling dynamic filtering of articles by tags like "Tech," "Finance," or "Gaming."</li>
+                        </p>
                 </Col>
             </Row>
             <Row>

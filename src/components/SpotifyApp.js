@@ -19,7 +19,7 @@ const SpotifyApp = () => {
     const [selectedApi, setSelectedApi] = useState("Search Artist's");
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const SPOTIFY_TOKEN_ENDPOINT = `${process.env.REACT_APP_API_URL}/spotify/get-access-token`;
+    const SPOTIFY_TOKEN_ENDPOINT = `${process.env.REACT_APP_NODE_API_URL}/spotify/get-access-token`;
 
     const apiOptions = ['top-tracks', 'albums', 'artist-info'];
     const toggle = () => setDropdownOpen((prevState) => !prevState);
