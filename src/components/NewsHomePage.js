@@ -1,10 +1,9 @@
 import {
-    Button,     
+    Button,
     Container,
     Col,
     Collapse,
     Nav,
-    NavbarToggler,
     Navbar,
     NavItem,
     NavLink,
@@ -17,23 +16,25 @@ import newsMain from '../img/image-web-3-desktop.jpg'
 import oneImgFooter from '../img/image-retro-pcs.jpg'
 import twoImgFooter from '../img/image-top-laptops.jpg'
 import threeImgFooter from '../img/image-gaming-growth.jpg'
+import web3img1 from '../img/journimg.jpg'
+import web3img2 from '../img/web3img.jpg'
+import web3img3 from '../img/subwebimg.jpg'
 import MobileMenu from './MobileMenu';
 import { useMediaQuery } from 'react-responsive'; 
 
 const NewsHomePage = () => {
 
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
+
+    const toggleTheme = () => {
+    setDarkMode(!darkMode);
+    };
 
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
-    const toggleSidebar = () => {
-        setSidebarOpen(!sidebarOpen);
-      };
-
     return (
-        <>
-        <Container className='container-fluid news-container' style={{paddingRight: '-25px', marginBottom: "50px"}}>     
+        <div style={{ position: 'relative' }}>
+        <Container className={`container-fluid news-container ${darkMode ? 'dark-mode' : 'light-mode'}`} style={{paddingLeft: 0, paddingRight: '-25px', marginBottom: "50px"}}>     
             <Row> 
                 <Col>
                     <h5>📰 News Front-End Homepage</h5>
@@ -65,51 +66,63 @@ const NewsHomePage = () => {
                 </Col>
             </Row>
             <Row>
-            <Col sm={11}>
-            <Navbar expand='md'>
-                <NavbarBrand  href='/'>
-                    <img src={logo} alt='nucamp logo' className='float-start'/>
-                </NavbarBrand>
-                
-                    <Collapse isOpen={menuOpen} navbar>
-                        <Nav className="ms-auto" navbar>
-                            <NavItem>
-                                <NavLink className='nav-link news-link' style={{color: 'red'}} to="/">
-                                    Home
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className='nav-link news-link' to='/directory'>
-                                    New
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className='nav-link news-link' to='/directory'>
-                                    Popular
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className='nav-link news-link' to='/directory'>
-                                    Trending
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className='nav-link news-link' to='/directory'>
-                                    Categories
-                                </NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                    {isMobile &&  <MobileMenu />}      
-            </Navbar>  
-            
-            </Col> 
+                <Row style={{ marginTop: '10px', marginBottom: '20px' }}>
+                    <Col sm={12} className="text-end">
+                        <div style={{ display: 'inline-block', marginRight: '45px' }}>
+                        <Button 
+                            color={darkMode ? 'light' : 'dark'} 
+                            onClick={toggleTheme}
+                        >
+                            {darkMode ? 'Light Mode' : 'Dark Mode'}
+                        </Button>
+                        </div>
+                    </Col>
+                </Row>
+                <Col sm={12}>
+                    <Navbar expand='md'>
+                        <NavbarBrand  href='/'>
+                        <div className='logo-wrapper'>
+                            <img src={logo} alt='nucamp logo' className='float-start'/>
+                            </div>
+                        </NavbarBrand>   
+                            <Collapse navbar>
+                                <Nav className="ms-auto" navbar>
+                                    <NavItem>
+                                        <NavLink className='nav-link news-link' style={{color: 'red'}} to="/">
+                                            Home
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className='nav-link news-link' to='/directory'>
+                                            New
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className='nav-link news-link' to='/directory'>
+                                            Popular
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className='nav-link news-link' to='/directory'>
+                                            Trending
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className='nav-link news-link' to='/directory'>
+                                            Categories
+                                        </NavLink>
+                                    </NavItem>
+                                </Nav>
+                            </Collapse>
+                            {isMobile && <MobileMenu />}      
+                    </Navbar>  
+                </Col> 
             </Row>   
             <Row style={{marginBottom:'20px'}}>
-                <Col sm={8} style={{marginRight: '12px'}}>
+                <Col sm={8} style={{marginRight: '13px'}}>
                     <Row className='main-img'>
                         <Col sm={12}>
-                            <img src={newsMain} className='img-fluid' />
+                            <img src={newsMain} className='img-fluid' alt='' style={{borderRadius: "4px"}} />
                         </Col>
                     </Row>
                     <Row>
@@ -138,39 +151,69 @@ const NewsHomePage = () => {
                 </Col>
             </Row>
             <Row>
-                <Col sm={4} className='footer-col'>
-                    <Row>
-                        <Col xs={4}><img className="img-thumbnail d-flex" src={oneImgFooter}/></Col>
-                        <Col xs={7}>
+                <Col sm={4} className="mb-4">
+                    <div className="news-preview-card d-flex">
+                        <img src={oneImgFooter} alt="preview" className="img-thumbnail me-3" style={{ width: '100px', height: 'auto' }} />
+                        <div>
                             <h5 className="footer-num">01</h5>
                             <p className="footer-head">Reviving Retro PCs</p>
                             <p className="footer-para">What happens when old PCs are given modern upgrades?</p>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                 </Col>
-                <Col sm={4} className='footer-col'>
-                    <Row>
-                        <Col xs={4}><img className="img-thumbnail" src={twoImgFooter}/></Col>
-                        <Col xs={7}>
+                <Col sm={4} className="mb-4">
+                    <div className="news-preview-card d-flex">
+                        <img src={twoImgFooter} alt="preview" className="img-thumbnail me-3" style={{ width: '100px', height: 'auto' }} />
+                        <div>
                             <h5 className="footer-num">02</h5>
                             <p className="footer-head">Top 10 Laptops of 2022</p>
                             <p className="footer-para">Our best picks for various needs and budgets.</p>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                 </Col>
-                <Col sm={4} className='footer-col'>
-                    <Row>
-                        <Col xs={4}><img className="img-thumbnail" src={threeImgFooter}/></Col>
-                        <Col xs={7}>
+                <Col sm={4} className="mb-4">
+                <div className="news-preview-card d-flex">
+                    <img src={threeImgFooter} alt="preview" className="img-thumbnail me-3" style={{ width: '100px', height: 'auto' }} />
+                        <div>
                             <h5 className="footer-num">03</h5>
                             <p className="footer-head">The Growth of Gaming</p>
                             <p className="footer-para">How the pandemic has sparked fresh opportunities.</p>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
+            <Row className="mt-5">
+                <Col sm={12} className="text-center mb-3">
+                    <h4>📰 More News Coming Soon</h4>
+                    <p>Additional features and stories are in the works. Here's a sneak peek:</p>
+                </Col>
+                <Col sm={4} className="mb-4">
+                    <div className="news-preview-card position-relative">
+                    <img src={web3img1} alt="preview 1" className="img-fluid rounded" />
+                    <div className="coming-soon-banner">Coming Soon</div>
+                    <h6 className="mt-2">The Rise of Independent Journalists</h6>
+                    <p className="text-muted">How platforms are giving individuals more reach than ever.</p>
+                    </div>
+                </Col>
+                <Col sm={4} className="mb-4">
+                    <div className="news-preview-card position-relative">
+                    <img src={web3img2} alt="preview 2" className="img-fluid rounded" />
+                    <div className="coming-soon-banner">Coming Soon</div>
+                    <h6 className="mt-2">Web3 and News Credibility</h6>
+                    <p className="text-muted">Will decentralization reduce fake news, or make it worse?</p>
+                    </div>
+                </Col>
+                <Col sm={4} className="mb-4">
+                    <div className="news-preview-card position-relative">
+                    <img src={web3img3} alt="preview 3" className="img-fluid rounded" />
+                    <div className="coming-soon-banner">Coming Soon</div>
+                    <h6 className="mt-2">The Future of Digital Subscriptions</h6>
+                    <p className="text-muted">Why more readers are paying for trusted sources.</p>
+                    </div>
                 </Col>
             </Row>
         </Container>
-        </>
+        </div>
     )
 }
 

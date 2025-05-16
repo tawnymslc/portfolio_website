@@ -164,6 +164,57 @@ button.btn-contact-me {
   border-radius: 25px;
 }
 
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: #000 !important;
+  color: #f0f0f0;
+}
+
+.dark-mode .card,
+.dark-mode .footer-col,
+.dark-mode .right-box,
+.dark-mode .navbar,
+.dark-mode .nav-link {
+  background-color: black;
+  color: #f0f0f0 !important;
+}
+
+.light-mode .navbar,
+.light-mode .nav-link {
+  background-color: white;
+  color: black !important;
+}
+
+.dark-mode .right-box {
+   background-color: #000;
+  color: #fff;
+}
+
+.logo-wrapper {
+  padding: 4px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.light-mode .logo-wrapper {
+  background-color: transparent;
+}
+
+.dark-mode .logo-wrapper {
+  background-color: #e0e0e0;
+}
+
+.dark-mode .logo-wrapper img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
 @font-face {
   font-family: 'newsfonts';
   src: url('./fonts/Inter-Bold.ttf') format('truetype');
@@ -234,8 +285,11 @@ button.btn-contact-me {
   letter-spacing: 2px !important; 
 }
 
-.right-box {
+
+.light-mode .right-box {
   background-color: rgb(0, 1, 25);
+  border-radius: 4px;
+  color: #000;
 }
 
 @media (max-width: 561px) {
@@ -278,8 +332,34 @@ button.btn-contact-me {
   width: 100px;
   height: 110px;
   border: none !important;
-  border-radius: 0 !important;
+  border-radius: 4px;
   padding: 0 !important;
+}
+
+.coming-soon-banner {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(255, 0, 0, 0.85);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.news-preview-card img {
+  height: 170px;
+  width: 85%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.news-preview-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
