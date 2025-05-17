@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 import { Button, Col } from 'reactstrap';
+import { useMediaQuery } from 'react-responsive';
 import axios from "axios";
 
 const ETLDashboard = () => {
@@ -8,7 +9,7 @@ const ETLDashboard = () => {
   const [rawData, setRawData] = useState([]);
   const [view, setView] = useState("chart");
 
-
+const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   useEffect(() => {
   const fetchData = async () => {
@@ -63,11 +64,34 @@ const ETLDashboard = () => {
       {view === "chart" && (
         <>
           <h6 style={{ color: 'white' }}>Average Price of Products by Category</h6>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={filteredData}>
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart 
+              data={filteredData}
+              layout={isMobile ? "vertical" : "horizontal"}
+               margin={{ top: 20, right: 20, bottom: 60, left: 30 }}
+            >
               <CartesianGrid stroke="#444" strokeDasharray="3 3" />
-              <XAxis dataKey="category" stroke="#aaa" />
-              <YAxis stroke="#aaa" />
+            
+                {isMobile ? (
+                    <>
+                      <XAxis type="number" stroke="#aaa" />
+                      <YAxis 
+                        type="category" 
+                        dataKey="category" 
+                        stroke="#aaa" 
+                        width={120} 
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <XAxis 
+                        dataKey="category" 
+                        stroke="#aaa" tick={{ angle: -30, textAnchor: 'end' }} 
+                        interval={0} />
+                      <YAxis stroke="#aaa" />
+                    </>
+                )}
+
               <Tooltip 
                 contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }} 
                 itemStyle={{ color: 'white' }} 

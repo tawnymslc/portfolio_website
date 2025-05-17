@@ -43,7 +43,7 @@ const SearchBar = () => {
 
   return (
     <>
-    <div style={{padding: '2rem', borderRadius: '25px', marginBottom: "50px"}} className='web3-container'>
+    <div style={{padding: '2rem', borderRadius: '10px', marginBottom: "50px"}} className='web3-container'>
       <Row> 
         <Col className="project-header" md={12}>
           <h5>🌐 Unstoppable Domains Integration & Stripe Payment Flow</h5>

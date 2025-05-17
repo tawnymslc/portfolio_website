@@ -2,51 +2,10 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 
 .main-container {
   display: flex;
   flex-direction: column;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  color: #000;
-  padding-bottom: 25px;
 }
 
 .nav-link {
@@ -70,7 +29,7 @@ button.btn-contact-me {
     }
   }
 
-.header-into {
+.header-intro {
   font-size: 35px;
   font-weight: 600;
 }
@@ -146,10 +105,6 @@ button.btn-contact-me {
   padding: 5px;
 }
 
-.spotify-container {
-  color: white;
-}
-
 .spotify-search-bar {
   width: 300px;
   height: 30px;
@@ -157,11 +112,6 @@ button.btn-contact-me {
 
 .spotify-card {
   box-shadow: 0 0 5px 5px rgb(241, 244, 241);
-}
-
-.news-container {
-  border: 2px solid;
-  border-radius: 25px;
 }
 
 .light-mode {
@@ -240,12 +190,6 @@ button.btn-contact-me {
   }
 }
 
-@media only screen and (max-width: 768px) {
-  /* Styles specific to screens below 768px width */
-  .menu-bars {
-    display: block; /* Show the menu-bars div */
-  }
-}
 
 .news-link {
   font-family: 'newsfonts', sans-serif;
@@ -260,20 +204,20 @@ button.btn-contact-me {
   margin-right: 10px;
 }
 
-.main-head {
+.news-main-head {
   font-family: 'newsfonts', sans-serif;
   font-weight: bold;
   font-size: 40px;
   line-height: 0.90;
 }
 
-.main-para {
+.news-main-para {
   color: rgb(168, 166, 164);
   font-size: 10px;
   font-weight: bold;
 }
 
-.main-btn {
+.news-main-btn {
   color: white;
   background-color: rgb(228, 111, 66) !important;
   font-size: 10px !important;
@@ -298,8 +242,7 @@ button.btn-contact-me {
   }
 }
 
-
-.right-headline {
+.news-right-headline {
   font-family: 'newsfonts', sans-serif;
   font-weight: 800;
   color: rgb(223, 177, 90);
@@ -307,7 +250,7 @@ button.btn-contact-me {
   margin-left: 5px;
 }
 
-.right-heading {
+.news-right-heading {
   color: rgb(216, 219, 227);
   font-family: 'newsfonts', sans-serif;
   font-weight: bold;
@@ -315,7 +258,7 @@ button.btn-contact-me {
   margin-left: 5px;
 }
 
-.right-para {
+.news-right-para {
   color: rgb(123, 124, 142);
   font-size: 12px;
   padding-bottom: 5px; 
@@ -356,17 +299,20 @@ button.btn-contact-me {
   border-radius: 4px;
 }
 
+@media (max-width: 768px) {
+  .news-preview-card img {
+    width: 100%;
+    height: auto; /* Optional: maintain aspect ratio */
+    margin-bottom: 10px; /* Optional: space below image */
+  }
+}
+
 .news-preview-card:hover {
   transform: scale(1.02);
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .footer-col {
-    margin-bottom: 10px !important;
-  }
-}
 
 .footer-num {
   color: rgb(191, 189, 188);
@@ -391,43 +337,11 @@ button.btn-contact-me {
   color: white;
 }
 
-.FormGroup {
-	margin: 0 15px 20px;
-	padding: 0;
-	border-style: none;
-	background-color: #7795f8;
-	will-change: opacity, transform;
-	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
-	border-radius: 4px;
-}
-
-.FormRow {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-align: center;
-	align-items: center;
-	margin-left: 15px;
-	border-top: 1px solid #819efc;
-}
-
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Lato", sans-serif;
-}
-
-.home,
-.reports,
-.products {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  background-color: #000;
-  color: #fff;
 }
 
 /* Navbar CSS */
@@ -520,9 +434,4 @@ button.btn-contact-me {
   margin-top: 10px;
   margin-bottom: 50px;
   align-self: flex-start;
-}
-
-.news-container .btn {
-  width: 100%; /* Makes the button fill the container's width */
-  max-width: 200px; /* Optional: set a max-width to keep it from getting too wide */
 }

@@ -33,10 +33,10 @@ const NewsHomePage = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
     return (
-        <div style={{ position: 'relative' }}>
-        <Container className={`container-fluid news-container ${darkMode ? 'dark-mode' : 'light-mode'}`} style={{paddingLeft: 0, paddingRight: '-25px', marginBottom: "50px"}}>     
+        <div className={`news_container ${darkMode ? 'dark-mode' : 'light-mode'}`} style={{padding: '2rem', borderRadius: '10px', marginBottom: "50px", paddingBottom: '25px', border:  '2px solid black'  }}>
+        <Container className='container-fluid'>     
             <Row> 
-                <Col>
+                <Col className="p-0">
                     <h5>📰 News Front-End Homepage</h5>
                         <p>This project showcases my front-end development skills by recreating a modern, editorial-style homepage layout using React and Reactstrap (Bootstrap for React). 
                         It focuses on structure, visual alignment, and responsiveness. The content is laid out clearly across devices using grid-based design.</p>
@@ -81,8 +81,8 @@ const NewsHomePage = () => {
                 <Col sm={12}>
                     <Navbar expand='md'>
                         <NavbarBrand  href='/'>
-                        <div className='logo-wrapper'>
-                            <img src={logo} alt='nucamp logo' className='float-start'/>
+                            <div className='logo-wrapper'>
+                                <img src={logo} alt='nucamp logo' className='float-start'/>
                             </div>
                         </NavbarBrand>   
                             <Collapse navbar>
@@ -119,7 +119,7 @@ const NewsHomePage = () => {
                 </Col> 
             </Row>   
             <Row style={{marginBottom:'20px'}}>
-                <Col sm={8} style={{marginRight: '13px'}}>
+                <Col sm={8} className="mb-4" style={{marginRight: '13px'}}>
                     <Row className='main-img'>
                         <Col sm={12}>
                             <img src={newsMain} className='img-fluid' alt='' style={{borderRadius: "4px"}} />
@@ -127,27 +127,27 @@ const NewsHomePage = () => {
                     </Row>
                     <Row>
                         <Col sm={6}>
-                            <p className="main-head">The Bright Future of Web 3.0?</p>
+                            <p className="news-main-head">The Bright Future of Web 3.0?</p>
                         </Col>
-                        <Col sm={6} className='main-para'>
+                        <Col sm={6} className='news-main-para'>
                             <p>We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
                                 But is it really fulfilling its promise?</p> 
-                            <Button className="btn main-btn">READ MORE</Button> 
+                            <Button className="btn news-main-btn">READ MORE</Button> 
                         </Col>
                     </Row>
                 </Col>
                 <Col sm={3} className='right-box'>
-                    <h3 className="right-headline">New</h3>
-                    <h6 className="right-heading">Hydrogen VS Electric Cars</h6>
-                    <p className="right-para">Will hydrogen-fueled cars ever catch up to EVs?</p>
+                    <h3 className="news-right-headline">New</h3>
+                    <h6 className="news-right-heading">Hydrogen VS Electric Cars</h6>
+                    <p className="news-right-para">Will hydrogen-fueled cars ever catch up to EVs?</p>
                     <p className="line"></p>
 
-                    <h6 className="right-heading">The Downsides of AI Artistry</h6>
-                    <p className="right-para">What are the possible adverse effects of on-demand AI image generation?</p>
+                    <h6 className="news-right-heading">The Downsides of AI Artistry</h6>
+                    <p className="news-right-para">What are the possible adverse effects of on-demand AI image generation?</p>
                     <p className="line"></p>
 
-                    <h6 className="right-heading">Is VC Funding Drying Up?</h6>
-                    <p className="right-para">Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+                    <h6 className="news-right-heading">Is VC Funding Drying Up?</h6>
+                    <p className="news-right-para">Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
                 </Col>
             </Row>
             <Row>
