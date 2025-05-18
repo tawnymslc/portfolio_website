@@ -6,7 +6,6 @@ import packingImg from '../img/backpackers_home.jpeg'
 import loungeImg from '../img/airport_lounge_home.jpg'
 import soloImg from '../img/solo_travel_home.jpg'
 import blogImg from '../img/blog_home.jpg'
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
 const TravelCard = () => {

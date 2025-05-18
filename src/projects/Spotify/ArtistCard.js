@@ -5,7 +5,6 @@ import {
     CardText, 
     CardTitle, 
 } from 'reactstrap';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const ArtistCard = ({artist}) => {
     const {data} = artist;

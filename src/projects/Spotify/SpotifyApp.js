@@ -102,7 +102,7 @@ const SpotifyApp = () => {
 
     return(
         <div 
-        style={{  backgroundImage: `url(${require('../img/wp2775382.jpg')})`, color: 'white', borderRadius: '10px', marginBottom: "50px", paddingBottom: '25px' }}>
+        style={{  backgroundImage: `url(${require('../../img/wp2775382.jpg')})`, color: 'white', borderRadius: '10px', marginBottom: "50px", paddingBottom: '25px' }}>
         <Container className="container-fluid spotify-container">
             <Row> 
                 <Col md={12} style={{padding: '2rem'}}>

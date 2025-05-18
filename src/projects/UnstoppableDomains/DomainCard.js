@@ -7,7 +7,6 @@ import {
         CardTitle, 
         CardFooter
     } from 'reactstrap';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import PaymentModal from './PaymentModal';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';

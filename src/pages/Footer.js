@@ -1,5 +1,4 @@
 import { Container, Row, Col } from 'reactstrap';
-import '../../node_modules/bootstrap-social/bootstrap-social.css'
 
 const Footer = () => {
     return(

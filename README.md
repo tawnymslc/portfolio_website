@@ -13,11 +13,11 @@ Unstoppable Domains Developer Portal
 
 Stripe Payment API: Implements a mock payment flow using Stripe's API and CardElement within a React modal. Users can simulate domain purchases using test card details (e.g., 4242 4242 4242 4242). ​
 
+ETL Dashboard: A dashboard that extracts data from APIs, transforms it, and loads it for visualization and analysis.
+
 News Site Section: Built with Bootstrap components such as cards, rows, and navigation elements to showcase structured content and responsive design. 
 
 ## Future Integrations
-
-ETL Dashboard (in progress): Developing a dashboard that extracts data from APIs, transforms it, and loads it for visualization and analysis.
 
 Login with Unstoppable: Implementing decentralized authentication using Unstoppable Domains. ​
 

@@ -1,6 +1,6 @@
 import { IconContext } from 'react-icons';
-import mobileMenu from '../img/icon-menu.svg'
-import mobileMenuClose from '../img/icon-menu-close.svg'
+import mobileMenu from '../../img/icon-menu.svg'
+import mobileMenuClose from '../../img/icon-menu-close.svg'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import {SidebarData} from './SidebarData';

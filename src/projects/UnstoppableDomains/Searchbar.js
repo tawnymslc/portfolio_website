@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Button, Col, Row } from 'reactstrap';
 import axios from "axios";
 import DomainCard from "./DomainCard";
-import udCardImg from '../img/ud_image.png'
-import udLogo from '../img/ud_logo.png'
+import udCardImg from '../../img/ud_image.png'
+import udLogo from '../../img/ud_logo.png'
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");

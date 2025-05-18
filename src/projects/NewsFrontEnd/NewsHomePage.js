@@ -11,15 +11,15 @@ import {
     NavbarBrand
 } from 'reactstrap';
 import { useState } from 'react';
-import logo from '../img/logo.svg'
-import newsMain from '../img/image-web-3-desktop.jpg'
-import oneImgFooter from '../img/image-retro-pcs.jpg'
-import twoImgFooter from '../img/image-top-laptops.jpg'
-import threeImgFooter from '../img/image-gaming-growth.jpg'
-import web3img1 from '../img/journimg.jpg'
-import web3img2 from '../img/web3img.jpg'
-import web3img3 from '../img/subwebimg.jpg'
-import MobileMenu from './MobileMenu';
+import logo from '../../img/logo.svg'
+import newsMain from '../../img/image-web-3-desktop.jpg'
+import oneImgFooter from '../../img/image-retro-pcs.jpg'
+import twoImgFooter from '../../img/image-top-laptops.jpg'
+import threeImgFooter from '../../img/image-gaming-growth.jpg'
+import web3img1 from '../../img/journimg.jpg'
+import web3img2 from '../../img/web3img.jpg'
+import web3img3 from '../../img/subwebimg.jpg'
+import MobileMenu from '../NewsFrontEnd/MobileMenu';
 import { useMediaQuery } from 'react-responsive'; 
 
 const NewsHomePage = () => {

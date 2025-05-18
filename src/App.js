@@ -1,12 +1,13 @@
 import './App.css';
-import Header from './components/Header';
-import HomePage from './components/HomePage';
-import SearchBar from './components/Searchbar';
+import Header from './pages/Header';
+import HomePage from './pages/HomePage';
+import SearchBar from './projects/UnstoppableDomains/Searchbar';
 import { Container } from 'reactstrap';
+import SpotifyApp from './projects/Spotify/SpotifyApp';
+import NewsHomePage from './projects/NewsFrontEnd/NewsHomePage';
+import ETLDashboard from './projects/ETLDashboard/ETLDashboard';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import SpotifyApp from './components/SpotifyApp';
-import NewsHomePage from './components/NewsHomePage';
-import ETLDashboard from './components/ETLDashboard';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Routes, Route, Router} from 'react-router-dom';
 
 function App() {
