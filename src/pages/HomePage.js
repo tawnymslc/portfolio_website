@@ -6,6 +6,7 @@ import {
     Col
 } from 'reactstrap';
 import tawnyHeroImg from '../img/tawny_portfolio.jpg'
+import ProjectsGrid from '../components/ProjectGrid';
 
 const introStyle = {
     marginTop: '50px',
@@ -60,9 +61,15 @@ const HomePage = () => {
                     </Card>
                 </Col>
                 <Col md={4} style={{marginTop: '50px'}} className='order-sm-first'>
-                    <img src={tawnyHeroImg} style={heroStyle}/>
+                    <img src={tawnyHeroImg} style={heroStyle} alt=''/>
                 </Col>
+                <section className="my-projects-section">
+                    <h3 className="project-heading text-center"> 
+                        <i class="fa-sharp fa-solid fa-rocket"></i> Featured Projects</h3>
+                        <ProjectsGrid />
+                </section>
             </Row>
+            
         </Container>
     );
 }

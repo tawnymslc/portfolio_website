@@ -5,7 +5,7 @@ import DomainCard from "./DomainCard";
 import udCardImg from '../../img/ud_image.png'
 import udLogo from '../../img/ud_logo.png'
 
-const SearchBar = () => {
+const UnstoppableSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -65,7 +65,7 @@ const SearchBar = () => {
       </Row>
       <Row md={4} className="justify-content-center" style={{ marginTop: '20px'}}>
         <Col  md={10} xs={11} className='mx-auto text-center' style={{backgroundColor: 'black', color: 'white', paddingTop: '10px', borderRadius: '5px 5px 0 0'}}>
-          <h5><b>Search for a Web3 domain by Unstoppable Domains</b> <img className='ud-logo-indesc' src={udLogo}/></h5>
+          <h5><b>Search for a Web3 domain by Unstoppable Domains</b> <img className='ud-logo-indesc' src={udLogo} alt=""/></h5>
         </Col>
         <Col md={10} xs={11} className="text-center" style={{backgroundColor: 'black', paddingBottom: '10px', borderRadius: '0 0 5px 5px'}}>
         <form onSubmit={handleSearchSubmit}>
@@ -98,4 +98,4 @@ const SearchBar = () => {
   );
 }
 
-export default SearchBar;
+export default UnstoppableSearch;

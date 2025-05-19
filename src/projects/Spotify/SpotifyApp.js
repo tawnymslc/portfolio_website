@@ -76,11 +76,10 @@ const SpotifyApp = () => {
                 }
                 });
 
-                console.log(albumsResponse);
                 const maxResults = 9;
 
                 const nineResults = albumsResponse.data.items.slice(0, maxResults);
-                console.log(nineResults);
+
                 setAlbums(nineResults);
             } else if(selectedApi == 'artist-info') {
                 const artistId = searchResponse.data.artists.items[0].id;
@@ -93,7 +92,6 @@ const SpotifyApp = () => {
                 });
 
                 setArtist(artistResponse);
-                console.log(artist);
             } 
         } catch (error) {
             console.error('Error:', error);

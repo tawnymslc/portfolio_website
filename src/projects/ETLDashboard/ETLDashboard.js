@@ -9,7 +9,7 @@ const ETLDashboard = () => {
   const [rawData, setRawData] = useState([]);
   const [view, setView] = useState("chart");
 
-const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   useEffect(() => {
   const fetchData = async () => {
