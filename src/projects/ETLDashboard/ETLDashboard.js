@@ -31,7 +31,7 @@ const ETLDashboard = () => {
   const filteredData = data.filter(item => item.averagePrice <= 1000);
 
   return (
-    <div style={{ marginBottom: "50px", padding: '2rem', backgroundColor: '#1e1e2f', color: 'white', borderRadius: '10px' }}>
+    <div className='etl-container'>
       <Col md={12}>
           <h5>📊 ETL Dashboard</h5>
             <p>This feature presents a real-time data visualization dashboard that summarizes product pricing by category. 

@@ -102,6 +102,16 @@ button.btn-contact-me {
   padding: 5px;
 }
 
+.spotify-container {
+  background-image: url('./img/wp2775382.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  border-radius: 10px;
+  margin: 50px;
+  padding-bottom: 25px;
+}
+
 .spotify-search-bar {
   width: 300px;
   height: 30px;
@@ -109,6 +119,22 @@ button.btn-contact-me {
 
 .spotify-card {
   box-shadow: 0 0 5px 5px rgb(241, 244, 241);
+}
+
+.etl-container {
+  background-color: #1e1e2f;
+  color: white;
+  border-radius: 10px;
+  margin: 50px;
+  padding: 2rem;
+}
+
+.news-container {
+  background-color: #F5F5F5;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 50px 0px 50px 0px;
+  padding: 2rem
 }
 
 .light-mode {

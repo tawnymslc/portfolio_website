@@ -33,7 +33,7 @@ const NewsHomePage = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
     return (
-        <div className={`news_container ${darkMode ? 'dark-mode' : 'light-mode'}`} style={{padding: '2rem', borderRadius: '10px', marginBottom: "50px", paddingBottom: '25px', border:  '2px solid black'  }}>
+        <div className={`news-container ${darkMode ? 'dark-mode' : 'light-mode'}`} >
         <Container className='container-fluid'>     
             <Row> 
                 <Col className="p-0">

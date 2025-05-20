@@ -14,7 +14,7 @@ const projects = [
     image: spotifyprojectimg,
     technologies: 'React, Axios, Spotify Web API, Node.js',
     demoUrl: 'https://tawny-mathi.com/spotify',
-    codeUrl: 'https://github.com/your-username/spotify-project',
+    codeUrl: 'https://github.com/tawnymslc/portfolio_website',
     route: '/spotify',
   },
   {
@@ -24,7 +24,7 @@ const projects = [
     image: etlprojectimg ,
     technologies: 'React, Recharts, Python, FastAPI',
     demoUrl: 'https://tawny-mathi.com/etl',
-    codeUrl: 'https://github.com/your-username/etl-dashboard',
+    codeUrl: 'https://github.com/tawnymslc/portfolio_website',
     route: '/etl',
   },
   {
@@ -34,7 +34,7 @@ const projects = [
     image: unstoppableprojectimg,
     technologies: 'React, Node.js, Unstoppable Domains API, Stripe',
     demoUrl: 'https://tawny-mathi.com/domains',
-    codeUrl: 'https://github.com/your-username/unstoppable-domains',
+    codeUrl: 'https://github.com/tawnymslc/portfolio_website',
     route: '/domains',
   },
   {
@@ -44,7 +44,7 @@ const projects = [
     image: newshomeprojectimg,
     technologies: 'React, Bootstrap, CSS, JSX',
     demoUrl: 'https://tawny-mathi.com/news',
-    codeUrl: 'https://github.com/your-username/news-homepage',
+    codeUrl: 'https://github.com/tawnymslc/portfolio_website',
     route: '/news',
   },
 ];
