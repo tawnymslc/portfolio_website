@@ -20,6 +20,7 @@ import web3img1 from '../../img/journimg.jpg'
 import web3img2 from '../../img/web3img.jpg'
 import web3img3 from '../../img/subwebimg.jpg'
 import MobileMenu from '../NewsFrontEnd/MobileMenu';
+import SubHeader from '../../components/SubHeader'
 import { useMediaQuery } from 'react-responsive'; 
 
 const NewsHomePage = () => {
@@ -33,7 +34,8 @@ const NewsHomePage = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
     return (
-        <div className={`news-container ${darkMode ? 'dark-mode' : 'light-mode'}`} >
+        <div className={`project-container ${darkMode ? 'dark-mode' : 'light-mode'}`} >
+        <SubHeader current='New Frontend Page' />
         <Container className='container-fluid'>     
             <Row> 
                 <Col className="p-0">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Col, Row, Card, 
+import { Button, Col, Row, Card, 
     CardBody, 
     CardImg, 
     CardText, 
@@ -7,6 +7,7 @@ import { Button, Container, Col, Row, Card,
  } from 'reactstrap';
 import axios from "axios";
 import ArtistCard from "./ArtistCard";
+import SubHeader from '../../components/SubHeader'
 
 const SpotifyApp = () => {
 
@@ -47,11 +48,11 @@ const SpotifyApp = () => {
                     'Authorization': `Bearer ${accessToken}`
                 }
             });
-            if (searchResponse.data.artists.items.length == 0) {
+            if (searchResponse.data.artists.items.length === 0) {
                 console.log("no artist");
                 setSearchClicked(false);
                 setSearchResults(false);
-            } else if(selectedApi == 'top-tracks'){
+            } else if(selectedApi === 'top-tracks'){
                 const artistId = searchResponse.data.artists.items[0].id;
                 setSearchResults(true);
             
@@ -66,7 +67,7 @@ const SpotifyApp = () => {
                 const nineResults = tracksResponse.data.tracks.slice(0, maxResults);
 
                 setTracks(nineResults);
-            } else if(selectedApi == 'albums') {
+            } else if(selectedApi === 'albums') {
                 const artistId = searchResponse.data.artists.items[0].id;
                 setSearchResults(true);
             
@@ -81,7 +82,7 @@ const SpotifyApp = () => {
                 const nineResults = albumsResponse.data.items.slice(0, maxResults);
 
                 setAlbums(nineResults);
-            } else if(selectedApi == 'artist-info') {
+            } else if(selectedApi === 'artist-info') {
                 const artistId = searchResponse.data.artists.items[0].id;
                 setSearchResults(true);
             
@@ -100,9 +101,9 @@ const SpotifyApp = () => {
 
     return(
         <div className='project-container spotify-bg'>
-        <Container className="container-fluid">
+            <SubHeader current='Spotify' dark />
             <Row> 
-                <Col md={12} style={{padding: '2rem'}}>
+                <Col md={12}>
                     <h5>🎧 Spotify Artist Explorer</h5>
                     <p>This feature allows users to explore detailed information about their favorite artists directly through my portfolio site. 
                         Leveraging the Spotify Web API, users can:</p>
@@ -198,7 +199,6 @@ const SpotifyApp = () => {
                   <Col className="text-center" style={{fontWeight: 'bold'}}>Please select from the dropdown</Col>   
                 </Row>
             ) : null } 
-        </Container>
         </div>
     );
 };

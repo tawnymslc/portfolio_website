@@ -14,12 +14,12 @@ const MobileMenu = () => {
         <>
         <IconContext.Provider value={{ color: undefined}}>
         <div className="menu-bars">
-                <img src={mobileMenu} onClick={showSidebar}/>
+                <img src={mobileMenu} alt='' onClick={showSidebar}/>
         </div>
         <nav className={sidebar ? 'nav-menu active right' : 'nav-menu right'}>
             <ul className='nav-menu-items' onClick={showSidebar}>
                 <div className='navbar-toggler mobile-menu-close'>
-                    <img src={mobileMenuClose} style={{ width: '20px', height: '20px' }} />
+                    <img src={mobileMenuClose} alt='' style={{ width: '20px', height: '20px' }} />
                 </div>
                 {SidebarData.map((item, index) => {
                     return (

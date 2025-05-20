@@ -5,6 +5,7 @@ import {
     Row,
     Col
 } from 'reactstrap';
+import { motion } from 'framer-motion';
 import tawnyHeroImg from '../img/tawny_portfolio.jpg'
 import ProjectsGrid from '../components/ProjectGrid';
 
@@ -34,8 +35,8 @@ const HomePage = () => {
             <Row className="justify-content-center align-items-center">
                 <Col xs={12} md={7} className='order-2 order-md-2'>
                     <Card style={introStyle}>
-                        <h2 className="header-intro">Hi, I'm Tawny. </h2><br/>
-                        <div className="header-para">
+                        <h2 className="home-intro">Hi, I'm Tawny. </h2><br/>
+                        <div className="home-para">
                             <p>I'm a seasoned Partner Integration Engineer with over a decade of experience in SaaS implementations across EdTech, Retail, and Web3 sectors. At Unstoppable Domains, I led API integrations, ensuring seamless onboarding for enterprise clients. My tenure at Salsify and Instructure further honed my skills in solution architecture and client success.​</p>
                                 <p>After a rewarding venture into Amazon fulfillment, I'm eager to return to my core passion: collaborating with clients to drive impactful technological solutions.</p>
                         </div>
@@ -61,7 +62,14 @@ const HomePage = () => {
                     </Card>
                 </Col>
                 <Col xs={12} md={4} style={{marginTop: '50px'}} className='order-1 order-md-1'>
-                    <img src={tawnyHeroImg} style={heroStyle} alt=''/>
+                    <motion.img
+    src={tawnyHeroImg}
+    alt=""
+    style={heroStyle}
+    initial={{ opacity: 0, x: -50 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8 }}
+  />
                 </Col>
             </Row>
               <section className="my-projects-section">

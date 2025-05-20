@@ -10,6 +10,34 @@
   font-weight: bold;
 }
 
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.breadcrumb-item a {
+  color: #5e9fee;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb-item.active {
+  color: #999;
+  font-weight: 500;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  color: #222;
+}
+
+.page-title-dark {
+  color: #ffffff;
+}
+
 button.btn-contact-me {
   font-size: 12px;
   font-weight: bold;
@@ -26,37 +54,13 @@ button.btn-contact-me {
     }
   }
 
-.header-intro {
+.home-intro {
   font-size: 35px;
   font-weight: 600;
 }
 
-.header-para {
+.home-para {
   font-weight: 600;
-}
-
-.travel-card-title {
-  color: black;
-  font-size: 22px; 
-}
-
-.img-wrapper {
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.img-wrapper img {
-  width: 100%;
-  transition: 0.5s all ease-in-out;
-}
-
-.img-wrapper:hover img {
-  transform: scale(1.1);
-  filter: brightness(35%);
-}
-
-.card {
-  margin-bottom: 5px;
 }
 
 .project-container {
@@ -66,6 +70,10 @@ button.btn-contact-me {
   padding: 2rem;
   margin: 50px 0;
   box-sizing: border-box;
+}
+
+.project-bullets {
+  margin-left: 15px;
 }
 
 .unstoppable-bg {
@@ -90,11 +98,6 @@ button.btn-contact-me {
   border: 1px solid #ccc;
   box-sizing: border-box;
   text-align: center;
-}
-
-
-.project-bullets {
-  margin-left: 15px;
 }
 
 .domain-card {
@@ -135,14 +138,6 @@ button.btn-contact-me {
 .etl-bg {
   background-color: #1e1e2f;
   color: white;
-}
-
-.news-container {
-  background-color: #F5F5F5;
-  border: 2px solid black;
-  border-radius: 10px;
-  margin: 50px 0px 50px 0px;
-  padding: 2rem
 }
 
 .light-mode {
@@ -220,7 +215,6 @@ button.btn-contact-me {
     padding: 25px 0 25px 50px !important;
   }
 }
-
 
 .news-link {
   font-family: 'newsfonts', sans-serif;
@@ -472,4 +466,28 @@ button.btn-contact-me {
   margin-top: 10px;
   margin-bottom: 50px;
   align-self: flex-start;
+}
+
+.travel-card-title {
+  color: black;
+  font-size: 22px; 
+}
+
+.img-wrapper {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.img-wrapper img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.1);
+  filter: brightness(35%);
+}
+
+.card {
+  margin-bottom: 5px;
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 import { Button, Col } from 'reactstrap';
 import { useMediaQuery } from 'react-responsive';
+import SubHeader from '../../components/SubHeader'
 import axios from "axios";
 
 const ETLDashboard = () => {
@@ -32,6 +33,7 @@ const ETLDashboard = () => {
 
   return (
     <div className='project-container etl-bg'>
+      <SubHeader current='ETL Dashboard' dark />
       <Col md={12}>
           <h5>📊 ETL Dashboard</h5>
             <p>This feature presents a real-time data visualization dashboard that summarizes product pricing by category. 
