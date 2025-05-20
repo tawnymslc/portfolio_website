@@ -6,11 +6,11 @@ import {
     Nav,
     Navbar,
     NavItem,
-    NavLink,
     Row,
     NavbarBrand
 } from 'reactstrap';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom'; 
 import logo from '../../img/logo.svg'
 import newsMain from '../../img/image-web-3-desktop.jpg'
 import oneImgFooter from '../../img/image-retro-pcs.jpg'

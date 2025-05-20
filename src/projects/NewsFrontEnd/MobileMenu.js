@@ -4,7 +4,6 @@ import mobileMenuClose from '../../img/icon-menu-close.svg'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import {SidebarData} from './SidebarData';
-import { BrowserRouter } from 'react-router-dom';
 
 const MobileMenu = () => {
     const [sidebar, setSidebar] = useState(false);
@@ -13,7 +12,6 @@ const MobileMenu = () => {
 
     return (
         <>
-        <BrowserRouter>
         <IconContext.Provider value={{ color: undefined}}>
         <div className="menu-bars">
                 <img src={mobileMenu} onClick={showSidebar}/>
@@ -35,7 +33,6 @@ const MobileMenu = () => {
             </ul>
         </nav>
         </IconContext.Provider>
-        </BrowserRouter>
         </>
         
     )

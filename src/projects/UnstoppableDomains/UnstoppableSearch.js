@@ -43,7 +43,7 @@ const UnstoppableSearch = () => {
 
   return (
     <>
-    <div style={{padding: '2rem', borderRadius: '10px', marginBottom: "50px"}} className='web3-container'>
+    <div className='project-container unstoppable-bg'>
       <Row> 
         <Col className="project-header" md={12}>
           <h5>🌐 Unstoppable Domains Integration & Stripe Payment Flow</h5>
@@ -69,6 +69,7 @@ const UnstoppableSearch = () => {
         </Col>
         <Col md={10} xs={11} className="text-center" style={{backgroundColor: 'black', paddingBottom: '10px', borderRadius: '0 0 5px 5px'}}>
         <form onSubmit={handleSearchSubmit}>
+          <div className="search-bar-wrapper">
           <input
             type="text"
             className="custom-search-bar" 
@@ -76,6 +77,7 @@ const UnstoppableSearch = () => {
             value={searchQuery}
             onChange={handleInputChange}
           />
+          </div>
           <Button 
             type='submit' 
             style={{ backgroundColor: 'rgb(77, 72, 242)', marginBottom: '4px', color: 'white', lineHeight: "16px", display: 'inline-block', textAlign: 'center', fontWeight: 'bold' }}>

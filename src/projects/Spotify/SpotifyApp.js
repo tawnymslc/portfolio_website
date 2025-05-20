@@ -99,8 +99,7 @@ const SpotifyApp = () => {
     };
 
     return(
-        <div 
-        className='spotify-container'>
+        <div className='project-container spotify-bg'>
         <Container className="container-fluid">
             <Row> 
                 <Col md={12} style={{padding: '2rem'}}>
@@ -133,15 +132,17 @@ const SpotifyApp = () => {
                 </Col>
             </Row>
             <Row sm={11} className="justify-content-center spotify-search-row" style={{marginBottom: "20px"}}>
-                <Col xs='auto' className="text-center" style={{ marginTop: '20px' }}>
+                <Col md={10} xs={11} className="text-center" style={{ marginTop: '20px' }}>
                     <form onSubmit={handleSearchSubmit}>
+                        <div className="search-bar-wrapper">
                         <input
                             type="text"
-                            className="spotify-search-bar" 
+                            className="custom-search-bar" 
                             value={searchQuery}
                             onChange={handleInputChange}
                             style={{ textAlign: 'center', verticalAlign: 'middle' }}
                         />
+                        </div>
                         <Button 
                             type='submit' 
                             style={{ backgroundColor: 'rgb(43, 92, 36)', color: 'white', lineHeight: "16px", display: 'inline-block', textAlign: 'center', fontWeight: 'bold'}}>

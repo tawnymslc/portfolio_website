@@ -32,7 +32,7 @@ const HomePage = () => {
     return (
         <Container>
             <Row className="justify-content-center align-items-center">
-                <Col md={7} className='order-md-first order-sm-last order-sm-last'>
+                <Col xs={12} md={7} className='order-2 order-md-2'>
                     <Card style={introStyle}>
                         <h2 className="header-intro">Hi, I'm Tawny. </h2><br/>
                         <div className="header-para">
@@ -60,16 +60,15 @@ const HomePage = () => {
                         </Row>
                     </Card>
                 </Col>
-                <Col md={4} style={{marginTop: '50px'}} className='order-sm-first'>
+                <Col xs={12} md={4} style={{marginTop: '50px'}} className='order-1 order-md-1'>
                     <img src={tawnyHeroImg} style={heroStyle} alt=''/>
                 </Col>
-                <section className="my-projects-section">
+            </Row>
+              <section className="my-projects-section">
                     <h3 className="project-heading text-center"> 
                         <i class="fa-sharp fa-solid fa-rocket"></i> Featured Projects</h3>
                         <ProjectsGrid />
-                </section>
-            </Row>
-            
+                </section>  
         </Container>
     );
 }
