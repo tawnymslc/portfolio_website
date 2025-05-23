@@ -1,38 +1,31 @@
-import { useState} from 'react';
-import {Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink} from 'reactstrap';
 
+import { Link as ScrollLink } from 'react-scroll';
 
 const Header = () => {
 
-    const [menuOpen, setMenuOpen] = useState(false);
+    const handleDisableSnap = () => {
+    const wrapper = document.getElementById('fullpage-wrapper');
+        if (wrapper) {
+            wrapper.classList.add('disable-snap');
+            setTimeout(() => {
+            wrapper.classList.remove('disable-snap');
+            }, 1000); // match duration in <ScrollLink>
+        }
+    };
 
-
-    return(
-        <>
-        <Navbar expand='md'>
-            <NavbarToggler 
-                onClick={() => setMenuOpen(!menuOpen)} 
-                style={{ outline: 'none', border: 'none', boxShadow: 'none' }}
-                className="custom-toggler"
-            >
-                <i className="fa fa-solid fa-bars" style={{ color: '#000', fontSize: '24px', padding: '5px', border: "2px solid black"}}></i>
-            </NavbarToggler>
-                <Collapse isOpen={menuOpen} navbar>
-                    <Nav className="ms-auto" navbar>
-                        <NavItem>
-                            <NavLink className='nav-link' to="/" style={{paddingLeft: '10px'}}>
-                                HOME
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink className='nav-link' to="/" style={{paddingLeft: '10px'}}> 
-                                PROJECTS
-                            </NavLink>
-                        </NavItem>
-                    </Nav>
-                </Collapse>
-        </Navbar>
-        </>
+    return (
+        <header className="floating-header">
+            <nav className="nav-links">
+            <ScrollLink to="landing" smooth={true} duration={100} containerId="fullpage-wrapper"
+                className="nav-item-link" onClick={handleDisableSnap}>Home</ScrollLink>
+            <ScrollLink to="projects" smooth={true} duration={100} containerId="fullpage-wrapper"
+                className="nav-item-link" onClick={handleDisableSnap}>Projects</ScrollLink>
+            <ScrollLink to="skills" smooth={true} duration={100} containerId="fullpage-wrapper"
+                className="nav-item-link" onClick={handleDisableSnap}>Skills</ScrollLink>
+            <ScrollLink to="about" smooth={true} duration={100} containerId="fullpage-wrapper"
+                className="nav-item-link" onClick={handleDisableSnap}>About</ScrollLink>
+            </nav>
+        </header>
     );
 };
 

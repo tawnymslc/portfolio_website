@@ -7,6 +7,7 @@ import {
 } from 'reactstrap';
 import { motion } from 'framer-motion';
 import tawnyHeroImg from '../img/tawny_portfolio.jpg'
+import homePageBg from '../img/home_page_v2.svg'; 
 import ProjectsGrid from '../components/ProjectGrid';
 
 const introStyle = {
@@ -31,6 +32,7 @@ const heroStyle = {
 
 const HomePage = () => {
     return (
+        <div style={{ backgroundImage: `url(${homePageBg})` }}>          
         <Container>
             <Row className="justify-content-center align-items-center">
                 <Col xs={12} md={7} className='order-2 order-md-2'>
@@ -63,21 +65,24 @@ const HomePage = () => {
                 </Col>
                 <Col xs={12} md={4} style={{marginTop: '50px'}} className='order-1 order-md-1'>
                     <motion.img
-    src={tawnyHeroImg}
-    alt=""
-    style={heroStyle}
-    initial={{ opacity: 0, x: -50 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.8 }}
-  />
+                        src={tawnyHeroImg}
+                        alt=""
+                        style={heroStyle}
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                    />
                 </Col>
             </Row>
-              <section className="my-projects-section">
-                    <h3 className="project-heading text-center"> 
-                        <i class="fa-sharp fa-solid fa-rocket"></i> Featured Projects</h3>
-                        <ProjectsGrid />
+                <section>
+                    <h3 className="project-heading text-center"
+                    > 
+                        <i className="fa-sharp fa-solid fa-rocket"></i> Featured Projects
+                    </h3>
+                    <ProjectsGrid />
                 </section>  
         </Container>
+        </div>
     );
 }
 

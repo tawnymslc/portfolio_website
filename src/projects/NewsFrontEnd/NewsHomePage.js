@@ -90,27 +90,27 @@ const NewsHomePage = () => {
                             <Collapse navbar>
                                 <Nav className="ms-auto" navbar>
                                     <NavItem>
-                                        <NavLink className='nav-link news-link' style={{color: 'red'}} to="/">
+                                        <NavLink className='news-link' style={{color: 'red'}} to="/">
                                             Home
                                         </NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className='nav-link news-link' to='/directory'>
+                                        <NavLink className= 'news-link' to='/directory'>
                                             New
                                         </NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className='nav-link news-link' to='/directory'>
+                                        <NavLink className='news-link' to='/directory'>
                                             Popular
                                         </NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className='nav-link news-link' to='/directory'>
+                                        <NavLink className='news-link' to='/directory'>
                                             Trending
                                         </NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className='nav-link news-link' to='/directory'>
+                                        <NavLink className='news-link' to='/directory'>
                                             Categories
                                         </NavLink>
                                     </NavItem>

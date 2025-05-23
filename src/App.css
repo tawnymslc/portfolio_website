@@ -1,14 +1,126 @@
 
+/** New HomePage Layout**/
 
-.main-container {
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.section {
+  background-image: url("./img/home_page_v2.svg");
+  color: #222;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 80px;
+  scroll-snap-align: start;  /* scrolling */
+  scroll-snap-stop: always;  /* scrolling */
+}
+
+.section-dots {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  z-index: 999;
 }
 
-.nav-link {
-  color: black !important;
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2); /* darker base */
+  border: 1px solid rgba(0, 0, 0, 0.4); /* subtle border */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #444; /* darker neutral */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3); /* slim background radius effect */
+  transform: scale(1.1);
+}
+
+.fullpage-wrapper {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* Add this class dynamically */
+.fullpage-wrapper.disable-snap {
+  scroll-snap-type: none;
+}
+
+
+.card:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.section#projects {
+  height: auto;         /* Let content grow */
+  min-height: 100vh;    /* But always at least 1 screen tall */
+}
+
+@media (min-width: 1200px) {
+  .section#projects {
+    height: 100vh;        /* Lock to full screen */
+    overflow-y: auto;     /* Scroll inside if content overflows */
+  }
+}
+
+/** End New HomePage Layout**/
+
+/** HEADER **/
+
+.floating-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #6d6d6d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  color: #020202;
   font-weight: bold;
 }
+
+
+/** END **/
 
 .breadcrumb {
   background: none;
@@ -154,13 +266,13 @@ button.btn-contact-me {
 .dark-mode .footer-col,
 .dark-mode .right-box,
 .dark-mode .navbar,
-.dark-mode .nav-link {
+.dark-mode .news-link {
   background-color: black;
   color: #f0f0f0 !important;
 }
 
 .light-mode .navbar,
-.light-mode .nav-link {
+.light-mode .news-link {
   background-color: white;
   color: black !important;
 }
@@ -219,10 +331,11 @@ button.btn-contact-me {
 .news-link {
   font-family: 'newsfonts', sans-serif;
   font-weight: bold;
-  color: rgb(168, 166, 164) !important;
   font-size: 12px;
   margin-right: 10px;
+  text-decoration: none;
 }
+
 
 .main-img {
   margin-bottom: 20px;

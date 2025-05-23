@@ -50,21 +50,26 @@ const projects = [
 ];
 
 const ProjectGrid = () => {
-  const fullRows = Math.floor(projects.length / 3);
-  const remainder = projects.length % 3;
+  const fullRows = Math.floor(projects.length / 4); // 4 per row now
+  const remainder = projects.length % 4;
 
   return (
     <Container fluid className="mt-5">
       <Row className="g-4">
         {projects.map((project, index) => {
-          const isInLastRow = index >= fullRows * 3;
-          const centerTwoCards = remainder === 2 && isInLastRow;
-          const centerOneCard = remainder === 1 && index === projects.length - 1;
+          const isInLastRow = index >= fullRows * 4;
+          const centerThree = remainder === 3 && isInLastRow;
+          const centerTwo = remainder === 2 && isInLastRow;
+          const centerOne = remainder === 1 && isInLastRow;
 
-          const colClasses = `d-flex ${centerTwoCards || centerOneCard ? 'mx-auto' : ''}`;
+          let colClass = 'd-flex';
+
+          if (centerThree || centerTwo || centerOne) {
+            colClass += ' justify-content-center';
+          }
 
           return (
-            <Col key={index} sm="12" md="6" lg="4" className={colClasses}>
+            <Col key={index} sm="12" md="6" lg="3" className={colClass}>
               <ProjectCard project={project} />
             </Col>
           );
