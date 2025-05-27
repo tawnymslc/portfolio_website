@@ -1,5 +1,5 @@
 
-/** New HomePage Layout**/
+/** NEW HOMEPAGE LAYOUT **/
 
 html,
 body {
@@ -23,8 +23,8 @@ body {
   text-align: center;
   padding: 2rem;
   padding-top: 80px;
-  scroll-snap-align: start;  /* scrolling */
-  scroll-snap-stop: always;  /* scrolling */
+  scroll-snap-align: start;  /* scroll */
+  scroll-snap-stop: always;  /* scroll */
 }
 
 .section-dots {
@@ -42,15 +42,15 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.2); /* darker base */
-  border: 1px solid rgba(0, 0, 0, 0.4); /* subtle border */
+  background-color: rgba(0, 0, 0, 0.2); 
+  border: 1px solid rgba(0, 0, 0, 0.4); 
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .dot.active {
-  background-color: #444; /* darker neutral */
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3); /* slim background radius effect */
+  background-color: #444; /* dk neutral */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3); /* slim bg radius */
   transform: scale(1.1);
 }
 
@@ -61,7 +61,6 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Add this class dynamically */
 .fullpage-wrapper.disable-snap {
   scroll-snap-type: none;
 }
@@ -75,17 +74,17 @@ body {
 
 .section#projects {
   height: auto;         /* Let content grow */
-  min-height: 100vh;    /* But always at least 1 screen tall */
+  min-height: 100vh;    /* at least 1 screen tall */
 }
 
 @media (min-width: 1200px) {
   .section#projects {
-    height: 100vh;        /* Lock to full screen */
-    overflow-y: auto;     /* Scroll inside if content overflows */
+    height: 100vh;        /* lock to full screen */
+    overflow-y: auto;     /* scroll inside */
   }
 }
 
-/** End New HomePage Layout**/
+/** END NEW HOMEPAGE LAYOUTt**/
 
 /** HEADER **/
 
@@ -119,8 +118,45 @@ body {
   font-weight: bold;
 }
 
+/** HEADER END **/
 
-/** END **/
+/** LANDING **/
+
+.floating-labels-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen */
+  overflow: hidden;
+}
+
+.floating-label {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+  pointer-events: auto;
+}
+
+.label-description {
+  position: absolute;
+  top: 35%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  max-width: 60%;
+  text-align: center;
+  color: #222;
+  background: rgba(255, 255, 255, 0.85); /* optional */
+  padding: 1rem;
+  border-radius: 8px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1;
+}
+
+
+/** LANDING END **/
 
 .breadcrumb {
   background: none;
