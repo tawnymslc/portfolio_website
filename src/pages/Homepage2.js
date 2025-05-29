@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState} from 'react';
 import Header from './Header';
 import Landing from '../components/Landing'
 import ProjectGrid from '../components/ProjectGrid';
+import SkillsExperience from '../components/SkillsExperience';
 import FadeInSection from '../components/FadeInSection';
 import SectionDots from '../components/SectionDots';
 
@@ -43,10 +44,10 @@ const HomePage2 = () => {
     <SectionDots current={currentSection} />
     <div className="fullpage-wrapper" id="fullpage-wrapper" ref={wrapperRef}>
       <section id="landing" className="section">
-  <h1>Hi, I'm Tawny</h1>
-  <p>Welcome to my interactive portfolio</p>
-  <Landing />
-</section>
+        <h1>Hi, I'm Tawny</h1>
+        <p>Welcome to my interactive portfolio</p>
+        <Landing />
+      </section>
       <FadeInSection delay={0.2}>
         <section id="projects" className="section">
             <h2>🚀 Projects</h2>
@@ -56,8 +57,9 @@ const HomePage2 = () => {
       </FadeInSection>
       <FadeInSection delay={0.2}>
         <section id="skills" className="section">
-            <h2>🛠 Skills</h2>
+            <h2>🛠 My Experience + Skills</h2>
             <p>Technologies and tools I use.</p>
+            <SkillsExperience />
         </section>
       </FadeInSection >
       <FadeInSection delay={0.2}>

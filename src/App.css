@@ -148,15 +148,120 @@ body {
   max-width: 60%;
   text-align: center;
   color: #222;
-  background: rgba(255, 255, 255, 0.85); /* optional */
+  background: rgba(255, 255, 255, 0.85);
   padding: 1rem;
   border-radius: 8px;
   transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: 1;
+  pointer-events: none;
 }
 
+@media (max-width: 768px) {
+  .label-description {
+    top: 25%;
+    left: 10%; /* adjust right/left */
+    max-width: 80%;
+  }
+}
 
+@media (min-width: 768px) and (max-width: 856px) {
+  .label-description {
+    top: 30%; /* slightly lower than desktop */
+    left: 10%;
+    max-width: 80%;
+  }
+}
 /** LANDING END **/
+
+/** EXPERIENCE + SKILLS **/
+
+.skills-experience-section,
+.experience-section {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.experience-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.experience-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.experience-scroll-container {
+  display: flex;
+  width: 200%;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+}
+
+.experience-card {
+  flex: 0 0 calc((100% / 6) - (5rem / 6)); /* accounts for 5 gaps of 1rem across 6 cards */
+  padding: 1rem;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+transform: translateY(-6px);
+}
+
+.experience-card h6 {
+  margin: 0 0 0.25rem;
+}
+
+/* reusing .dot and .dot active in main*/
+.scroll-dots.horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.company {
+  font-weight: bold;
+  color: #555;
+}
+
+.company-logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.duration {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-icon {
+  background: #e0e0e0;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/** EXPERIENCE + SKILLS END **/
 
 .breadcrumb {
   background: none;

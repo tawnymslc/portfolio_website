@@ -34,54 +34,77 @@ const floatingWords = [
 
 
 const Landing = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const designerControls = useAnimation();
-  const engineerControls = useAnimation();
-  const technologistControls = useAnimation();
-  const consultantControls = useAnimation();
+    const designerControls = useAnimation();
+    const engineerControls = useAnimation();
+    const technologistControls = useAnimation();
+    const consultantControls = useAnimation();
 
-  const controlsArray = [
-    designerControls,
-    engineerControls,
-    technologistControls,
-    consultantControls,
-  ];
+    const controlsArray = [
+        designerControls,
+        engineerControls,
+        technologistControls,
+        consultantControls,
+    ];
 
-  useEffect(() => {
-    controlsArray.forEach(control => {
-      control.start({
-        y: [0, -10, 0],
-        transition: { duration: 3, repeat: Infinity, ease: 'easeInOut' }
-      });
+   useEffect(() => {
+  controlsArray.forEach((control, index) => {
+    control.start({
+      y: [0, -8, 0],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: 'easeInOut',
+        delay: index * 0.3,
+      }
     });
-  }, []);
+  });
+}, []);
 
   return (
     <div className="floating-labels-wrapper">
-      {floatingWords.map((word, index) => (
+        {floatingWords.map((word, index) => (
+            <motion.div
+                key={index}
+                className="floating-label"
+                style={{ top: word.top, left: word.left }}
+                initial={{ y: 0, scale: 1 }}
+                animate={{
+                    y: hoveredIndex === index ? 0 : [0, -10, 0],
+                    scale: hoveredIndex === index ? 1.2 : 1,
+                    transition: {
+                    y: {
+                        duration: 0.5,
+                        repeat: hoveredIndex === index ? 0 : Infinity,
+                        ease: 'easeInOut'
+                    },
+                    scale: { duration: 0.3 }
+                    }
+                }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                >
+                {word.text}
+            </motion.div>
+         ))}
         <motion.div
-          key={index}
-          className="floating-label"
-          style={{ top: word.top, left: word.left }}
-          initial={{ y: 0, scale: 1 }}
-          animate={controlsArray[index]}
-          whileHover={{ scale: 1.5, y: 0, transition: { duration: 0.3 } }}
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          {word.text}
-        </motion.div>
-      ))}
+  key={hoveredIndex}
+  className="label-description"
+  initial={{ opacity: 0, y: 10 }}
+  animate={{
+    opacity: hoveredIndex !== null ? 1 : 0,
+    y: hoveredIndex !== null ? 0 : 10
+  }}
+  transition={{
+    duration: 0.5,
+    ease: 'easeOut',
+    delay: hoveredIndex !== null ? 0.15 : 0
+  }}
+>
+  {hoveredIndex !== null && floatingWords[hoveredIndex].description}
+</motion.div>
 
-      <motion.div
-        className="label-description"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: hoveredIndex !== null ? 1 : 0, y: hoveredIndex !== null ? 0 : 10 }}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
-      >
-        {hoveredIndex !== null && floatingWords[hoveredIndex].description}
-      </motion.div>
     </div>
   );
 };
