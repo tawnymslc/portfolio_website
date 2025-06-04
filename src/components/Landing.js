@@ -3,32 +3,32 @@ import { useEffect, useState } from 'react';
 
 const floatingWords = [
   {
-    text: 'Leader',
+    text: 'Consultant',
     top: '5%',
-    left: '15%',
+    left: '17%',
     description:
-      'I thrive on mentoring and supporting others, often stepping into the role of SME to guide both teammates and clients. I’ve led workshops, created enablement materials, and enjoy fostering clarity and confidence across teams.'
+      'I’ve worked with clients in EdTech, Events, and Web3, helping them get the most out of their tools. I break down complex setups and make things feel easy and approachable.'
   },
   {
     text: 'Engineer',
     top: '20%',
+    left: '65%',
+    description:
+      'Across my roles, I’ve loved creating, designing, and building technical solutions that actually work for people. Whether it’s front-end or back-end, I enjoy turning ideas into real, usable tools.'
+  },
+  {
+    text: 'Architect',
+    top: '60%',
+    left: '22%',
+    description:
+      'I’ve helped enterprise clients map out their onboarding plans and technical setup. I’m all about finding efficient ways to meet business goals and making sure everything fits together smoothly.'
+  },
+  {
+    text: 'Leader',
+    top: '75%',
     left: '70%',
     description:
-      'I started with a deep love for front-end development during my two bootcamps, but I’ve grown to really enjoy backend work too—especially solving complex problems, building scalable systems, and applying creative solutions that have real impact.'
-  },
-  {
-    text: 'Technologist',
-    top: '60%',
-    left: '20%',
-    description:
-      'I love staying ahead of the curve with new technologies. Recently I’ve been learning Tailwind and Next.js, and I’m excited to explore Web 3.0 and beyond. Diving into new tools and frameworks keeps my creativity sharp.'
-  },
-  {
-    text: 'Consultant',
-    top: '75%',
-    left: '75%',
-    description:
-      'I’ve been an implementation consultant in EdTech, Events, and Web3.0. I enjoy working directly with clients, helping them unlock the full value of their tech stack, and making complex integrations feel easy and approachable.'
+      'I have exp as a team lead in leading workshops, mentoring teammates, or helping clients feel confident with new tools. I try to bring energy and clarity to every team I’m part of.'
   },
 ];
 
@@ -48,19 +48,19 @@ const Landing = () => {
         consultantControls,
     ];
 
-   useEffect(() => {
-  controlsArray.forEach((control, index) => {
-    control.start({
-      y: [0, -8, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: 'easeInOut',
-        delay: index * 0.3,
-      }
+  useEffect(() => {
+    controlsArray.forEach((control, index) => {
+      control.start({
+        y: [0, -8, 0],
+        transition: {
+          duration: 3,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: index * 0.3,
+        }
+      });
     });
-  });
-}, []);
+  }, []);
 
   return (
     <div className="floating-labels-wrapper">
@@ -68,19 +68,23 @@ const Landing = () => {
             <motion.div
                 key={index}
                 className="floating-label"
-                style={{ top: word.top, left: word.left }}
-                initial={{ y: 0, scale: 1 }}
+                style={{ top: word.top, left: word.left, zIndex: hoveredIndex === index ? 2 : 0}}
+                initial={{ y: 0, scale: 1, backgroundColor: 'transparent', color: '#222' }}
                 animate={{
-                    y: hoveredIndex === index ? 0 : [0, -10, 0],
-                    scale: hoveredIndex === index ? 1.2 : 1,
-                    transition: {
+                  y: hoveredIndex === index ? 0 : [0, -10, 0],
+                  scale: hoveredIndex === index ? 1.2 : 1,
+                  backgroundColor: hoveredIndex === index ? '#000' : 'transparent',
+                  color: hoveredIndex === index ? '#fff' : '#222',
+                  transition: {
                     y: {
-                        duration: 0.5,
-                        repeat: hoveredIndex === index ? 0 : Infinity,
-                        ease: 'easeInOut'
+                      duration: 0.5,
+                      repeat: hoveredIndex === index ? 0 : Infinity,
+                      ease: 'easeInOut'
                     },
-                    scale: { duration: 0.3 }
-                    }
+                    scale: { duration: 0.3 },
+                    backgroundColor: { duration: 0.3 },
+                    color: { duration: 0.3 }
+                  }
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -88,23 +92,32 @@ const Landing = () => {
                 {word.text}
             </motion.div>
          ))}
-        <motion.div
-  key={hoveredIndex}
-  className="label-description"
-  initial={{ opacity: 0, y: 10 }}
-  animate={{
-    opacity: hoveredIndex !== null ? 1 : 0,
-    y: hoveredIndex !== null ? 0 : 10
-  }}
-  transition={{
-    duration: 0.5,
-    ease: 'easeOut',
-    delay: hoveredIndex !== null ? 0.15 : 0
-  }}
->
-  {hoveredIndex !== null && floatingWords[hoveredIndex].description}
-</motion.div>
+         {hoveredIndex !== null && (
+  <motion.div
+    className="blur-overlay"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.3 }}
+  />
+)}
 
+        <motion.div
+          key={hoveredIndex}
+          className="label-description"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{
+            opacity: hoveredIndex !== null ? 1 : 0,
+            y: hoveredIndex !== null ? 0 : 10
+          }}
+          transition={{
+            duration: 0.5,
+            ease: 'easeOut',
+            delay: hoveredIndex !== null ? 0.15 : 0
+          }}
+        >     
+          {hoveredIndex !== null && floatingWords[hoveredIndex].description}
+        </motion.div>
     </div>
   );
 };

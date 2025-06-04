@@ -21,10 +21,39 @@ body {
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 4rem;
   padding: 2rem;
   padding-top: 80px;
   scroll-snap-align: start;  /* scroll */
   scroll-snap-stop: always;  /* scroll */
+}
+
+.section#projects,
+.section#skills {
+  height: auto;
+  min-height: 100vh;
+}
+
+@media (min-width: 1200px) {
+  .section#projects {
+    height: 100vh;        /* lock to full screen */
+    overflow-y: auto;     /* scroll inside */
+  }
+}
+
+@media (max-width: 768px) {
+  .section#projects,
+  .section#skills,
+  .section#about {
+    height: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+    padding-top: 100px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .section-dots {
@@ -65,26 +94,13 @@ body {
   scroll-snap-type: none;
 }
 
-
 .card:hover {
   transform: scale(1.03);
   transition: transform 0.3s ease;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
-.section#projects {
-  height: auto;         /* Let content grow */
-  min-height: 100vh;    /* at least 1 screen tall */
-}
-
-@media (min-width: 1200px) {
-  .section#projects {
-    height: 100vh;        /* lock to full screen */
-    overflow-y: auto;     /* scroll inside */
-  }
-}
-
-/** END NEW HOMEPAGE LAYOUTt**/
+/** END NEW HOMEPAGE LAYOUT**/
 
 /** HEADER **/
 
@@ -131,12 +147,23 @@ body {
 
 .floating-label {
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   cursor: pointer;
   user-select: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
   pointer-events: auto;
+  color: #222;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+
+}
+
+.floating-label.hovered {
+  background: #000;
+  color: #fff;
+  transform: scale(1.2);
 }
 
 .label-description {
@@ -147,8 +174,9 @@ body {
   font-size: 1rem;
   max-width: 60%;
   text-align: center;
-  color: #222;
-  background: rgba(255, 255, 255, 0.85);
+  color: white;
+  font-weight: bold;
+  background: black;
   padding: 1rem;
   border-radius: 8px;
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -158,7 +186,7 @@ body {
 
 @media (max-width: 768px) {
   .label-description {
-    top: 25%;
+    top: 30%;
     left: 10%; /* adjust right/left */
     max-width: 80%;
   }
@@ -170,6 +198,18 @@ body {
     left: 10%;
     max-width: 80%;
   }
+}
+
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.1); /* Optional slight dim */
+  z-index: 1;
+  pointer-events: none;
 }
 /** LANDING END **/
 
@@ -219,6 +259,24 @@ transform: translateY(-6px);
   margin: 0 0 0.25rem;
 }
 
+@media (max-width: 768px) {
+  .experience-scroll-wrapper {
+    overflow-x: visible;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+
+  .experience-scroll-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .experience-card {
+    flex: 1 1 100%;
+    margin-bottom: 1.5rem;
+  }
+}
+
 /* reusing .dot and .dot active in main*/
 .scroll-dots.horizontal {
   display: flex;
@@ -226,6 +284,13 @@ transform: translateY(-6px);
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .scroll-dots.horizontal {
+    display: none;
+  }
 }
 
 .company {
@@ -246,19 +311,57 @@ transform: translateY(-6px);
   margin-bottom: 0.5rem;
 }
 
+@media (max-width: 768px) {
+  .duration {
+    display: none;
+  }
+}
+
+.card-duration {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .card-duration {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.skills-heading {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-  max-width: 800px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1.5rem;
+  max-width: 600px;
   margin: 0 auto;
+  justify-items: center;
+  padding: 1rem 0;
 }
 
 .skill-icon {
-  background: #e0e0e0;
-  padding: 0.75rem;
-  border-radius: 8px;
-  font-weight: bold;
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 /** EXPERIENCE + SKILLS END **/

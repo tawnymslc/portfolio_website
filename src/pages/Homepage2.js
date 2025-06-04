@@ -58,14 +58,13 @@ const HomePage2 = () => {
       <FadeInSection delay={0.2}>
         <section id="skills" className="section">
             <h2>🛠 My Experience + Skills</h2>
-            <p>Technologies and tools I use.</p>
             <SkillsExperience />
         </section>
       </FadeInSection >
       <FadeInSection delay={0.2}>
         <section id="about" className="section"> 
-          <h2>👩‍💻 About Me</h2>
-          <p>A bit about my background, passions, and journey.</p>
+          <h1>Under Construction</h1>
+          <h3>👩‍💻 About Me</h3>
         </section>
       </FadeInSection>
       </div>
