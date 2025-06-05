@@ -45,7 +45,7 @@ const HomePage2 = () => {
     <div className="fullpage-wrapper" id="fullpage-wrapper" ref={wrapperRef}>
       <section id="landing" className="section">
         <h1>Hi, I'm Tawny</h1>
-        <p>Welcome to my interactive portfolio</p>
+        <p>Welcome to my portfolio</p>
         <Landing />
       </section>
       <FadeInSection delay={0.2}>

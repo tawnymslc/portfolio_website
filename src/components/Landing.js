@@ -1,5 +1,9 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import architectIcon from '../assets/icons/architect.png';
+import consultantIcon from '../assets/icons/consultant.png';
+import engineerIcon from '../assets/icons/engineer.png';
+import leaderIcon from '../assets/icons/leader.png';
 
 const floatingWords = [
   {
@@ -28,9 +32,16 @@ const floatingWords = [
     top: '75%',
     left: '70%',
     description:
-      'I have exp as a team lead in leading workshops, mentoring teammates, or helping clients feel confident with new tools. I try to bring energy and clarity to every team I’m part of.'
+      'I have spent time as a team lead in leading workshops, mentoring teammates, and helping clients feel confident with new tools. I try to bring energy and clarity to every team I’m part of.'
   },
 ];
+
+const iconMap = {
+  Architect: architectIcon,
+  Consultant: consultantIcon,
+  Engineer: engineerIcon,
+  Leader: leaderIcon
+};
 
 
 const Landing = () => {
@@ -64,60 +75,73 @@ const Landing = () => {
 
   return (
     <div className="floating-labels-wrapper">
-        {floatingWords.map((word, index) => (
-            <motion.div
-                key={index}
-                className="floating-label"
-                style={{ top: word.top, left: word.left, zIndex: hoveredIndex === index ? 2 : 0}}
-                initial={{ y: 0, scale: 1, backgroundColor: 'transparent', color: '#222' }}
-                animate={{
-                  y: hoveredIndex === index ? 0 : [0, -10, 0],
-                  scale: hoveredIndex === index ? 1.2 : 1,
-                  backgroundColor: hoveredIndex === index ? '#000' : 'transparent',
-                  color: hoveredIndex === index ? '#fff' : '#222',
-                  transition: {
-                    y: {
-                      duration: 0.5,
-                      repeat: hoveredIndex === index ? 0 : Infinity,
-                      ease: 'easeInOut'
-                    },
-                    scale: { duration: 0.3 },
-                    backgroundColor: { duration: 0.3 },
-                    color: { duration: 0.3 }
-                  }
-                }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                >
-                {word.text}
-            </motion.div>
-         ))}
-         {hoveredIndex !== null && (
-  <motion.div
-    className="blur-overlay"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.3 }}
-  />
-)}
-
+      {floatingWords.map((word, index) => (
         <motion.div
-          key={hoveredIndex}
-          className="label-description"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{
-            opacity: hoveredIndex !== null ? 1 : 0,
-            y: hoveredIndex !== null ? 0 : 10
-          }}
-          transition={{
-            duration: 0.5,
-            ease: 'easeOut',
-            delay: hoveredIndex !== null ? 0.15 : 0
-          }}
-        >     
-          {hoveredIndex !== null && floatingWords[hoveredIndex].description}
+            key={index}
+            className="floating-label"
+            style={{ top: word.top, left: word.left, zIndex: hoveredIndex === index ? 2 : 0}}
+            initial={{ y: 0, scale: 1, backgroundColor: 'rgba(0, 0, 0, 0)', color: '#222' }}
+            animate={{
+              scale: hoveredIndex === index ? 1.2 : 1,
+              boxShadow: hoveredIndex === index
+                ? '0 0 20px rgba(0, 255, 255, 0.6)'
+                : '0 0 0 transparent',
+              backgroundColor: hoveredIndex === index ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0)',
+              color: hoveredIndex === index ? '#fff' : '#222',
+              transition: {
+                scale: { duration: 0.3 },
+                boxShadow: { duration: 0.3 },
+                backgroundColor: { duration: 0.3 },
+                color: { duration: 0.3 }
+              }
+            }}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            >
+            <div className="label-content">
+              <span className="icon-circle">
+                <img src={iconMap[word.text]} alt={`${word.text} icon`} />
+              </span>
+              <span className="label-text">{word.text}</span>
+            </div>
         </motion.div>
+      ))}
+      {hoveredIndex !== null && (
+      <motion.div
+        className="blur-overlay"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      />
+      )}
+      {hoveredIndex === null && (
+        <motion.div
+          className="landing-prompt"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+        >
+          👆 Hover over a label to learn more
+        </motion.div>
+      )}
+      <motion.div
+        key={hoveredIndex}
+        className="label-description"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{
+          opacity: hoveredIndex !== null ? 1 : 0,
+          y: hoveredIndex !== null ? 0 : 10
+        }}
+        transition={{
+          duration: 0.5,
+          ease: 'easeOut',
+          delay: hoveredIndex !== null ? 0.15 : 0
+        }}
+      >     
+        {hoveredIndex !== null && floatingWords[hoveredIndex].description}
+      </motion.div>
     </div>
   );
 };
