@@ -162,8 +162,8 @@ body {
 
 .landing-prompt {
   position: absolute;
-  top: 45%;
-  left: 47%;
+  top: 54%;
+  left: 49%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
   color: #020202;
@@ -179,10 +179,10 @@ body {
 .label-description {
   position: absolute;
   top: 42%;
-  left: 22%;
+  left: 30%;
   transform: translate(-50%, -50%);
   font-size: 1rem;
-  max-width: 60%;
+  max-width: 40%;
   text-align: center;
   color: white;
   font-weight: bold;
@@ -200,16 +200,36 @@ body {
 }
 
 @media (max-width: 768px) {
-  .landing-prompt{
-    top: 50%;
-    left: 50%; /* adjust right/left */
-    font-size: 1rem;
+  .label-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    justify-items: center;
+    padding: 2rem 1rem;
   }
+
+  .floating-label {
+    position: static !important;
+    padding: 0.75rem;
+    width: 100%;
+    text-align: center;
+  }
+
   .label-description {
-    top: 40%;
+    position: absolute;
+    transform: none;
+    margin: 1.5rem auto 0;
+    top: 50%;
     left: 7%; /* adjust right/left */
     max-width: 85%;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .landing-prompt{
+    top: 60%;
+    left: 50%; /* adjust right/left */
+    font-size: 1rem;
   }
   .label-text {
   font-size: 0.9rem;
