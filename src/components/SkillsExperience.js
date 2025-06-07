@@ -7,7 +7,7 @@ import amazonexplogo from "../img/amazonexplogo.jpg";
 import rfexplogo from "../img/rfexplogo.jpg";
 import ebayexplogo from "../img/ebayexplogo.jpg";
 import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaGithub } from 'react-icons/fa';
-import { SiMongodb, SiTailwindcss, SiNextdotjs, SiPostgresql, SiGooglecloud, SiVisualstudiocode } from 'react-icons/si';
+import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, SiVisualstudiocode } from 'react-icons/si';
 import restApiIcon from '../assets/icons/rest-api.png';
 import pythonIcon from '../assets/icons/python.png'
 import azureIcon from '../assets/icons/azure.png'
@@ -162,7 +162,7 @@ const SkillsExperience = () => {
           ref={scrollRef}
           onScroll={handleScroll}
         >
-          <h3 className="skills-heading">Career Highlights</h3>
+          <h3 className="expskills-heading">Career Highlights</h3>
           <div className="experience-scroll-container">
             {experienceData.map((exp, i) => (
               <div key={i} className="experience-card">
@@ -185,7 +185,7 @@ const SkillsExperience = () => {
             />
           ))}
         </div>
-        <h3 className="skills-heading">Technical Skills</h3>
+        <h3 className="expskills-heading">Technical Skills</h3>
         <div className="skills-grid">
           {skills.map((skill, index) => (
             <div key={index} className="skill-item">
