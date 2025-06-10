@@ -135,19 +135,19 @@ const SkillsExperience = () => {
   return (
    <div className="skills-tabs">
     <div className="tab-buttons">
-  <button
-    className={`tab-button ${activeTab === 'experience' ? 'active' : ''}`}
-    onClick={() => setActiveTab('experience')}
-  >
-    Experience
-  </button>
-  <button
-    className={`tab-button ${activeTab === 'skills' ? 'active' : ''}`}
-    onClick={() => setActiveTab('skills')}
-  >
-    Skills
-  </button>
-</div>
+      <button
+        className={`tab-button ${activeTab === 'experience' ? 'active' : ''}`}
+        onClick={() => setActiveTab('experience')}
+      >
+        Experience
+      </button>
+      <button
+        className={`tab-button ${activeTab === 'skills' ? 'active' : ''}`}
+        onClick={() => setActiveTab('skills')}
+      >
+        Skills
+      </button>
+    </div>
     <div className="tab-content">
       {activeTab === 'experience' && (
         <div className="experience-content">

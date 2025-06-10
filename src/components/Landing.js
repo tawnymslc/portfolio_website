@@ -9,7 +9,7 @@ import leaderIcon from '../assets/icons/leader.png';
 const floatingWords = [
   {
     text: 'Consultant',
-    top: '12%',
+    top: '10%',
     left: '45%',
     glow: 'rgba(0, 132, 255, 0.5)',
     description:
@@ -17,23 +17,23 @@ const floatingWords = [
   },
   {
     text: 'Engineer',
-    top: '45%',
-    left: '75%',
+    top: '40%',
+    left: '73%',
     glow: 'rgba(0, 255, 255, 0.5)',
     description:
       'Across my roles, I’ve loved creating, designing, and building technical solutions that actually work for people. Whether it’s front-end or back-end, I enjoy turning ideas into real, usable tools.'
   },
   {
     text: 'Architect',
-    top: '45%',
-    left: '15%',
+    top: '40%',
+    left: '20%',
     glow: 'rgba(0, 255, 160, 0.5)',
     description:
       'I’ve helped enterprise clients map out their onboarding plans and technical setup. I’m all about finding efficient ways to meet business goals and making sure everything fits together smoothly.'
   },
   {
     text: 'Leader',
-    top: '80%',
+    top: '70%',
     left: '46%',
     glow: 'rgba(255, 0, 153, 0.5)',
     description:
