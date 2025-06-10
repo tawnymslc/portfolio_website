@@ -54,12 +54,10 @@ const HomePage2 = () => {
             <ProjectGrid />
         </section>
       </FadeInSection>
-      <FadeInSection delay={0.2}>
         <section id="skills" className="section">
             <h2 className="section-heading">🛠 My Experience & Skills</h2>
             <SkillsExperience />
         </section>
-      </FadeInSection >
       <FadeInSection delay={0.2}>
         <section id="about" className="section"> 
           <motion.div

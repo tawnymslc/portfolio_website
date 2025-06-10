@@ -196,6 +196,22 @@ body {
 
 /** LANDING **/
 
+.intro-cards,
+.intro-card,
+.secondary-card {
+  position: relative;  /* required for z-index to apply */
+  z-index: 5;          /* higher than the blur-overlay */
+}
+
+.intro-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap; /* allows stacking if screen is too tight */
+}
+
 .intro-card {
   display: flex;
   background: white;
@@ -277,9 +293,14 @@ body {
 }
 
 @media (max-width: 992px) {
-  .intro-section {
-    flex-direction: column;
-    align-items: center; 
+  .intro-cards {
+    display: flex;   
+    align-items: flex-start;            
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;  
   }
 
   .intro-card,
@@ -287,6 +308,8 @@ body {
     margin: 0 auto;         
     text-align: left;       
     align-items: flex-start;
+    text-align: left;
+    flex: 1 1 45%;
   }
 
   .intro-text {
@@ -294,8 +317,8 @@ body {
     text-align: left;
   }
 
-  .intro-card {
-    margin: 0.8rem auto 0.8rem;
+  .name-heading {
+    font-size: 1.6rem;
   }
 }
 
@@ -381,14 +404,14 @@ body {
     position: absolute;
     transform: none;
     margin: 1.5rem auto 0;
-    top: 75%;
+    top: 54%;
     left: 7%; /* adjust right/left */
     max-width: 85%;
     font-size: 0.9rem;
     text-align: center;
   }
   .landing-prompt{
-    top: 85%;
+    top: 60%;
     left: 50%; /* adjust right/left */
     font-size: 1rem;
   }
@@ -597,6 +620,17 @@ transform: translateY(-6px);
 
   .skills-grid {
     gap: 1.1rem;
+    max-width: 400px;
+  }
+
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+
+  }
+
+  .skill-label {
+  font-size: 0.7rem;
   }
 }
 
