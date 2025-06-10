@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import useIsMobile from './useIsMobile';
 import udexplogo from "../img/udlexpogo.jpg";
 import salsifyexplogo from "../img/salsifyexplogo.jpg";
@@ -129,80 +129,65 @@ const skills = [
 ];
 
 const SkillsExperience = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const scrollRef = useRef(null);
   const isMobile = useIsMobile();
-
-  const handleDotClick = (index) => {
-    if (scrollRef.current) {
-      const wrapperWidth = scrollRef.current.offsetWidth;
-      scrollRef.current.scrollTo({
-        left: index * wrapperWidth,
-        behavior: "smooth"
-      });
-    }
-  };
-
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const scrollLeft = scrollRef.current.scrollLeft;
-      const wrapperWidth = scrollRef.current.offsetWidth;
-      const index = Math.round(scrollLeft / wrapperWidth);
-      setActiveIndex(index);
-    }
-  };
-
-  const numDots = Math.ceil(experienceData.length / 3);
+  const [activeTab, setActiveTab] = useState('experience');
 
   return (
-    <section className="skills-experience-section">
-      <div className="experience-section">
-        <div
-          className="experience-scroll-wrapper"
-          ref={scrollRef}
-          onScroll={handleScroll}
-        >
+   <div className="skills-tabs">
+    <div className="tab-buttons">
+  <button
+    className={`tab-button ${activeTab === 'experience' ? 'active' : ''}`}
+    onClick={() => setActiveTab('experience')}
+  >
+    Experience
+  </button>
+  <button
+    className={`tab-button ${activeTab === 'skills' ? 'active' : ''}`}
+    onClick={() => setActiveTab('skills')}
+  >
+    Skills
+  </button>
+</div>
+    <div className="tab-content">
+      {activeTab === 'experience' && (
+        <div className="experience-content">
           <h3 className="expskills-heading">Career Highlights</h3>
-          <div className="experience-scroll-container">
-            {experienceData.map((exp, i) => (
-              <div key={i} className="experience-card">
-                {isMobile && <h4 className="card-duration">{exp.duration}</h4>}
-                <img className="company-logo" src={exp.logo} alt={`${exp.company} logo`} />
-                <h6>{exp.role}</h6>
-                <p className="company">{exp.company}</p>
-                <p className="duration">{exp.duration}</p>
-                <p>{exp.description}</p>
+            <div className="experience-scroll-container">
+              {experienceData.map((exp, i) => (
+                <div key={i} className="experience-card">
+                  {isMobile && <h4 className="card-duration">{exp.duration}</h4>}
+                  <img className="company-logo" src={exp.logo} alt={`${exp.company} logo`} />
+                  <h6>{exp.role}</h6>
+                  <p className="company">{exp.company}</p>
+                  <p className="duration">{exp.duration}</p>
+                  <p className="exp-description">{exp.description}</p>
+                </div>
+              ))}
+            </div>
+        </div>
+      )}
+      {activeTab === 'skills' && (
+        <div className="skills-content">
+          <h3 className="expskills-heading">Technical Skills</h3>
+          <div className="skills-grid">
+            {skills.map((skill, index) => (
+              <div key={index} className="skill-item">
+                <div
+                  className="skill-icon"
+                  style={{
+                    backgroundColor: skill.color + '20',
+                  }}
+                >
+                  {skill.icon}
+                </div>
+                <div className="skill-label">{skill.label}</div>
               </div>
             ))}
           </div>
         </div>
-        <div className="scroll-dots horizontal">
-          {[...Array(numDots)].map((_, i) => (
-            <span
-              key={i}
-              className={`dot ${i === activeIndex ? "active" : ""}`}
-              onClick={() => handleDotClick(i)}
-            />
-          ))}
-        </div>
-        <h3 className="expskills-heading">Technical Skills</h3>
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <div key={index} className="skill-item">
-              <div
-                className="skill-icon"
-                style={{
-                  backgroundColor: skill.color + '20',
-                }}
-              >
-                {skill.icon}
-              </div>
-              <div className="skill-label">{skill.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      )}
+    </div>
+  </div>
   );
 };
 

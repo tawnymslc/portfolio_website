@@ -1,5 +1,4 @@
 import './App.css';
-import HomePage from './pages/HomePage';
 import HomePage2 from './pages/Homepage2';
 import UnstoppableSearch from './projects/UnstoppableDomains/UnstoppableSearch';
 import SpotifyApp from './projects/Spotify/SpotifyApp';
@@ -17,8 +16,7 @@ function App() {
     <>
       <ScrollToTop />
       <Routes>
-         <Route path="/home2" element={<HomePage2 />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage2 />} />
         <Route path="/domains" element={<UnstoppableSearch />} />
         <Route path="/spotify" element={<SpotifyApp />} />
         <Route path="/etl" element={<ETLDashboard />} />

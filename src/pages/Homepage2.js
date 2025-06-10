@@ -50,14 +50,13 @@ const HomePage2 = () => {
       </section>
       <FadeInSection delay={0.2}>
         <section id="projects" className="section">
-            <h2>🚀 Projects</h2>
-            <p>My recent work and portfolio highlights will go here.</p>
+            <h2 className="section-heading">🚀 Things I've Built</h2>
             <ProjectGrid />
         </section>
       </FadeInSection>
       <FadeInSection delay={0.2}>
         <section id="skills" className="section">
-            <h2>🛠 My Experience + Skills</h2>
+            <h2 className="section-heading">🛠 My Experience & Skills</h2>
             <SkillsExperience />
         </section>
       </FadeInSection >
@@ -72,7 +71,7 @@ const HomePage2 = () => {
             <div className="under-construction-icon">
               <FaWrench className="bounce-icon" size="2.4em" color="#FF9900" />
             </div>
-            <h2 className="under-construction-text">About Me</h2>
+            <h2 className="section-heading">About Me</h2>
             <p className="under-construction-sub">This section is under construction 🚧</p>
           </motion.div>
         </section>
