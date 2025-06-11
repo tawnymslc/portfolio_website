@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.509cb94e.css",
-    "main.js": "/static/js/main.92c09a95.js",
+    "main.css": "/static/css/main.7406338b.css",
+    "main.js": "/static/js/main.56a3ae3d.js",
     "static/js/787.d4b2d523.chunk.js": "/static/js/787.d4b2d523.chunk.js",
     "static/media/journimg.jpg": "/static/media/journimg.eaae62bebfa3d3bc5472.jpg",
     "static/media/unstoppable-project.jpg": "/static/media/unstoppable-project.9612c3ccb83b31aa8ffa.jpg",
@@ -38,12 +38,12 @@
     "index.html": "/index.html",
     "static/media/icon-menu-close.svg": "/static/media/icon-menu-close.ca20d86e8364ad748c947025ef771994.svg",
     "static/media/icon-menu.svg": "/static/media/icon-menu.f967d833be0e64002eeaadab0bae9ac5.svg",
-    "main.509cb94e.css.map": "/static/css/main.509cb94e.css.map",
-    "main.92c09a95.js.map": "/static/js/main.92c09a95.js.map",
+    "main.7406338b.css.map": "/static/css/main.7406338b.css.map",
+    "main.56a3ae3d.js.map": "/static/js/main.56a3ae3d.js.map",
     "787.d4b2d523.chunk.js.map": "/static/js/787.d4b2d523.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.509cb94e.css",
-    "static/js/main.92c09a95.js"
+    "static/css/main.7406338b.css",
+    "static/js/main.56a3ae3d.js"
   ]
 }
