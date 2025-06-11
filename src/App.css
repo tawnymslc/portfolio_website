@@ -199,17 +199,17 @@ body {
 .intro-cards,
 .intro-card,
 .secondary-card {
-  position: relative;  /* required for z-index to apply */
-  z-index: 5;          /* higher than the blur-overlay */
+  position: relative;  
+  z-index: 5;          
 }
 
 .intro-cards {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;      
+  align-items: flex-start;  
+  max-width: 400px;   
   gap: 1rem;
-  flex-wrap: wrap; /* allows stacking if screen is too tight */
+  margin-left: 4rem;           
 }
 
 .intro-card {
@@ -294,22 +294,20 @@ body {
 
 @media (max-width: 992px) {
   .intro-cards {
-    display: flex;   
-    align-items: flex-start;            
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0 1rem;
-    flex-wrap: wrap;  
   }
 
   .intro-card,
   .secondary-card {
-    margin: 0 auto;         
-    text-align: left;       
-    align-items: flex-start;
-    text-align: left;
-    flex: 1 1 45%;
+    flex: 1 1 45%;          /* Share row, ~2 cards per row */
+    max-width: 50%;
+    margin: 0;
+    padding: 0.75rem;
+    box-sizing: border-box;
   }
 
   .intro-text {
@@ -317,8 +315,16 @@ body {
     text-align: left;
   }
 
+  .greeting {
+    font-size: 1rem;
+  }
+
   .name-heading {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+  }
+
+  .title-list li {
+  font-size: 0.55rem;
   }
 }
 
@@ -362,11 +368,11 @@ body {
 
 .label-description {
   position: absolute;
-  top: 40%;
-  left: 30%;
+  top: 39%;
+  left: 34%;
   transform: translate(-50%, -50%);
   font-size: 1rem;
-  max-width: 40%;
+  max-width: 35%;
   text-align: center;
   color: white;
   font-weight: bold;
@@ -381,43 +387,6 @@ body {
 .label-text {
   font-size: 1rem;
   font-weight: 600;
-}
-
-@media (max-width: 992px) {
-  .label-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    width: 100%;
-    justify-items: center;
-    padding: 2rem 1rem;
-  }
-
-  .floating-label {
-    position: static !important;
-    padding: 0.75rem;
-    width: 60%;
-    text-align: center;
-  }
-
-  .label-description {
-    position: absolute;
-    transform: none;
-    margin: 1.5rem auto 0;
-    top: 54%;
-    left: 7%; /* adjust right/left */
-    max-width: 85%;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-  .landing-prompt{
-    top: 60%;
-    left: 50%; /* adjust right/left */
-    font-size: 1rem;
-  }
-  .label-text {
-  font-size: 0.9rem;
-  }
 }
 
 .blur-overlay {
@@ -448,6 +417,50 @@ body {
   height: 100%;
   object-fit: contain; /* changed from cover */
   padding: 4px; /* optional spacing if the image is too snug */
+}
+
+@media (max-width: 992px) {
+  .label-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    justify-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .floating-label {
+    position: static !important;
+    padding: 0.75rem;
+    width: 60%;
+    text-align: center;
+  }
+
+  .label-description {
+    position: absolute;
+    transform: none;
+    margin: 1.5rem auto 0;
+    top: 55%;
+    left: 7%; 
+    max-width: 85%;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .landing-prompt{
+    top: 61%;
+    left: 50%; 
+    font-size: 1rem;
+  }
+
+  .icon-circle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .label-text {
+  font-size: 0.8rem;
+  }
 }
 
 /******* LANDING END ********/

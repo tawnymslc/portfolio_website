@@ -18,7 +18,7 @@ const floatingWords = [
   {
     text: 'Engineer',
     top: '40%',
-    left: '73%',
+    left: '74%',
     glow: 'rgba(0, 255, 255, 0.5)',
     description:
       'Across my roles, I’ve loved creating, designing, and building technical solutions that actually work for people. Whether it’s front-end or back-end, I enjoy turning ideas into real, usable tools.'
@@ -33,8 +33,8 @@ const floatingWords = [
   },
   {
     text: 'Leader',
-    top: '70%',
-    left: '46%',
+    top: '68%',
+    left: '45%',
     glow: 'rgba(255, 0, 153, 0.5)',
     description:
       'I have spent time as a team lead in leading workshops, mentoring teammates, and helping clients feel confident with new tools. I try to bring energy and clarity to every team I’m part of.'
