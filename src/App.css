@@ -307,7 +307,7 @@ body {
     width: 60%;            
     max-width: none;      
     margin: 0;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
     padding: 1rem 1.5rem;
     display: flex;
     flex-direction: row;       
@@ -460,7 +460,7 @@ body {
     position: absolute;
     transform: none;
     margin: 1.5rem auto 0;
-    top: 54%;
+    top: 53%;
     left: 7%; 
     max-width: 85%;
     font-size: 0.9rem;
@@ -468,7 +468,7 @@ body {
   }
 
   .landing-prompt{
-    top: 62%;
+    top: 61%;
     left: 50%; 
     font-size: 1rem;
   }
