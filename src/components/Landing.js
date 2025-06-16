@@ -10,7 +10,7 @@ const floatingWords = [
   {
     text: 'Consultant',
     top: '10%',
-    left: '45%',
+    left: '47%',
     glow: 'rgba(0, 132, 255, 0.5)',
     description:
       'I’ve worked with clients in EdTech, Events, and Web3, helping them get the most out of their tools. I break down complex setups and make things feel easy and approachable.'
@@ -34,7 +34,7 @@ const floatingWords = [
   {
     text: 'Leader',
     top: '68%',
-    left: '45%',
+    left: '48%',
     glow: 'rgba(255, 0, 153, 0.5)',
     description:
       'I have spent time as a team lead in leading workshops, mentoring teammates, and helping clients feel confident with new tools. I try to bring energy and clarity to every team I’m part of.'

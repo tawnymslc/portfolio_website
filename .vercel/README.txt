@@ -1,11 +1,16 @@
-> Why do I have a folder named ".vercel" in my project?
-The ".vercel" folder is created when you link a directory to a Vercel project.
+# My Portfolio – [tawny-mathi.com](https://tawny-mathi.com)
 
-> What does the "project.json" file contain?
-The "project.json" file contains:
-- The ID of the Vercel project that you linked ("projectId")
-- The ID of the user or team your Vercel project is owned by ("orgId")
+A mobile-first, fully responsive portfolio built with React, showcasing my work across frontend development, API integrations, and backend scripting.
 
-> Should I commit the ".vercel" folder?
-No, you should not share the ".vercel" folder with anyone.
-Upon creation, it will be automatically added to your ".gitignore" file.
+## ✨ Features
+
+- Responsive design with conditional flex layouts (e.g., side-by-side on mobile, stacked on desktop)
+- Real-device tested scroll snap behavior tuned for mobile Safari and Chrome
+- Interactive UI with animated elements and section-based navigation
+- Project cards with modal views or dedicated pages
+- Hosted at [tawny-mathi.com](https://tawny-mathi.com)
+
+## 🔧 Technologies
+
+React · CSS Modules · JavaScript · Framer Motion · Vercel
+

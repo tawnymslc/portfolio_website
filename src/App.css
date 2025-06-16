@@ -307,7 +307,7 @@ body {
     width: 60%;            
     max-width: none;      
     margin: 0;
-    margin-left: 1.5rem;
+    margin-left: 2rem;
     padding: 1rem 1.5rem;
     display: flex;
     flex-direction: row;       
@@ -373,7 +373,7 @@ body {
 .landing-prompt {
   position: absolute;
   top: 45%;
-  left: 49%;
+  left: 51%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
   color: #020202;
