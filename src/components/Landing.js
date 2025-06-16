@@ -80,21 +80,21 @@ const Landing = () => {
   return (
     <div className="floating-labels-wrapper">
       <div className="intro-cards">
-      <div className="intro-card">
-        <div className="wave-icon">👋</div>
-        <div className="intro-text">
-          <p className="greeting">Hello, I'm</p>
-          <h1 className="name-heading">Tawny</h1>
+        <div className="intro-card">
+          <div className="wave-icon">👋</div>
+          <div className="intro-text">
+            <p className="greeting">Hello, I'm</p>
+            <h1 className="name-heading">Tawny</h1>
+          </div>
         </div>
-      </div>
-      <div className="secondary-card">
-        <ul className="title-list">
-          <li>IMPLEMENTATION CONSULTANT</li>
-          <li>SOLUTIONS ENGINEER</li>
-          <li>CUSTOMER ARCHITECT</li>
-          <li>FULL STACK DEVELOPER</li>
-        </ul>
-      </div>
+        <div className="secondary-card">
+          <ul className="title-list">
+            <li>IMPLEMENTATION CONSULTANT</li>
+            <li>SOLUTIONS ENGINEER</li>
+            <li>CUSTOMER ARCHITECT</li>
+            <li>FULL STACK DEVELOPER</li>
+          </ul>
+        </div>
       </div>
       <div className="label-grid">
         {floatingWords.map((word, index) => (
