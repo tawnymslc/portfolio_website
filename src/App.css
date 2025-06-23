@@ -294,60 +294,6 @@ body {
   100% { transform: rotate(0deg); }
 }
 
-@media (max-width: 992px) {
-  .intro-cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 1rem 0 0 0;
-  }
-
-  .intro-card {
-    width: 60%;            
-    max-width: none;      
-    margin: 0;
-    margin-left: 2rem;
-    padding: 1rem 1.5rem;
-    display: flex;
-    flex-direction: row;       
-    align-items: center;        
-    justify-content: flex-start;
-    text-align: left;           
-    gap: 1rem;                 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-    background: white;
-  }
-
-  .intro-text {
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .wave-icon {
-    font-size: 1.8rem;
-  }
-
-  .greeting {
-    font-size: 0.95rem;
-  }
-
-  .name-heading {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin: 0.25rem 0;
-  }
-
-  .title-list li {
-  font-size: 0.55rem;
-  }
-
-  .secondary-card {
-    display: none;
-  }
-}
-
 .floating-labels-wrapper {
   position: relative;
   width: 100%;
@@ -435,11 +381,68 @@ body {
 .icon-circle img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* changed from cover */
-  padding: 4px; /* optional spacing if the image is too snug */
+  object-fit: contain; 
+  padding: 4px; 
 }
 
 @media (max-width: 992px) {
+
+    #landing {
+    height: 100vh; 
+  }
+
+  .intro-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem 0 0 0;
+  }
+
+  .intro-card {
+    width: 60%;            
+    max-width: none;      
+    margin: 0;
+    margin-left: 2rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;       
+    align-items: center;        
+    justify-content: flex-start;
+    text-align: left;           
+    gap: 1rem;                 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background: white;
+  }
+
+  .intro-text {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .wave-icon {
+    font-size: 1.8rem;
+  }
+
+  .greeting {
+    font-size: 0.95rem;
+  }
+
+  .name-heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0.25rem 0;
+  }
+
+  .title-list li {
+  font-size: 0.55rem;
+  }
+
+  .secondary-card {
+    display: none;
+  }
+
   .label-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -486,7 +489,7 @@ body {
 /******* LANDING END ********/
 
 
-/** EXPERIENCE + SKILLS **/
+/******* EXPERIENCE + SKILLS ********/
 
 .skills-experience-section,
 .experience-section {
@@ -553,15 +556,26 @@ body {
 
 .experience-card {
   background: white;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 1rem;
   transition: transform 0.3s ease;
   box-sizing: border-box;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.experience-card h6 {
+  text-align: center;
+  word-break: break-word;
 }
 
 .experience-card:hover {
-transform: translateY(-6px);
+  transform: translateY(-6px);
 }
 
 .company {
@@ -665,8 +679,8 @@ transform: translateY(-6px);
   .skill-label {
   font-size: 0.7rem;
   }
+  
 }
-
 
 /******** EXPERIENCE + SKILLS END *********/
 
@@ -760,7 +774,7 @@ button.btn-contact-me {
   font-weight: 600;
 }
 
-/** PROJECTS **/
+/******* PROJECTS ********/
 .project-container {
   width: 100%;
   border: 2px solid grey;
@@ -772,6 +786,13 @@ button.btn-contact-me {
 
 .project-bullets {
   margin-left: 15px;
+}
+
+.modal-project-image {
+  width: 100%;
+  height: 300px; 
+  object-fit: cover; 
+  margin-bottom: 1rem;
 }
 
 .unstoppable-bg {
@@ -823,7 +844,7 @@ button.btn-contact-me {
 }
 
 .spotify-bg {
-  background-image: url('./img/wp2775382.jpg');
+  background-image: url('./img/spotify-bg.jpg');
   background-size: cover;
   background-position: center;
   color: white;
@@ -1010,8 +1031,8 @@ button.btn-contact-me {
 @media (max-width: 768px) {
   .news-preview-card img {
     width: 100%;
-    height: auto; /* Optional: maintain aspect ratio */
-    margin-bottom: 10px; /* Optional: space below image */
+    height: auto; 
+    margin-bottom: 10px; 
   }
 }
 

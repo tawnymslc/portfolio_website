@@ -50,6 +50,7 @@ const projects = [
 ];
 
 const ProjectGrid = () => {
+  
   const fullRows = Math.floor(projects.length / 4); // 4 per row now
   const remainder = projects.length % 4;
 

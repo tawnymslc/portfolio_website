@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const ProjectCard = ({ project }) => {
-  const [modalOpen, setModalOpen] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
   const toggleModal = () => setModalOpen(!modalOpen);
 
   return (
@@ -27,20 +27,18 @@ const ProjectCard = ({ project }) => {
           <CardTitle tag="h5">{project.title}</CardTitle>
           <CardText>{project.shortDescription}</CardText>
               <div className="mt-auto">
-
                   <Button color="primary" onClick={toggleModal}>View More</Button>
-
               </div>
           </CardBody>
       </Card>
       <Modal isOpen={modalOpen} toggle={toggleModal} size="lg">
         <ModalHeader toggle={toggleModal}>{project.title}</ModalHeader>
         <ModalBody>
-                            <Link to={project.route}>
+        <Link to={project.route}>
           <img
             src={project.image}
             alt={project.title}
-            className="img-fluid rounded mb-3"
+            className=" mb-3 modal-project-image"
           />
           </Link>
           <p><strong>Description:</strong> {project.fullDescription}</p>

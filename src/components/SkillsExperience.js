@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import useIsMobile from './useIsMobile';
+import ExperienceCard from './ExperienceCard';
+import { Row, Col } from 'reactstrap';
 import udexplogo from "../img/udlexpogo.jpg";
 import salsifyexplogo from "../img/salsifyexplogo.jpg";
 import canvasexplogo from "../img/canvasexplogo.png";
@@ -8,7 +10,7 @@ import rfexplogo from "../img/rfexplogo.jpg";
 import ebayexplogo from "../img/ebayexplogo.jpg";
 import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaGithub } from 'react-icons/fa';
 import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, SiVisualstudiocode } from 'react-icons/si';
-import restApiIcon from '../assets/icons/rest-api.png';
+import restApiIcon from '../assets/icons/rest-api.png'
 import pythonIcon from '../assets/icons/python.png'
 import azureIcon from '../assets/icons/azure.png'
 import awsIcon from '../assets/icons/aws.png'
@@ -19,43 +21,76 @@ const experienceData = [
     role: "Amazon FBA Seller",
     company: "Self-Employed",
     duration: "2023 – 2025",
-    description: "Launched and managed an online store using Amazon FBA. Researched product viability, sourced inventory, optimized listings, and handled customer engagement and fulfillment.",
-    logo: amazonexplogo
+    description: [
+    "Researched product viability, competition, availability, and ROI to identify profitable opportunities.",
+    "Sourced and procured inventory while optimizing supply chain logistics.",
+    "Established and managed an online store on Amazon, handling listing optimization, pricing strategies, and customer engagement.",
+    "Attended workshops and training sessions to refine e-commerce, digital marketing, and business management skills."
+    ],
+    logo: amazonexplogo,
+    primaryColor: "#FF9900" 
   },
   {
     role: "Partner Integration Engineer",
     company: "Unstoppable Domains",
     duration: "2022 – 2023",
-    description: "Supported 60+ partners quarterly with Login, Resolution, and API integrations. Collaborated with dev teams to debug React-based implementations and submit production-ready GitHub PRs.",
-    logo: udexplogo
+    description: [
+      "Supported over 60 partners quarterly in technical integration projects, including: Login, Resolution, and Partner API.",
+      "Supported developer teams by troubleshooting and debugging integration code, with a focus on React-based implementations.",
+      "Successfully merged and completed GitHub pull requests that incorporated Unstoppable's API and Libraries into various projects.",
+      "The volatility of the blockchain/crypto industry led to funding challenges, affecting my role."
+
+    ],
+    logo: udexplogo,
+    primaryColor: "rgb(15, 74, 274)"
   },
   {
     role: "Sr Implementation Consultant",
     company: "Salsify",
     duration: "2021 – 2022",
-    description: "Led onboarding for clients like Coca-Cola and Hormel. Ran discovery calls, configured data workflows, scoped projects, and mentored team members as a team lead.",
-    logo: salsifyexplogo
+    description: [
+      "Managed the onboarding of high-profile, strategic clients, including Coca-Cola and Hormel, overseeing 15-25 complex implementations each quarter.",
+      "Led client-facing workshops, facilitated discovery calls, and provided technical support to ensure seamless integrations and client success.",
+      "Served as a Team Lead, conducting 1:1 meetings and leading featured workshops to drive team development and knowledge sharing."
+    ],
+    logo: salsifyexplogo,
+    primaryColor: "rgb(24, 182, 255)"
   },
   {
     role: "Solutions Consultant",
     company: "Rainfocus",
     duration: "2019 – 2020",
-    description: "Managed onboarding and setup of enterprise event platforms. Handled configuration, stakeholder training, and project delivery across cross-functional teams.",
-    logo: rfexplogo
+    description: [
+      "Facilitated the onboarding of events by collaborating with partners, establishing expectations, configuring settings, and testing.",
+      "Collaborated with project managers to formulate the comprehensive strategy for configuring a partner's event within the tool.",
+      "My role was impacted by the pandemic as live events worldwide were canceled, leading to company-wide cuts."
+    ],
+    logo: rfexplogo,
+    primaryColor: "rgb(222, 0, 69)"
   },
   {
     role: "Sr Implementation Consultant PM",
     company: "Instructure",
     duration: "2015 – 2019",
-    description: "Delivered Canvas LMS implementations for K–12 and higher ed. Managed timelines, SSO setup, migrations, and client training across 30+ projects per quarter.",
-    logo: canvasexplogo
+    description: 
+    [
+      "Led end-to-end implementation of Canvas LMS for K-12 districts and higher education institutions, ensuring seamless deployment and adoption.",
+      "Recognized as the #1 Implementation Consultant, as voted by the Customer Success team, to be paired with on projects.",
+      "Achieved a 95%+ deal closure rate as the lead Implementation Consultant, driving successful client onboarding and satisfaction."
+    ],
+    logo: canvasexplogo,
+    primaryColor: "rgb(31, 105, 139)"
   },
   {
     role: "Enterprise Implementation Manager",
     company: "eBay",
     duration: "2005 – 2015",
-    description: "Integrated 50+ strategic brands into eBay’s marketplace. Led cross-team coordination and launched high-profile projects like the Designer Collective for seller in fashion",
-    logo: ebayexplogo
+    description: [
+      "Integrated 50+ strategic brands into eBay’s marketplace. Led cross-team coordination and launched high-profile projects like the Designer Collective Landing Site for eBay fashion.",
+      "Served as technical advisor for assigned projects launching their products on eBay."
+    ],
+    logo: ebayexplogo,
+    primaryColor: "rgb(138, 198, 7)"
   }
 ];
 
@@ -153,16 +188,13 @@ const SkillsExperience = () => {
         <div className="experience-content">
           <h3 className="expskills-heading">Career Highlights</h3>
             <div className="experience-scroll-container">
-              {experienceData.map((exp, i) => (
-                <div key={i} className="experience-card">
-                  {isMobile && <h4 className="card-duration">{exp.duration}</h4>}
-                  <img className="company-logo" src={exp.logo} alt={`${exp.company} logo`} />
-                  <h6>{exp.role}</h6>
-                  <p className="company">{exp.company}</p>
-                  <p className="duration">{exp.duration}</p>
-                  <p className="exp-description">{exp.description}</p>
-                </div>
-              ))}
+              <Row className="g-4">
+                {experienceData.map((exp, index) => (
+                  <Col key={index} sm="12" md="6" lg="4" className="d-flex">
+                    <ExperienceCard exp={exp} isMobile={isMobile} />
+                  </Col>
+                ))}
+              </Row>
             </div>
         </div>
       )}
