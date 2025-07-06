@@ -1,0 +1,190 @@
+.skillsTabs {
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.tabContent {
+  min-height: 600px;
+}
+
+.tabButtons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.tabButton {
+  padding: 0.3rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  color: #333;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.tabButton:hover {
+  background-color: #f0f0f0;
+}
+
+.tabButton.active {
+  background-color: #2b2b2b;
+  color: white;
+  border: 2px solid white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.experienceScrollContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.expskillsHeading {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.experienceCard {
+  background: white;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.experienceCard h6 {
+  text-align: center;
+  word-break: break-word;
+}
+
+.experienceCard:hover {
+  transform: translateY(-6px);
+}
+
+.company {
+  font-weight: bold;
+  color: #555;
+}
+
+.companyLogo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.duration {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.cardDuration {
+  display: none;
+}
+
+.expDescription {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #444;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-items: center;
+  padding: 2rem 0;
+}
+
+.skillIcon {
+  background: #f5f5f5;
+  border: 1px solid white;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+ box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skillLabel {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  max-width: 80px;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .experienceScrollContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .expskillsHeading {
+    font-size: 1rem;
+  }
+
+  .duration {
+    display: none;
+  }
+
+  .cardDuration {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .skillsGrid {
+    gap: 1.1rem;
+    max-width: 400px;
+  }
+
+  .skillIcon {
+    width: 60px;
+    height: 60px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .skillLabel {
+    font-size: 0.7rem;
+  }
+}

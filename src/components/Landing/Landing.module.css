@@ -1,0 +1,294 @@
+.introCards,
+.introCard,
+.secondaryCard {
+  position: relative;
+  z-index: 5;
+}
+
+.introCards {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 400px;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.introCard {
+  display: flex;
+  width: 100%;
+  background: white;
+  padding: 1rem 1.5rem;
+  margin: 0 0 20px 4rem;
+  border-radius: 10px;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.15);
+  width: fit-content;
+  text-align: left;
+  animation: fadeInUp 1s ease forwards;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.waveIcon {
+  font-size: 2rem;
+  animation: wave 1.5s infinite;
+  padding-right: 15px;
+}
+
+.introText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.greeting {
+  font-size: 1rem;
+  margin: 0;
+  color: #555;
+}
+
+.nameHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.2rem 0 0;
+  color: #111;
+}
+
+.secondaryCard {
+  background: white;
+  padding: 1rem 1.5rem;
+  margin: 0 0 20px 5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: fit-content;
+  text-align: left;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.titleList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.titleList li {
+  color: #666;
+  font-size: 0.6rem;
+  font-weight: 600;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(15deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.floatingLabelsWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.floatingLabel {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.labelContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.landingPrompt {
+  position: absolute;
+  top: 45%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: #020202;
+  font-weight: 500;
+  opacity: 0.7;
+  text-align: center;
+  max-width: 60%;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.labelDescription {
+  position: absolute;
+  top: 39%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  max-width: 35%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background: black;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.labelText {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.blurOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.iconCircle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.iconCircle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+@media (max-width: 992px) {
+  #landing {
+    height: 100vh;
+  }
+
+  .introCards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem 0 0 0;
+  }
+
+  .introCard {
+    width: 60%;
+    max-width: none;
+    margin: 0;
+    margin-left: 2rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 1rem;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      0 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background: white;
+    animation: fadeInUp 1s ease forwards;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .introText {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .waveIcon {
+    font-size: 1.8rem;
+  }
+
+  .greeting {
+    font-size: 0.95rem;
+  }
+
+  .nameHeading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0.25rem 0;
+  }
+
+  .titleList li {
+    font-size: 0.55rem;
+  }
+
+  .secondaryCard {
+    display: none;
+  }
+
+  .labelGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    justify-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .floatingLabel {
+    position: static !important;
+    padding: 0.75rem;
+    width: 60%;
+    text-align: center;
+  }
+
+  .labelDescription {
+    position: absolute;
+    transform: none;
+    margin: 1.5rem auto 0;
+    top: 55%;
+    left: 7%;
+    max-width: 85%;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .landingPrompt {
+    top: 63%;
+    left: 50%;
+    font-size: 1rem;
+  }
+
+  .iconCircle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .labelText {
+    font-size: 0.8rem;
+  }
+}

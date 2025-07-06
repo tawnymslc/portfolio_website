@@ -1,10 +1,11 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useState, useMemo } from 'react';
-import useIsMobile from '../components/useIsMobile'; 
-import architectIcon from '../assets/icons/architect.png';
-import consultantIcon from '../assets/icons/consultant.png';
-import engineerIcon from '../assets/icons/engineer.png';
-import leaderIcon from '../assets/icons/leader.png';
+import useIsMobile from '../useIsMobile'; 
+import architectIcon from '../../assets/icons/architect.png';
+import consultantIcon from '../../assets/icons/consultant.png';
+import engineerIcon from '../../assets/icons/engineer.png';
+import leaderIcon from '../../assets/icons/leader.png';
+import styles from './Landing.module.css';
 
 const floatingWords = [
   {
@@ -78,61 +79,61 @@ const Landing = () => {
   }, [controlsArray]);
 
   return (
-    <div className="floating-labels-wrapper">
-      <div className="intro-cards">
-        <div className="intro-card">
-          <div className="wave-icon">👋</div>
-          <div className="intro-text">
-            <p className="greeting">Hello, I'm</p>
-            <h1 className="name-heading">Tawny</h1>
+    <div className={styles.floatingLabelsWrapper}>
+      <div className={styles.introCards}>
+        <div className={styles.introCard}>
+          <div className={styles.waveIcon}>👋</div>
+          <div className={styles.introText}>
+            <p className={styles.greeting}>Hello, I'm</p>
+            <h1 className={styles.nameHeading}>Tawny</h1>
           </div>
         </div>
-        <div className="secondary-card">
-          <ul className="title-list">
-            <li>IMPLEMENTATION CONSULTANT</li>
-            <li>SOLUTIONS ENGINEER</li>
-            <li>CUSTOMER ARCHITECT</li>
-            <li>FULL STACK DEVELOPER</li>
-          </ul>
-        </div>
+          <div className={styles.secondaryCard}>
+            <ul className={styles.titleList}>
+                <li>IMPLEMENTATION CONSULTANT</li>
+                <li>SOLUTIONS ENGINEER</li>
+                <li>CUSTOMER ARCHITECT</li>
+                <li>FULL STACK DEVELOPER</li>
+            </ul>
+          </div>
       </div>
-      <div className="label-grid">
+      <div className={styles.labelGrid}>
         {floatingWords.map((word, index) => (
           <motion.div
             key={index}
-            className="floating-label"
-            style={{ ...(isMobile ? {} : { top: word.top, left: word.left }),
-            zIndex: hoveredIndex === index ? 2 : 0
-          }}
-            initial={{ y: 0, scale: 1, backgroundColor: 'rgba(0, 0, 0, 0)', color: '#222' }}
-            animate={{
-              scale: hoveredIndex === index ? (isMobile ? 1.03 : 1.2) : 1,
-              boxShadow: hoveredIndex === index
-                ? `0 0 20px ${floatingWords[index].glow}`
-                : '0 0 0 transparent',
-              backgroundColor: hoveredIndex === index ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0)',
-              color: hoveredIndex === index ? '#fff' : '#222',
-              transition: {
-                scale: { duration: 0.3 },
-                boxShadow: { duration: 0.3 },
-                backgroundColor: { duration: 0.3 },
-                color: { duration: 0.3 }
-              }
+            className={styles.floatingLabel}
+              style={{ ...(isMobile ? {} : { top: word.top, left: word.left }),
+              zIndex: hoveredIndex === index ? 2 : 0
             }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className="label-content">
-                <span className="icon-circle">
+              initial={{ y: 0, scale: 1, backgroundColor: 'rgba(0, 0, 0, 0)', color: '#222' }}
+              animate={{
+                scale: hoveredIndex === index ? (isMobile ? 1.03 : 1.2) : 1,
+                boxShadow: hoveredIndex === index
+                  ? `0 0 20px ${floatingWords[index].glow}`
+                  : '0 0 0 transparent',
+                backgroundColor: hoveredIndex === index ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0)',
+                color: hoveredIndex === index ? '#fff' : '#222',
+                transition: {
+                  scale: { duration: 0.3 },
+                  boxShadow: { duration: 0.3 },
+                  backgroundColor: { duration: 0.3 },
+                  color: { duration: 0.3 }
+                }
+              }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+              <div className={styles.labelContent}>
+                <span className={styles.iconCircle}>
                   <img src={iconMap[word.text]} alt={`${word.text} icon`} />
                 </span>
-                <span className="label-text">{word.text}</span>
+                <span className={styles.labelText}>{word.text}</span>
               </div>
           </motion.div>
         ))}
         {hoveredIndex !== null && (
           <motion.div
-            className="blur-overlay"
+            className={styles.blurOverlay}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -141,7 +142,7 @@ const Landing = () => {
         )}
         {hoveredIndex === null && (
           <motion.div
-            className="landing-prompt"
+            className={styles.landingPrompt}
             initial={{ opacity: 0 }}
             animate={{
               opacity: [1, 0.6, 1], // soft pulse
@@ -159,7 +160,7 @@ const Landing = () => {
         )}
         <motion.div
           key={hoveredIndex}
-          className="label-description"
+          className={styles.labelDescription}
           initial={{ opacity: 0, y: 10 }}
           animate={{
             opacity: hoveredIndex !== null ? 1 : 0,

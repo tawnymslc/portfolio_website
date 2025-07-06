@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import useIsMobile from './useIsMobile';
+import useIsMobile from '../useIsMobile';
 import ExperienceCard from './ExperienceCard';
 import { Row, Col } from 'reactstrap';
-import udexplogo from "../img/udlexpogo.jpg";
-import salsifyexplogo from "../img/salsifyexplogo.jpg";
-import canvasexplogo from "../img/canvasexplogo.png";
-import amazonexplogo from "../img/amazonexplogo.jpg";
-import rfexplogo from "../img/rfexplogo.jpg";
-import ebayexplogo from "../img/ebayexplogo.jpg";
 import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaGithub } from 'react-icons/fa';
 import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, SiVisualstudiocode } from 'react-icons/si';
-import restApiIcon from '../assets/icons/rest-api.png'
-import pythonIcon from '../assets/icons/python.png'
-import azureIcon from '../assets/icons/azure.png'
-import awsIcon from '../assets/icons/aws.png'
-import postgresIcon from '../assets/icons/postgres.png'
+import udexplogo from "../../img/udlexpogo.jpg";
+import salsifyexplogo from "../../img/salsifyexplogo.jpg";
+import canvasexplogo from "../../img/canvasexplogo.png";
+import amazonexplogo from "../../img/amazonexplogo.jpg";
+import rfexplogo from "../../img/rfexplogo.jpg";
+import ebayexplogo from "../../img/ebayexplogo.jpg";
+import restApiIcon from '../../assets/icons/rest-api.png'
+import pythonIcon from '../../assets/icons/python.png'
+import azureIcon from '../../assets/icons/azure.png'
+import awsIcon from '../../assets/icons/aws.png'
+import postgresIcon from '../../assets/icons/postgres.png'
+import styles from './SkillsExperience.module.css'
 
 const experienceData = [
   {
@@ -159,7 +160,7 @@ const skills = [
       />
     ),
     label: 'Azure',
-    color: '#007FFF', // Azure blue
+    color: '#007FFF', 
   },
 ];
 
@@ -167,52 +168,50 @@ const SkillsExperience = () => {
   const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState('experience');
 
-  return (
-   <div className="skills-tabs">
-    <div className="tab-buttons">
+return (
+  <div className={styles.skillsTabs}>
+    <div className={styles.tabButtons}>
       <button
-        className={`tab-button ${activeTab === 'experience' ? 'active' : ''}`}
+        className={`${styles.tabButton} ${activeTab === 'experience' ? styles.active : ''}`}
         onClick={() => setActiveTab('experience')}
       >
         Experience
       </button>
       <button
-        className={`tab-button ${activeTab === 'skills' ? 'active' : ''}`}
+        className={`${styles.tabButton} ${activeTab === 'skills' ? styles.active : ''}`}
         onClick={() => setActiveTab('skills')}
       >
         Skills
       </button>
     </div>
-    <div className="tab-content">
+    <div className={styles.tabContent}>
       {activeTab === 'experience' && (
-        <div className="experience-content">
-          <h3 className="expskills-heading">Career Highlights</h3>
-            <div className="experience-scroll-container">
-              <Row className="g-4">
-                {experienceData.map((exp, index) => (
-                  <Col key={index} sm="12" md="6" lg="4" className="d-flex">
-                    <ExperienceCard exp={exp} isMobile={isMobile} />
-                  </Col>
-                ))}
-              </Row>
-            </div>
+        <div className={styles.experienceContent}>
+          <h3 className={styles.expskillsHeading}>Career Highlights</h3>
+          <div className={styles.experienceScrollContainer}>
+            <Row className="g-4">
+              {experienceData.map((exp, index) => (
+                <Col key={index} sm="12" md="6" lg="4" className="d-flex">
+                  <ExperienceCard exp={exp} isMobile={isMobile} />
+                </Col>
+              ))}
+            </Row>
+          </div>
         </div>
       )}
-      {activeTab === 'skills' && (
-        <div className="skills-content">
-          <h3 className="expskills-heading">Technical Skills</h3>
-          <div className="skills-grid">
+       {activeTab === 'skills' && (
+        <div className={styles.skillsContent}>
+          <h3 className={styles.expskillsHeading}>Technical Skills</h3>
+          <div className={styles.skillsGrid}>
             {skills.map((skill, index) => (
-              <div key={index} className="skill-item">
+              <div key={index} className={styles.skillItem}>
                 <div
-                  className="skill-icon"
-                  style={{
-                    backgroundColor: skill.color + '20',
-                  }}
+                  className={styles.skillIcon}
+                  style={{ backgroundColor: skill.color + '20' }}
                 >
                   {skill.icon}
                 </div>
-                <div className="skill-label">{skill.label}</div>
+                <div className={styles.skillLabel}>{skill.label}</div>
               </div>
             ))}
           </div>

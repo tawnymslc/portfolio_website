@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState} from 'react';
 import Header from './Header';
-import Landing from '../components/Landing'
+import Landing from '../components/Landing/Landing'
 import ProjectGrid from '../components/ProjectGrid';
-import SkillsExperience from '../components/SkillsExperience';
+import SkillsExperience from '../components/SkillsExperience/SkillsExperience';
 import FadeInSection from '../components/FadeInSection';
 import SectionDots from '../components/SectionDots';
 import { motion } from 'framer-motion';
