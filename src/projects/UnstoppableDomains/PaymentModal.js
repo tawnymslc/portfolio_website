@@ -35,6 +35,7 @@ const PaymentModal = ({price, domain}) => {
   };
 
   const domainPaymentSubmit = async (event) => {
+
     event.preventDefault();
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -48,6 +49,7 @@ const PaymentModal = ({price, domain}) => {
         amount: price * 100,
         paymentMethodType: "card",
         currency: "usd",
+        paymentMethodId: id,
       })
       .then(response => {
         if (response.data.success) {

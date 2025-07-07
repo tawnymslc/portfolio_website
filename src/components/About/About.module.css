@@ -1,0 +1,104 @@
+.underConstructionWrapper {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.underConstructionIcon {
+  display: inline-block;
+}
+
+.underConstructionText {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+.underConstructionSub {
+  margin-top: 0.25rem;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.aboutSection {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.aboutHeading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: black;
+}
+
+.aboutContent {
+  max-width: 700px;
+  margin: 0 auto;
+  color: black;
+  line-height: 1.6;
+}
+
+.funFacts {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.factCard {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  color: black;
+  font-weight: 700;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+  min-width: 140px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.factCard:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  border-color: white;
+  background: rgba(0, 0, 0, 0.4); /* Darker background on hover */
+}
+
+.danceCard:hover {
+  background: rgba(255, 105, 180, 0.3); /* Hot Pink for Dance */
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+.djCard:hover {
+  background: rgba(0, 191, 255, 0.3); /* Electric Blue for DJ */
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+}
+
+.bikeCard:hover {
+  background: rgba(34, 139, 34, 0.3); /* Forest Green for Mountain Biking */
+  box-shadow: 0 0 15px rgba(34, 139, 34, 0.5);
+}
+
+.animeCard:hover {
+  background: rgba(138, 43, 226, 0.3); /* Purple for Anime */
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.bounceIcon {
+  animation: bounce 1.2s infinite;
+}

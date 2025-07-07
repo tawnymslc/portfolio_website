@@ -3,7 +3,7 @@ import useIsMobile from '../useIsMobile';
 import ExperienceCard from './ExperienceCard';
 import { Row, Col } from 'reactstrap';
 import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaGithub } from 'react-icons/fa';
-import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, SiVisualstudiocode } from 'react-icons/si';
+import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, } from 'react-icons/si';
 import udexplogo from "../../img/udlexpogo.jpg";
 import salsifyexplogo from "../../img/salsifyexplogo.jpg";
 import canvasexplogo from "../../img/canvasexplogo.png";
@@ -138,7 +138,7 @@ const skills = [
     color: '#61dafb',
   },
   { icon: <FaGithub color="#171515" size="3.2em" />, label: 'GitHub', color: '#171515' },
-  { icon: <SiVisualstudiocode color="#007ACC" size="3.2em" />, label: 'VS Code', color: '#007ACC' },
+  { label: 'VS Code', color: '#007ACC' },
   { icon: <SiGooglecloud color="#4285F4" size="3.2em" />, label: 'Google Cloud', color: '#4285F4' },
   {
     icon: (

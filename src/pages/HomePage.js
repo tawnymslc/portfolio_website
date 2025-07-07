@@ -3,10 +3,9 @@ import Header from './Header';
 import Landing from '../components/Landing/Landing'
 import ProjectGrid from '../components/ProjectGrid';
 import SkillsExperience from '../components/SkillsExperience/SkillsExperience';
+import About from '../components/About/About'
 import FadeInSection from '../components/FadeInSection';
 import SectionDots from '../components/SectionDots';
-import { motion } from 'framer-motion';
-import { FaWrench } from 'react-icons/fa';
 
 const HomePage = () => {
   const [currentSection, setCurrentSection] = useState('landing');
@@ -60,18 +59,7 @@ const HomePage = () => {
         </section>
       <FadeInSection delay={0.2}>
         <section id="about" className="section"> 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="under-construction-wrapper"
-          >
-            <div className="under-construction-icon">
-              <FaWrench className="bounce-icon" size="2.4em" color="#FF9900" />
-            </div>
-            <h2 className="section-heading">About Me</h2>
-            <p className="under-construction-sub">This section is under construction 🚧</p>
-          </motion.div>
+          <About />
         </section>
       </FadeInSection>
       </div>
