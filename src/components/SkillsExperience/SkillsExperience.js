@@ -15,8 +15,8 @@ import pythonIcon from '../../assets/icons/python.png'
 import azureIcon from '../../assets/icons/azure.png'
 import awsIcon from '../../assets/icons/aws.png'
 import postgresIcon from '../../assets/icons/postgres.png'
+import vscIcon from  '../../assets/icons/vsc.png'
 import styles from './SkillsExperience.module.css'
-
 const experienceData = [
   {
     role: "Amazon FBA Seller",
@@ -116,7 +116,7 @@ const skills = [
   { icon: (
       <img
         src={postgresIcon}
-        alt="REST APIs"
+        alt="Postgres"
         style={{ width: '40px', height: '40px', objectFit: 'contain' }}
       />
     ), 
@@ -138,7 +138,16 @@ const skills = [
     color: '#61dafb',
   },
   { icon: <FaGithub color="#171515" size="3.2em" />, label: 'GitHub', color: '#171515' },
-  { label: 'VS Code', color: '#007ACC' },
+  { 
+    icon: (
+      <img
+        src={vscIcon}
+        alt="VSC"
+        style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+      />
+    ),
+    label: 'VS Code', 
+    color: '#007ACC' },
   { icon: <SiGooglecloud color="#4285F4" size="3.2em" />, label: 'Google Cloud', color: '#4285F4' },
   {
     icon: (
