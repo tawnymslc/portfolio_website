@@ -48,7 +48,6 @@ const NewsHomePage = () => {
               <li><b>Featured Content:</b> Split-section design with CTA.</li>
               <li><b>Sidebar & Footer Stories:</b> Structured containers for smaller stories.</li>
             </ul>
-
             <h5>🧩 Real-World Application</h5>
             <p>This project models layout work for content-heavy apps:</p>
             <ul className='project-bullets'>
@@ -56,12 +55,10 @@ const NewsHomePage = () => {
               <li><b>Media Query Logic:</b> JS-based responsive rendering.</li>
               <li><b>Component Styling:</b> Balanced image/text/button layout.</li>
             </ul>
-
             <p>Technologies Used:</p>
             <ul className='project-bullets'>
               <li>React, Reactstrap (Bootstrap), JSX, CSS, JavaScript, react-responsive</li>
             </ul>
-
             <h5>🚧 Coming Soon</h5>
             <p>Future enhancements:</p>
             <ul className='project-bullets'>
@@ -102,7 +99,6 @@ const NewsHomePage = () => {
             </Navbar>
           </Col>
         </Row>
-
         <Row className={styles.mainSection}>
           <Col sm={8} className={styles.mainContent}>
             <Row className={styles.mainImgRow}>
@@ -136,7 +132,6 @@ const NewsHomePage = () => {
             </div>
           </Col>
         </Row>
-
         <Row>
           {[oneImgFooter, twoImgFooter, threeImgFooter].map((img, idx) => (
             <Col sm={4} key={idx}>
@@ -155,7 +150,6 @@ const NewsHomePage = () => {
             </Col>
           ))}
         </Row>
-
         <Row className="mt-5">
           <Col sm={12} className="text-center mb-3">
             <h4>📰 More News Coming Soon</h4>

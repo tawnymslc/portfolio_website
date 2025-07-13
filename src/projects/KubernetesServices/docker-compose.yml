@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  users:
+    build: ./services/users
+    ports:
+      - "8001:8000"
+
+  products:
+    build: ./services/products
+    ports:
+      - "8002:8000"
+
+  gateway:
+    build: ./services/gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - users
+      - products
