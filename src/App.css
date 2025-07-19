@@ -505,7 +505,7 @@ button.btn-contact-me {
 }
 
 .kubernetes-bg {
-  background-image: url('./img/kubernetes-bg2.png');
+  background-image: url('./img/kubernetes-bg.png');
   background-size: cover;
   background-position: center;
   color: white;
