@@ -503,3 +503,10 @@ button.btn-contact-me {
   margin: 25px 0 0 0;
   color: white;
 }
+
+.kubernetes-bg {
+  background-image: url('./img/kubernetes-bg2.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
