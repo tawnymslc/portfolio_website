@@ -187,4 +187,64 @@
   .skillLabel {
     font-size: 0.7rem;
   }
+
+    .nodeGrid {
+     flex-direction: column;
+    align-items: center;  /* Horizontally centers the children */
+    justify-content: center;
+    padding: 2rem 1rem;
+    gap: 3rem;
+    overflow-x: visible;
+  
+  }
+
+   .nodeLogoWrapper {
+    margin-top: 0 !important;
+    width: 100%; /* Optional, only if needed for consistent spacing */
+  }
+}
+
+.nodeGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 5rem 5rem;
+  overflow-x: auto;
+  gap: 2rem;
+}
+
+.nodeLogoWrapper {
+  flex-shrink: 0;
+  text-align: center;
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nodeLogoOnly {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  padding: 0.5rem;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.active {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+  z-index: 2;
+}
+
+.dimmed {
+  opacity: 0.3;
+  filter: blur(1px);
 }

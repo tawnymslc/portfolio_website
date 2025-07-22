@@ -16,6 +16,7 @@ import azureIcon from '../../assets/icons/azure.png'
 import awsIcon from '../../assets/icons/aws.png'
 import postgresIcon from '../../assets/icons/postgres.png'
 import vscIcon from  '../../assets/icons/vsc.png'
+import classnames from 'classnames';
 import styles from './SkillsExperience.module.css'
 const experienceData = [
   {
@@ -176,6 +177,8 @@ const skills = [
 const SkillsExperience = () => {
   const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState('experience');
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
 
 return (
   <div className={styles.skillsTabs}>
@@ -197,35 +200,43 @@ return (
       {activeTab === 'experience' && (
         <div className={styles.experienceContent}>
           <h3 className={styles.expskillsHeading}>Career Highlights</h3>
-          <div className={styles.experienceScrollContainer}>
-            <Row className="g-4">
-              {experienceData.map((exp, index) => (
-                <Col key={index} sm="12" md="6" lg="4" className="d-flex">
-                  <ExperienceCard exp={exp} isMobile={isMobile} />
-                </Col>
-              ))}
-            </Row>
+          <div className={styles.nodeGrid}>
+            {[...experienceData].reverse().map((exp, index) => (
+  <div
+    key={index}
+    className={`${styles.nodeLogoWrapper} ${
+      hoveredIndex === index ? styles.active : ''
+    } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ''}`}
+    onMouseEnter={() => setHoveredIndex(index)}
+    onMouseLeave={() => setHoveredIndex(null)}
+    style={{
+      marginTop: index % 2 === 0 ? '0rem' : '12rem',
+    }}
+  >
+    <img src={exp.logo} alt={exp.company} className={styles.nodeLogoOnly} />
+  </div>
+))}
           </div>
         </div>
       )}
-       {activeTab === 'skills' && (
-        <div className={styles.skillsContent}>
-          <h3 className={styles.expskillsHeading}>Technical Skills</h3>
-          <div className={styles.skillsGrid}>
-            {skills.map((skill, index) => (
-              <div key={index} className={styles.skillItem}>
-                <div
-                  className={styles.skillIcon}
-                  style={{ backgroundColor: skill.color + '20' }}
-                >
-                  {skill.icon}
-                </div>
-                <div className={styles.skillLabel}>{skill.label}</div>
+      {activeTab === 'skills' && (
+      <div className={styles.skillsContent}>
+        <h3 className={styles.expskillsHeading}>Technical Skills</h3>
+        <div className={styles.skillsGrid}>
+          {skills.map((skill, index) => (
+            <div key={index} className={styles.skillItem}>
+              <div
+                className={styles.skillIcon}
+                style={{ backgroundColor: skill.color + '20' }}
+              >
+                {skill.icon}
               </div>
-            ))}
-          </div>
+              <div className={styles.skillLabel}>{skill.label}</div>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
+    )}
     </div>
   </div>
   );
