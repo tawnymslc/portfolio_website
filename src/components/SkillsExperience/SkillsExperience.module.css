@@ -157,10 +157,6 @@
     grid-template-columns: 1fr;
   }
 
-  .expskillsHeading {
-    font-size: 1rem;
-  }
-
   .duration {
     display: none;
   }
@@ -188,19 +184,24 @@
     font-size: 0.7rem;
   }
 
-    .nodeGrid {
-     flex-direction: column;
-    align-items: center;  /* Horizontally centers the children */
-    justify-content: center;
-    padding: 2rem 1rem;
-    gap: 3rem;
-    overflow-x: visible;
-  
+  .nodeGrid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    overflow: visible !important;
+    justify-items: center;
   }
 
-   .nodeLogoWrapper {
+  .nodeLogoWrapper {
     margin-top: 0 !important;
-    width: 100%; /* Optional, only if needed for consistent spacing */
+    margin-bottom: 2rem;
+  }
+
+  .nodeLogoOnly {
+    width: 90px !important;
+    height: 90px !important;
+    object-fit: contain;
   }
 }
 
@@ -227,8 +228,8 @@
 }
 
 .nodeLogoOnly {
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
   border-radius: 50%;
   background: white;
@@ -236,6 +237,12 @@
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
   object-fit: contain;
   transition: transform 0.3s ease;
+}
+
+.nodeLogoOnly:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px var(--glow-color, rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .active {

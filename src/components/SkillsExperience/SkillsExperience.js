@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import useIsMobile from '../useIsMobile';
-import ExperienceCard from './ExperienceCard';
-import { Row, Col } from 'reactstrap';
+import ModalExperience from './ModalExperience';
 import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaGithub } from 'react-icons/fa';
 import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, } from 'react-icons/si';
 import udexplogo from "../../img/udlexpogo.jpg";
@@ -16,8 +14,8 @@ import azureIcon from '../../assets/icons/azure.png'
 import awsIcon from '../../assets/icons/aws.png'
 import postgresIcon from '../../assets/icons/postgres.png'
 import vscIcon from  '../../assets/icons/vsc.png'
-import classnames from 'classnames';
 import styles from './SkillsExperience.module.css'
+
 const experienceData = [
   {
     role: "Amazon FBA Seller",
@@ -175,7 +173,6 @@ const skills = [
 ];
 
 const SkillsExperience = () => {
-  const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState('experience');
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -200,22 +197,23 @@ return (
       {activeTab === 'experience' && (
         <div className={styles.experienceContent}>
           <h3 className={styles.expskillsHeading}>Career Highlights</h3>
+          <h7>Click for more details</h7>
           <div className={styles.nodeGrid}>
-            {[...experienceData].reverse().map((exp, index) => (
-  <div
-    key={index}
-    className={`${styles.nodeLogoWrapper} ${
-      hoveredIndex === index ? styles.active : ''
-    } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ''}`}
-    onMouseEnter={() => setHoveredIndex(index)}
-    onMouseLeave={() => setHoveredIndex(null)}
-    style={{
-      marginTop: index % 2 === 0 ? '0rem' : '12rem',
-    }}
-  >
-    <img src={exp.logo} alt={exp.company} className={styles.nodeLogoOnly} />
-  </div>
-))}
+           {[...experienceData].reverse().map((exp, index) => (
+            <div
+              key={index}
+              className={`${styles.nodeLogoWrapper} ${
+                hoveredIndex === index ? styles.active : ''
+              } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ''}`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              style={{
+                marginTop: index % 2 === 0 ? '0rem' : '15rem',
+              }}
+            >
+              <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
+            </div>
+          ))}
           </div>
         </div>
       )}
