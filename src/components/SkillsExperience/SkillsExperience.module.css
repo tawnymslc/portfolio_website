@@ -137,7 +137,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
- box-shadow:
+  box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.15),
     0 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -150,6 +150,68 @@
   text-align: center;
   max-width: 80px;
   word-wrap: break-word;
+}
+
+.nodeGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 5rem 6rem;
+  overflow-x: auto;
+  gap: 1rem;
+}
+
+.nodeLogoWrapper {
+  flex-shrink: 0;
+  text-align: center;
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 120px; /* fixed width */
+  flex: 0 0 auto;
+}
+
+.nodeLogoOnly {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  padding: 0;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nodeLogoOnly:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px var(--glow-color, rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.active {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+  z-index: 2;
+}
+
+.dimmed {
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+.hoverCompanyName {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -188,14 +250,14 @@
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    padding: 1rem;
+    padding: 2rem;
     overflow: visible !important;
     justify-items: center;
   }
 
   .nodeLogoWrapper {
     margin-top: 0 !important;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .nodeLogoOnly {
@@ -203,55 +265,20 @@
     height: 90px !important;
     object-fit: contain;
   }
+
+  .hoverCompanyName {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 
-.nodeGrid {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  width: 100%;
-  padding: 5rem 5rem;
-  overflow-x: auto;
-  gap: 2rem;
-}
-
-.nodeLogoWrapper {
-  flex-shrink: 0;
-  text-align: center;
-  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
-  z-index: 1;
-   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.nodeLogoOnly {
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  border-radius: 50%;
-  background: white;
-  padding: 0.5rem;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.nodeLogoOnly:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 12px var(--glow-color, rgba(0, 0, 0, 0.2));
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.active {
-  transform: scale(1.1);
-  filter: brightness(1.1);
-  z-index: 2;
-}
-
-.dimmed {
-  opacity: 0.3;
-  filter: blur(1px);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

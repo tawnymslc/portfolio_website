@@ -31,7 +31,7 @@ const ModalExperience = ({ exp, clearHover }) => {
           }}
           toggle={toggleModal}
         >
-          {exp.role}
+          <strong>{exp.role}</strong>
         </ModalHeader>
         <ModalBody>
           <p><strong>Company:</strong> {exp.company}</p>

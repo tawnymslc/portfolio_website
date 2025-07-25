@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ModalExperience from './ModalExperience';
+import useIsMobile from '../useIsMobile';
 import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaGithub } from 'react-icons/fa';
 import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, } from 'react-icons/si';
 import udexplogo from "../../img/udlexpogo.jpg";
@@ -18,8 +19,8 @@ import styles from './SkillsExperience.module.css'
 
 const experienceData = [
   {
-    role: "Amazon FBA Seller",
-    company: "Self-Employed",
+    role: "Self-Employed",
+    company: "Amazon FBA Seller",
     duration: "2023 – 2025",
     description: [
     "Researched product viability, competition, availability, and ROI to identify profitable opportunities.",
@@ -175,6 +176,8 @@ const skills = [
 const SkillsExperience = () => {
   const [activeTab, setActiveTab] = useState('experience');
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const isMobile = useIsMobile(); 
+  const experienceList = isMobile ? experienceData : [...experienceData].reverse();
 
 
 return (
@@ -199,42 +202,45 @@ return (
           <h3 className={styles.expskillsHeading}>Career Highlights</h3>
           <h7>Click for more details</h7>
           <div className={styles.nodeGrid}>
-           {[...experienceData].reverse().map((exp, index) => (
-            <div
-              key={index}
-              className={`${styles.nodeLogoWrapper} ${
-                hoveredIndex === index ? styles.active : ''
-              } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ''}`}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              style={{
-                marginTop: index % 2 === 0 ? '0rem' : '15rem',
-              }}
-            >
-              <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
-            </div>
-          ))}
+            {experienceList.map((exp, index) => (
+              <div
+                key={index}
+                className={`${styles.nodeLogoWrapper} ${
+                  hoveredIndex === index ? styles.active : ''
+                } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ''}`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                style={{
+                  marginTop: index % 2 === 0 ? '0rem' : '15rem',
+                }}
+              >
+                <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
+                   {hoveredIndex === index && (
+      <p className={styles.hoverCompanyName}>{exp.company}</p>
+    )}
+              </div>
+            ))}
           </div>
         </div>
       )}
       {activeTab === 'skills' && (
-      <div className={styles.skillsContent}>
-        <h3 className={styles.expskillsHeading}>Technical Skills</h3>
-        <div className={styles.skillsGrid}>
-          {skills.map((skill, index) => (
-            <div key={index} className={styles.skillItem}>
-              <div
-                className={styles.skillIcon}
-                style={{ backgroundColor: skill.color + '20' }}
-              >
-                {skill.icon}
+        <div className={styles.skillsContent}>
+          <h3 className={styles.expskillsHeading}>Technical Skills</h3>
+          <div className={styles.skillsGrid}>
+            {skills.map((skill, index) => (
+              <div key={index} className={styles.skillItem}>
+                <div
+                  className={styles.skillIcon}
+                  style={{ backgroundColor: skill.color + '20' }}
+                >
+                  {skill.icon}
+                </div>
+                <div className={styles.skillLabel}>{skill.label}</div>
               </div>
-              <div className={styles.skillLabel}>{skill.label}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    )}
+      )}
     </div>
   </div>
   );
