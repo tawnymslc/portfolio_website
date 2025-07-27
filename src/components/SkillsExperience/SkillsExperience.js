@@ -174,6 +174,7 @@ const skills = [
 ];
 
 const SkillsExperience = () => {
+  
   const [activeTab, setActiveTab] = useState('experience');
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const isMobile = useIsMobile(); 
@@ -215,9 +216,9 @@ return (
                 }}
               >
                 <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
-                   {hoveredIndex === index && (
-      <p className={styles.hoverCompanyName}>{exp.company}</p>
-    )}
+                  {hoveredIndex === index && (
+                  <p className={styles.hoverCompanyName}>{exp.company}</p>
+                  )}
               </div>
             ))}
           </div>
