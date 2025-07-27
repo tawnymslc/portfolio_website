@@ -10,17 +10,33 @@ const Kubernetes = () => {
   const [activeTab, setActiveTab] = useState('users');
 
   useEffect(() => {
+    console.log('Fetching users...');
+    const usersStart = performance.now();
+
     fetch('http://localhost:8000/api/users')
       .then((res) => res.json())
-      .then((data) => setUsers(data))
+      .then((data) => {
+        setUsers(data);
+        console.log('Users fetched:', performance.now() - usersStart, 'ms');
+      })
       .catch((err) => console.error('Users fetch error:', err));
+
+    console.log('Fetching products...');
+    const productsStart = performance.now();
 
     fetch('http://localhost:8000/api/products')
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data);
+        console.log('Products fetched:', performance.now() - productsStart, 'ms');
+      })
       .catch((err) => console.error('Products fetch error:', err));
   }, []);
 
+  useEffect(() => {
+  console.time('Render tab');
+  return () => console.timeEnd('Render tab');
+}, [activeTab]);
   return (
     <div className='project-container kubernetes-bg'>
       <SubHeader current='Kubernetes Services Demo' dark />

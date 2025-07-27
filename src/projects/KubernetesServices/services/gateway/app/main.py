@@ -6,7 +6,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # You can change to ["http://localhost:3000"] if you prefer
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -14,6 +14,7 @@ app.add_middleware(
 
 USERS_SERVICE_URL = "http://users:8000/users"
 PRODUCTS_SERVICE_URL = "http://products:8000/products"
+
 
 @app.get("/api/users")
 async def get_users():

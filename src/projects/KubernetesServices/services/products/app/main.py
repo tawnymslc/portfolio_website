@@ -5,6 +5,6 @@ app = FastAPI()
 @app.get("/products")
 def get_products():
     return [
-        {"id": 1, "name": "Laptop"},
-        {"id": 2, "name": "Smartphone"}
+        {"id": 1, "name": "Laptop", "category": "Electronics"},
+        {"id": 2, "name": "Smartphone", "category": "Electronics"}
     ]
