@@ -25,12 +25,31 @@ const Kubernetes = () => {
       .catch((err) => console.error('Products fetch error:', err));
   }, []);
 
-  const handleSearch = () => {
+  const fetchUsers = (searchTerm = '') => {
   fetch(`http://localhost:8000/api/users?q=${searchTerm}`)
     .then((res) => res.json())
-    .then((data) => setUsers(data))
-    .catch((err) => console.error('Search fetch error:', err));
-};
+    .then((data) => {
+      setUsers(data);
+    })
+    .catch((err) => console.error('Products fetch error:', err));
+  };
+
+  const fetchProducts = (searchTerm = '') => {
+  fetch(`http://localhost:8000/api/products?q=${searchTerm}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setProducts(data);
+    })
+    .catch((err) => console.error('Products fetch error:', err));
+  };
+
+  const handleSearch = () => {
+  if (activeTab === 'users') {
+    fetchUsers(searchTerm);
+  } else if (activeTab === 'products') {
+    fetchProducts(searchTerm);
+  }
+  };
 
   return (
     <div className='project-container kubernetes-bg'>
@@ -68,6 +87,23 @@ const Kubernetes = () => {
             onClick={() => setActiveTab('products')}
           >
             📦 Products
+          </button>
+        </div>
+        <div className={styles.searchContainer}>
+          <input
+            type="text"
+            placeholder={`Search ${activeTab}...`}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleSearch();
+              }
+            }}
+            className={styles.searchInput}
+          />
+          <button onClick={handleSearch} className={styles.searchButton}>
+            Search
           </button>
         </div>
         <div className={styles.tabContentWrapper}>

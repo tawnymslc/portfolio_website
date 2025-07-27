@@ -31,13 +31,12 @@ const SpotifyApp = () => {
 
     const handleSelectApi = (api) => {
         setSelectedApi(api);
-        setTracks(null); // Clear tracks when the API selection changes
-        setAlbums(null); // Clear albums when the API selection changes
+        setTracks(null); // Clear tracks 
+        setAlbums(null); // Clear album
       };
 
     const handleSearchSubmit = async (event) => {
         event.preventDefault();
-    
         try{
             const response = await axios.post(SPOTIFY_TOKEN_ENDPOINT);
             const accessToken = response.data.accessToken;
@@ -55,43 +54,33 @@ const SpotifyApp = () => {
             } else if(selectedApi === 'top-tracks'){
                 const artistId = searchResponse.data.artists.items[0].id;
                 setSearchResults(true);
-            
                 const tracksResponse = await axios.get(`https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }
                 });
-                console.log(tracksResponse);
                 const maxResults = 9;
-
                 const nineResults = tracksResponse.data.tracks.slice(0, maxResults);
-
                 setTracks(nineResults);
             } else if(selectedApi === 'albums') {
                 const artistId = searchResponse.data.artists.items[0].id;
                 setSearchResults(true);
-            
                 const albumsResponse = await axios.get(`https://api.spotify.com/v1/artists/${artistId}/albums`, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }
                 });
-
                 const maxResults = 9;
-
                 const nineResults = albumsResponse.data.items.slice(0, maxResults);
-
                 setAlbums(nineResults);
             } else if(selectedApi === 'artist-info') {
                 const artistId = searchResponse.data.artists.items[0].id;
-                setSearchResults(true);
-            
+                setSearchResults(true);         
                 const artistResponse = await axios.get(`https://api.spotify.com/v1/artists/${artistId}`, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }
                 });
-
                 setArtist(artistResponse);
             } 
         } catch (error) {
