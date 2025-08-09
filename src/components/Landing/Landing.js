@@ -7,40 +7,7 @@ import engineerIcon from '../../assets/icons/engineer.png';
 import leaderIcon from '../../assets/icons/leader.png';
 import styles from './Landing.module.css';
 
-const floatingWords = [
-  {
-    text: 'Consultant',
-    top: '10%',
-    left: '47%',
-    glow: 'rgba(0, 132, 255, 0.5)',
-    description:
-      'I’ve worked with clients in EdTech, Events, and Web3, helping them get the most out of their tools. I break down complex setups and make things feel easy and approachable.'
-  },
-  {
-    text: 'Engineer',
-    top: '40%',
-    left: '74%',
-    glow: 'rgba(0, 255, 255, 0.5)',
-    description:
-      'Across my roles, I’ve loved creating, designing, and building technical solutions that actually work for people. Whether it’s front-end or back-end, I enjoy turning ideas into real, usable tools.'
-  },
-  {
-    text: 'Architect',
-    top: '40%',
-    left: '20%',
-    glow: 'rgba(0, 255, 160, 0.5)',
-    description:
-      'I’ve helped enterprise clients map out their onboarding plans and technical setup. I’m all about finding efficient ways to meet business goals and making sure everything fits together smoothly.'
-  },
-  {
-    text: 'Leader',
-    top: '68%',
-    left: '48%',
-    glow: 'rgba(255, 0, 153, 0.5)',
-    description:
-      'I have spent time as a team lead in leading workshops, mentoring teammates, and helping clients feel confident with new tools. I try to bring energy and clarity to every team I’m part of.'
-  }
-];
+
 
 const iconMap = {
   Architect: architectIcon,
@@ -78,6 +45,171 @@ const Landing = () => {
     });
   }, [controlsArray]);
 
+  const useScreenSize = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return width;
+};
+
+const width = useScreenSize();
+
+const floatingWords = [
+  {
+    text: 'Consultant',
+    top: '10%',
+    left: '47%',
+    glow: 'rgba(0, 132, 255, 0.5)',
+    description:
+      [
+        'Onboarded hundreds of accounts across EdTech, Events, E-Commerce, and Web3',
+        'Consulted with clients on product capabilities, user benefits, and recommended onboarding strategies',
+        'Demonstrated ROI, trained users on features, and guided efficient adoption'
+      ],
+    branches:
+      width >= 992 && width < 1100
+        ? [
+            { top: '29%', left: '35%' },
+            { top: '47%', left: '15%' },
+            { top: '47%', left: '55%' }
+          ]
+      : width >= 1100 && width < 1300
+        ? [
+            { top: '29%', left: '37%' },
+            { top: '47%', left: '17%' },
+            { top: '47%', left: '57%' }
+          ]
+      : width >= 1300
+        ? [
+            { top: '29%', left: '38%' },
+            { top: '47%', left: '18%' },
+            { top: '47%', left: '58%' }
+          ]
+      : [
+          // Mobile fallback (stacked)
+          { top: '70%', left: '25%' },
+          { top: '80%', left: '75%' },
+          { top: '90%', left: '50%' }
+        ]
+  },
+  {
+    text: 'Engineer',
+    top: '40%',
+    left: '74%',
+    glow: 'rgba(0, 255, 255, 0.5)',
+    description:
+      [
+        'Built full stack projects using React, Node.js, Python, and REST APIs',
+        'Completed two coding bootcamps to strengthen full stack and backend skills',
+        'Integrated dApps with JavaScript libraries and APIs'
+      ],
+    branches:
+      width >= 992 && width < 1100
+        ? [
+            { top: '22%', left: '35%' },
+            { top: '40%', left: '17%' },
+            { top: '58%', left: '35%' }
+          ]
+      : width >= 1100 && width < 1300
+        ? [
+            { top: '22%', left: '35%' },
+            { top: '40%', left: '20%' },
+            { top: '58%', left: '35%' }
+          ]
+      : width >= 1300
+        ? [
+            { top: '22%', left: '41%' },
+            { top: '40%', left: '26%' },
+            { top: '58%', left: '41%' }
+          ]
+      : [
+          // Mobile fallback (stacked)
+          { top: '70%', left: '75%' },
+          { top: '80%', left: '75%' },
+          { top: '90%', left: '50%' }
+        ]
+  },
+  {
+    text: 'Architect',
+    top: '40%',
+    left: '20%',
+    glow: 'rgba(0, 255, 160, 0.5)',
+    description:
+      [ 
+        'Worked with enterprise accounts and their complex integrations, including Hormel and Coca-Cola',
+        'Helped customers understand their data and translate business requirements into technical solutions',
+        'Guided clients from concept to realization, showing how their ideas could be implemented in the new tool'
+      ],
+    branches:
+      width >= 992 && width < 1100
+        ? [
+            { top: '21%', left: '38%' },
+            { top: '40%', left: '51%' },
+            { top: '59%', left: '38%' }
+          ]
+      : width >= 1100 && width < 1300
+        ? [
+            { top: '21%', left: '41%' },
+            { top: '40%', left: '54%' },
+            { top: '59%', left: '41%' }
+          ]
+      : width >= 1300
+        ? [
+            { top: '21%', left: '36%' },
+            { top: '40%', left: '49%' },
+            { top: '59%', left: '36%' }
+          ]
+      : [
+          // Mobile fallback (stacked)
+          { top: '70%', left: '75%' },
+          { top: '80%', left: '75%' },
+          { top: '90%', left: '50%' }
+        ]
+  },
+  {
+    text: 'Leader',
+    top: '68%',
+    left: '48%',
+    glow: 'rgba(255, 0, 153, 0.5)',
+    description:
+      [
+      'Led and mentored Junior Implementation Consultants, accelerating skill growth and supporting career development',
+      'Managed the most strategic and complex enterprise accounts, ensuring successful outcomes',
+      'Served as SME for product features and acted as the go-to resource for removing project blockers'
+      ],
+    branches:
+      width >= 992 && width < 1100
+        ? [
+            { top: '49%', left: '35%' },
+            { top: '30%', left: '15%' },
+            { top: '30%', left: '55%' }
+          ]
+      : width >= 1100 && width < 1300
+        ? [
+            { top: '49%', left: '37%' },
+            { top: '30%', left: '17%' },
+            { top: '30%', left: '57%' }
+          ]
+      : width >= 1300
+        ? [
+            { top: '49%', left: '39%' },
+            { top: '30%', left: '19%' },
+            { top: '30%', left: '59%' }
+          ]
+      : [
+          // Mobile fallback (stacked)
+          { top: '70%', left: '75%' },
+          { top: '80%', left: '75%' },
+          { top: '90%', left: '50%' }
+        ]
+  },
+];
+
   return (
     <div className={styles.floatingLabelsWrapper}>
       <div className={styles.introCards}>
@@ -104,7 +236,7 @@ const Landing = () => {
             className={styles.floatingLabel}
               style={{ ...(isMobile ? {} : { top: word.top, left: word.left }),
               zIndex: hoveredIndex === index ? 2 : 0
-            }}
+              }}
               initial={{ y: 0, scale: 1, backgroundColor: 'rgba(0, 0, 0, 0)', color: '#222' }}
               animate={{
                 scale: hoveredIndex === index ? (isMobile ? 1.03 : 1.2) : 1,
@@ -145,7 +277,7 @@ const Landing = () => {
             className={styles.landingPrompt}
             initial={{ opacity: 0 }}
             animate={{
-              opacity: [1, 0.6, 1], // soft pulse
+              opacity: [1, 0.6, 1], 
               transition: {
                 duration: 2,
                 ease: 'easeInOut',
@@ -160,19 +292,27 @@ const Landing = () => {
         )}
         <motion.div
           key={hoveredIndex}
-          className={styles.labelDescription}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{
-            opacity: hoveredIndex !== null ? 1 : 0,
-            y: hoveredIndex !== null ? 0 : 10
-          }}
-          transition={{
-            duration: 0.5,
-            ease: 'easeOut',
-            delay: hoveredIndex !== null ? 0.15 : 0
-          }}
         >     
-          {hoveredIndex !== null && floatingWords[hoveredIndex].description}
+        {hoveredIndex !== null && (
+          <div className={styles.descriptionGroup}>
+            {floatingWords[hoveredIndex].branches.map((pos, i) => (
+              <motion.div
+                key={i}
+                className={styles.labelDescription}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
+                style={
+                  !isMobile
+                    ? { position: 'absolute', top: pos.top, left: pos.left }
+                    : undefined
+                }
+              >
+                {floatingWords[hoveredIndex].description[i]}
+              </motion.div>
+            ))}
+          </div>
+        )}
         </motion.div>
       </div>
     </div>
