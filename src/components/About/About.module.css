@@ -102,3 +102,80 @@
 .bounceIcon {
   animation: bounce 1.2s infinite;
 }
+
+/* Grid */
+.funFacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .funFacts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Card base + flip */
+.factCard {
+  position: relative;
+  perspective: 1000px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.flipInner {
+  position: relative;
+  width: 100%;
+  height: 116px;
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  padding: 14px;
+  backface-visibility: hidden;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+.front { transform: rotateY(0deg); }
+.back  { transform: rotateY(180deg); font-weight: 500; opacity: 0.95; }
+
+.cardIcon { margin-right: 8px; font-size: 1.2rem; }
+
+/* Animated gradient utility */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Theme gradients (tweak as you like) */
+.danceCard .face {
+  background: linear-gradient(135deg, #FF8A00, #FF2D55, #FFC300);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  color: #0b0b0b;
+}
+.djCard .face {
+  background: linear-gradient(135deg, #7F7FD5, #86A8E7, #91EAE4);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+  color: #0b0b0b;
+}
+.bikeCard .face {
+  background: linear-gradient(135deg, #00C853, #64DD17, #AEEA00);
+  background-size: 200% 200%;
+  animation: gradientShift 9s ease infinite;
+  color: #0b0b0b;
+}
+.animeCard .face {
+  background: linear-gradient(135deg, #6A00F4, #C300FF, #FF4D6D);
+  background-size: 200% 200%;
+  animation: gradientShift 11s ease infinite;
+  color: white;
+}

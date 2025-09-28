@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.9985afc2.css",
-    "main.js": "/static/js/main.2d12cf28.js",
+    "main.css": "/static/css/main.111d5d60.css",
+    "main.js": "/static/js/main.55b34086.js",
     "static/js/453.0de7f0d3.chunk.js": "/static/js/453.0de7f0d3.chunk.js",
-    "static/media/kubernetes-bg.png": "/static/media/kubernetes-bg.4e9c82c47610c0d0440f.png",
     "static/media/journimg.jpg": "/static/media/journimg.eaae62bebfa3d3bc5472.jpg",
     "static/media/unstoppable-project.jpg": "/static/media/unstoppable-project.9612c3ccb83b31aa8ffa.jpg",
     "static/media/etl-project.jpg": "/static/media/etl-project.13992c1ac6f58e2fa772.jpg",
     "static/media/news-project.jpg": "/static/media/news-project.ad92f1e54cebef6f2e67.jpg",
+    "static/media/kubernetes-bg.png": "/static/media/kubernetes-bg.1fdda6d6beb7eab6c36e.png",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/Inter-ExtraBold.ttf": "/static/media/Inter-ExtraBold.e4a4cb7133001f282a15.ttf",
     "static/media/Inter-Bold.ttf": "/static/media/Inter-Bold.88fa7ae373b07b41ecce.ttf",
@@ -39,12 +39,12 @@
     "index.html": "/index.html",
     "static/media/icon-menu-close.svg": "/static/media/icon-menu-close.ca20d86e8364ad748c947025ef771994.svg",
     "static/media/icon-menu.svg": "/static/media/icon-menu.f967d833be0e64002eeaadab0bae9ac5.svg",
-    "main.9985afc2.css.map": "/static/css/main.9985afc2.css.map",
-    "main.2d12cf28.js.map": "/static/js/main.2d12cf28.js.map",
+    "main.111d5d60.css.map": "/static/css/main.111d5d60.css.map",
+    "main.55b34086.js.map": "/static/js/main.55b34086.js.map",
     "453.0de7f0d3.chunk.js.map": "/static/js/453.0de7f0d3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9985afc2.css",
-    "static/js/main.2d12cf28.js"
+    "static/css/main.111d5d60.css",
+    "static/js/main.55b34086.js"
   ]
 }
