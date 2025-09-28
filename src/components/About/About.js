@@ -11,46 +11,20 @@ const floatTransition = {
 };
 
 
-const SpinningWrench = () => {
-  const controls = useAnimation();
-
-  useEffect(() => {
-    let mounted = true;
-    const loop = async () => {
-      while (mounted) {
-        const delay = 6000 + Math.random() * 4000; // feel organic
-        await new Promise((r) => setTimeout(r, delay));
-        await controls.start({
-          rotate: [0, 20, -15, 10, -5, 0],
-          transition: { duration: 0.8, ease: 'easeOut' },
-        });
-      }
-    };
-    loop();
-    return () => { mounted = false; };
-  }, [controls]);
-
-  return (
-    <motion.div animate={controls} className={styles.underConstructionIcon}>
-      <FaWrench className={styles.bounceIcon} size="2.4em" color="#FF9900" />
-    </motion.div>
-  );
-};
-
 const FactCard = ({ icon, title, detail, gradientClass, onActivate }) => {
-  const [flipped, setFlipped] = useState(false);
+    const [flipped, setFlipped] = useState(false);
 
-  const handleFlip = () => {
-    setFlipped((v) => !v);
-    onActivate?.();
-  };
+    const handleFlip = () => {
+        setFlipped((v) => !v);
+        onActivate?.();
+    };
 
-  useEffect(() => {
-  if (flipped) {
-    const timer = setTimeout(() => setFlipped(false), 4000);
-    return () => clearTimeout(timer);
-  }
-}, [flipped]);
+    useEffect(() => {
+        if (flipped) {
+            const timer = setTimeout(() => setFlipped(false), 4000);
+            return () => clearTimeout(timer);
+        }
+    }, [flipped]);
 
   return (
     <motion.button
@@ -85,18 +59,16 @@ const FactCard = ({ icon, title, detail, gradientClass, onActivate }) => {
 
 const About = () => {
   return (
-    <div>
+    <div> 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className={styles.underConstructionWrapper}
       >
-        <SpinningWrench />
+        <FaWrench className={styles.bounceIcon} size="2.4em" color="#FF9900" />
         <p className={styles.underConstructionSub}>This section is under construction 🚧</p>
-        <h2 className="section-heading">About Me</h2>
       </motion.div>
-
       <motion.div
         className={styles.aboutContent}
         initial={{ opacity: 0 }}
@@ -104,11 +76,7 @@ const About = () => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <p>
-          I'm a technical consultant turned engineer with a love for solving complex problems,
-          building intuitive apps, and leading integration projects.
-        </p>
-
+        <p>"I'm a technical consultant turned engineer with a love for solving complex problems..."</p>
         <div className={styles.funFacts}>
           <FactCard
             icon="🎶"
@@ -124,7 +92,7 @@ const About = () => {
           />
           <FactCard
             icon="🚵"
-            title="Mountain Biking Adventurer"
+            title="Mountain Biking"
             detail="Flow trails and desert lines are my happy place"
             gradientClass={styles.bikeCard}
           />
