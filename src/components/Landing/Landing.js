@@ -198,8 +198,8 @@ const floatingWords = [
       : width >= 1300
         ? [
             { top: '49%', left: '39%' },
-            { top: '30%', left: '19%' },
-            { top: '30%', left: '59%' }
+            { top: '9%', left: '39%' },
+            { top: '29%', left: '39%' }
           ]
       : [
           // Mobile fallback (stacked)

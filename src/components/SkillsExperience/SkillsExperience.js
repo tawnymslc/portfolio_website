@@ -6,7 +6,7 @@ import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, } from 'react-ico
 import udexplogo from "../../img/udlexpogo.jpg";
 import salsifyexplogo from "../../img/salsifyexplogo.jpg";
 import canvasexplogo from "../../img/canvasexplogo.png";
-import amazonexplogo from "../../img/amazonexplogo.jpg";
+import teslaexplogo from "../../img/teslaexplogo.jpg";
 import rfexplogo from "../../img/rfexplogo.jpg";
 import ebayexplogo from "../../img/ebayexplogo.jpg";
 import restApiIcon from '../../assets/icons/rest-api.png'
@@ -19,17 +19,16 @@ import styles from './SkillsExperience.module.css'
 
 const experienceData = [
   {
-    role: "Self-Employed",
-    company: "Amazon FBA Seller",
-    duration: "2023 – 2025",
+    role: "Project Advisor / Design Consultant",
+    company: "Tesla",
+    duration: "2025",
     description: [
-    "Researched product viability, competition, availability, and ROI to identify profitable opportunities.",
-    "Sourced and procured inventory while optimizing supply chain logistics.",
-    "Established and managed an online store on Amazon, handling listing optimization, pricing strategies, and customer engagement.",
-    "Attended workshops and training sessions to refine e-commerce, digital marketing, and business management skills."
+      "Performed system consultations by reviewing customer layouts, tailoring solar designs, and presenting the benefits of Tesla’s residential solar solutions.",
+      "Advised customers on project timelines, potential blockers, and progress updates while setting clear expectations at each stage.",
+      "Utilized project management skills to balance priorities, manage competing projects, and resolve issues to keep installations on track."
     ],
-    logo: amazonexplogo,
-    primaryColor: "#FF9900" 
+    logo: teslaexplogo,
+    primaryColor: "rgb(229, 24, 54)"
   },
   {
     role: "Partner Integration Engineer",
