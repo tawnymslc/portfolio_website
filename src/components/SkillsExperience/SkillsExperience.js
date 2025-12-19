@@ -28,7 +28,7 @@ const experienceData = [
       "Utilized project management skills to balance priorities, manage competing projects, and resolve issues to keep installations on track."
     ],
     logo: teslaexplogo,
-    primaryColor: "rgb(229, 24, 54)"
+    primaryColor: "rgb(0, 0, 0)"
   },
   {
     role: "Partner Integration Engineer",
