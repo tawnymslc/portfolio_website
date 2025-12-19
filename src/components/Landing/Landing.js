@@ -72,27 +72,27 @@ const floatingWords = [
         'Demonstrated ROI, trained users on features, and guided efficient adoption'
       ],
     branches:
-      width >= 992 && width < 1100
+        width >= 992 && width < 1100
         ? [
-            { top: '29%', left: '35%' },
-            { top: '47%', left: '15%' },
-            { top: '47%', left: '55%' }
+            { top: '67%', left: '35%' },
+            { top: '30%', left: '35%' },
+            { top: '50%', left: '35%' }
           ]
       : width >= 1100 && width < 1300
         ? [
-            { top: '29%', left: '37%' },
-            { top: '47%', left: '17%' },
-            { top: '47%', left: '57%' }
+            { top: '67%', left: '37%' },
+            { top: '30%', left: '37%' },
+            { top: '50%', left: '37%' }
           ]
       : width >= 1300
         ? [
-            { top: '29%', left: '38%' },
-            { top: '47%', left: '18%' },
-            { top: '47%', left: '58%' }
+            { top: '67%', left: '38%' },
+            { top: '30%', left: '38%' },
+            { top: '50%', left: '38%' }
           ]
       : [
           // Mobile fallback (stacked)
-          { top: '70%', left: '25%' },
+          { top: '70%', left: '75%' },
           { top: '80%', left: '75%' },
           { top: '90%', left: '50%' }
         ]
@@ -186,20 +186,20 @@ const floatingWords = [
       width >= 992 && width < 1100
         ? [
             { top: '49%', left: '35%' },
-            { top: '30%', left: '15%' },
-            { top: '30%', left: '55%' }
+            { top: '11%', left: '35%' },
+            { top: '30%', left: '35%' }
           ]
       : width >= 1100 && width < 1300
         ? [
             { top: '49%', left: '37%' },
-            { top: '30%', left: '17%' },
-            { top: '30%', left: '57%' }
+            { top: '11%', left: '37%' },
+            { top: '30%', left: '37%' }
           ]
       : width >= 1300
         ? [
-            { top: '49%', left: '39%' },
-            { top: '9%', left: '39%' },
-            { top: '29%', left: '39%' }
+            { top: '47%', left: '38%' },
+            { top: '11%', left: '38%' },
+            { top: '29%', left: '38%' }
           ]
       : [
           // Mobile fallback (stacked)
