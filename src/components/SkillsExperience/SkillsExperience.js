@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
 import ModalExperience from './ModalExperience';
 import useIsMobile from '../useIsMobile';
 import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaGithub } from 'react-icons/fa';
@@ -28,7 +29,8 @@ const experienceData = [
       "Utilized project management skills to balance priorities, manage competing projects, and resolve issues to keep installations on track."
     ],
     logo: teslaexplogo,
-    primaryColor: "rgb(0, 0, 0)"
+    primaryColor: "rgb(0, 0, 0)",
+    previewVert: "top",
   },
   {
     role: "Partner Integration Engineer",
@@ -42,7 +44,8 @@ const experienceData = [
 
     ],
     logo: udexplogo,
-    primaryColor: "rgb(15, 74, 274)"
+    primaryColor: "rgb(15, 74, 274)",
+    previewVert: "bottom",
   },
   {
     role: "Sr Implementation Consultant",
@@ -54,7 +57,8 @@ const experienceData = [
       "Served as a Team Lead, conducting 1:1 meetings and leading featured workshops to drive team development and knowledge sharing."
     ],
     logo: salsifyexplogo,
-    primaryColor: "rgb(24, 182, 255)"
+    primaryColor: "rgb(24, 182, 255)",
+    previewVert: "top",
   },
   {
     role: "Solutions Consultant",
@@ -66,7 +70,8 @@ const experienceData = [
       "My role was impacted by the pandemic as live events worldwide were canceled, leading to company-wide cuts."
     ],
     logo: rfexplogo,
-    primaryColor: "rgb(222, 0, 69)"
+    primaryColor: "rgb(222, 0, 69)",
+    previewVert: "bottom",
   },
   {
     role: "Sr Implementation Consultant PM",
@@ -79,7 +84,8 @@ const experienceData = [
       "Achieved a 95%+ deal closure rate as the lead Implementation Consultant, driving successful client onboarding and satisfaction."
     ],
     logo: canvasexplogo,
-    primaryColor: "rgb(31, 105, 139)"
+    primaryColor: "rgb(31, 105, 139)",
+    previewVert: "top",
   },
   {
     role: "Enterprise Implementation Manager",
@@ -90,7 +96,8 @@ const experienceData = [
       "Served as technical advisor for assigned projects launching their products on eBay."
     ],
     logo: ebayexplogo,
-    primaryColor: "rgb(138, 198, 7)"
+    primaryColor: "rgb(138, 198, 7)",
+    previewVert: "bottom",
   }
 ];
 
@@ -202,24 +209,50 @@ return (
           <h3 className={styles.expskillsHeading}>Career Highlights</h3>
           <h7>Click for more details</h7>
           <div className={styles.nodeGrid}>
-            {experienceList.map((exp, index) => (
-              <div
-                key={index}
-                className={`${styles.nodeLogoWrapper} ${
-                  hoveredIndex === index ? styles.active : ''
-                } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ''}`}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                style={{
-                  marginTop: index % 2 === 0 ? '0rem' : '15rem',
-                }}
-              >
-                <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
+            {experienceList.map((exp, index) => {
+              const vertClass = exp.previewVert === "top" ? styles.previewTop : styles.previewBottom;
+
+              return (
+                <div
+                  key={index}
+                  className={`${styles.nodeLogoWrapper} ${vertClass} ${
+                    hoveredIndex === index ? styles.active : ""
+                  } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ""}`}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  style={{ marginTop: index % 2 === 0 ? "0rem" : "15rem" }}
+                >
+                  <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
                   {hoveredIndex === index && (
-                  <p className={styles.hoverCompanyName}>{exp.company}</p>
+                    <p className={styles.hoverCompanyName}>{exp.company}</p>
                   )}
-              </div>
-            ))}
+                  <AnimatePresence>
+                    {hoveredIndex === index && (
+                      <motion.div
+                        className={styles.previewCard}
+                        style={{ "--accent": exp.primaryColor }}
+                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className={styles.previewHeader}>
+                          <div>
+                            <div className={styles.previewRole}>{exp.role}</div>
+                            <div className={styles.previewDuration}>{exp.duration}</div>
+                          </div>
+                          <span
+                            className={styles.previewDot}
+                            style={{ background: exp.primaryColor }}
+                          />
+                        </div>
+                        <div className={styles.previewHint}>Click for full details</div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
