@@ -99,6 +99,7 @@ const ETLDashboard = () => {
                 itemStyle={{ color: 'white' }} 
               />
               <Bar dataKey="averagePrice" fill="#3b82f6" />
+              <Bar dataKey="count" fill="#22c55e" />
             </BarChart>
           </ResponsiveContainer>
         </>
@@ -107,7 +108,7 @@ const ETLDashboard = () => {
       {view === "raw" && (
         <div style={{ backgroundColor: '#2a2a40', padding: '1rem', borderRadius: '10px' }}>
           <h6>Raw Product Data (Extracted)</h6>
-          <p>Displaying 10 sample products (from a total of 100 returned by the API @ dummyjson.com/products)</p>
+          <p>Displaying 3 sample products</p>
           <pre style={{ color: 'white', fontSize: '0.8rem', overflowX: 'auto' }}>
             {JSON.stringify(rawData.slice(0, 10), null, 2)}
           </pre>
