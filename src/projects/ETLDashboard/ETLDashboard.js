@@ -25,7 +25,6 @@ const ETLDashboard = () => {
       console.error("Error fetching ETL data:", error);
     }
   };
-
     fetchData();
   }, []);
 
@@ -70,7 +69,7 @@ const ETLDashboard = () => {
             <BarChart 
               data={filteredData}
               layout={isMobile ? "vertical" : "horizontal"}
-               margin={{ top: 20, right: 20, bottom: 60, left: 30 }}
+              margin={{ top: 20, right: 20, bottom: 60, left: 30 }}
             >
               <CartesianGrid stroke="#444" strokeDasharray="3 3" />
             
@@ -93,13 +92,15 @@ const ETLDashboard = () => {
                       <YAxis stroke="#aaa" />
                     </>
                 )}
-
-              <Tooltip 
-                contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }} 
-                itemStyle={{ color: 'white' }} 
+              <Tooltip
+                contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }}
+                itemStyle={{ color: 'white' }}
+                labelFormatter={(label, payload) => {
+                  const count = payload?.[0]?.payload?.count
+                  return count != null ? `${label} (count: ${count})` : label
+                }}
               />
               <Bar dataKey="averagePrice" fill="#3b82f6" />
-              <Bar dataKey="count" fill="#22c55e" />
             </BarChart>
           </ResponsiveContainer>
         </>
