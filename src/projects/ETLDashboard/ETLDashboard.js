@@ -99,7 +99,14 @@ const ETLDashboard = () => {
                   const count = payload?.[0]?.payload?.count
                   return count != null ? `${label} (count: ${count})` : label
                 }}
-              />
+                formatter={(value, name, props) => {
+                  const row = props?.payload
+                  if (name === "averagePrice" && row) {
+                    return [`$${value} | Min: $${row.minPrice}`, "Average Price"]
+                  }
+                  return [value, name]
+                }}
+            />
               <Bar dataKey="averagePrice" fill="#3b82f6" />
             </BarChart>
           </ResponsiveContainer>
