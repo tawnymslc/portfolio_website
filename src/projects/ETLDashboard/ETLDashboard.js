@@ -30,6 +30,48 @@ const ETLDashboard = () => {
 
   const filteredData = data.filter(item => item.averagePrice <= 1000);
 
+  const formatCategory = (category) => {
+    return category
+      .split("-")
+      .map(word =>
+        word.charAt(0).toUpperCase() + word.slice(1)
+      )
+
+      .join(" ")
+  }
+  const CustomTooltip = ({ active, payload, label }) => {
+  if (!active || !payload || !payload.length) return null
+
+    const row = payload[0].payload
+
+    return (
+    <div
+      style={{
+        backgroundColor: '#333',
+        color: 'white',
+        padding: isMobile ? '6px 8px' : '12px',
+        borderRadius: '6px',
+        fontSize: isMobile ? '12px' : '14px',
+        lineHeight: 1.2,
+        maxWidth: isMobile ? '160px' : '250px'
+      }}
+    >
+      <p style={{ margin: 0, fontWeight: 'bold' }}>
+        {formatCategory(label)}
+      </p>
+      <p style={{ margin: 0 }}>
+        Avg: ${row.averagePrice}
+      </p>
+      <p style={{ margin: 0 }}>
+        Count: {row.count}
+      </p>
+      <p style={{ margin: 0 }}>
+        Min: ${row.minPrice}
+      </p>
+    </div>
+  )
+  }
+
   return (
     <div className='project-container etl-bg'>
       <SubHeader current='ETL Dashboard' dark />
@@ -93,20 +135,17 @@ const ETLDashboard = () => {
                     </>
                 )}
               <Tooltip
-                contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }}
-                itemStyle={{ color: 'white' }}
-                labelFormatter={(label, payload) => {
-                  const count = payload?.[0]?.payload?.count
-                  return count != null ? `${label} (count: ${count})` : label
-                }}
-                formatter={(value, name, props) => {
+                content={isMobile ? <CustomTooltip /> : undefined}
+                formatter={!isMobile ? (value, name, props) => {
                   const row = props?.payload
                   if (name === "averagePrice" && row) {
                     return [`$${value} | Min: $${row.minPrice}`, "Average Price"]
                   }
                   return [value, name]
-                }}
-            />
+                } : undefined}
+                contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }}
+                itemStyle={{ color: 'white' }}
+              />
               <Bar dataKey="averagePrice" fill="#3b82f6" />
             </BarChart>
           </ResponsiveContainer>
