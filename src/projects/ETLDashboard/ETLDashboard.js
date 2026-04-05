@@ -39,37 +39,38 @@ const ETLDashboard = () => {
 
       .join(" ")
   }
+
   const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload || !payload.length) return null
 
     const row = payload[0].payload
 
     return (
-    <div
-      style={{
-        backgroundColor: '#333',
-        color: 'white',
-        padding: isMobile ? '6px 8px' : '12px',
-        borderRadius: '6px',
-        fontSize: isMobile ? '12px' : '14px',
-        lineHeight: 1.2,
-        maxWidth: isMobile ? '160px' : '250px'
-      }}
-    >
-      <p style={{ margin: 0, fontWeight: 'bold' }}>
-        {formatCategory(label)}
-      </p>
-      <p style={{ margin: 0 }}>
-        Avg: ${row.averagePrice}
-      </p>
-      <p style={{ margin: 0 }}>
-        Count: {row.count}
-      </p>
-      <p style={{ margin: 0 }}>
-        Min: ${row.minPrice}
-      </p>
-    </div>
-  )
+      <div
+        style={{
+          backgroundColor: '#333',
+          color: 'white',
+          padding: isMobile ? '6px 8px' : '12px',
+          borderRadius: '6px',
+          fontSize: isMobile ? '12px' : '14px',
+          lineHeight: 1.2,
+          maxWidth: isMobile ? '160px' : '250px'
+        }}
+      >
+        <p style={{ margin: 0, fontWeight: 'bold' }}>
+          {formatCategory(label)}
+        </p>
+        <p style={{ margin: 0 }}>
+          Avg: ${row.averagePrice}
+        </p>
+        <p style={{ margin: 0 }}>
+          Count: {row.count}
+        </p>
+        <p style={{ margin: 0 }}>
+          Min: ${row.minPrice}
+        </p>
+      </div>
+    )
   }
 
   return (
