@@ -1,8 +1,9 @@
 import { useState } from "react";
+import SubHeader from '../../components/SubHeader'
 
 const API_BASE = process.env.REACT_APP_PYTHON_API_URL;
 
-const LenderIntegrationSim = () => {
+const LenderIntegrationTool = () => {
   const [dealId, setDealId] = useState("");
   const [sourceDeal, setSourceDeal] = useState(null);
   const [syncResult, setSyncResult] = useState(null);
@@ -74,12 +75,12 @@ const LenderIntegrationSim = () => {
   };
 
   return (
+    <div className='project-container lender-bg'>
     <section style={styles.wrapper}>
-      <h2 style={styles.heading}>Lender Integration Simulator</h2>
+      <h2 style={styles.heading}>Lender Integration Tool</h2>
       <p style={styles.subtext}>
-        Simulates how a lender retrieves raw deal data from a partner API,
-        transforms it into an LOS-friendly schema, and imports it into an
-        internal system.
+         Simulates an internal integration operations tool that enables teams to retrieve deal data from a partner API, transform it into the lender's LOS
+        schema, execute synchronization workflows, and verify imported records.
       </p>
 
       <div style={styles.card}>
@@ -109,11 +110,26 @@ const LenderIntegrationSim = () => {
         <button onClick={syncDeals} style={styles.button}>
           Sync Deals
         </button>
-
+        <p></p>
         {syncResult && (
-          <pre style={styles.codeBlock}>
-            {JSON.stringify(syncResult, null, 2)}
-          </pre>
+          <div style={styles.resultGrid}>
+            <div>
+              <strong>Source Records</strong>
+              <p>{syncResult.source_count}</p>
+            </div>
+            <div>
+              <strong>Transformed</strong>
+              <p>{syncResult.transformed_count}</p>
+            </div>
+            <div>
+              <strong>Imported</strong>
+              <p>{syncResult.imported}</p>
+            </div>
+            <div>
+              <strong>Received</strong>
+              <p>{syncResult.received}</p>
+            </div>
+          </div>
         )}
       </div>
 
@@ -133,6 +149,7 @@ const LenderIntegrationSim = () => {
       {loading && <p style={styles.status}>Loading...</p>}
       {error && <p style={styles.error}>{error}</p>}
     </section>
+    </div>
   );
 };
 
@@ -205,6 +222,12 @@ const styles = {
     marginTop: "1rem",
     color: "#f87171",
   },
+  resultGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+    gap: "1rem",
+    marginTop: "1rem",
+  },
 };
 
-export default LenderIntegrationSim;
+export default LenderIntegrationTool;

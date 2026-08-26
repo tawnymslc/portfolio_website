@@ -4,7 +4,7 @@ import UnstoppableSearch from './projects/UnstoppableDomains/UnstoppableSearch';
 import SpotifyApp from './projects/Spotify/SpotifyApp';
 import NewsHomePage from './projects/NewsFrontEnd/NewsHomePage';
 import ETLDashboard from './projects/ETLDashboard/ETLDashboard';
-import LenderIntegrationSim from './projects/APIDataSync/LenderIntegrationSim';
+import LenderIntegrationSim from './projects/APIDataSync/LenderIntegrationTool';
 import Kubernetes from './projects/KubernetesServices/Kubernetes';
 import ScrollToTop from './components/ScrollToTop'
 import { Routes, Route} from 'react-router-dom';

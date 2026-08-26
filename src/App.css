@@ -497,6 +497,11 @@ button.btn-contact-me {
   color: white;
 }
 
+.lender-bg {
+  background-color: #000;
+  color: white;
+}
+
 .site-footer {
   background-color: black;
   padding: 50px; 
