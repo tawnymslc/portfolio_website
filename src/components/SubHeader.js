@@ -5,13 +5,18 @@ const SubHeader = ({ current, dark = false }) => {
   return (
     <Row className="mt-4 mb-3">
       <Col>
-        <Breadcrumb>
+        <Breadcrumb className={dark ? 'breadcrumb-dark' : ''}>
           <BreadcrumbItem>
             <Link to="/">Home</Link>
           </BreadcrumbItem>
           <BreadcrumbItem active>{current}</BreadcrumbItem>
         </Breadcrumb>
-        <h2 className={`page-title ${dark ? 'page-title-dark' : ''}`}>{current}</h2>
+        
+         <h2 className={`page-title ${dark ? 'page-title-dark' : ''}`}>
+
+          {current}
+
+        </h2>
         <hr />
       </Col>
     </Row>

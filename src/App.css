@@ -195,7 +195,7 @@ body {
 
 /** HEADER END **/
 
-
+/** SUBHEADER **/
 .breadcrumb {
   background: none;
   padding: 0;
@@ -212,6 +212,15 @@ body {
   color: #999;
   font-weight: 500;
 }
+
+.breadcrumb-dark .breadcrumb-item a {
+  color: #9ec5fe;
+}
+
+.breadcrumb-dark .breadcrumb-item.active {
+  color: #b8bcc4;
+}
+/** SUBHEADER END **/
 
 .page-title {
   font-size: 1.75rem;

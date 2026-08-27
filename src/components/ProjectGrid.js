@@ -2,7 +2,7 @@ import React from 'react';
 import ProjectCard from './ProjectCard';
 import { Container, Row, Col } from 'reactstrap';
 import spotifyprojectimg from '../img/spotify-project.jpg'
-import unstoppableprojectimg from '../img/unstoppable-project.jpg'
+import sbprojectimg from '../img/sb_project.jpg'
 import etlprojectimg from '../img/etl-project.jpg'
 import newshomeprojectimg from '../img/news-project.jpg'
 
@@ -28,14 +28,14 @@ const projects = [
     route: '/etl',
   },
   {
-    title: 'Unstoppable Domains Lookup',
-    shortDescription: 'Search blockchain domain availability and simulate payments.',
-    fullDescription: 'Built with Unstoppable Domains API and Stripe integration to simulate domain purchases.',
-    image: unstoppableprojectimg,
-    technologies: 'React, Node.js, Unstoppable Domains API, Stripe',
-    demoUrl: 'https://tawny-mathi.com/domains',
-    codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/UnstoppableDomains',
-    route: '/domains',
+    title: 'Lender Integration Operations Tool',
+    shortDescription: 'Internal tool for retrieving, transforming, and syncing deals data.',
+    fullDescription: 'Built an internal integration tool that simulates how lender teams retrieve deal data from a partner API, map it to an internal LOS schema, execute synchronization workflows, and verify imported records.',
+    image: sbprojectimg,
+    technologies: 'React, Reactstrap, Python, FastAPI, REST APIs',
+    demoUrl: 'https://tawny-mathi.com/lender',
+    codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/APIDataSync',
+    route: '/lender',
   },
   {
     title: 'News Homepage Clone',

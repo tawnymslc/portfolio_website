@@ -76,79 +76,80 @@ const LenderIntegrationTool = () => {
 
   return (
     <div className='project-container lender-bg'>
-    <section style={styles.wrapper}>
-      <h2 style={styles.heading}>Lender Integration Tool</h2>
-      <p style={styles.subtext}>
-         Simulates an internal integration operations tool that enables teams to retrieve deal data from a partner API, transform it into the lender's LOS
-        schema, execute synchronization workflows, and verify imported records.
-      </p>
+      <SubHeader current='Lender' dark />
+      <section style={styles.wrapper}>
+        <h2 style={styles.heading}>Lender Integration Tool</h2>
+        <p style={styles.subtext}>
+          Simulates an internal integration operations tool that enables teams to retrieve deal data from a partner API, transform it into the lender's LOS
+          schema, execute synchronization workflows, and verify imported records.
+        </p>
 
-      <div style={styles.card}>
-        <h3 style={styles.cardTitle}>1. GET Raw Source Deal by Deal ID (IDs 1–10)</h3>
-        <div style={styles.row}>
-          <input
-            type="number"
-            placeholder="Enter Deal ID"
-            value={dealId}
-            onChange={(e) => setDealId(e.target.value)}
-            style={styles.input}
-          />
-          <button onClick={fetchSourceDeal} style={styles.button}>
-            GET Deal
-          </button>
+        <div style={styles.card}>
+          <h3 style={styles.cardTitle}>1. GET Raw Source Deal by Deal ID (IDs 1–10)</h3>
+          <div style={styles.row}>
+            <input
+              type="number"
+              placeholder="Enter Deal ID"
+              value={dealId}
+              onChange={(e) => setDealId(e.target.value)}
+              style={styles.input}
+            />
+            <button onClick={fetchSourceDeal} style={styles.button}>
+              GET Deal
+            </button>
+          </div>
+
+          {sourceDeal && (
+            <pre style={styles.codeBlock}>
+              {JSON.stringify(sourceDeal, null, 2)}
+            </pre>
+          )}
         </div>
 
-        {sourceDeal && (
-          <pre style={styles.codeBlock}>
-            {JSON.stringify(sourceDeal, null, 2)}
-          </pre>
-        )}
-      </div>
-
-      <div style={styles.card}>
-        <h3 style={styles.cardTitle}>2. Run Sync Workflow</h3>
-        <button onClick={syncDeals} style={styles.button}>
-          Sync Deals
-        </button>
-        <p></p>
-        {syncResult && (
-          <div style={styles.resultGrid}>
-            <div>
-              <strong>Source Records</strong>
-              <p>{syncResult.source_count}</p>
+        <div style={styles.card}>
+          <h3 style={styles.cardTitle}>2. Run Sync Workflow</h3>
+          <button onClick={syncDeals} style={styles.button}>
+            Sync Deals
+          </button>
+          <p></p>
+          {syncResult && (
+            <div style={styles.resultGrid}>
+              <div>
+                <strong>Source Records</strong>
+                <p>{syncResult.source_count}</p>
+              </div>
+              <div>
+                <strong>Transformed</strong>
+                <p>{syncResult.transformed_count}</p>
+              </div>
+              <div>
+                <strong>Imported</strong>
+                <p>{syncResult.imported}</p>
+              </div>
+              <div>
+                <strong>Received</strong>
+                <p>{syncResult.received}</p>
+              </div>
             </div>
-            <div>
-              <strong>Transformed</strong>
-              <p>{syncResult.transformed_count}</p>
-            </div>
-            <div>
-              <strong>Imported</strong>
-              <p>{syncResult.imported}</p>
-            </div>
-            <div>
-              <strong>Received</strong>
-              <p>{syncResult.received}</p>
-            </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
 
-      <div style={styles.card}>
-        <h3 style={styles.cardTitle}>3. View Imported Loan Origination System Deals</h3>
-        <button onClick={fetchLenderDeals} style={styles.button}>
-          Load Lender Deals
-        </button>
+        <div style={styles.card}>
+          <h3 style={styles.cardTitle}>3. View Imported Loan Origination System Deals</h3>
+          <button onClick={fetchLenderDeals} style={styles.button}>
+            Load Lender Deals
+          </button>
 
-        {lenderDeals.length > 0 && (
-          <pre style={styles.codeBlock}>
-            {JSON.stringify(lenderDeals, null, 2)}
-          </pre>
-        )}
-      </div>
+          {lenderDeals.length > 0 && (
+            <pre style={styles.codeBlock}>
+              {JSON.stringify(lenderDeals, null, 2)}
+            </pre>
+          )}
+        </div>
 
-      {loading && <p style={styles.status}>Loading...</p>}
-      {error && <p style={styles.error}>{error}</p>}
-    </section>
+        {loading && <p style={styles.status}>Loading...</p>}
+        {error && <p style={styles.error}>{error}</p>}
+      </section>
     </div>
   );
 };
