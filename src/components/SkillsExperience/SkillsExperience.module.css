@@ -120,8 +120,8 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   width: 100%;
-  padding: 3rem 7rem;
-  overflow-x: auto;
+  padding: 2rem 7rem;
+  overflow-x: visible;
   gap: 1rem;
 }
 
@@ -136,6 +136,8 @@
   flex-direction: column;
   width: 120px; /* fixed width */
   flex: 0 0 auto;
+  position: relative;
+  overflow: visible;
 }
 
 .nodeLogoOnly {
@@ -299,8 +301,8 @@
   .nodeLogoWrapper {
     margin-top: 0 !important;
     margin-bottom: 1.5rem;
-      position: relative;
-  overflow: visible;
+    position: relative;
+    overflow: visible;
   }
 
   .nodeLogoOnly {

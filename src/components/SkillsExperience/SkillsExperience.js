@@ -7,7 +7,7 @@ import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, } from 'react-ico
 import udexplogo from "../../img/udlexpogo.jpg";
 import salsifyexplogo from "../../img/salsifyexplogo.jpg";
 import canvasexplogo from "../../img/canvasexplogo.png";
-import teslaexplogo from "../../img/teslaexplogo.jpg";
+import lendioexplogo from "../../img/lendioexplogo.png";
 import rfexplogo from "../../img/rfexplogo.jpg";
 import ebayexplogo from "../../img/ebayexplogo.jpg";
 import restApiIcon from '../../assets/icons/rest-api.png'
@@ -20,16 +20,42 @@ import styles from './SkillsExperience.module.css'
 
 const experienceData = [
   {
-    role: "Project Advisor / Design Consultant",
-    company: "Tesla",
-    duration: "2025",
+    role: "Enterprise Implementation Manager",
+    company: "eBay",
+    duration: "2005 – 2015",
     description: [
-      "Performed system consultations by reviewing customer layouts, tailoring solar designs, and presenting the benefits of Tesla’s residential solar solutions.",
-      "Advised customers on project timelines, potential blockers, and progress updates while setting clear expectations at each stage.",
-      "Utilized project management skills to balance priorities, manage competing projects, and resolve issues to keep installations on track."
+      "Integrated 50+ strategic brands into eBay’s marketplace. Led cross-team coordination and launched high-profile projects like the Designer Collective Landing Site for eBay fashion.",
+      "Served as technical advisor for assigned projects launching their products on eBay."
     ],
-    logo: teslaexplogo,
-    primaryColor: "rgb(0, 0, 0)",
+    logo: ebayexplogo,
+    primaryColor: "rgb(138, 198, 7)",
+    previewVert: "top",
+  },
+  {
+    role: "Sr Implementation Consultant",
+    company: "Salsify",
+    duration: "2021 – 2022",
+    description: [
+      "Managed the onboarding of high-profile, strategic clients, including Coca-Cola and Hormel, overseeing 15-25 complex implementations each quarter.",
+      "Led client-facing workshops, facilitated discovery calls, and provided technical support to ensure seamless integrations and client success.",
+      "Served as a Team Lead, conducting 1:1 meetings and leading featured workshops to drive team development and knowledge sharing."
+    ],
+    logo: salsifyexplogo,
+    primaryColor: "rgb(24, 182, 255)",
+    previewVert: "bottom",
+  },
+  {
+    role: "Sr Implementation Consultant PM",
+    company: "Instructure",
+    duration: "2015 – 2019",
+    description: 
+    [
+      "Led end-to-end implementation of Canvas LMS for K-12 districts and higher education institutions, ensuring seamless deployment and adoption.",
+      "Recognized as the #1 Implementation Consultant, as voted by the Customer Success team, to be paired with on projects.",
+      "Achieved a 95%+ deal closure rate as the lead Implementation Consultant, driving successful client onboarding and satisfaction."
+    ],
+    logo: canvasexplogo,
+    primaryColor: "rgb(31, 105, 139)",
     previewVert: "top",
   },
   {
@@ -48,19 +74,6 @@ const experienceData = [
     previewVert: "bottom",
   },
   {
-    role: "Sr Implementation Consultant",
-    company: "Salsify",
-    duration: "2021 – 2022",
-    description: [
-      "Managed the onboarding of high-profile, strategic clients, including Coca-Cola and Hormel, overseeing 15-25 complex implementations each quarter.",
-      "Led client-facing workshops, facilitated discovery calls, and provided technical support to ensure seamless integrations and client success.",
-      "Served as a Team Lead, conducting 1:1 meetings and leading featured workshops to drive team development and knowledge sharing."
-    ],
-    logo: salsifyexplogo,
-    primaryColor: "rgb(24, 182, 255)",
-    previewVert: "top",
-  },
-  {
     role: "Solutions Consultant",
     company: "Rainfocus",
     duration: "2019 – 2020",
@@ -71,32 +84,19 @@ const experienceData = [
     ],
     logo: rfexplogo,
     primaryColor: "rgb(222, 0, 69)",
-    previewVert: "bottom",
-  },
-  {
-    role: "Sr Implementation Consultant PM",
-    company: "Instructure",
-    duration: "2015 – 2019",
-    description: 
-    [
-      "Led end-to-end implementation of Canvas LMS for K-12 districts and higher education institutions, ensuring seamless deployment and adoption.",
-      "Recognized as the #1 Implementation Consultant, as voted by the Customer Success team, to be paired with on projects.",
-      "Achieved a 95%+ deal closure rate as the lead Implementation Consultant, driving successful client onboarding and satisfaction."
-    ],
-    logo: canvasexplogo,
-    primaryColor: "rgb(31, 105, 139)",
     previewVert: "top",
   },
   {
-    role: "Enterprise Implementation Manager",
-    company: "eBay",
-    duration: "2005 – 2015",
+    role: "Technical Implementation Consultant PM",
+    company: "Lendio",
+    duration: "2025-2026",
     description: [
-      "Integrated 50+ strategic brands into eBay’s marketplace. Led cross-team coordination and launched high-profile projects like the Designer Collective Landing Site for eBay fashion.",
-      "Served as technical advisor for assigned projects launching their products on eBay."
+      "The technical advisor for lenders and partners, guiding onboarding, system design, and integration strategy from kickoff through launch.",
+      "Partner with customer and internal teams to gather requirements and design scalable solutions involving API integrations and financial workflows.",
+      "Troubleshoot integration issues by analyzing logs, validating API requests, and guiding customers through resolution and best practices."
     ],
-    logo: ebayexplogo,
-    primaryColor: "rgb(138, 198, 7)",
+    logo: lendioexplogo,
+    primaryColor: "rgb(80, 188, 233)",
     previewVert: "bottom",
   }
 ];
@@ -207,7 +207,7 @@ return (
       {activeTab === 'experience' && (
         <div className={styles.experienceContent}>
           <h3 className={styles.expskillsHeading}>Career Highlights</h3>
-          <h7>Click for more details</h7>
+  
           <div className={styles.nodeGrid}>
             {experienceList.map((exp, index) => {
               const vertClass = exp.previewVert === "top" ? styles.previewTop : styles.previewBottom;
@@ -220,7 +220,7 @@ return (
                   } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ""}`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ marginTop: index % 2 === 0 ? "0rem" : "15rem" }}
+                  style={{ marginTop: index % 2 === 0 ? "0rem" : "10rem" }}
                 >
                   <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
                   {hoveredIndex === index && (
