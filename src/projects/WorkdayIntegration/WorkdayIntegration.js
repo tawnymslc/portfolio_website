@@ -31,6 +31,49 @@ const WorkdayIntegration = () => {
         }
     };
 
+    const runWorkdayDemo = async () => {
+        try {
+            setLoading(true);
+            setError("");
+            // reset + demo requests...
+
+            await fetch(`${API_BASE}/workday/demo/reset`, {
+                method: "POST",
+            });
+
+            const demoWorkers = [
+                "WD-2001",
+                "WD-2002",
+                "WD-2003",
+                "WD-2004"
+            ];
+
+            for (const workerId of demoWorkers) {
+                await fetch(`${API_BASE}/workday/events/worker-transfer`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        worker_id: workerId,
+                        first_name: "Demo",
+                        last_name: "Employee",
+                        old_department: "Sales",
+                        new_department: "Engineering",
+                        location: "Utah",
+                        manager_id: "WD-10021"
+                    })
+                });
+            }
+            await getIntegrationData();
+
+        } catch (err) {
+            setError(err.message)
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className='project-container'>
             <SubHeader current='Tool' dark />
@@ -115,9 +158,14 @@ const WorkdayIntegration = () => {
                 </div>
                 <div>
                     <div style={styles.workdayActions}>
-                        <button style={styles.actionButton} onClick={getIntegrationData}>
-                            {loading ? "Loading..." : "View Integration Health"}
-                        </button>                    
+                        <button style={styles.actionButton} onClick={runWorkdayDemo}>
+                            {loading ? "Loading..." : "Run Integration Demo"}
+                        </button>       
+                            {error && (
+                                <p style={styles.errorMessage}>
+                                    {error}
+                                </p>
+                            )}             
                     </div>
                         {integrationSummary && (
                             <div style={styles.summaryGrid}>
@@ -357,6 +405,11 @@ const styles = {
         gap: "12px",
         marginTop: "24px",
         marginBottom: "32px",
+    },
+    errorMessage: {
+        marginTop: "12px",
+        color: "#c5221f",
+        fontWeight: 600,
     },
 };
 
