@@ -7,15 +7,15 @@ import etlprojectimg from '../img/etl-project.jpg'
 import newshomeprojectimg from '../img/news-project.jpg'
 
 const projects = [
-  {
-    title: 'Spotify Artist Explorer',
-    shortDescription: 'Search and explore your favorite music artists using Spotify API.',
-    fullDescription: 'This app lets users search for artists, view top tracks, albums, and get insights via the Spotify API.',
-    image: spotifyprojectimg,
-    technologies: 'React, Axios, Spotify Web API, Node.js',
-    demoUrl: 'https://tawny-mathi.com/spotify',
-    codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/Spotify',
-    route: '/spotify',
+    {
+    title: 'Lender Integration Operations Tool',
+    shortDescription: 'Internal tool for retrieving, transforming, and syncing deals data.',
+    fullDescription: 'Built an internal integration tool that simulates how lender teams retrieve deal data from a partner API, map it to an internal LOS schema, execute synchronization workflows, and verify imported records.',
+    image: sbprojectimg,
+    technologies: 'React, Reactstrap, Python, FastAPI, REST APIs',
+    demoUrl: 'https://tawny-mathi.com/lender',
+    codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/APIDataSync',
+    route: '/lender',
   },
   {
     title: 'ETL Dashboard',
@@ -28,14 +28,14 @@ const projects = [
     route: '/etl',
   },
   {
-    title: 'Lender Integration Operations Tool',
-    shortDescription: 'Internal tool for retrieving, transforming, and syncing deals data.',
-    fullDescription: 'Built an internal integration tool that simulates how lender teams retrieve deal data from a partner API, map it to an internal LOS schema, execute synchronization workflows, and verify imported records.',
-    image: sbprojectimg,
-    technologies: 'React, Reactstrap, Python, FastAPI, REST APIs',
-    demoUrl: 'https://tawny-mathi.com/lender',
-    codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/APIDataSync',
-    route: '/lender',
+    title: 'Spotify Artist Explorer',
+    shortDescription: 'Search and explore your favorite music artists using Spotify API.',
+    fullDescription: 'This app lets users search for artists, view top tracks, albums, and get insights via the Spotify API.',
+    image: spotifyprojectimg,
+    technologies: 'React, Axios, Spotify Web API, Node.js',
+    demoUrl: 'https://tawny-mathi.com/spotify',
+    codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/Spotify',
+    route: '/spotify',
   },
   {
     title: 'News Homepage Clone',

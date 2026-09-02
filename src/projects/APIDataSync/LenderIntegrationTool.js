@@ -38,9 +38,11 @@ const LenderIntegrationTool = () => {
     setSyncResult(null);
 
     try {
-      const response = await fetch(`${API_BASE}/sync-deals`, {
-        method: "POST",
-      });
+      const response = await fetch(`${API_BASE}/sync-deals`, 
+        {
+          method: "POST",
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to sync deals");
@@ -48,10 +50,11 @@ const LenderIntegrationTool = () => {
 
       const data = await response.json();
       setSyncResult(data);
+
     } catch (err) {
-      setError(err.message);
+        setError(err.message);
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
   };
 

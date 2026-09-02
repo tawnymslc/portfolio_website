@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2e932c8c.css",
-    "main.js": "/static/js/main.8f7feb6a.js",
+    "main.css": "/static/css/main.019d35a1.css",
+    "main.js": "/static/js/main.ec268f6d.js",
     "static/js/453.0de7f0d3.chunk.js": "/static/js/453.0de7f0d3.chunk.js",
     "static/media/journimg.jpg": "/static/media/journimg.eaae62bebfa3d3bc5472.jpg",
     "static/media/etl-project.jpg": "/static/media/etl-project.13992c1ac6f58e2fa772.jpg",
@@ -31,7 +31,6 @@
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.89999bdf5d835c012025.woff2",
     "static/media/leader.png": "/static/media/leader.8cb4527b644f031f4d8a.png",
     "static/media/spotify-project.jpg": "/static/media/spotify-project.cb1f31e7c6f1494fa4c4.jpg",
-    "static/media/teslaexplogo.jpg": "/static/media/teslaexplogo.827455e97f5105c4b8fb.jpg",
     "static/media/image-retro-pcs.jpg": "/static/media/image-retro-pcs.4ecb8a36b05f012297a6.jpg",
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
     "static/media/home_page_v2.svg": "/static/media/home_page_v2.bceb8e4cd354f8568033.svg",
@@ -40,12 +39,12 @@
     "index.html": "/index.html",
     "static/media/icon-menu-close.svg": "/static/media/icon-menu-close.ca20d86e8364ad748c947025ef771994.svg",
     "static/media/icon-menu.svg": "/static/media/icon-menu.f967d833be0e64002eeaadab0bae9ac5.svg",
-    "main.2e932c8c.css.map": "/static/css/main.2e932c8c.css.map",
-    "main.8f7feb6a.js.map": "/static/js/main.8f7feb6a.js.map",
+    "main.019d35a1.css.map": "/static/css/main.019d35a1.css.map",
+    "main.ec268f6d.js.map": "/static/js/main.ec268f6d.js.map",
     "453.0de7f0d3.chunk.js.map": "/static/js/453.0de7f0d3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e932c8c.css",
-    "static/js/main.8f7feb6a.js"
+    "static/css/main.019d35a1.css",
+    "static/js/main.ec268f6d.js"
   ]
 }
