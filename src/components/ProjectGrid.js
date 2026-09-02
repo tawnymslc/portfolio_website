@@ -24,7 +24,7 @@ const projects = [
     image: sbprojectimg,
     technologies: 'React, Reactstrap, Python, FastAPI, REST APIs',
     demoUrl: 'https://tawny-mathi.com/lender',
-    codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/APIDataSync',
+    codeUrl: 'https://github.com/tawnymslc/employee-transfer-tool/blob/main/main.py',
     route: '/lender',
   },
   {
