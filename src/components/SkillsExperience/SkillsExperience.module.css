@@ -1,5 +1,4 @@
 .skillsTabs {
-  min-height: 100vh;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -271,7 +270,7 @@
   text-align: center;
   box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.15),
-    0 6px 20px rgba(0, 0, 0, 0.2);
+    0 0 14px var(--skill-color);
 }
 
 .skillLabel {

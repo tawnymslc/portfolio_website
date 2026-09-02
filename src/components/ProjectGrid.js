@@ -10,7 +10,7 @@ const projects = [
     {
     title: 'Workday Integration Platform',
     shortDescription: 'Simulates enterprise Workday integrations across Payroll and Learning systems with resilient delivery and monitoring.',
-    fullDescription: "Enterprise integration demo that normalizes Workday worker events into a canonical data model, distributes updates to Payroll and Learning systems, handles retryable and non-retryable failures, and exposes operational health metrics through a live dashboard.",
+    fullDescription: 'Enterprise integration demo that normalizes Workday worker events into a canonical data model, distributes updates to Payroll and Learning systems, handles retryable and non-retryable failures, and exposes operational health metrics through a live dashboard.',
     image: workdayprojectimg,
     technologies: "React, FastAPI, Python, REST APIs, Canonical Data Modeling, Retry Logic, Observability",
     demoUrl: 'https://tawny-mathi.com/workday',
@@ -18,9 +18,9 @@ const projects = [
     route: '/workday',
     },
     {
-    title: 'Lender Integration Operations Tool',
-    shortDescription: 'Internal tool for retrieving, transforming, and syncing deals data.',
-    fullDescription: 'Built an internal integration tool that simulates how lender teams retrieve deal data from a partner API, map it to an internal LOS schema, execute synchronization workflows, and verify imported records.',
+    title: 'Lender API Integration',
+    shortDescription: 'Integration for retrieving, transforming, and syncing deals data into internal LOS.',
+    fullDescription: 'Simulates a lender retrieving deal data from Lendio via REST APIs, transforming it into an internal data model, and syncing it to a downstream system. Demonstrates API integration, data mapping, transformation, and end-to-end integration workflows using Python/FastAPI and React.',
     image: sbprojectimg,
     technologies: 'React, Reactstrap, Python, FastAPI, REST APIs',
     demoUrl: 'https://tawny-mathi.com/lender',

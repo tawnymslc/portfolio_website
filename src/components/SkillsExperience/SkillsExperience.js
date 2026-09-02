@@ -220,7 +220,7 @@ return (
                   } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ""}`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ marginTop: index % 2 === 0 ? "0rem" : "10rem" }}
+                  style={{ marginTop: index % 2 === 0 ? "0rem" : "12rem" }}
                 >
                   <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
                   {hoveredIndex === index && (
@@ -264,7 +264,9 @@ return (
               <div key={index} className={styles.skillItem}>
                 <div
                   className={styles.skillIcon}
-                  style={{ backgroundColor: skill.color + '20' }}
+                  style={{ backgroundColor: skill.color + '20' ,
+                    "--skill-color": skill.color
+                  }}
                 >
                   {skill.icon}
                 </div>
