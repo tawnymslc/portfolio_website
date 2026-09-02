@@ -21,7 +21,12 @@ const ProjectCard = ({ project }) => {
           src={project.image}
           alt={project.title}
           className="img-fluid rounded-top"
-          style={{ height: '180px', objectFit: 'cover' }}
+            style={{
+                height: '180px',
+                width: '100%',
+                objectFit: 'contain',
+                backgroundColor: '#050b16'
+            }}
           />
           <CardBody className="d-flex flex-column">
           <CardTitle tag="h5">{project.title}</CardTitle>

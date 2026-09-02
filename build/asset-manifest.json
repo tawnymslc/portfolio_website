@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.019d35a1.css",
-    "main.js": "/static/js/main.ec268f6d.js",
+    "main.css": "/static/css/main.d2410e88.css",
+    "main.js": "/static/js/main.69bb77b3.js",
     "static/js/453.0de7f0d3.chunk.js": "/static/js/453.0de7f0d3.chunk.js",
     "static/media/journimg.jpg": "/static/media/journimg.eaae62bebfa3d3bc5472.jpg",
+    "static/media/workdayproject.png": "/static/media/workdayproject.d2bfff548bb08621fab0.png",
     "static/media/etl-project.jpg": "/static/media/etl-project.13992c1ac6f58e2fa772.jpg",
-    "static/media/news-project.jpg": "/static/media/news-project.ad92f1e54cebef6f2e67.jpg",
     "static/media/kubernetes-bg.png": "/static/media/kubernetes-bg.1fdda6d6beb7eab6c36e.png",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/Inter-ExtraBold.ttf": "/static/media/Inter-ExtraBold.e4a4cb7133001f282a15.ttf",
@@ -39,12 +39,12 @@
     "index.html": "/index.html",
     "static/media/icon-menu-close.svg": "/static/media/icon-menu-close.ca20d86e8364ad748c947025ef771994.svg",
     "static/media/icon-menu.svg": "/static/media/icon-menu.f967d833be0e64002eeaadab0bae9ac5.svg",
-    "main.019d35a1.css.map": "/static/css/main.019d35a1.css.map",
-    "main.ec268f6d.js.map": "/static/js/main.ec268f6d.js.map",
+    "main.d2410e88.css.map": "/static/css/main.d2410e88.css.map",
+    "main.69bb77b3.js.map": "/static/js/main.69bb77b3.js.map",
     "453.0de7f0d3.chunk.js.map": "/static/js/453.0de7f0d3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.019d35a1.css",
-    "static/js/main.ec268f6d.js"
+    "static/css/main.d2410e88.css",
+    "static/js/main.69bb77b3.js"
   ]
 }

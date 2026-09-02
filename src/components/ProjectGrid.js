@@ -4,9 +4,19 @@ import { Container, Row, Col } from 'reactstrap';
 import spotifyprojectimg from '../img/spotify-project.jpg'
 import sbprojectimg from '../img/sb_project.jpg'
 import etlprojectimg from '../img/etl-project.jpg'
-import newshomeprojectimg from '../img/news-project.jpg'
+import workdayprojectimg from '../img/workdayproject.png'
 
 const projects = [
+    {
+    title: 'Workday Integration Platform',
+    shortDescription: 'Simulates enterprise Workday integrations across Payroll and Learning systems with resilient delivery and monitoring.',
+    fullDescription: "Enterprise integration demo that normalizes Workday worker events into a canonical data model, distributes updates to Payroll and Learning systems, handles retryable and non-retryable failures, and exposes operational health metrics through a live dashboard.",
+    image: workdayprojectimg,
+    technologies: "React, FastAPI, Python, REST APIs, Canonical Data Modeling, Retry Logic, Observability",
+    demoUrl: 'https://tawny-mathi.com/workday',
+    codeUrl: 'https://github.com/tawnymslc/employee-transfer-tool/blob/main/main.py',
+    route: '/workday',
+    },
     {
     title: 'Lender Integration Operations Tool',
     shortDescription: 'Internal tool for retrieving, transforming, and syncing deals data.',
@@ -36,16 +46,6 @@ const projects = [
     demoUrl: 'https://tawny-mathi.com/spotify',
     codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/Spotify',
     route: '/spotify',
-  },
-  {
-    title: 'News Homepage Clone',
-    shortDescription: 'A responsive editorial-style homepage layout built with React.',
-    fullDescription: 'This project recreates a clean news homepage layout using Bootstrap, media queries, and grid alignment.',
-    image: newshomeprojectimg,
-    technologies: 'React, Bootstrap, CSS, JSX',
-    demoUrl: 'https://tawny-mathi.com/news',
-    codeUrl: 'https://github.com/tawnymslc/portfolio_website/tree/main/src/projects/NewsFrontEnd',
-    route: '/news',
   },
 ];
 
