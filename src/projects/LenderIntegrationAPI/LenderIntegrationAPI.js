@@ -3,7 +3,7 @@ import SubHeader from '../../components/SubHeader'
 
 const API_BASE = process.env.REACT_APP_PYTHON_API_URL;
 
-const LenderIntegrationTool = () => {
+const LenderIntegrationAPI = () => {
   const [dealId, setDealId] = useState("");
   const [sourceDeal, setSourceDeal] = useState(null);
   const [syncResult, setSyncResult] = useState(null);
@@ -234,4 +234,4 @@ const styles = {
   },
 };
 
-export default LenderIntegrationTool;
+export default LenderIntegrationAPI;
