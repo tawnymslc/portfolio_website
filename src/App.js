@@ -6,7 +6,7 @@ import NewsHomePage from './projects/NewsFrontEnd/NewsHomePage';
 import ETLDashboard from './projects/ETLDashboard/ETLDashboard';
 import LenderIntegrationSim from './projects/LenderIntegrationAPI/LenderIntegrationAPI';
 import WorkdayIntegration from './projects/WorkdayIntegration/WorkdayIntegration';
-import EmployeeIntegration from './projects/EmployeeMigrateTool/EmployeeMigrateTool';
+import EmployeeIntegration from './projects/EmployeeMigrateTool/EmployeeMigrationTool';
 import Kubernetes from './projects/KubernetesServices/Kubernetes';
 import ScrollToTop from './components/ScrollToTop'
 import { Routes, Route} from 'react-router-dom';
