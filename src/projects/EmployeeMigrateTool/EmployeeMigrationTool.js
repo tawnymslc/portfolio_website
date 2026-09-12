@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SubHeader from '../../components/SubHeader'
+import styles from './EmployeeMigrationTool.module.css'
 
 const API_BASE = process.env.REACT_APP_PYTHON_EMPLOYEE;
 
@@ -32,11 +33,11 @@ const EmployeeMigrationTool = () => {
             );
 
             if (!response.ok) {
-                throw new Error("Failed to transfer/process");
+                throw new Error("Employee migration failed");
             }
 
-                const data = await response.json();
-                setMigrationResult(data);
+            const data = await response.json();
+            setMigrationResult(data);
 
         } catch (err) {
             setError(err.message);
@@ -69,7 +70,6 @@ const EmployeeMigrationTool = () => {
     }
 
     const downloadMigrationReport = async () => {
-        setLoading(true);
         setError("");
 
         if (!reportRunId) {
@@ -109,6 +109,7 @@ const EmployeeMigrationTool = () => {
     const addLocationMapping = async () => {
         setLoading(true);
         setError("");
+        setSuccessMessage("");
 
         try {
             const response = await fetch(
@@ -144,6 +145,7 @@ const EmployeeMigrationTool = () => {
     const addPositionMapping = async () => {
         setLoading(true);
         setError("");
+        setSuccessMessage("");
 
         try {
             const response = await fetch(
@@ -160,7 +162,7 @@ const EmployeeMigrationTool = () => {
             const data = await response.json();
 
             setSuccessMessage(
-                `${data.source_location} → ${data.destination_location} added successfully.`
+                `${data.source_position} → ${data.destination_position} added successfully.`
             );
 
             setSourcePosition("");
@@ -177,97 +179,162 @@ const EmployeeMigrationTool = () => {
     };
 
     return (
-        <div className='project-container transfer-bg'>
-            <SubHeader current='Tool' dark />
-            <section>
-                <h2 style={styles.heading}>Client Employee Transfer Tool</h2>
-                <p style={styles.subtext}>
-                    Transfer active employees from Workstream to Toast with
-                    pre-migration validation, duplicate protection, mapping
-                    validation, persistent migration history, and reporting.
-                </p>
-                <div style={styles.card}>
-                     <div style={styles.row}>
-                        <button onClick={startMigration} style={styles.button}>
-                            {loading ? "Processing..." : "Initiate Migration"}
+        <div className={styles.container}>
+            <section className={styles.toolSection}>
+                <SubHeader current='Tool' dark />
+                <div className={styles.header}>
+                    <span className={styles.eyebrow}>
+                        Integration Demo
+                    </span>
+                    <h2 className={styles.heading}>
+                        Client Employee Transfer Tool
+                    </h2>
+                    <p className={styles.subtext}>
+                        Transfer active employees from Workstream to Toast with
+                        pre-migration validation, duplicate protection, mapping
+                        validation, persistent migration history, and reporting.
+                    </p>
+                </div>
+                <div className={styles.card}>
+                    <div className={styles.cardHeader}>
+                        <div>
+                            <h3 className={styles.cardTitle}>
+                                Employee Migration
+                            </h3>
+                            <p className={styles.cardDescription}>
+                                Transfer active Workstream employees into Toast.
+                            </p>
+                        </div>
+                        <button onClick={startMigration} className={styles.button}>
+                            {loading ? "Processing..." : "Start Migration"}
                         </button>
-                    
-                        {migrationResult && (
-                            <div style={styles.codeBlock}>
-                                <h3>Migration Run #{migrationResult.migration_run_id}</h3>
-                                <div>
-                                    <div>
-                                        Transferred
-                                        <strong>{migrationResult.summary.transferred}</strong>
-                                    </div>
-                                    <div>
-                                        Skipped
-                                        <strong>{migrationResult.summary.skipped}</strong>
-                                    </div>
-                                    <div>
-                                        Failed
-                                        <strong>{migrationResult.summary.failed}</strong>
-                                    </div>
-                                    <div>
-                                        Employees
-                                        {migrationResult.employees.map((employee) => (
-                                            <div key={employee.employee_id}>
-                                                <strong>{employee.name}</strong>
-                                                <span> - {employee.status}</span>
-                                                {employee.reason && (
-                                                    <p>{employee.reason}</p>
-                                                )}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
                     </div>
-                    <div style={styles.row}>
-                        <button onClick={getMigrationHistory}>
-                            {loading ? "Loading..." : "View Migration History"}
-                        </button>
-                        {migrationHistory.map((run) => (
-                            <div key={run.migration_run_id} style={styles.codeBlock}>
-                                <p>Run: {run.migration_run_id}</p>
-                                <p>Started: {run.started_at}</p>
-                                <p>Status: {run.status}</p>
-                                <p>Transferred: {run.transferred}</p>
-                                <p>Skipped: {run.skipped}</p>
-                                <p>Failed: {run.failed}</p>
-                                {run.employees.map((employee) => (
+                    {migrationResult && (
+                        <div>
+                            <h3>Migration Run #{migrationResult.migration_run_id}</h3>
+                            <div>
+                                <div>
+                                    Transferred
+                                    <strong>{migrationResult.summary.transferred}</strong>
+                                </div>
+                                <div>
+                                    Skipped
+                                    <strong>{migrationResult.summary.skipped}</strong>
+                                </div>
+                                <div>
+                                    Failed
+                                    <strong>{migrationResult.summary.failed}</strong>
+                                </div>
+                            </div>  
+                            <div>
+                                Employees
+                                {migrationResult.employees.map((employee) => (
                                     <div key={employee.employee_id}>
-                                        {employee.name} - {employee.status}
-
+                                        <strong>{employee.name}</strong>
+                                        <span> - {employee.status}</span>
                                         {employee.reason && (
                                             <p>{employee.reason}</p>
                                         )}
                                     </div>
                                 ))}
-                            </div>
-                        ))}
-                    </div>
-                    <div style={styles.row}>
+                            </div>                          
+                        </div>
+                    )} 
+                </div>     
+                <div className={styles.card}>
+                    <div className={styles.cardHeader}>
                         <div>
-                            <h3>Download Migration Report</h3>
-                                <input
-                                    type="text"
-                                    placeholder="Migration Run ID"
-                                    value={reportRunId}
-                                    onChange={(e) => setReportRunId(e.target.value)}
-                                />
-                            <button onClick={downloadMigrationReport}>
+                            <h3 className={styles.cardTitle}>
+                                Migration History
+                            </h3>
+                            <p className={styles.cardDescription}> 
+                                See a history of all migration runs.
+                            </p>    
+                        </div>             
+                        <button onClick={getMigrationHistory} className={styles.button}>
+                            {loading ? "Loading..." : "View Migration History"}
+                        </button>
+                    </div>
+                    {migrationHistory.map((run) => (
+                        <div key={run.migration_run_id} className={styles.historyCard}>
+                            <div className={styles.historyHeader}>
+                                <div>
+                                    <h4 className={styles.historyTitle}>Migration Run: #{run.migration_run_id}</h4>
+                                    <span className={styles.historyDate}>{run.started_at}</span>
+                                </div>
+                                <span className={styles.statusBadge}>{run.status}</span>
+                            </div>
+                            <div className={styles.historyStats}>
+                                <div className={styles.transferredStat}>
+                                    <span>Transferred:</span><strong>{run.transferred}</strong>
+                                </div>
+                                <div className={styles.skippedStat}>
+                                    <span>Skipped:</span><strong>{run.skipped}</strong>
+                                </div>
+                                <div className={styles.failedStat}>
+                                    <span>Failed:</span><strong>{run.failed}</strong>
+                                </div>
+                            </div>
+                            <div className={styles.employeeResults}>
+                                {run.employees.map((employee) => (
+                                    <div key={employee.employee_id} className={styles.employeeRow}>
+                                        <div>
+                                            <strong>{employee.name}</strong>
+                                            <span className={styles.employeeId}>
+                                                {employee.employee_id}
+                                            </span> 
+                                        </div>
+                                        <span     
+                                            className={`${styles.employeeStatus} ${styles[employee.status]}`}>
+                                                {employee.status}
+                                        </span>
+                                        {employee.reason && (
+                                            <p className={styles.employeeReason}>
+                                                {employee.reason}
+                                            </p>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                    <div className={styles.cardHeader}>
+                        <div>
+                            <h3 className={styles.cardTitle}>
+                                Download Migration Report
+                            </h3>
+                            <p className={styles.cardDescription}> 
+                                See a history of all migration runs.
+                            </p>  
+                        </div>
+                            <input className={styles.input}
+                                type="text"
+                                placeholder="Migration Run ID"
+                                value={reportRunId}
+                                onChange={(e) => setReportRunId(e.target.value)}
+                            />
+                            <button onClick={downloadMigrationReport} className={styles.button}>
                                 Download Report
                             </button>
-                        </div>
                     </div>
-                    <div style={styles.row}>
-                        <div style={styles.codeBlock}>
-                            <button onClick={getMappings}>
-                                View Mappings
+                </div>
+                <div className={styles.card}>
+                    <div className={styles.cardHeader}>
+                        <div>
+                            <h3 className={styles.cardTitle}>
+                                Mapping Configuration
+                            </h3>
+                            <p className={styles.cardDescription}> 
+                                View and add mapping for location and position
+                            </p>
+                        </div>
+                            <button onClick={getMappings}  className={styles.button}>
+                                {loading ? "Loading..." : "View Mappings"}
                             </button>
-                            <h3>Location Mappings</h3>
+                        </div>  
+                            <h4 className={styles.sectionTitle}>
+                                Location Mappings
+                            </h4>
                             {Object.entries(mappings.locations).map(
                                 ([source, destination]) => (
                                     <div key={source}>
@@ -275,7 +342,9 @@ const EmployeeMigrationTool = () => {
                                     </div>
                                 )
                             )}
-                            <h3>Position Mappings</h3>
+                            <h4 className={styles.sectionTitle}>
+                                Position Mappings
+                            </h4>
                             {Object.entries(mappings.positions).map(
                                 ([source, destination]) => (
                                     <div key={source}>
@@ -283,85 +352,72 @@ const EmployeeMigrationTool = () => {
                                     </div>
                                 )
                             )}
-                        </div>
-                    </div>
-                    <div style={styles.row}>
+                    <div className={styles.cardHeader}>
                         <div>
-                            <h3>Add Location Mapping</h3>
-                            <input
+                            <h4 className={styles.sectionTitle}>
+                                Add Location Mappings
+                            </h4>
+                            <p className={styles.cardDescription}> 
+                                View and add mapping for location and position
+                            </p>
+                        </div>
+                            <input className={styles.input}
                                 type="text"
                                 placeholder="Workstream location"
                                 value={sourceLocation}
                                 onChange={(e) => setSourceLocation(e.target.value)}
                             />
-                            <input
+                            <input className={styles.input}
                                 type="text"
                                 placeholder="Toast location"
                                 value={destinationLocation}
                                 onChange={(e) => setDestinationLocation(e.target.value)}
                             />
-                            <button onClick={addLocationMapping}>
+                            <button onClick={addLocationMapping} className={styles.button}>
                                 Add Location Mapping
                             </button>
                             {successMessage && (
-                                <p>{successMessage}</p>
+                                <p><div className={styles.successAlert}>{successMessage}</div></p>
                             )}
                             {error && (
-                                <p>{error}</p>
+                                <p><div className={styles.errorAlert}>{error}</div></p>
                             )}
-                        </div>
                     </div>
-                    <div style={styles.row}>
+                    <div className={styles.cardHeader}>
                         <div>
-                            <h3>Add Position Mapping</h3>
-                            <input
+                            <h4 className={styles.sectionTitle}>
+                                Add Position Mappings
+                            </h4>
+                            <p className={styles.cardDescription}> 
+                                View and add mapping for location and position
+                            </p>
+                        </div>
+                            <input className={styles.input}
                                 type="text"
                                 placeholder="Workstream position"
                                 value={sourcePosition}
                                 onChange={(e) => setSourcePosition(e.target.value)}
                             />
-                            <input
+                            <input className={styles.input}
                                 type="text"
                                 placeholder="Toast position"
                                 value={destinationPosition}
                                 onChange={(e) => setDestinationPosition(e.target.value)}
                             />
-                            <button onClick={addPositionMapping}>
+                            <button onClick={addPositionMapping} className={styles.button}>
                                 Add Position Mapping
                             </button>
                             {successMessage && (
-                                <p>{successMessage}</p>
+                                <p><div className={styles.successAlert}>{successMessage}</div></p>
                             )}
                             {error && (
-                                <p>{error}</p>
+                                <p><div className={styles.errorAlert}>{error}</div></p>
                             )}
-                        </div>
-                    </div>
+                    </div>  
                 </div>
             </section>
         </div>
     );
-};
-
-const styles = {
-    heading: {
-        fontSize: "2rem",
-        marginBottom: "0.5rem",
-    },
-    subtext: {
-        color: "#bbb",
-        marginBottom: "2rem",
-        lineHeight: 1.6,
-    },
-    codeBlock: {
-        background: "#0b0b0b",
-        padding: "1rem",
-        borderRadius: "12px",
-        overflowX: "auto",
-        fontSize: "0.85rem",
-        lineHeight: 1.5,
-        color: "#9ae6b4",
-    },
 };
 
 export default EmployeeMigrationTool;

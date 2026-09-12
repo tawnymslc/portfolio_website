@@ -76,7 +76,7 @@ const WorkdayIntegration = () => {
 
     return (
         <div className='project-container'>
-            <SubHeader current='Tool' dark />
+            <SubHeader current='Workday' dark />
             <section>
                 <div style={styles.diagramPanel}>
                     <div style={styles.architectureSection}>
@@ -249,15 +249,6 @@ const styles = {
         color: "#bbb",
         marginBottom: "2rem",
         lineHeight: 1.6,
-    },
-    codeBlock: {
-        background: "#0b0b0b",
-        padding: "1rem",
-        borderRadius: "12px",
-        overflowX: "auto",
-        fontSize: "0.85rem",
-        lineHeight: 1.5,
-        color: "#9ae6b4",
     },
     summaryGrid: {
         display: "grid",
