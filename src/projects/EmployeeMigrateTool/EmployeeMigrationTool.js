@@ -17,12 +17,13 @@ const EmployeeMigrationTool = () => {
     const [sourcePosition, setSourcePosition] = useState("");
     const [destinationPosition, setDestinationPosition] = useState("");
     const [reportRunId, setReportRunId] = useState("");
+    const [expandedRunId, setExpandedRunId] = useState(null);
     const [successMessage, setSuccessMessage] = useState("");
     const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [loadingAction, setLoadingAction] = useState(null);
 
     const startMigration = async () => {
-        setLoading(true);
+        setLoadingAction("migration");
         setError("");
 
         try{
@@ -43,12 +44,12 @@ const EmployeeMigrationTool = () => {
             setError(err.message);
 
         } finally {
-            setLoading(false);
+            setLoadingAction(null);
         }
     };
 
     const getMigrationHistory = async () => {
-        setLoading(true);
+        setLoadingAction("history");
         setError("");
 
         try {
@@ -65,7 +66,7 @@ const EmployeeMigrationTool = () => {
             setError(err.message);
 
         } finally {
-            setLoading(false);
+            setLoadingAction(null);
         }
     }
 
@@ -82,8 +83,11 @@ const EmployeeMigrationTool = () => {
         );
     };
 
-    const getMappings = async () => {
-        setLoading(true);
+    const getMappings = async (showLoading = true) => {
+        if (showLoading) {
+            setLoadingAction("mappings");
+
+        }
         setError("");
 
         try {
@@ -102,12 +106,12 @@ const EmployeeMigrationTool = () => {
             setError(err.message);
 
         } finally {
-            setLoading(false);
+            setLoadingAction(null);
         }
     };
 
     const addLocationMapping = async () => {
-        setLoading(true);
+        setLoadingAction("location");
         setError("");
         setSuccessMessage("");
 
@@ -132,18 +136,18 @@ const EmployeeMigrationTool = () => {
             setSourceLocation("");
             setDestinationLocation("");
 
-            await getMappings();
+            await getMappings(false);
 
         } catch (err) {
             setError(err.message);
 
         } finally {
-            setLoading(false);
+            setLoadingAction(null);
         }
     };
 
     const addPositionMapping = async () => {
-        setLoading(true);
+        setLoadingAction("position");
         setError("");
         setSuccessMessage("");
 
@@ -168,21 +172,21 @@ const EmployeeMigrationTool = () => {
             setSourcePosition("");
             setDestinationPosition("");
 
-            await getMappings();
+            await getMappings(false);
 
         } catch (err) {
             setError(err.message);
 
         } finally {
-            setLoading(false);
+            setLoadingAction(null);
         }
     };
 
     return (
         <div className={styles.container}>
-            <section className={styles.toolSection}>
-                <SubHeader current='Tool' dark hideTitle/>
-                <div className={styles.header}>
+            <SubHeader current='Tool' dark hideTitle/>
+            <div className={styles.overviewCard}>
+                                <div className={styles.header}>
                     <span className={styles.eyebrow}>
                         Integration Demo
                     </span>
@@ -190,11 +194,80 @@ const EmployeeMigrationTool = () => {
                         Client Employee Transfer Tool
                     </h2>
                     <p className={styles.subtext}>
-                        Transfer active employees from Workstream to Toast with
-                        pre-migration validation, duplicate protection, mapping
-                        validation, persistent migration history, and reporting.
+                        Transfer active employees from Workstream to Toast with validation,
+                        duplicate protection, mapping configuration, persistent migration history,
+                        and reporting.
                     </p>
                 </div>
+                <div className={styles.overviewHeader}>
+                    
+                    <div>
+                        <h3>Migration Overview</h3>
+                        <p>
+                            The demo uses four predefined Workstream employee records. Active
+                            employees are validated, checked against existing Toast employees,
+                            and mapped to Toast location and position values before transfer.
+                            Inactive employees are excluded.
+                        </p>
+                    </div>
+                    <span className={styles.demoBadge}>
+                        Demo Data
+                    </span>
+                </div>
+                <div className={styles.sourceHeader}>
+                    <h4>Source Employees</h4>
+                    <span>Workstream</span>
+                </div>
+                <div className={styles.employeePreview}>
+                    <div className={styles.previewHeader}>
+                        <span>Name / Employee ID</span>
+                        <span>Source Location</span>
+                        <span>Source Position</span>
+                        <span>Status</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>Maria Lopez</strong>
+                            <span>WS-1001</span>
+                        </div>
+                        <span>Downtown SLC</span>
+                        <span>Server</span>
+                        <span className={styles.activeStatus}>Active</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>James Smith</strong>
+                            <span>WS-1002</span>
+                        </div>
+                        <span>Sugarhouse</span>
+                        <span>Cook</span>
+                        <span className={styles.activeStatus}>Active</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>Emily Jones</strong>
+                            <span>WS-1003</span>
+                        </div>
+                        <span>SLC</span>
+                        <span>Server</span>
+                        <span className={styles.activeStatus}>Active</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>Carlos Martinez</strong>
+                            <span>WS-1004</span>
+                        </div>
+                        <span>—</span>
+                        <span>—</span>
+                        <span className={styles.inactiveStatus}>Inactive</span>
+                    </div>
+                </div>
+                <div className={styles.futureNote}>
+                    <strong>Future iteration:</strong>
+                    {" "}Upload employee data by CSV instead of using predefined demo records.
+                </div>
+            </div>
+            <section className={styles.toolSection}>
                 <div className={styles.card}>
                     <div className={styles.cardHeader}>
                         <div>
@@ -205,8 +278,12 @@ const EmployeeMigrationTool = () => {
                                 Transfer active Workstream employees into Toast.
                             </p>
                         </div>
-                        <button onClick={startMigration} className={styles.button}>
-                            {loading ? "Processing..." : "Start Migration"}
+                        <button 
+                            onClick={startMigration} 
+                            className={styles.button} 
+                            disabled={loadingAction === "migration"}
+                        >
+                            {loadingAction === "migration" ? "Processing..." : "Start Migration"}
                         </button>
                     </div>
                     {migrationResult && (
@@ -251,53 +328,86 @@ const EmployeeMigrationTool = () => {
                                 See a history of all migration runs.
                             </p>    
                         </div>             
-                        <button onClick={getMigrationHistory} className={styles.button}>
-                            {loading ? "Loading..." : "View Migration History"}
+                        <button 
+                            onClick={getMigrationHistory} 
+                            className={styles.button}
+                            disabled={loadingAction === "history"}
+                        >
+                            {loadingAction === "history" ? "Loading..." : "View Migration History"}
                         </button>
                     </div>
-                    {migrationHistory.map((run) => (
-                        <div key={run.migration_run_id} className={styles.historyCard}>
-                            <div className={styles.historyHeader}>
-                                <div>
-                                    <h4 className={styles.historyTitle}>Migration Run: #{run.migration_run_id}</h4>
-                                    <span className={styles.historyDate}>{run.started_at}</span>
-                                </div>
-                                <span className={styles.statusBadge}>{run.status}</span>
-                            </div>
-                            <div className={styles.historyStats}>
-                                <div className={styles.transferredStat}>
-                                    <span>Transferred:</span><strong>{run.transferred}</strong>
-                                </div>
-                                <div className={styles.skippedStat}>
-                                    <span>Skipped:</span><strong>{run.skipped}</strong>
-                                </div>
-                                <div className={styles.failedStat}>
-                                    <span>Failed:</span><strong>{run.failed}</strong>
-                                </div>
-                            </div>
-                            <div className={styles.employeeResults}>
-                                {run.employees.map((employee) => (
-                                    <div key={employee.employee_id} className={styles.employeeRow}>
-                                        <div>
-                                            <strong>{employee.name}</strong>
-                                            <span className={styles.employeeId}>
-                                                {employee.employee_id}
-                                            </span> 
-                                        </div>
-                                        <span     
-                                            className={`${styles.employeeStatus} ${styles[employee.status]}`}>
-                                                {employee.status}
-                                        </span>
-                                        {employee.reason && (
-                                            <p className={styles.employeeReason}>
-                                                {employee.reason}
-                                            </p>
+                    {migrationHistory.map((run) => {
+                    
+                        const isExpanded = expandedRunId === run.migration_run_id;
+
+                        const isCurrentRun =
+                            run.migration_run_id === migrationResult?.migration_run_id;
+                    
+                        return (
+                            <div key={run.migration_run_id} 
+                                    onClick={() =>
+                                    setExpandedRunId(
+                                        isExpanded
+                                            ? null
+                                            : run.migration_run_id
+                                        )
+                                    }
+                                className={styles.historyCard}
+                            >
+                                <div className={styles.historyHeader} >
+                                    <div>
+                                        <h4 className={styles.historyTitle}>Migration Run: #{run.migration_run_id}</h4>
+                                        <span className={styles.historyDate}>{run.started_at}</span>
+                                        {isCurrentRun && (
+                                            <span className={styles.yourRunBadge}>
+                                                Your Run
+                                            </span>
                                         )}
                                     </div>
-                                ))}
+                                    <span className={styles.statusBadge}>{run.status}</span>
+                                    <span>
+                                        {isExpanded ? "▲" : "▼"}
+                                    </span>        
+                                </div>
+                                {isExpanded && (
+                                    <div>
+                                        <div className={styles.historyStats}>
+                                            <div className={styles.transferredStat}>
+                                                <span>Transferred:</span><strong>{run.transferred}</strong>
+                                            </div>
+                                            <div className={styles.skippedStat}>
+                                                <span>Skipped:</span><strong>{run.skipped}</strong>
+                                            </div>
+                                            <div className={styles.failedStat}>
+                                                <span>Failed:</span><strong>{run.failed}</strong>
+                                            </div>
+                                        </div>
+                                        <div className={styles.employeeResults}>
+                                            {run.employees.map((employee) => (
+                                                <div key={employee.employee_id} className={styles.employeeRow}>
+                                                    <div>
+                                                        <strong>{employee.name}</strong>
+                                                        <span className={styles.employeeId}>
+                                                            {employee.employee_id}
+                                                        </span> 
+                                                    </div>
+                                                    <span     
+                                                        className={`${styles.employeeStatus} ${styles[employee.status]}`}>
+                                                            {employee.status}
+                                                    </span>
+                                                    {employee.reason && (
+                                                        <p className={styles.employeeReason}>
+                                                            {employee.reason}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                        </div>
-                    ))}
+                        )
+                    })}
                     <div className={styles.cardHeader}>
                         <div>
                             <h3 className={styles.cardTitle}>
@@ -328,8 +438,12 @@ const EmployeeMigrationTool = () => {
                                 View and add mapping for location and position
                             </p>
                         </div>
-                            <button onClick={getMappings}  className={styles.button}>
-                                {loading ? "Loading..." : "View Mappings"}
+                            <button 
+                                onClick={getMappings} 
+                                className={styles.button}
+                                disabled={loadingAction === "mappings"}
+                            >
+                                {loadingAction === "mappings" ? "Loading..." : "View Mappings"}
                             </button>
                     </div>  
                     <div className={styles.mappingGrid}>
@@ -401,15 +515,13 @@ const EmployeeMigrationTool = () => {
                                 value={destinationLocation}
                                 onChange={(e) => setDestinationLocation(e.target.value)}
                             />
-                            <button onClick={addLocationMapping} className={styles.button}>
-                                Add Location Mapping
+                            <button 
+                                onClick={addLocationMapping} 
+                                className={styles.button}
+                                disabled={loadingAction === "location"}
+                            >
+                                {loadingAction === "location"? "Adding...": "Add Mapping"}                            
                             </button>
-                            {successMessage && (
-                                <p><div className={styles.successAlert}>{successMessage}</div></p>
-                            )}
-                            {error && (
-                                <p><div className={styles.errorAlert}>{error}</div></p>
-                            )}
                     </div>
                     <div className={styles.cardHeader}>
                         <div>
@@ -417,7 +529,7 @@ const EmployeeMigrationTool = () => {
                                 Add Position Mappings
                             </h4>
                             <p className={styles.cardDescription}> 
-                                Map a positioin to its downstream position.
+                                Map a position to its downstream position.
                             </p>
                         </div>
                             <input className={styles.input}
@@ -432,16 +544,20 @@ const EmployeeMigrationTool = () => {
                                 value={destinationPosition}
                                 onChange={(e) => setDestinationPosition(e.target.value)}
                             />
-                            <button onClick={addPositionMapping} className={styles.button}>
-                                Add Position Mapping
+                            <button 
+                                onClick={addPositionMapping} 
+                                className={styles.button}
+                                disabled={loadingAction === "position"}
+                            >
+                                {loadingAction === "position"? "Adding...": "Add Mapping"}
                             </button>
+                    </div>  
                             {successMessage && (
-                                <p><div className={styles.successAlert}>{successMessage}</div></p>
+                                <p className={styles.successAlert}>{successMessage}</p>
                             )}
                             {error && (
-                                <p><div className={styles.errorAlert}>{error}</div></p>
+                                <p className={styles.errorAlert}>{error}</p>
                             )}
-                    </div>  
                 </div>
             </section>
         </div>
