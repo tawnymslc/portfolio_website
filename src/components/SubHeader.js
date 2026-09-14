@@ -1,7 +1,7 @@
 import { Row, Col, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const SubHeader = ({ current, dark = false }) => {
+const SubHeader = ({ current, dark = false, hideTitle }) => {
   return (
     <Row className="mt-4 mb-3">
       <Col>
@@ -12,11 +12,15 @@ const SubHeader = ({ current, dark = false }) => {
           <BreadcrumbItem active>{current}</BreadcrumbItem>
         </Breadcrumb>
         
-         <h2 className={`page-title ${dark ? 'page-title-dark' : ''}`}>
+         {!hideTitle && (
 
-          {current}
+    <h2 className={`page-title ${dark ? 'page-title-dark' : ''}`}>
 
-        </h2>
+        {current}
+
+    </h2>
+
+)}
         <hr />
       </Col>
     </Row>

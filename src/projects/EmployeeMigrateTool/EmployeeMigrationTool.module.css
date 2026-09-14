@@ -276,3 +276,42 @@
     color: #f87171;
     background: rgba(239, 68, 68, 0.12);
 }
+
+.mappingGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.mappingSection {
+    padding: 1.25rem;
+    background: rgba(213, 176, 176, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+}
+
+.mappingSection h4 {
+    margin: 0 0 1rem;
+}
+
+.mappingRow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mappingRow:last-child {
+    border-bottom: none;
+}
+.mappingSource {
+    font-weight: 600;
+}
+.mappingArrow {
+    opacity: 0.45;
+}
+.mappingDestination {
+    opacity: 0.8;
+}

@@ -76,7 +76,7 @@ const WorkdayIntegration = () => {
 
     return (
         <div className='project-container'>
-            <SubHeader current='Workday' dark />
+            <SubHeader current='Workday' dark/>
             <section>
                 <div style={styles.diagramPanel}>
                     <div style={styles.architectureSection}>

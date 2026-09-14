@@ -181,7 +181,7 @@ const EmployeeMigrationTool = () => {
     return (
         <div className={styles.container}>
             <section className={styles.toolSection}>
-                <SubHeader current='Tool' dark />
+                <SubHeader current='Tool' dark hideTitle/>
                 <div className={styles.header}>
                     <span className={styles.eyebrow}>
                         Integration Demo
@@ -304,7 +304,7 @@ const EmployeeMigrationTool = () => {
                                 Download Migration Report
                             </h3>
                             <p className={styles.cardDescription}> 
-                                See a history of all migration runs.
+                                Download Migration Run by ID
                             </p>  
                         </div>
                             <input className={styles.input}
@@ -331,34 +331,62 @@ const EmployeeMigrationTool = () => {
                             <button onClick={getMappings}  className={styles.button}>
                                 {loading ? "Loading..." : "View Mappings"}
                             </button>
-                        </div>  
+                    </div>  
+                    <div className={styles.mappingGrid}>
+                        <div className={styles.mappingSection}>
                             <h4 className={styles.sectionTitle}>
                                 Location Mappings
                             </h4>
                             {Object.entries(mappings.locations).map(
                                 ([source, destination]) => (
-                                    <div key={source}>
-                                        {source} → {destination}
+                                    <div
+                                        key={source}
+                                        className={styles.mappingRow}
+                                    >
+                                        <span className={styles.mappingSource}>
+                                            {source}
+                                        </span>
+                                        <span className={styles.mappingArrow}>
+                                            →
+                                        </span>
+                                        <span className={styles.mappingDestination}>
+                                            {destination}
+                                        </span>
                                     </div>
                                 )
                             )}
+                        </div>
+                        <div className={styles.mappingSection}>
                             <h4 className={styles.sectionTitle}>
                                 Position Mappings
                             </h4>
                             {Object.entries(mappings.positions).map(
                                 ([source, destination]) => (
-                                    <div key={source}>
-                                        {source} → {destination}
+                                    <div
+                                        key={source}
+                                        className={styles.mappingRow}
+                                    >
+                                        <span className={styles.mappingSource}>
+                                            {source}
+                                        </span>
+                                        <span className={styles.mappingArrow}>
+                                            →
+                                        </span>
+                                        <span className={styles.mappingDestination}>
+                                            {destination}
+                                        </span>
                                     </div>
                                 )
                             )}
+                        </div>
+                    </div>
                     <div className={styles.cardHeader}>
                         <div>
                             <h4 className={styles.sectionTitle}>
                                 Add Location Mappings
                             </h4>
                             <p className={styles.cardDescription}> 
-                                View and add mapping for location and position
+                                Map a location to its downstream location.
                             </p>
                         </div>
                             <input className={styles.input}
@@ -389,7 +417,7 @@ const EmployeeMigrationTool = () => {
                                 Add Position Mappings
                             </h4>
                             <p className={styles.cardDescription}> 
-                                View and add mapping for location and position
+                                Map a positioin to its downstream position.
                             </p>
                         </div>
                             <input className={styles.input}
