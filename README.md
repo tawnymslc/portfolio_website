@@ -1,61 +1,182 @@
 # Tawny's Portfolio Website
 
-Welcome! This is my personal portfolio, built to showcase the full range of my skills across frontend development, backend scripting, and API integration. It’s a mobile-first React app featuring real-world use cases with Web3, fintech, and data transformation tools — all wrapped in a responsive, interactive design.
+Welcome! This is my technical portfolio showcasing projects focused on integration architecture, API implementations, backend development, data transformation, and client-facing technical solutions.
+
+The portfolio combines React frontends with Python/FastAPI and Node.js backends to demonstrate how business requirements can be translated into working integration solutions.
+
+🌐 **Live Portfolio:** https://tawny-mathi.com
 
 ---
 
-## 🚀 About the App
+## 🚀 About the Portfolio
 
-This portfolio site was originally developed during my Nucamp full-stack bootcamp and has since evolved into a live project that demonstrates:
+This portfolio began as a full-stack development project and has evolved into a collection of integration-focused applications and technical demonstrations.
 
-- Full-stack web development in React and Node.js
-- API integration with Web3 and fintech platforms
-- Real-device–tested responsive UI and scroll behavior
-- Backend scripting and data transformation via an ETL dashboard
+The projects emphasize:
 
----
-
-## 🔌 Current Integrations
-
-### 🟣 Unstoppable Domains Partner API
-- Lets users search for available Web3 domains
-- Displays domain suggestions and pricing in real time
-- Powered by the Partner API
-
-### 💳 Stripe Payment API
-- Implements a mock payment flow using Stripe’s CardElement inside a modal
-- Allows simulation of purchases using test card details
-
-### 📊 ETL Dashboard (FastAPI Backend)
-- Fetches external product data from APIs
-- Transforms and visualizes the data in a structured dashboard UI
-- Highlights backend scripting and API handling skills
-
-### 📰 News Homepage Clone
-- A responsive, editorial-style layout built with Bootstrap components (cards, rows, navbar)
-- Designed to showcase frontend structure and responsive UI with minimal JavaScript
+- API integration and REST architecture
+- Client implementation and solution design
+- Python and FastAPI backend development
+- Data validation and transformation
+- PostgreSQL persistence and SQLAlchemy ORM
+- System integration patterns
+- Error handling and retry strategies
+- Observability and integration monitoring
+- Responsive React interfaces
+- Cloud deployment
 
 ---
 
-## 🛠 Technologies Used
+## 🔌 Featured Projects
 
-**Frontend:** React, React Router, Reactstrap, Bootstrap, Framer Motion  
-**Backend:** Node.js, Express.js, FastAPI (for ETL)  
-**APIs:** Unstoppable Domains, Stripe, Spotify  
-**Deployment:**  
-- Frontend: [tawny-mathi.com](https://tawny-mathi.com) (Bluehost)  
-- Backend: [Render](https://portfolio-node-api-ehr8.onrender.com)
+### 👥 Client Employee Transfer Tool
+
+A client-focused employee migration application that simulates transferring employee data from Workstream to Toast.
+
+The integration:
+
+- Processes active employee records
+- Validates required employee data
+- Prevents duplicate employee creation using employee ID and email
+- Translates source locations and positions using customer-configured mappings
+- Records transferred, skipped, and failed migration results
+- Persists migration runs and results in PostgreSQL
+- Provides historical migration visibility
+- Generates downloadable migration reports
+
+The project demonstrates the complete implementation lifecycle from business requirements and mapping configuration through validation, transformation, persistence, reporting, and deployment.
+
+**Technologies:** React, Python, FastAPI, PostgreSQL, SQLAlchemy, REST APIs
 
 ---
 
-## 🗺 Roadmap
+### 🔷 Workday Integration Platform
 
-- ✅ Integrate Unstoppable Domains Partner API for domain search  
-- ✅ Implement mock payment flow with Stripe  
-- ✅ Build News homepage clone using Bootstrap  
-- ✅ Develop ETL dashboard for data transformation and visualization  
-- 🔜 Add "Login with Unstoppable" (decentralized auth)  
-- 🔜 Add Unstoppable Domain Resolution (crypto address mapping)
+A simulated enterprise integration platform demonstrating how Workday worker events can be normalized and delivered to downstream business systems.
+
+The platform demonstrates:
+
+- Worker event processing
+- Canonical worker data transformation
+- Payroll and Learning system integrations
+- Department and learning-role mappings
+- Retry handling for failed deliveries
+- Integration logging
+- Delivery status and latency tracking
+- Integration health summaries and observability
+
+The architecture is designed to demonstrate reliable, observable, and extensible enterprise integration patterns.
+
+**Technologies:** React, Python, FastAPI, REST APIs
+
+---
+
+### 💳 Lender API Integration
+
+An integration demonstration focused on retrieving, transforming, and synchronizing lending data between systems.
+
+The project demonstrates API-driven workflows, data transformation, and integration patterns similar to those used when connecting lenders and internal loan-origination systems.
+
+**Technologies:** React, APIs, OAuth, JSON, backend services
+
+---
+
+### 📊 ETL Dashboard
+
+A data transformation and visualization application backed by FastAPI.
+
+The application:
+
+- Retrieves product data from external APIs
+- Cleans and transforms API responses
+- Calculates aggregated product metrics
+- Presents transformed data through an interactive dashboard
+
+The project demonstrates the Extract → Transform → Load pattern and Python-based API processing.
+
+**Technologies:** React, Python, FastAPI, REST APIs, data transformation
+
+---
+
+## 🏗 Integration Architecture
+
+Several projects in this portfolio follow the same real-world integration lifecycle:
+
+**Source System → API → Validation → Transformation / Mapping → Destination System → Persistence → Reporting / Observability**
+
+This approach demonstrates not only API connectivity, but the business and technical considerations required to operate integrations reliably.
+
+These include:
+
+- Required-field validation
+- Source-to-destination data mapping
+- Duplicate protection
+- Error classification
+- Retry strategies
+- Persistent integration history
+- Operational reporting
+- Integration monitoring
+
+---
+
+## 🛠 Technologies
+
+**Frontend**
+
+- React
+- React Router
+- Reactstrap
+- Bootstrap
+- Framer Motion
+- JavaScript
+- HTML / CSS
+
+**Backend**
+
+- Python
+- FastAPI
+- Node.js
+- Express.js
+- SQLAlchemy
+
+**Data**
+
+- PostgreSQL
+- SQL
+- JSON
+- Data transformation and mapping
+
+**Integration**
+
+- REST APIs
+- OAuth
+- Webhooks
+- API validation
+- Error handling
+- Retry patterns
+- Postman
+
+**Deployment**
+
+- Bluehost — React portfolio
+- Render — backend APIs and PostgreSQL
+
+---
+
+## 🗺 Current Focus
+
+The portfolio continues to evolve around production-oriented integration patterns.
+
+Current and future enhancements include:
+
+- CSV-driven employee migration
+- Automated employee synchronization
+- Selective retry of failed migration records
+- Additional integration observability
+- Authentication and authorization
+- Rate limiting and API throttling
+- Expanded database-backed configuration
+- Additional source and destination systems
 
 ---
 

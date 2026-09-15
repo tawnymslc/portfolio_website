@@ -24,8 +24,7 @@ const ProjectCard = ({ project }) => {
             style={{
                 height: '180px',
                 width: '100%',
-                objectFit: 'contain',
-                backgroundColor: '#050b16'
+                objectFit: 'cover',
             }}
           />
           <CardBody className="d-flex flex-column">
