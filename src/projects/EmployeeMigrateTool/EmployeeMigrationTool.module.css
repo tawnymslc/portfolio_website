@@ -58,6 +58,7 @@
 
 .sourceHeader h4 {
     margin: 0;
+    font-size: 1.1rem;
 }
 
 .sourceHeader span {
@@ -65,28 +66,60 @@
     color: #999;
 }
 
+.requirementsSection {
+  margin: 1.5rem 0 1.75rem;
+}
+
+.requirementsSection h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.requirementsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.requirementsGrid > div {
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.requirementsGrid strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.requirementsGrid p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .requirementsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .justCreatedBadge {
-
     display: inline-flex;
-
     align-items: center;
-
     padding: 0.3rem 0.65rem;
-
     border-radius: 999px;
-
     font-size: 0.7rem;
-
     font-weight: 700;
-
     letter-spacing: 0.04em;
-
     text-transform: uppercase;
-
     background: rgba(13, 110, 253, 0.15);
-
     border: 1px solid rgba(13, 110, 253, 0.35);
-
 }
 
 .migrationResultCard {

@@ -186,7 +186,7 @@ const EmployeeMigrationTool = () => {
         <div className={styles.container}>
             <SubHeader current='Tool' dark hideTitle/>
             <div className={styles.overviewCard}>
-                                <div className={styles.header}>
+                <div className={styles.header}>
                     <span className={styles.eyebrow}>
                         Integration Demo
                     </span>
@@ -200,19 +200,41 @@ const EmployeeMigrationTool = () => {
                     </p>
                 </div>
                 <div className={styles.overviewHeader}>
-                    
                     <div>
                         <h3>Migration Overview</h3>
                         <p>
-                            The demo uses four predefined Workstream employee records. Active
-                            employees are validated, checked against existing Toast employees,
-                            and mapped to Toast location and position values before transfer.
-                            Inactive employees are excluded.
+                            This demo simulates an employee migration from Workstream to Toast using predefined employee records and customer-configured mappings.
                         </p>
                     </div>
                     <span className={styles.demoBadge}>
                         Demo Data
                     </span>
+                </div>
+                <div className={styles.requirementsSection}>
+                    <h4>Business Requirements</h4>
+                    <div className={styles.requirementsGrid}>
+                        <div>
+                            <strong>Validate Employee Data</strong>
+                            <p>
+                                Transfer active employees with all required data while excluding
+                                inactive or invalid records.
+                            </p>
+                        </div>
+                        <div>
+                            <strong>Map Workstream to Toast</strong>
+                            <p>
+                                Translate Workstream locations and positions to
+                                customer-approved Toast values.
+                            </p>
+                        </div>
+                        <div>
+                            <strong>Protect & Track</strong>
+                            <p>
+                                Prevent duplicate employees and record transferred,
+                                skipped, and failed results for reporting.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.sourceHeader}>
                     <h4>Source Employees</h4>
@@ -227,39 +249,84 @@ const EmployeeMigrationTool = () => {
                     </div>
                     <div className={styles.previewRow}>
                         <div>
-                            <strong>Maria Lopez</strong>
-                            <span>WS-1001</span>
+                            <strong>Sofia Ramirez</strong>
+                            <span>WS-2001</span>
+                        </div>
+                        <span>Downtown SLC</span>
+                        <span>Manager</span>
+                        <span className={styles.activeStatus}>ACTIVE</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>Ethan Brooks</strong>
+                            <span>WS-2002</span>
+                        </div>
+                        <span>Airport</span>
+                        <span>Cook</span>
+                        <span className={styles.activeStatus}>ACTIVE</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>Maya Chen</strong>
+                            <span>WS-2003</span>
+                        </div>
+                        <span>Midvale</span>
+                        <span>Bartender</span>
+                        <span className={styles.activeStatus}>ACTIVE</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>Noah Williams</strong>
+                            <span>WS-2004</span>
+                        </div>
+                        <span>Sugarhouse</span>
+                        <span>Server</span>
+                        <span className={styles.activeStatus}>ACTIVE</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>Isabella Torres</strong>
+                            <span>WS-2005</span>
                         </div>
                         <span>Downtown SLC</span>
                         <span>Server</span>
-                        <span className={styles.activeStatus}>Active</span>
+                        <span className={styles.activeStatus}>ACTIVE</span>
                     </div>
                     <div className={styles.previewRow}>
                         <div>
-                            <strong>James Smith</strong>
-                            <span>WS-1002</span>
+                            <strong>Liam Foster</strong>
+                            <span>WS-2006</span>
                         </div>
                         <span>Sugarhouse</span>
                         <span>Cook</span>
-                        <span className={styles.activeStatus}>Active</span>
+                        <span className={styles.activeStatus}>ACTIVE</span>
                     </div>
                     <div className={styles.previewRow}>
                         <div>
-                            <strong>Emily Jones</strong>
-                            <span>WS-1003</span>
+                            <strong>Zoe Anderson</strong>
+                            <span>WS-2007</span>
                         </div>
-                        <span>SLC</span>
+                        <span>Downtown SLC</span>
+                        <span>Shift Lead</span>
+                        <span className={styles.activeStatus}>ACTIVE</span>
+                    </div>
+                    <div className={styles.previewRow}>
+                        <div>
+                            <strong>Lucas Bennett</strong>
+                            <span>WS-2008</span>
+                        </div>
+                        <span>Midvale</span>
                         <span>Server</span>
-                        <span className={styles.activeStatus}>Active</span>
+                        <span className={styles.inactiveStatus}>INACTIVE</span>
                     </div>
                     <div className={styles.previewRow}>
                         <div>
-                            <strong>Carlos Martinez</strong>
-                            <span>WS-1004</span>
+                            <strong>Amelia Davis</strong>
+                            <span>WS-2009</span>
                         </div>
-                        <span>—</span>
-                        <span>—</span>
-                        <span className={styles.inactiveStatus}>Inactive</span>
+                        <span>West Valley</span>
+                        <span>Server</span>
+                        <span className={styles.activeStatus}>ACTIVE</span>
                     </div>
                 </div>
                 <div className={styles.futureNote}>
