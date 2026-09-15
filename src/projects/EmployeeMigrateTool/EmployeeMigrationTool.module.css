@@ -65,6 +65,61 @@
     color: #999;
 }
 
+.justCreatedBadge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 0.3rem 0.65rem;
+
+    border-radius: 999px;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.04em;
+
+    text-transform: uppercase;
+
+    background: rgba(13, 110, 253, 0.15);
+
+    border: 1px solid rgba(13, 110, 253, 0.35);
+
+}
+
+.migrationResultCard {
+    margin-top: 1.5rem;
+}
+
+.resultHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+
+}
+
+.resultTitle {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+
+}
+
+.completedBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 .employeePreview {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;

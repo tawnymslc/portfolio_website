@@ -287,30 +287,57 @@ const EmployeeMigrationTool = () => {
                         </button>
                     </div>
                     {migrationResult && (
-                        <div>
-                            <h3>Migration Run #{migrationResult.migration_run_id}</h3>
-                            <div>
+                        <div className={styles.migrationResultCard}>
+                            <div className={styles.resultHeader}>
                                 <div>
-                                    Transferred
-                                    <strong>{migrationResult.summary.transferred}</strong>
+                                    <h3 className={styles.resultTitle}>
+                                        Migration Run #{migrationResult.migration_run_id}
+                                    </h3>
+                                    <span className={styles.justCreatedBadge}>
+                                        Just Created
+                                    </span>
                                 </div>
-                                <div>
-                                    Skipped
-                                    <strong>{migrationResult.summary.skipped}</strong>
-                                </div>
-                                <div>
-                                    Failed
-                                    <strong>{migrationResult.summary.failed}</strong>
-                                </div>
-                            </div>  
-                            <div>
-                                Employees
+                                    <span className={styles.completedBadge}>
+                                        Completed
+                                    </span>
+                            </div>
+                            <div className={styles.historyStats}>
+                                    <div className={styles.transferredStat}>
+                                        <span>Transferred</span>
+                                        <strong>{migrationResult.summary.transferred}</strong>
+                                    </div>
+                                    <div className={styles.skippedStat}>
+                                        <span>Skipped</span>
+                                        <strong>{migrationResult.summary.skipped}</strong>
+                                    </div>
+                                    <div  className={styles.failedStat}>
+                                        <span>Failed</span>
+                                        <strong>{migrationResult.summary.failed}</strong>
+                                    </div>
+                            </div> 
+                            <div className={styles.employeeResults}>
                                 {migrationResult.employees.map((employee) => (
-                                    <div key={employee.employee_id}>
-                                        <strong>{employee.name}</strong>
-                                        <span> - {employee.status}</span>
+                                    <div 
+                                        key={employee.employee_id}
+                                        className={styles.employeeRow}
+                                    >
+                                        <div className={styles.employeeMain}>
+                                            <div>
+                                                <strong>{employee.name}</strong>
+                                                     <span className={styles.employeeId}>
+                                                        &nbsp;{employee.employee_id}
+                                                    </span>
+                                            </div>
+                                            <span
+                                                className={`${styles.employeeStatus} ${
+                                                    styles[employee.status]
+                                                }`}
+                                            > 
+                                                {employee.status}
+                                            </span>
+                                        </div>
                                         {employee.reason && (
-                                            <p>{employee.reason}</p>
+                                            <p className={styles.employeeReason}>{employee.reason}</p>
                                         )}
                                     </div>
                                 ))}
@@ -357,10 +384,10 @@ const EmployeeMigrationTool = () => {
                                 <div className={styles.historyHeader} >
                                     <div>
                                         <h4 className={styles.historyTitle}>Migration Run: #{run.migration_run_id}</h4>
-                                        <span className={styles.historyDate}>{run.started_at}</span>
+                                        <span className={styles.historyDate}>{run.started_at}&nbsp;</span>
                                         {isCurrentRun && (
-                                            <span className={styles.yourRunBadge}>
-                                                Your Run
+                                            <span span className={styles.justCreatedBadge}>
+                                                Just Created
                                             </span>
                                         )}
                                     </div>
