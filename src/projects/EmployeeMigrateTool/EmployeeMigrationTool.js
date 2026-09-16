@@ -194,6 +194,7 @@ const EmployeeMigrationTool = () => {
                         Client Employee Transfer Tool
                     </h2>
                     <p className={styles.subtext}>
+                        <strong>Portfolio demonstration:</strong> This project simulates a Workstream-to-Toast integration using mock employee data and does not connect to production customer systems. 
                         Transfer active employees from Workstream to Toast with validation,
                         duplicate protection, mapping configuration, persistent migration history,
                         and reporting.
@@ -594,18 +595,18 @@ const EmployeeMigrationTool = () => {
                                 Add Location Mappings
                             </h4>
                             <p className={styles.cardDescription}> 
-                                Map a location to its downstream location.
+                                Map a new location to its downstream location.
                             </p>
                         </div>
                             <input className={styles.input}
                                 type="text"
-                                placeholder="Workstream location"
+                                placeholder="Ex. Draper"
                                 value={sourceLocation}
                                 onChange={(e) => setSourceLocation(e.target.value)}
                             />
                             <input className={styles.input}
                                 type="text"
-                                placeholder="Toast location"
+                                placeholder="Ex. SLC-DRAPER-TOAST"
                                 value={destinationLocation}
                                 onChange={(e) => setDestinationLocation(e.target.value)}
                             />
@@ -623,18 +624,18 @@ const EmployeeMigrationTool = () => {
                                 Add Position Mappings
                             </h4>
                             <p className={styles.cardDescription}> 
-                                Map a position to its downstream position.
+                                Map a new position to its downstream position.
                             </p>
                         </div>
                             <input className={styles.input}
                                 type="text"
-                                placeholder="Workstream position"
+                                placeholder="Ex. Host"
                                 value={sourcePosition}
                                 onChange={(e) => setSourcePosition(e.target.value)}
                             />
                             <input className={styles.input}
                                 type="text"
-                                placeholder="Toast position"
+                                placeholder="Ex. FOH-HOST-TOAST"
                                 value={destinationPosition}
                                 onChange={(e) => setDestinationPosition(e.target.value)}
                             />
