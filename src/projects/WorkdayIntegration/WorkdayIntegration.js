@@ -8,6 +8,7 @@ const WorkdayIntegration = () => {
 
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [workerTransfer, setWorkersTransfer] = useState([]);
     const [integrationSummary, setIntegrationSummary] = useState(null);
     const [integrationLogs, setIntegrationLogs] = useState([]);
 
@@ -33,39 +34,29 @@ const WorkdayIntegration = () => {
     };
 
     const runWorkdayDemo = async () => {
-        try {
-            setLoading(true);
-            setError("");
-            // reset + demo requests...
 
+        setLoading(true);
+        setError("");
+
+        try {
+            // reset + demo requests...
             await fetch(`${API_BASE}/workday/demo/reset`, {
                 method: "POST",
             });
 
-            const demoWorkers = [
-                "WD-2001",
-                "WD-2002",
-                "WD-2003",
-                "WD-2004"
-            ];
+            const response = await fetch(`${API_BASE}/workday/demo/run`,
+                {
+                    method: "POST"
+                }
+            );
 
-            for (const workerId of demoWorkers) {
-                await fetch(`${API_BASE}/workday/events/worker-transfer`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        worker_id: workerId,
-                        first_name: "Demo",
-                        last_name: "Employee",
-                        old_department: "Sales",
-                        new_department: "Engineering",
-                        location: "Utah",
-                        manager_id: "WD-10021"
-                    })
-                });
+            if (!response.ok) {
+                throw new Error("Worker transfer failed");
             }
+
+            const data = await response.json();
+            setWorkersTransfer(data);
+
             await getIntegrationData();
 
         } catch (err) {
@@ -166,6 +157,73 @@ const WorkdayIntegration = () => {
                                 </span>
                             </div>
                         </div>
+                        <div className={styles.sourceHeader}>
+                            <h2 className={styles.transferHeading}>Demo Workers</h2>
+                        </div>
+                        <p className={styles.architectureText}>
+                            These Workday worker transfer events are processed through the integration platform.
+                        </p>
+                         <div className={styles.previewHeader}>
+                            <span>Worker</span>
+                            <span>Location</span>
+                            <span>Department Transfer</span>
+                        </div>
+                        <div className={styles.previewRow}>
+                            <div>
+                                <strong>Maya Chen</strong>
+                                <span> WD-2001</span>
+                            </div>
+                            <span>Salt Lake City</span>
+                            <span>Sales → Engineering</span>
+                        </div>
+                        <div className={styles.previewRow}>
+                            <div>
+                                <strong>Ethan Brooks</strong>
+                                <span> WD-2002</span>
+                            </div>
+                            <span>Denver</span>
+                            <span>Engineering → Sales</span>
+                        </div>
+                        <div className={styles.previewRow}>
+                            <div>
+                                <strong>Sofia Ramirez</strong>
+                                <span> WD-2003</span>
+                            </div>
+                            <span>Austin</span>
+                            <span>Sales → Marketing</span>
+                        </div>
+                        <div className={styles.previewRow}>
+                            <div>
+                                <strong>Noah Williams</strong>
+                                <span> WD-2004</span>
+                            </div>
+                            <span>Seattle</span>
+                            <span>Marketing → Engineering</span>
+                        </div>
+                        <div className={styles.previewRow}>
+                            <div>
+                                <strong>Retry Success</strong>
+                                <span> WD-2005</span>
+                            </div>
+                            <span>Seattle</span>
+                            <span>Marketing → Engineering</span>
+                        </div>
+                        <div className={styles.previewRow}>
+                            <div>
+                                <strong>Test Fail400</strong>
+                                <span> WD-2006</span>
+                            </div>
+                            <span>Seattle</span>
+                            <span>Marketing → Engineering</span>
+                        </div>
+                        <div className={styles.previewRow}>
+                            <div>
+                                <strong>Test Fail500</strong>
+                                <span> WD-2007</span>
+                            </div>
+                            <span>Seattle</span>
+                            <span>Marketing → Engineering</span>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.summaryOverview}>
@@ -179,34 +237,54 @@ const WorkdayIntegration = () => {
                                 </p>
                             )}             
                     </div>
-                        {integrationSummary && (
-                            <div className={styles.summaryGrid}>
-                                <div className={styles.summaryCard}>
-                                    <h3 className={styles.summaryTitle}>Total Deliveries</h3>
-                                    <p className={styles.summaryValue}>
-                                        {integrationSummary.total_deliveries}
-                                    </p>
+                    <h2 className={styles.transferHeading}>Transformation Details</h2>
+                        <div className={styles.previewHeader}>
+                            <span>Worker</span>
+                            <span>Canonical Dept</span>
+                            <span>Payroll Dept</span>
+                            <span>Learner Role</span>
+                        </div>
+                    {workerTransfer.map((run) => (
+                        <div className={styles.previewRow}>
+                                <strong>{run.worker.full_name}</strong>
+                                <span> {run.worker.department}</span>
+                                <span> {run.payroll.department_code}</span>
+                                <span> {run.learning.learning_role}</span>
+                        </div>
+                    ))}
+                    <div>
+                        <h2 className={styles.transferHeading}>Delivery Summary</h2>
+                            {integrationSummary && (
+                                <div className={styles.summaryGrid}>
+                                    <div className={styles.summaryCard}>
+                                        <h3 className={styles.summaryTitle}>Total Deliveries</h3>
+                                        <p className={styles.summaryValue}>
+                                            {integrationSummary.total_deliveries}
+                                        </p>
+                                    </div>
+                                    <div className={styles.summaryCard}>
+                                        <h3 className={styles.summaryTitle}>Success Rate</h3>
+                                        <p className={styles.summaryValue}>
+                                            {integrationSummary.success_rate}%
+                                        </p>
+                                    </div>
+                                    <div className={styles.summaryCard}>
+                                        <h3 className={styles.summaryTitle}>Failed</h3>
+                                        <p className={styles.summaryValue}>
+                                            {integrationSummary.failed}
+                                        </p>
+                                    </div>
+                                    <div className={styles.summaryCard}>
+                                        <h3 className={styles.summaryTitle}>Retried</h3>
+                                        <p className={styles.summaryValue}>
+                                            {integrationSummary.retried}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className={styles.summaryCard}>
-                                    <h3 className={styles.summaryTitle}>Success Rate</h3>
-                                    <p className={styles.summaryValue}>
-                                        {integrationSummary.success_rate}%
-                                    </p>
-                                </div>
-                                <div className={styles.summaryCard}>
-                                    <h3 className={styles.summaryTitle}>Failed</h3>
-                                    <p className={styles.summaryValue}>
-                                        {integrationSummary.failed}
-                                    </p>
-                                </div>
-                                <div className={styles.summaryCard}>
-                                    <h3 className={styles.summaryTitle}>Retried</h3>
-                                    <p className={styles.summaryValue}>
-                                        {integrationSummary.retried}
-                                    </p>
-                                </div>
-                            </div>
-                        )}
+                            )}
+                    </div>
+                    <div>
+                        <h2 className={styles.transferHeading}>Integration Activity</h2>
                         {integrationLogs.length > 0 && (
                             <div className={styles.activitySection}>
                                 <table className={styles.table}>
@@ -246,6 +324,7 @@ const WorkdayIntegration = () => {
                                 </table>
                             </div>
                         )}
+                    </div>
                 </div>
             </section>
         </div>
