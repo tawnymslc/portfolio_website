@@ -501,12 +501,6 @@ button.btn-contact-me {
   align-self: flex-start;
 }
 
-/** ETL BG **/
-.etl-bg {
-  background-color: #1e1e2f;
-  color: white;
-}
-
 .lender-bg {
   background-color: #000;
   color: white;

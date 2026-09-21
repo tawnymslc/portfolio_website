@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
-import { Button, Col } from 'reactstrap';
+import { Button} from 'reactstrap';
 import { useMediaQuery } from 'react-responsive';
+import styles from './ETLDashboard.module.css'
 import SubHeader from '../../components/SubHeader'
 import axios from "axios";
 
@@ -74,103 +75,131 @@ const ETLDashboard = () => {
   }
 
   return (
-    <div className='project-container etl-bg'>
-      <SubHeader current='ETL Dashboard' dark />
-      <Col md={12}>
-          <h5>📊 ETL Dashboard</h5>
-            <p>This feature presents a real-time data visualization dashboard that summarizes product pricing by category. 
-              Originally powered by mock data, it now extracts live data from the external API at <code>dummyjson.com/products</code>. 
-              The backend service processes this raw product data by grouping it by category and calculating the average price for each category.
-            </p>
-            <p>The cleaned and aggregated data is then sent to the frontend, where it is visually rendered using Recharts for easy insight.</p>
-          <h5>🧩 Real-World Application</h5>
-            <p>This project models how ETL workflows are used in production systems for data analytics and reporting. It demonstrates the ability to:</p>
-              <ul>
-                <li className="project-bullets"><b>Extract Data</b> from external APIs using a Python backend (FastAPI).</li>
-                <li className="project-bullets"><b>Transform and aggregate</b> raw JSON product data by computing category-level averages.</li>
-                <li className="project-bullets"><b>Load and visualize</b> the results through a responsive frontend dashboard using Recharts.</li>
-                <li className="project-bullets"><b>Handle asynchronous states</b>, including data loading, display toggles, and fallback messaging.</li>
-              </ul>
-              <p><b>Technologies Used:</b></p>
-              <ul>
-                <li className="project-bullets">React, Axios, Recharts</li>
-                <li className="project-bullets">Python, FastAPI, REST APIs</li>
-              </ul>     
-      </Col>
-      {/* View Toggle Buttons */}
-      <div style={{ margin: '1rem 0' }}>
-        <Button color={view === "chart" ? "primary" : "secondary"} onClick={() => setView("chart")} className="me-2">Chart</Button>
-        <Button color={view === "raw" ? "primary" : "secondary"} onClick={() => setView("raw")} className="me-2">Raw Data</Button>
-        <Button color={view === "transformed" ? "primary" : "secondary"} onClick={() => setView("transformed")}>Transformed</Button>
-      </div>
-
-      {/* Conditional Views */}
-      {view === "chart" && (
-        <>
-          <h6 style={{ color: 'white' }}>Average Price of Products by Category</h6>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart 
-              data={filteredData}
-              layout={isMobile ? "vertical" : "horizontal"}
-              margin={{ top: 20, right: 20, bottom: 60, left: 30 }}
-            >
-              <CartesianGrid stroke="#444" strokeDasharray="3 3" />
-            
-                {isMobile ? (
-                    <>
-                      <XAxis type="number" stroke="#aaa" />
-                      <YAxis 
-                        type="category" 
-                        dataKey="category" 
-                        stroke="#aaa" 
-                        width={120} 
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <XAxis 
-                        dataKey="category" 
-                        stroke="#aaa" tick={{ angle: -30, textAnchor: 'end' }} 
-                        interval={0} />
-                      <YAxis stroke="#aaa" />
-                    </>
+    <div className={styles.etlContainer}>
+      <SubHeader current='ETL Dashboard' dark hideTitle />
+        <section>
+          <div className={styles.etlPanel}>
+            <div className={styles.header}>
+                <span className={styles.eyebrow}>
+                    Data Pipeline Demo
+                </span>
+                <h2 className={styles.heading}>
+                     Product Data ETL Pipeline
+                </h2>
+                <p className={styles.subtext}>
+                    <strong>Portfolio demonstration:</strong> Extracts live product data from an external API, 
+                            transforms raw product records into category-level pricing metrics, and presents 
+                            the processed results in an interactive dashboard.
+                </p>
+              </div>
+              <div className={styles.architectureSection}>
+                  <h2 className={styles.architectureHeading}>
+                      Pipeline Overview
+                  </h2>
+                  <p className={styles.architectureText}>
+                      Product records are extracted from an external API, cleaned and grouped by category in the Python backend, 
+                      then delivered to the React frontend for visualization.
+                  </p>
+                  <div className={styles.architectureDiagram}>
+                      <div className={styles.architectureBox}>
+                          <strong>External Product API </strong>
+                          <span className={styles.boxSubtext}>RAW JSON Records</span>
+                      </div>
+                      <div className={styles.arrow}>↓</div>
+                      <div className={styles.architectureBox}>
+                          <strong>Extract</strong>
+                          <span className={styles.boxSubtext}>Fetch Product Data</span>
+                      </div>
+                      <div className={styles.arrow}>↓</div>
+                      <div className={styles.architectureBox}>
+                          <strong>Transform</strong>
+                          <span className={styles.boxSubtext}>Group By Category</span>
+                          <span className={styles.boxSubtext}>Calculate by Average</span>
+                      </div>
+                      <div className={styles.arrow}>↓</div>
+                      <div className={styles.architectureBox}>
+                          <strong>FastAPI Response</strong>
+                          <span className={styles.boxSubtext}>Processed Dataset</span>
+                      </div>
+                      <div className={styles.arrow}>↓</div>
+                      <div className={styles.architectureBox}>
+                          <strong>React/Recharts</strong>
+                          <span className={styles.boxSubtext}>Visualization</span>
+                      </div>
+                  </div>
+                </div>  
+                {/* View Toggle Buttons */}
+                <div className={styles.viewToggle}>
+                  <Button color={view === "chart" ? "primary" : "secondary"} onClick={() => setView("chart")} className="me-2">Visualization</Button>
+                  <Button color={view === "raw" ? "primary" : "secondary"} onClick={() => setView("raw")} className="me-2">Raw Data</Button>
+                  <Button color={view === "transformed" ? "primary" : "secondary"} onClick={() => setView("transformed")}>Transformed Data</Button>
+                </div>
+                {/* Conditional Views */}
+                {view === "chart" && (
+                  <>
+                    <h6 className={styles.chartHeading}>Average Price of Products by Category</h6>
+                    <ResponsiveContainer width="100%" height={400}>
+                      <BarChart 
+                        data={filteredData}
+                        layout={isMobile ? "vertical" : "horizontal"}
+                        margin={{ top: 20, right: 20, bottom: 60, left: 30 }}
+                      >
+                        <CartesianGrid stroke="#444" strokeDasharray="3 3" />
+                          {isMobile ? (
+                              <>
+                                <XAxis type="number" stroke="#aaa" />
+                                <YAxis 
+                                  type="category" 
+                                  dataKey="category" 
+                                  stroke="#aaa" 
+                                  width={120} 
+                                />
+                              </>
+                            ) : (
+                              <>
+                                <XAxis 
+                                  dataKey="category" 
+                                  stroke="#aaa" tick={{ angle: -30, textAnchor: 'end' }} 
+                                  interval={0} />
+                                <YAxis stroke="#aaa" />
+                              </>
+                          )}
+                        <Tooltip
+                          content={isMobile ? <CustomTooltip /> : undefined}
+                          formatter={!isMobile ? (value, name, props) => {
+                            const row = props?.payload
+                            if (name === "averagePrice" && row) {
+                              return [`$${value} | Min: $${row.minPrice}`, "Average Price"]
+                            }
+                            return [value, name]
+                          } : undefined}
+                          contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }}
+                          itemStyle={{ color: 'white' }}
+                        />
+                        <Bar dataKey="averagePrice" fill="#3b82f6" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </>
                 )}
-              <Tooltip
-                content={isMobile ? <CustomTooltip /> : undefined}
-                formatter={!isMobile ? (value, name, props) => {
-                  const row = props?.payload
-                  if (name === "averagePrice" && row) {
-                    return [`$${value} | Min: $${row.minPrice}`, "Average Price"]
-                  }
-                  return [value, name]
-                } : undefined}
-                contentStyle={{ backgroundColor: '#333', border: 'none', color: 'white' }}
-                itemStyle={{ color: 'white' }}
-              />
-              <Bar dataKey="averagePrice" fill="#3b82f6" />
-            </BarChart>
-          </ResponsiveContainer>
-        </>
-      )}
-
-      {view === "raw" && (
-        <div style={{ backgroundColor: '#2a2a40', padding: '1rem', borderRadius: '10px' }}>
-          <h6>Raw Product Data (Extracted)</h6>
-          <p>Displaying 3 sample products</p>
-          <pre style={{ color: 'white', fontSize: '0.8rem', overflowX: 'auto' }}>
-            {JSON.stringify(rawData.slice(0, 10), null, 2)}
-          </pre>
+                {view === "raw" && (
+                  <div className={styles.dataPanel}>
+                    <h6>Raw Product Data (Extracted)</h6>
+                    <p>Displaying 10 sample products</p>
+                    <pre className={styles.jsonData}>
+                      {JSON.stringify(rawData.slice(0, 10), null, 2)}
+                    </pre>
+                  </div>
+                )}
+                {view === "transformed" && (
+                  <div style={{ backgroundColor: '#2a2a40', padding: '1rem', borderRadius: '10px' }}>
+                    <h6>Transformed Data (Loaded for Chart)</h6>
+                    <pre style={{ color: 'white', fontSize: '0.8rem', overflowX: 'auto' }}>
+                      {JSON.stringify(data, null, 2)}
+                    </pre>
+                  </div>
+                )}
         </div>
-      )}
-
-      {view === "transformed" && (
-        <div style={{ backgroundColor: '#2a2a40', padding: '1rem', borderRadius: '10px' }}>
-          <h6>Transformed Data (Loaded for Chart)</h6>
-          <pre style={{ color: 'white', fontSize: '0.8rem', overflowX: 'auto' }}>
-            {JSON.stringify(data, null, 2)}
-          </pre>
-        </div>
-      )}
+      </section>
     </div>
   );
 };
