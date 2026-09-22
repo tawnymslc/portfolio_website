@@ -184,14 +184,14 @@ const ETLDashboard = () => {
                 {view === "raw" && (
                   <div className={styles.dataPanel}>
                     <h6>Raw Product Data (Extracted)</h6>
-                    <p>Displaying 10 sample products</p>
+                    <p>Displaying 3 sample products</p>
                     <pre className={styles.jsonData}>
-                      {JSON.stringify(rawData.slice(0, 10), null, 2)}
+                      {JSON.stringify(rawData.slice(0, 3), null, 2)}
                     </pre>
                   </div>
                 )}
                 {view === "transformed" && (
-                  <div style={{ backgroundColor: '#2a2a40', padding: '1rem', borderRadius: '10px' }}>
+                  <div className={styles.dataPanel}>
                     <h6>Transformed Data (Loaded for Chart)</h6>
                     <pre style={{ color: 'white', fontSize: '0.8rem', overflowX: 'auto' }}>
                       {JSON.stringify(data, null, 2)}

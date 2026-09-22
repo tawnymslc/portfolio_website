@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SubHeader from '../../components/SubHeader'
+import styles from './LenderIntegration.module.css'
 
 const API_BASE = process.env.REACT_APP_PYTHON_API_URL;
 
@@ -78,45 +79,189 @@ const LenderIntegrationAPI = () => {
   };
 
   return (
-    <div className='project-container lender-bg'>
+    <div className={styles.lenderContainer}>
       <SubHeader current='Lender' dark />
-      <section style={styles.wrapper}>
-        <h2 style={styles.heading}>Lender Integration Tool</h2>
-        <p style={styles.subtext}>
+      <section className={styles.lenderWrapper}>
+        <h2 className={styles.heading}>Lender Integration Tool</h2>
+        <p className={styles.subtext}>
           Simulates an internal integration operations tool that enables teams to retrieve deal data from a partner API, transform it into the lender's LOS
           schema, execute synchronization workflows, and verify imported records.
         </p>
 
-        <div style={styles.card}>
-          <h3 style={styles.cardTitle}>1. GET Raw Source Deal by Deal ID (IDs 1–10)</h3>
-          <div style={styles.row}>
+        <div className={styles.card}>
+          <h3 className={styles.cardTitle}>1. GET Raw Source Deal by Deal ID (IDs 1–10)</h3>
+          <div className={styles.row}>
             <input
               type="number"
               placeholder="Enter Deal ID"
               value={dealId}
               onChange={(e) => setDealId(e.target.value)}
-              style={styles.input}
+              className={styles.input}
             />
-            <button onClick={fetchSourceDeal} style={styles.button}>
+            <button onClick={fetchSourceDeal} className={styles.button}>
               GET Deal
             </button>
           </div>
 
           {sourceDeal && (
-            <pre style={styles.codeBlock}>
+            <pre className={styles.codeBlock}>
               {JSON.stringify(sourceDeal, null, 2)}
             </pre>
           )}
         </div>
 
-        <div style={styles.card}>
-          <h3 style={styles.cardTitle}>2. Run Sync Workflow</h3>
-          <button onClick={syncDeals} style={styles.button}>
+        <div className={styles.card}>
+        <div className={styles.transformationSection}>
+          <h3 className={styles.cardTitle}>2. Deal Transformation Preview</h3>
+          <p className={styles.sectionDescription}>
+            See how the source deal is mapped and transformed into the
+            schema expected by the lender's Loan Origination System.
+          </p>
+          <div className={styles.transformationFlow}>
+            {/* SOURCE */}
+            <div className={styles.transformColumn}>
+              <div className={styles.transformHeader}>
+                <span>Source Deal</span>
+                <small>Partner API</small>
+              </div>
+
+              <div className={styles.transformCard}>
+                <div className={styles.field}>
+                  <span>id</span>
+                  <strong>1</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>name</span>
+                  <strong>Leanne Graham</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>email</span>
+                  <strong>Sincere@april.biz</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>street</span>
+                  <strong>Kulas Light</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>suite</span>
+                  <strong>Apt. 556</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>city</span>
+                  <strong>Salt Lake City</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>zipcode</span>
+                  <strong>92998-3874</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>phone</span>
+                  <strong>1-770-736-8031 x56442</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>website</span>
+                  <strong>hildegard.org</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>company</span>
+                  <strong>Romaguera-Crona</strong>
+                </div>
+
+              </div>
+            </div>
+
+            {/* TRANSFORMATION ARROW */}
+            <div className={styles.transformArrow}>
+              <span>Transform</span>
+              <div>→</div>
+            </div>
+
+            {/* DESTINATION */}
+            <div className={styles.transformColumn}>
+              <div className={styles.transformHeader}>
+                <span>Lender LOS</span>
+                <small>Destination Schema</small>
+              </div>
+
+              <div className={styles.transformCard}>
+                <div className={styles.field}>
+                  <span>deal Id</span>
+                  <strong>1</strong>
+                </div>
+
+                 <div className={styles.field}>
+                  <span>status</span>
+                  <strong>Condtionally Approved</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>First Name</span>
+                  <strong>Leanne</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>Last Name</span>
+                  <strong>Graham</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>Email Address</span>
+                  <strong>Sincere@april.biz</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>Full Address</span>
+                  <strong>Kulas Light Apt. 556</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>City</span>
+                  <strong>Salt Lake City</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>Zip Code</span>
+                  <strong>92998</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>phone</span>
+                  <strong>(770) 736-8031 ext 56442</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>Company Website</span>
+                  <strong>hildegard.org</strong>
+                </div>
+
+                <div className={styles.field}>
+                  <span>Company Name</span>
+                  <strong>Romaguera-Crona</strong>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        </div>
+
+        <div className={styles.card}>
+          <h3 className={styles.cardTitle}>3. Run Sync Workflow</h3>
+          <button onClick={syncDeals} className={styles.button}>
             Sync Deals
           </button>
           <p></p>
           {syncResult && (
-            <div style={styles.resultGrid}>
+            <div className={styles.resultGrid}>
               <div>
                 <strong>Source Records</strong>
                 <p>{syncResult.source_count}</p>
@@ -137,101 +282,24 @@ const LenderIntegrationAPI = () => {
           )}
         </div>
 
-        <div style={styles.card}>
-          <h3 style={styles.cardTitle}>3. View Imported Loan Origination System Deals</h3>
-          <button onClick={fetchLenderDeals} style={styles.button}>
+        <div className={styles.card}>
+          <h3 className={styles.cardTitle}>3. View Imported Loan Origination System Deals</h3>
+          <button onClick={fetchLenderDeals} className={styles.button}>
             Load Lender Deals
           </button>
 
           {lenderDeals.length > 0 && (
-            <pre style={styles.codeBlock}>
+            <pre className={styles.codeBlock}>
               {JSON.stringify(lenderDeals, null, 2)}
             </pre>
           )}
         </div>
 
-        {loading && <p style={styles.status}>Loading...</p>}
-        {error && <p style={styles.error}>{error}</p>}
+        {loading && <p className={styles.status}>Loading...</p>}
+        {error && <p className={styles.error}>{error}</p>}
       </section>
     </div>
   );
-};
-
-const styles = {
-  wrapper: {
-    padding: "2rem",
-    borderRadius: "20px",
-    background: "#111",
-    color: "#fff",
-    maxWidth: "1000px",
-    margin: "0 auto",
-  },
-  heading: {
-    fontSize: "2rem",
-    marginBottom: "0.5rem",
-  },
-  subtext: {
-    color: "#bbb",
-    marginBottom: "2rem",
-    lineHeight: 1.6,
-  },
-  card: {
-    background: "#1a1a1a",
-    border: "1px solid #2a2a2a",
-    borderRadius: "16px",
-    padding: "1.25rem",
-    marginBottom: "1.5rem",
-  },
-  cardTitle: {
-    marginBottom: "1rem",
-    fontSize: "1.1rem",
-  },
-  row: {
-    display: "flex",
-    gap: "0.75rem",
-    flexWrap: "wrap",
-    marginBottom: "1rem",
-  },
-  input: {
-    padding: "0.75rem 1rem",
-    borderRadius: "10px",
-    border: "1px solid #444",
-    background: "#0d0d0d",
-    color: "#fff",
-    minWidth: "200px",
-  },
-  button: {
-    padding: "0.75rem 1rem",
-    borderRadius: "10px",
-    border: "none",
-    cursor: "pointer",
-    background: "#2563eb",
-    color: "#fff",
-    fontWeight: "600",
-  },
-  codeBlock: {
-    background: "#0b0b0b",
-    padding: "1rem",
-    borderRadius: "12px",
-    overflowX: "auto",
-    fontSize: "0.85rem",
-    lineHeight: 1.5,
-    color: "#9ae6b4",
-  },
-  status: {
-    marginTop: "1rem",
-    color: "#ccc",
-  },
-  error: {
-    marginTop: "1rem",
-    color: "#f87171",
-  },
-  resultGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-    gap: "1rem",
-    marginTop: "1rem",
-  },
 };
 
 export default LenderIntegrationAPI;

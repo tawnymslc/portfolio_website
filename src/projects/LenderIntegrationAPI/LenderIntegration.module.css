@@ -1,0 +1,174 @@
+.lenderContainer {
+    background-color: #1e1e2f;
+    color: white;
+    width: 100%;
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 50px 0;
+    box-sizing: border-box;
+}
+
+.lenderWrapper {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.heading {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtext {
+    color: #bbb;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.card {
+   background-color: #1e1e2f;
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.cardTitle {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.input {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #444;
+    background: #0d0d0d;
+    color: #fff;
+    min-width: 200px;
+
+}
+
+.button {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #2563eb;
+    color: #fff;
+    font-weight: 600;
+}
+
+.codeBlock {
+    background: #0b0b0b;
+    padding: 1rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #9ae6b4;
+}
+
+.transformationSection {
+    margin: 2rem 0;
+}
+
+.sectionDescription {
+    color: #aaa;
+    margin-bottom: 1.5rem;
+}
+
+.transformationFlow {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.transformColumn {
+    flex: 1;
+}
+
+.transformHeader {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+}
+
+.transformHeader span {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.transformHeader small {
+    color: #999;
+}
+
+.transformCard {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #292929;
+}
+
+.field:last-child {
+    border-bottom: none;
+}
+
+.field span {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.field strong {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.transformArrow {
+    min-width: 90px;
+    text-align: center;
+    color: #aaa;
+}
+
+.transformArrow span {
+    font-size: 0.75rem;
+}
+
+.transformArrow div {
+    font-size: 2rem;
+}
+
+.status {
+    margin-top: 1rem;
+    color: #ccc;
+}
+
+.error {
+    margin-top: 1rem;
+    color: #f87171;
+}
+
+.resultGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
