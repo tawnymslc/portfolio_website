@@ -28,6 +28,7 @@ const HomePage = () => {
     };
 
     const wrapper = wrapperRef.current;
+    
   if (wrapper) {
     wrapper.addEventListener('scroll', handleScroll);
   }

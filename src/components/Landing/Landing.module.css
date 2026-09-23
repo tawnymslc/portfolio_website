@@ -66,18 +66,6 @@
   animation: fadeInUp 1s ease forwards;
 }
 
-.titleList {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.titleList li {
-  color: #666;
-  font-size: 0.6rem;
-  font-weight: 600;
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -110,7 +98,9 @@
   cursor: pointer;
   user-select: none;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
+  border: none;
+  font: inherit;
 }
 
 .labelContent {
@@ -122,18 +112,14 @@
 
 .landingPrompt {
   position: absolute;
-  top: 45%;
+  top: 43%;
   left: 51%;
   transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  color: #020202;
+  font-size: 1.1rem;
+  color: #666;
   font-weight: 500;
-  opacity: 0.7;
   text-align: center;
-  max-width: 60%;
   pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 1;
 }
 
 .descriptionGroup {
@@ -200,6 +186,113 @@
   padding: 4px;
 }
 
+.positioningStatement {
+  margin: 1rem 0 0 4rem;
+  max-width: 390px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.positioningStatement h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: #111;
+}
+
+.positioningStatement p {
+  margin: 0.6rem 0 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.rolePanel {
+  position: absolute;
+  top: 20%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+  width: min(460px, 80vw);
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  z-index: 2;
+}
+
+.roleEyebrow {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.rolePanel h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: #111;
+}
+
+.rolePanel p {
+  margin: 1rem 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.closeRolePanel {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #777;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.closeRolePanel:hover {
+  background: #f2f2f2;
+  color: #111;
+}
+
+.skillTags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skillTags span {
+  padding: 0.4rem 0.7rem;
+  background: #f2f2f2;
+  border-radius: 20px;
+  color: #333;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.exploreLink {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: #111;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.exploreLink:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 992px) {
   #landing {
     height: 100vh;
@@ -217,7 +310,7 @@
     width: 60%;
     max-width: none;
     margin: 0;
-    margin-left: 2rem;
+    margin-left: 4rem;
     padding: 1rem 1.5rem;
     display: flex;
     flex-direction: row;
@@ -261,6 +354,15 @@
     display: none;
   }
 
+  .positioningStatement {
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem 0 0 0;
+  }
+
   .labelGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -278,9 +380,15 @@
   }
 
   .landingPrompt {
-    top: 63%;
+    top: 70%;
     left: 50%;
     font-size: 1rem;
+  }
+
+  .rolePanel {
+    position: absolute;
+    top: 32%;
+    left: 2%;
   }
 
   .descriptionGroup {

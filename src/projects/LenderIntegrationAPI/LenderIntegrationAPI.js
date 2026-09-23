@@ -80,14 +80,18 @@ const LenderIntegrationAPI = () => {
 
   return (
     <div className={styles.lenderContainer}>
-      <SubHeader current='Lender' dark />
+      <SubHeader current='Lender' dark hideTitle />
       <section className={styles.lenderWrapper}>
-        <h2 className={styles.heading}>Lender Integration Tool</h2>
-        <p className={styles.subtext}>
-          Simulates an internal integration operations tool that enables teams to retrieve deal data from a partner API, transform it into the lender's LOS
-          schema, execute synchronization workflows, and verify imported records.
-        </p>
-
+        <div className={styles.header}>
+          <span className={styles.eyebrow}>
+              API Integration Demo
+          </span>
+          <h2 className={styles.heading}>Lender API Integration</h2>
+          <p className={styles.subtext}>
+            Simulates an internal integration operations tool that enables teams to retrieve deal data from a partner API, transform it into the lender's LOS
+            schema, execute synchronization workflows, and verify imported records.
+          </p>
+        </div>
         <div className={styles.card}>
           <h3 className={styles.cardTitle}>1. GET Raw Source Deal by Deal ID (IDs 1–10)</h3>
           <div className={styles.row}>
