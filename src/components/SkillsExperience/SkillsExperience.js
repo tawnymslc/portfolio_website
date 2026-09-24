@@ -22,48 +22,38 @@ import styles from './SkillsExperience.module.css'
 
 const experienceData = [
   {
-    role: "Enterprise Implementation Manager",
-    company: "eBay",
-    duration: "2005 – 2015",
+    role: "Technical Implementation Consultant PM",
+    company: "Lendio",
+    duration: "2025-2026",
+    rolePreview: 'Led lender onboarding and API integrations, translating lending workflows into product rules and technical solutions.',
     description: [
-      "Integrated 50+ strategic brands into eBay’s marketplace. Led cross-team coordination and launched high-profile projects like the Designer Collective Landing Site for eBay fashion.",
-      "Served as technical advisor for assigned projects launching their products on eBay."
+      "The technical advisor for lenders and partners, guiding onboarding, system design, and integration strategy from kickoff through launch.",
+      "Partner with customer and internal teams to gather requirements and design scalable solutions involving API integrations and financial workflows.",
+      "Troubleshoot integration issues by analyzing logs, validating API requests, and guiding customers through resolution and best practices."
     ],
-    logo: ebayexplogo,
-    primaryColor: "rgb(138, 198, 7)",
-    previewVert: "top",
+    logo: lendioexplogo,
+    primaryColor: "rgb(80, 188, 233)",
+    previewPosition: "topLeft",
   },
   {
-    role: "Sr Implementation Consultant",
-    company: "Salsify",
-    duration: "2021 – 2022",
+    role: "Solutions Consultant",
+    company: "Rainfocus",
+    duration: "2019 – 2020",
+    rolePreview: 'Designed event technology solutions and translated customer requirements into implementation strategies.',
     description: [
-      "Managed the onboarding of high-profile, strategic clients, including Coca-Cola and Hormel, overseeing 15-25 complex implementations each quarter.",
-      "Led client-facing workshops, facilitated discovery calls, and provided technical support to ensure seamless integrations and client success.",
-      "Served as a Team Lead, conducting 1:1 meetings and leading featured workshops to drive team development and knowledge sharing."
+      "Facilitated the onboarding of events by collaborating with partners, establishing expectations, configuring settings, and testing.",
+      "Collaborated with project managers to formulate the comprehensive strategy for configuring a partner's event within the tool.",
+      "My role was impacted by the pandemic as live events worldwide were canceled, leading to company-wide cuts."
     ],
-    logo: salsifyexplogo,
-    primaryColor: "rgb(24, 182, 255)",
-    previewVert: "bottom",
-  },
-  {
-    role: "Sr Implementation Consultant PM",
-    company: "Instructure",
-    duration: "2015 – 2019",
-    description: 
-    [
-      "Led end-to-end implementation of Canvas LMS for K-12 districts and higher education institutions, ensuring seamless deployment and adoption.",
-      "Recognized as the #1 Implementation Consultant, as voted by the Customer Success team, to be paired with on projects.",
-      "Achieved a 95%+ deal closure rate as the lead Implementation Consultant, driving successful client onboarding and satisfaction."
-    ],
-    logo: canvasexplogo,
-    primaryColor: "rgb(31, 105, 139)",
-    previewVert: "top",
+    logo: rfexplogo,
+    primaryColor: "rgb(222, 0, 69)",
+    previewPosition: "left",
   },
   {
     role: "Partner Integration Engineer",
     company: "Unstoppable Domains",
     duration: "2022 – 2023",
+    rolePreview: 'Built and supported partner integrations, working across APIs, technical requirements, and partner engineering teams.',
     description: [
       "Supported over 60 partners quarterly in technical integration projects, including: Login, Resolution, and Partner API.",
       "Supported developer teams by troubleshooting and debugging integration code, with a focus on React-based implementations.",
@@ -73,33 +63,49 @@ const experienceData = [
     ],
     logo: udexplogo,
     primaryColor: "rgb(15, 74, 274)",
-    previewVert: "bottom",
+    previewPosition: "topLeft",
   },
   {
-    role: "Solutions Consultant",
-    company: "Rainfocus",
-    duration: "2019 – 2020",
-    description: [
-      "Facilitated the onboarding of events by collaborating with partners, establishing expectations, configuring settings, and testing.",
-      "Collaborated with project managers to formulate the comprehensive strategy for configuring a partner's event within the tool.",
-      "My role was impacted by the pandemic as live events worldwide were canceled, leading to company-wide cuts."
+    role: "Sr Implementation Consultant PM",
+    company: "Instructure",
+    duration: "2015 – 2019",
+    rolePreview: 'Led end-to-end Canvas implementations and helped customers turn complex requirements into successful launches.',
+    description: 
+    [
+      "Led end-to-end implementation of Canvas LMS for K-12 districts and higher education institutions, ensuring seamless deployment and adoption.",
+      "Recognized as the #1 Implementation Consultant, as voted by the Customer Success team, to be paired with on projects.",
+      "Achieved a 95%+ deal closure rate as the lead Implementation Consultant, driving successful client onboarding and satisfaction."
     ],
-    logo: rfexplogo,
-    primaryColor: "rgb(222, 0, 69)",
-    previewVert: "top",
+    logo: canvasexplogo,
+    primaryColor: "rgb(31, 105, 139)",
+    previewPosition: "right",
   },
   {
-    role: "Technical Implementation Consultant PM",
-    company: "Lendio",
-    duration: "2025-2026",
+    role: "Sr Implementation Consultant",
+    company: "Salsify",
+    duration: "2021 – 2022",
+    rolePreview: 'Led enterprise implementations across complex product-data workflows and cross-functional customer teams.',
     description: [
-      "The technical advisor for lenders and partners, guiding onboarding, system design, and integration strategy from kickoff through launch.",
-      "Partner with customer and internal teams to gather requirements and design scalable solutions involving API integrations and financial workflows.",
-      "Troubleshoot integration issues by analyzing logs, validating API requests, and guiding customers through resolution and best practices."
+      "Managed the onboarding of high-profile, strategic clients, including Coca-Cola and Hormel, overseeing 15-25 complex implementations each quarter.",
+      "Led client-facing workshops, facilitated discovery calls, and provided technical support to ensure seamless integrations and client success.",
+      "Served as a Team Lead, conducting 1:1 meetings and leading featured workshops to drive team development and knowledge sharing."
     ],
-    logo: lendioexplogo,
-    primaryColor: "rgb(80, 188, 233)",
-    previewVert: "bottom",
+    logo: salsifyexplogo,
+    primaryColor: "rgb(24, 182, 255)",
+    previewPosition: "topRight",
+  },
+  {
+    role: "Enterprise Implementation Manager",
+    company: "eBay",
+    duration: "2005 – 2015",
+    rolePreview: 'Led enterprise integrations for 50+ brands, connecting customer systems to eBay’s marketplace.',
+    description: [
+      "Integrated 50+ strategic brands into eBay’s marketplace. Led cross-team coordination and launched high-profile projects like the Designer Collective Landing Site for eBay fashion.",
+      "Served as technical advisor for assigned projects launching their products on eBay."
+    ],
+    logo: ebayexplogo,
+    primaryColor: "rgb(138, 198, 7)",
+    previewPosition: "right",
   }
 ];
 
@@ -183,8 +189,8 @@ const skills = [
     color: '#FF9900',
     category: 'Cloud & Delivery',
   },
-  { icon: <FaGithub color="#171515" size="3.2em" />, label: 'gitHub', color: '#171515', category: 'Cloud & Delivery'},
-  { icon: <SiGooglecloud color="#4285F4" size="3.2em" />, label: 'google cloud', color: '#4285F4', category: 'Cloud & Delivery' },
+  { icon: <FaGithub color="#171515" size="3.2em" />, label: 'GitHub', color: '#171515', category: 'Cloud & Delivery'},
+  { icon: <SiGooglecloud color="#4285F4" size="3.2em" />, label: 'Google Cloud', color: '#4285F4', category: 'Cloud & Delivery' },
   { icon: (
       <img
         src={postmanIcon}
@@ -242,25 +248,29 @@ return (
           <div className={styles.tabContent}>
             {activeTab === 'experience' && (
               <div className={styles.experienceContent}>
-                <h3 className={styles.expskillsHeading}>Where I've put in practice</h3>
+                <h3 className={styles.expskillsHeading}>CAREER EXPERIENCE</h3>
+                <h4 className={styles.skillCategoryHeading}>Where I've put it into practice</h4>
+                <h4 className={styles.skillCategoryHeading}> 10+ years working with customers, products, integrations, and technology.</h4>
                 <div className={styles.nodeGrid}>
                   {experienceList.map((exp, index) => {
-                    const vertClass = exp.previewVert === "top" ? styles.previewTop : styles.previewBottom;
+
+                    const positionClass =
+                      styles[`preview${exp.previewPosition.charAt(0).toUpperCase()}${exp.previewPosition.slice(1)}`];
 
                     return (
                       <div
                         key={index}
-                        className={`${styles.nodeLogoWrapper} ${vertClass} ${
+                        className={`${styles.nodeLogoWrapper} ${positionClass} ${
                           hoveredIndex === index ? styles.active : ""
                         } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ""}`}
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
-                        style={{ marginTop: index % 2 === 0 ? "0rem" : "12rem" }}
+                        style={{ marginTop: index % 2 === 0 ? "0rem" : "14rem" }}
                       >
                         <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
-                        {hoveredIndex === index && (
-                          <p className={styles.hoverCompanyName}>{exp.company}</p>
-                        )}
+                        <div className={styles.companyName}>{exp.company}</div>
+                        <div className={styles.duration}>{exp.duration}</div>
+                        <div className={styles.role}>{exp.role}</div>
                         <AnimatePresence>
                           {hoveredIndex === index && (
                             <motion.div
@@ -273,8 +283,7 @@ return (
                             >
                               <div className={styles.previewHeader}>
                                 <div>
-                                  <div className={styles.previewRole}>{exp.role}</div>
-                                  <div className={styles.previewDuration}>{exp.duration}</div>
+                                  <div className={styles.previewRole}>{exp.rolePreview}</div>
                                 </div>
                                 <span
                                   className={styles.previewDot}
@@ -294,7 +303,7 @@ return (
             {activeTab === 'skills' && (
               <div className={styles.skillsContent}>
                 <h3 className={styles.expskillsHeading}>
-                  Technical Skills
+                  TECHNICAL SKILLS
                 </h3>
 
                 {skillCategories.map((category) => (

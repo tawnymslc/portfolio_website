@@ -16,13 +16,12 @@ const ModalExperience = ({ exp, clearHover }) => {
   return (
     <div className={styles.nodeLogoWrapper}>
        <img
-    src={exp.logo}
-    alt={exp.company}
-    className={styles.nodeLogoOnly}
-    onClick={toggleModal}
-    style={{ cursor: 'pointer', '--glow-color': exp.primaryColor }}
-  />
-
+          src={exp.logo}
+          alt={exp.company}
+          className={styles.nodeLogoOnly}
+          onClick={toggleModal}
+          style={{ cursor: 'pointer', '--glow-color': exp.primaryColor }}
+        />
       <Modal isOpen={modalOpen} toggle={toggleModal} centered>
         <ModalHeader
           style={{

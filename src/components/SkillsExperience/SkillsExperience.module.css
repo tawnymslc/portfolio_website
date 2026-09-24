@@ -130,12 +130,6 @@
   margin-bottom: 1rem;
 }
 
-.duration {
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 0.5rem;
-}
-
 .cardDuration {
   display: none;
 }
@@ -195,20 +189,39 @@
   filter: blur(1px);
 }
 
-.hoverCompanyName {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+.companyName {
+  margin-top: 0.65rem;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: #333;
+}
+
+.duration {
+  margin-top: 0.9rem;
+  margin-bottom: 0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #777;
+  letter-spacing: 0.04em;
+}
+
+.role {
+  margin-top: 0.45rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333;
+  max-width: 500px;
   text-align: center;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 /* preview card */
 .previewCard {
   position: absolute;
-  width: 290px;
-  padding: 14px;
+  width: 500px;
+  padding: 10px;
   border-radius: 16px;
   color: white;
   background: rgba(18, 18, 18, 0.9);
@@ -219,18 +232,56 @@
     0 0 18px var(--accent);
   z-index: 20;
   pointer-events: none;
-  left: 50%;
-  margin-left: -145px; /* half of 290px width */
 }
 
-/* above logo */
+/* above */
 .previewTop .previewCard {
-  bottom: calc(100% + 30px); 
+  bottom: calc(100% + 30px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* below logo */
+/* below */
 .previewBottom .previewCard {
-  top: calc(100% + 5px); 
+  top: calc(100% + 30px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* right */
+.previewRight .previewCard {
+  left: calc(100% + 30px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* left */
+.previewLeft .previewCard {
+  right: calc(100% + 30px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.previewTopRight .previewCard {
+  bottom: calc(100% + 15px);
+  left: calc(50% + 35px);
+}
+
+/* bottom-right */
+.previewBottomRight .previewCard {
+  top: calc(100% + 20px);
+  left: calc(50% + 20px);
+}
+
+.previewTopLeft .previewCard {
+  bottom: calc(100% + 20px);
+  right: calc(50% + 20px);
+}
+
+/* bottom-left */
+.previewBottomLeft .previewCard {
+  top: calc(100% + 20px);
+  right: calc(50% + 20px);
 }
 
 .previewHeader {
