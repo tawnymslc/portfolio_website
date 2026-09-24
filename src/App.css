@@ -67,6 +67,25 @@ body {
   scroll-snap-stop: always;  /* scroll */
 }
 
+.expSkills {
+  background-image: url("./img/home_page_v2.svg");
+  color: #222;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  scroll-snap-align: start;  /* scroll */
+  scroll-snap-stop: always;  /* scroll */
+}
+
 
 .section-heading {
   font-size: clamp(1.15rem, 2.4vw, 1.7rem);

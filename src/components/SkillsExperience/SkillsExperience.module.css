@@ -1,3 +1,39 @@
+.expSkillsSection {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 7rem 3rem;
+}
+
+.expSkillsIntro {
+  max-width: 650px;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #777;
+}
+
+.expSkillsIntro h2 {
+  margin: 0;
+  color: #111;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.expSkillsIntro p {
+  margin: 1rem auto 0;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
 .skillsTabs {
   width: 100%;
   padding: 0;
@@ -43,13 +79,35 @@
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-.experienceScrollContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem;
-  width: 100%;
-  box-sizing: border-box;
+.skillsContent {
+  width: min(1000px, 90%);
+  margin: 0 auto;
+}
+
+.expskillsHeading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.skillCategory {
+  margin-bottom: 3rem;
+}
+
+.skillCategoryHeading {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem 2.5rem;
 }
 
 .expskillsHeading {
@@ -58,29 +116,6 @@
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
   font-weight: 600;
-}
-
-.experienceCard {
-  background: white;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 1rem;
-  transition: transform 0.3s ease;
-  box-sizing: border-box;
-  min-height: 260px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.experienceCard h6 {
-  text-align: center;
-  word-break: break-word;
-}
-
-.experienceCard:hover {
-  transform: translateY(-6px);
 }
 
 .company {
@@ -103,14 +138,6 @@
 
 .cardDuration {
   display: none;
-}
-
-.expDescription {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: #444;
-  margin-top: 0.5rem;
-  text-align: left;
 }
 
 .nodeGrid {
@@ -271,6 +298,7 @@
   box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.15),
     0 0 14px var(--skill-color);
+  overflow: hidden;
 }
 
 .skillLabel {
@@ -283,10 +311,7 @@
   word-wrap: break-word;
 }
 
-@media (max-width: 768px) {
-  .experienceScrollContainer {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 992px) {
 
   .nodeGrid {
     display: grid !important;
@@ -333,8 +358,15 @@
     bottom: auto !important;
   }
 
+    .skillCategory {
+    margin-bottom: 2rem;
+  }
+
+  .skillCategoryHeading {
+    margin-bottom: 1.5rem;
+  }
   .skillsGrid {
-    gap: 1.1rem;
+    row-gap: 1.5rem;
     max-width: 400px;
   }
 

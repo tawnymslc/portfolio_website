@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import ModalExperience from './ModalExperience';
 import useIsMobile from '../useIsMobile';
-import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaNodeJs, FaGithub } from 'react-icons/fa';
-import { SiMongodb, SiTailwindcss, SiNextdotjs, SiGooglecloud, } from 'react-icons/si';
+import { FaReact, FaJsSquare, FaGithub } from 'react-icons/fa';
+import { SiGooglecloud, } from 'react-icons/si';
 import udexplogo from "../../img/udlexpogo.jpg";
 import salsifyexplogo from "../../img/salsifyexplogo.jpg";
 import canvasexplogo from "../../img/canvasexplogo.png";
@@ -12,10 +12,12 @@ import rfexplogo from "../../img/rfexplogo.jpg";
 import ebayexplogo from "../../img/ebayexplogo.jpg";
 import restApiIcon from '../../assets/icons/rest-api.png'
 import pythonIcon from '../../assets/icons/python.png'
-import azureIcon from '../../assets/icons/azure.png'
 import awsIcon from '../../assets/icons/aws.png'
 import postgresIcon from '../../assets/icons/postgres.png'
-import vscIcon from  '../../assets/icons/vsc.png'
+import fastApiIcon from '../../img/fastapilogo.png'
+import webhooksIcon from '../../img/webhookslogo.png'
+import postmanIcon from '../../img/postmanlogo.png'
+import oauthIcon from '../../assets/icons/oauthlogo.webp'
 import styles from './SkillsExperience.module.css'
 
 const experienceData = [
@@ -102,61 +104,75 @@ const experienceData = [
 ];
 
 const skills = [
-  { icon: <FaReact color="#61dafb" size="3.2em" />, label: 'React', color: '#61dafb' },
-  { icon: <FaJsSquare color="#F0DB4F" size="3.2em" />, label: 'JavaScript', color: '#F0DB4F' },
-  { icon: <FaNodeJs color="#68A063" size="3.2em" />, label: 'Node.js', color: '#68A063' },
-  { icon: <FaHtml5 color="#E34C26" size="3.2em" />, label: 'HTML5', color: '#E34C26' },
-  { icon: <FaCss3Alt color="#264de4" size="3.2em" />, label: 'CSS3', color: '#264de4' },
-  {
-    icon: (
+  { icon: (
       <img
         src={pythonIcon}
-        alt="Python"
+        alt="python"
         style={{ width: '40px', height: '40px', objectFit: 'contain' }}
       />
     ),
     label: 'Python',
     color: '#FFD43B',
+    category: 'Integration & Backend',
   },
-  { icon: <SiNextdotjs color="#000000" size="3.2em" />, label: 'Next.js', color: '#000000' },
   { icon: (
       <img
-        src={postgresIcon}
-        alt="Postgres"
-        style={{ width: '40px', height: '40px', objectFit: 'contain' }}
-      />
-    ), 
-    label: 'SQL', 
-    color: '#336791' 
-  },
-  { icon: <SiMongodb color="#4DB33D" size="3.2em" />, label: 'MongoDB', color: '#4DB33D' },
-  { icon: <SiTailwindcss color="#38BDF8" size="3.2em" />, label: 'Tailwind CSS', color: '#38BDF8' },
-  { icon: <FaBootstrap color="#563d7c" size="3.2em" />, label: 'Bootstrap', color: '#563d7c' },
-  {
-    icon: (
-      <img
         src={restApiIcon}
-        alt="REST APIs"
+        alt="rest apis"
         style={{ width: '40px', height: '40px', objectFit: 'contain' }}
       />
     ),
     label: 'REST APIs',
     color: '#61dafb',
+    category: 'Integration & Backend',
   },
-  { icon: <FaGithub color="#171515" size="3.2em" />, label: 'GitHub', color: '#171515' },
-  { 
-    icon: (
+  { icon: <FaReact color="#61dafb" size="3.2em" />, label: 'React', color: '#61dafb', category: 'Application Development' },
+  { icon: <FaJsSquare color="#F0DB4F" size="3.2em" />, label: 'JavaScript', color: '#F0DB4F', category: 'Application Development' },
+  { icon: (
       <img
-        src={vscIcon}
-        alt="VSC"
+        src={postgresIcon}
+        alt="postgres"
+        style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+      />
+    ), 
+    label: 'PostgreSQL', 
+    color: '#336791',
+    category: 'Integration & Backend'
+  },
+  { icon: (
+      <img
+        src={webhooksIcon}
+        alt="webhooks"
         style={{ width: '40px', height: '40px', objectFit: 'contain' }}
       />
     ),
-    label: 'VS Code', 
-    color: '#007ACC' },
-  { icon: <SiGooglecloud color="#4285F4" size="3.2em" />, label: 'Google Cloud', color: '#4285F4' },
-  {
-    icon: (
+    label: 'Webhooks', 
+    color: '#DA4863',
+    category: 'Integration & Backend',
+  },
+  { icon: (
+      <img
+        src={oauthIcon}
+        alt="oauth"
+        style={{ width: '40px', height: '40px', objectFit: 'contain', transform: 'scale(1.6)' }}
+      />
+    ),
+    label: 'OAuth', 
+    color: '#000',
+    category: 'Integration & Backend',
+  },
+  { icon: (
+    <img
+      src={fastApiIcon}
+      alt="fast aPIs"
+      style={{ width: '40px', height: '40px', objectFit: 'contain', transform: 'scale(1.6)' }}
+    />
+    ), 
+    label: 'FastAPI', 
+    color: '#3D948B', 
+    category: 'Integration & Backend' 
+  },
+  { icon: (
       <img
         src={awsIcon}
         alt="AWS"
@@ -165,17 +181,20 @@ const skills = [
     ),
     label: 'AWS',
     color: '#FF9900',
+    category: 'Cloud & Delivery',
   },
-  {
-    icon: (
+  { icon: <FaGithub color="#171515" size="3.2em" />, label: 'gitHub', color: '#171515', category: 'Cloud & Delivery'},
+  { icon: <SiGooglecloud color="#4285F4" size="3.2em" />, label: 'google cloud', color: '#4285F4', category: 'Cloud & Delivery' },
+  { icon: (
       <img
-        src={azureIcon}
-        alt="Azure"
+        src={postmanIcon}
+        alt="postman"
         style={{ width: '40px', height: '40px', objectFit: 'contain' }}
       />
     ),
-    label: 'Azure',
-    color: '#007FFF', 
+    label: 'Postman',
+    color: '#e5783c', 
+    category: 'Cloud & Delivery',
   },
 ];
 
@@ -186,98 +205,138 @@ const SkillsExperience = () => {
   const isMobile = useIsMobile(); 
   const experienceList = isMobile ? experienceData : [...experienceData].reverse();
 
+  const skillCategories = [
+    'Integration & Backend',
+    'Application Development',
+    'Cloud & Delivery'
+  ];
+
 
 return (
-  <div className={styles.skillsTabs}>
-    <div className={styles.tabButtons}>
-      <button
-        className={`${styles.tabButton} ${activeTab === 'experience' ? styles.active : ''}`}
-        onClick={() => setActiveTab('experience')}
-      >
-        Experience
-      </button>
-      <button
-        className={`${styles.tabButton} ${activeTab === 'skills' ? styles.active : ''}`}
-        onClick={() => setActiveTab('skills')}
-      >
-        Skills
-      </button>
-    </div>
-    <div className={styles.tabContent}>
-      {activeTab === 'experience' && (
-        <div className={styles.experienceContent}>
-          <h3 className={styles.expskillsHeading}>Career Highlights</h3>
-  
-          <div className={styles.nodeGrid}>
-            {experienceList.map((exp, index) => {
-              const vertClass = exp.previewVert === "top" ? styles.previewTop : styles.previewBottom;
+      <section className={styles.expSkillsSection}>
+        <div className={styles.expSkillsIntro}>
+          <span className={styles.eyebrow}>EXPERIENCE & EXPERTISE</span>
+          <h2>Experience behind the work.</h2>
+          <p>
+            <strong>Built through years of solving real customer problems.</strong>
+          </p>
+          <p>
+            My background spans implementation, integrations, solution design, engineering, and enterprise delivery.
+          </p>
+        </div>
+        <div className={styles.skillsTabs}>
+          <div className={styles.tabButtons}>
+            <button
+              className={`${styles.tabButton} ${activeTab === 'experience' ? styles.active : ''}`}
+              onClick={() => setActiveTab('experience')}
+            >
+              Experience
+            </button>
+            <button
+              className={`${styles.tabButton} ${activeTab === 'skills' ? styles.active : ''}`}
+              onClick={() => setActiveTab('skills')}
+            >
+              Skills
+            </button>
+          </div>
+          <div className={styles.tabContent}>
+            {activeTab === 'experience' && (
+              <div className={styles.experienceContent}>
+                <h3 className={styles.expskillsHeading}>Where I've put in practice</h3>
+                <div className={styles.nodeGrid}>
+                  {experienceList.map((exp, index) => {
+                    const vertClass = exp.previewVert === "top" ? styles.previewTop : styles.previewBottom;
 
-              return (
-                <div
-                  key={index}
-                  className={`${styles.nodeLogoWrapper} ${vertClass} ${
-                    hoveredIndex === index ? styles.active : ""
-                  } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ""}`}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ marginTop: index % 2 === 0 ? "0rem" : "12rem" }}
-                >
-                  <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
-                  {hoveredIndex === index && (
-                    <p className={styles.hoverCompanyName}>{exp.company}</p>
-                  )}
-                  <AnimatePresence>
-                    {hoveredIndex === index && (
-                      <motion.div
-                        className={styles.previewCard}
-                        style={{ "--accent": exp.primaryColor }}
-                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                        transition={{ duration: 0.2 }}
+                    return (
+                      <div
+                        key={index}
+                        className={`${styles.nodeLogoWrapper} ${vertClass} ${
+                          hoveredIndex === index ? styles.active : ""
+                        } ${hoveredIndex !== null && hoveredIndex !== index ? styles.dimmed : ""}`}
+                        onMouseEnter={() => setHoveredIndex(index)}
+                        onMouseLeave={() => setHoveredIndex(null)}
+                        style={{ marginTop: index % 2 === 0 ? "0rem" : "12rem" }}
                       >
-                        <div className={styles.previewHeader}>
-                          <div>
-                            <div className={styles.previewRole}>{exp.role}</div>
-                            <div className={styles.previewDuration}>{exp.duration}</div>
-                          </div>
-                          <span
-                            className={styles.previewDot}
-                            style={{ background: exp.primaryColor }}
-                          />
-                        </div>
-                        <div className={styles.previewHint}>Click for full details</div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        <ModalExperience exp={exp} clearHover={() => setHoveredIndex(null)} />
+                        {hoveredIndex === index && (
+                          <p className={styles.hoverCompanyName}>{exp.company}</p>
+                        )}
+                        <AnimatePresence>
+                          {hoveredIndex === index && (
+                            <motion.div
+                              className={styles.previewCard}
+                              style={{ "--accent": exp.primaryColor }}
+                              initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <div className={styles.previewHeader}>
+                                <div>
+                                  <div className={styles.previewRole}>{exp.role}</div>
+                                  <div className={styles.previewDuration}>{exp.duration}</div>
+                                </div>
+                                <span
+                                  className={styles.previewDot}
+                                  style={{ background: exp.primaryColor }}
+                                />
+                              </div>
+                              <div className={styles.previewHint}>Click for full details</div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-      {activeTab === 'skills' && (
-        <div className={styles.skillsContent}>
-          <h3 className={styles.expskillsHeading}>Technical Skills</h3>
-          <div className={styles.skillsGrid}>
-            {skills.map((skill, index) => (
-              <div key={index} className={styles.skillItem}>
-                <div
-                  className={styles.skillIcon}
-                  style={{ backgroundColor: skill.color + '20' ,
-                    "--skill-color": skill.color
-                  }}
-                >
-                  {skill.icon}
-                </div>
-                <div className={styles.skillLabel}>{skill.label}</div>
               </div>
-            ))}
+            )}
+            {activeTab === 'skills' && (
+              <div className={styles.skillsContent}>
+                <h3 className={styles.expskillsHeading}>
+                  Technical Skills
+                </h3>
+
+                {skillCategories.map((category) => (
+                  <div
+                    key={category}
+                    className={styles.skillCategory}
+                  >
+                    <h4 className={styles.skillCategoryHeading}>
+                      {category}
+                    </h4>
+
+                    <div className={styles.skillsGrid}>
+                      {skills
+                        .filter((skill) => skill.category === category)
+                        .map((skill) => (
+                          <div
+                            key={skill.label}
+                            className={styles.skillItem}
+                          >
+                            <div
+                              className={styles.skillIcon}
+                              style={{
+                                backgroundColor: skill.color + '20',
+                                '--skill-color': skill.color
+                              }}
+                            >
+                              {skill.icon}
+                            </div>
+
+                            <div className={styles.skillLabel}>
+                              {skill.label}
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
-      )}
-    </div>
-  </div>
+  </section>
   );
 };
 
