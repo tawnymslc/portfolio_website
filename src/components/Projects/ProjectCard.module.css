@@ -1,0 +1,140 @@
+.projectRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 4.5rem;
+}
+
+.reverse .projectImageLink {
+  order: 2;
+}
+
+.reverse .projectContent {
+  order: 1;
+}
+
+.projectImageLink {
+  display: block;
+
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectImageLink:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
+}
+
+.projectImage {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  border-radius: 16px;
+
+}
+
+.projectImageLink:hover .projectImage {
+  transform: scale(1.025);
+}
+
+.projectImageWrapper,
+.projectContent {
+  width: 100%;
+  min-width: 0;
+}
+
+.projectContent {
+  max-width: 500px;
+}
+
+.projectCategory {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: #777;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.projectContent h3 {
+  margin: 0;
+  color: #111;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.projectContent p {
+  margin: 1rem 0 1.25rem;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.projectTags span {
+  padding: 0.4rem 0.75rem;
+  background: #f1f1f1;
+  border-radius: 20px;
+  color: #444;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.projectLink {
+  display: inline-block;
+  color: #111;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.projectLink:hover {
+  transform: translateX(2px);
+}
+
+.projectLink span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.projectLink:hover span {
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  .projectRow,
+  .projectRow.reverse {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .reverse .projectImageLink,
+  .reverse .projectContent {
+    order: initial;
+  }
+
+  .projectImageLink {
+    order: 1 !important;
+  }
+
+  .projectContent {
+    order: 2 !important;
+    max-width: none;
+  }
+
+  .projectContent h3 {
+    font-size: 1.5rem;
+  }
+}

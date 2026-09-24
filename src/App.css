@@ -40,9 +40,29 @@ body {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   padding: 2rem;
   padding-top: 80px;
+  scroll-snap-align: start;  /* scroll */
+  scroll-snap-stop: always;  /* scroll */
+}
+
+.projects {
+  background-image: url("./img/home_page_v2.svg");
+  color: #222;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  padding-top: 20px;
   scroll-snap-align: start;  /* scroll */
   scroll-snap-stop: always;  /* scroll */
 }
@@ -106,6 +126,11 @@ body {
 @media (max-width: 768px) {
   #landing {
     padding-top: 95px;
+  }
+
+  .section {
+    margin-bottom: 20px;
+    padding-bottom: 0;
   }
 
   .section#projects,

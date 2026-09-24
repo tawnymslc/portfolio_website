@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState} from 'react';
 import Header from './Header';
 import Landing from '../components/Landing/Landing'
-import ProjectGrid from '../components/ProjectGrid';
+import ProjectGrid from '../components/Projects/ProjectGrid';
 import SkillsExperience from '../components/SkillsExperience/SkillsExperience';
 import About from '../components/About/About'
 import FadeInSection from '../components/FadeInSection';
@@ -28,7 +28,7 @@ const HomePage = () => {
     };
 
     const wrapper = wrapperRef.current;
-    
+
   if (wrapper) {
     wrapper.addEventListener('scroll', handleScroll);
   }
@@ -49,8 +49,7 @@ const HomePage = () => {
         <Landing />
       </section>
       <FadeInSection delay={0.2}>
-        <section id="projects" className="section">
-            <h2 className="section-heading">🚀 Things I've Built</h2>
+        <section id="projects" className="projects">
             <ProjectGrid />
         </section>
       </FadeInSection>

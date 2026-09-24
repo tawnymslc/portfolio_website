@@ -91,9 +91,9 @@ const Landing = () => {
       <div className={styles.introCards}>
         <div className={styles.introCard}>
           <div className={styles.waveIcon}>👋</div>
-          <div className={styles.introText}>
-            <p className={styles.greeting}>Hello, I'm</p>
-            <h1 className={styles.nameHeading}>Tawny</h1>
+          <div className={styles.introCardText}>
+            <p className={styles.introCardGreeting}>Hello, I'm</p>
+            <h1 className={styles.introCardName}>Tawny</h1>
           </div>
         </div>
       </div>
