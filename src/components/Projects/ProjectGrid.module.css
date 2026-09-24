@@ -39,17 +39,3 @@
   flex-direction: column;
   gap: 5rem;
 }
-
-@media (max-width: 768px) {
-  .projectsSection {
-    padding: 5rem 1.5rem;
-  }
-
-  .projectsIntro {
-    margin-bottom: 3.5rem;
-  }
-
-  .projectList {
-    gap: 5rem;
-  }
-}

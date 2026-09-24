@@ -400,7 +400,7 @@
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    padding: 2rem;
+    padding: 1rem 0.5rem 0.5rem 0rem; 
     overflow: visible !important;
     justify-items: center;
   }
@@ -429,6 +429,7 @@
 
   .skillCategoryHeading {
     margin-bottom: 1.5rem;
+
   }
   .skillsGrid {
     row-gap: 1.5rem;

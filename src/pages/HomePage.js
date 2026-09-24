@@ -48,14 +48,12 @@ const HomePage = () => {
       <section id="landing" className="section">   
         <Landing />
       </section>
-      <FadeInSection delay={0.2}>
-        <section id="projects" className="projects">
-            <ProjectGrid />
-        </section>
-      </FadeInSection>
-        <section id="skills" className="expSkills">
-            <SkillsExperience />
-        </section>
+      <section id="projects" className="projects">
+          <ProjectGrid />
+      </section>
+      <section id="skills" className="expSkills">
+          <SkillsExperience />
+      </section>
       <FadeInSection delay={0.2}>
         <section id="about" className="section"> 
            <h2 className="section-heading">About Me</h2>

@@ -259,19 +259,10 @@
     height: 100vh;
   }
 
-  .introCards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 1rem 0 0 0;
-  }
-
   .introCard {
     width: 60%;
     max-width: none;
-    margin: 0;
-    margin-left: 4rem;
+    margin-left: 4.5rem;
     padding: 1rem 1.5rem;
     display: flex;
     flex-direction: row;

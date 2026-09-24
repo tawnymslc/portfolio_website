@@ -88,7 +88,6 @@ const Landing = () => {
 
   return (
     <div className={styles.floatingLabelsWrapper}>
-      <div className={styles.introCards}>
         <div className={styles.introCard}>
           <div className={styles.waveIcon}>👋</div>
           <div className={styles.introCardText}>
@@ -96,7 +95,6 @@ const Landing = () => {
             <h1 className={styles.introCardName}>Tawny</h1>
           </div>
         </div>
-      </div>
       <div className={styles.positioningStatement}>
           <h2>I turn complex business problems into technical solutions.</h2>
           <p>
