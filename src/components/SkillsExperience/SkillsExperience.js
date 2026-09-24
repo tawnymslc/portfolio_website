@@ -230,7 +230,7 @@ return (
             My background spans implementation, integrations, solution design, engineering, and enterprise delivery.
           </p>
         </div>
-        <div className={styles.skillsTabs}>
+        <div>
           <div className={styles.tabButtons}>
             <button
               className={`${styles.tabButton} ${activeTab === 'experience' ? styles.active : ''}`}
@@ -305,7 +305,6 @@ return (
                 <h3 className={styles.expskillsHeading}>
                   TECHNICAL SKILLS
                 </h3>
-
                 {skillCategories.map((category) => (
                   <div
                     key={category}

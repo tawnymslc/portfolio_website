@@ -34,20 +34,6 @@
   line-height: 1.7;
 }
 
-.skillsTabs {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
-
-.tabContent {
-  min-height: 600px;
-}
-
 .tabButtons {
   display: flex;
   justify-content: center;
@@ -89,49 +75,12 @@
   margin-bottom: 2.5rem;
 }
 
-.skillCategory {
-  margin-bottom: 3rem;
-}
-
-.skillCategoryHeading {
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #777;
-  margin-bottom: 1.5rem;
-}
-
-.skillsGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem 2.5rem;
-}
-
 .expskillsHeading {
   text-align: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
   font-weight: 600;
-}
-
-.company {
-  font-weight: bold;
-  color: #555;
-}
-
-.companyLogo {
-  height: 100px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
-
-.cardDuration {
-  display: none;
 }
 
 .nodeGrid {
@@ -296,12 +245,6 @@
   font-weight: 600;
 }
 
-.previewDuration {
-  margin-top: 4px;
-  font-size: 0.75rem;
-  opacity: 0.7;
-}
-
 .previewDot {
   width: 10px;
   height: 10px;
@@ -310,27 +253,102 @@
   flex-shrink: 0;
 }
 
-.previewBullets {
-  margin-top: 10px;
-  font-size: 0.8rem;
-  line-height: 1.35;
-  opacity: 0.9;
-}
-
 .previewHint {
   margin-top: 10px;
   font-size: 0.7rem;
-  opacity: 0.6;
+  opacity: 0.8;
+}
+
+.experienceModal {
+  border: none;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+}
+
+.experienceModalHeader {
+  padding: 28px 32px 20px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  color: #222;
+}
+
+.modalCompany {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.modalRole {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #181818;
+}
+
+.modalDuration {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.experienceModalBody {
+  padding: 24px 32px 32px;
+}
+
+.modalAccentRow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #777;
+}
+
+.modalAccent {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.experienceHighlights {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.experienceHighlights li {
+  margin-bottom: 12px;
+  padding-left: 5px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #444;
+}
+
+.experienceHighlights li:last-child {
+  margin-bottom: 0;
+}
+
+.experienceDescription {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
 }
 
 .skillsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 2.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-  justify-items: center;
-  padding: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem 2.5rem;
 }
 
 .skillIcon {
@@ -362,6 +380,20 @@
   word-wrap: break-word;
 }
 
+.skillCategoryHeading {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.skillCategory {
+  margin-bottom: 3rem;
+}
+
 @media (max-width: 992px) {
 
   .nodeGrid {
@@ -391,25 +423,7 @@
     padding: 0 !important;
   }
 
-  .duration {
-    display: none;
-  }
-
-  .cardDuration {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #666;
-    margin-bottom: 0.5rem;
-  }
-
-  .previewTop .previewCard,
-  .previewBottom .previewCard {
-    top: calc(100% + 12px) !important;
-    bottom: auto !important;
-  }
-
-    .skillCategory {
+  .skillCategory {
     margin-bottom: 2rem;
   }
 
@@ -430,6 +444,10 @@
   .skillLabel {
     font-size: 0.7rem;
   }
+
+  .previewCard {
+    display: none;
+  }
 }
 
 @keyframes fadeIn {
@@ -442,4 +460,5 @@
     transform: translateY(0);
   }
 }
+
 
