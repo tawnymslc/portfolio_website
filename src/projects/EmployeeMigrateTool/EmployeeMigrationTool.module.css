@@ -508,10 +508,12 @@
 }
 
 .mappingGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
     gap: 2rem;
     margin-top: 1.5rem;
+
+    grid-template-columns: 1fr 1fr;
+
 }
 
 .mappingSection {
@@ -544,4 +546,47 @@
 }
 .mappingDestination {
     opacity: 0.8;
+}
+
+
+@media (max-width: 768px) {
+    .cardTitle {
+        margin-top: 1rem;
+    }
+    .mappingGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .mappingSection {
+        margin-bottom: 2rem;
+    }
+
+    .cardHeader {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    .cardHeader > div {
+        grid-column: 1 / -1;
+    }
+
+    .cardHeader .input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .cardHeader .button {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
+    .input {
+        margin-top: 0;
+    }
+    
+    .input::placeholder {
+        font-size: 0.8rem;
+    }
+
 }
