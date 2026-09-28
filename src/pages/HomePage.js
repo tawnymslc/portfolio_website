@@ -29,16 +29,32 @@ const HomePage = () => {
 
     const wrapper = wrapperRef.current;
 
-  if (wrapper) {
-    wrapper.addEventListener('scroll', handleScroll);
-  }
-
-  return () => {
     if (wrapper) {
-      wrapper.removeEventListener('scroll', handleScroll);
+      wrapper.addEventListener('scroll', handleScroll);
     }
-  };
-}, []);
+
+    return () => {
+      if (wrapper) {
+        wrapper.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+
+    if (!hash) return;
+    const section = document.getElementById(hash);
+
+    if (section) {
+      setTimeout(() => {
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+  }, []);
 
   return (
     <>

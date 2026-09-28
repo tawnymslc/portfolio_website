@@ -7,21 +7,16 @@ const SubHeader = ({ current, dark = false, hideTitle }) => {
       <Col>
         <Breadcrumb className={dark ? 'breadcrumb-dark' : ''}>
           <BreadcrumbItem>
-            <Link to="/">Home</Link>
+            <Link to="/#projects">Projects</Link>
           </BreadcrumbItem>
           <BreadcrumbItem active>{current}</BreadcrumbItem>
         </Breadcrumb>
-        
-         {!hideTitle && (
-
-    <h2 className={`page-title ${dark ? 'page-title-dark' : ''}`}>
-
-        {current}
-
-    </h2>
-
-)}
-        <hr />
+        {!hideTitle && (
+          <h2 className={`page-title ${dark ? 'page-title-dark' : ''}`}>
+              {current}
+          </h2>
+        )}
+          <hr />
       </Col>
     </Row>
   );

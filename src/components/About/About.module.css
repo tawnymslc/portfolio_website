@@ -456,7 +456,16 @@
 }
 
 @media (max-width: 992px) {
+
   .flipInner {
-    height: 220px;
+    height: 250px;
+  }
+
+  .aboutIntro {
+    margin: 0 auto 2rem;
+  }
+
+  .aboutSection {
+      padding: 7rem 1.5rem;
   }
 }
