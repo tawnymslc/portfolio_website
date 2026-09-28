@@ -1,41 +1,37 @@
-.underConstructionWrapper {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.underConstructionIcon {
-  display: inline-block;
-}
-
-.underConstructionText {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-top: 0.5rem;
-  color: #333;
-}
-
-.underConstructionSub {
-  margin-top: 0.25rem;
-  font-size: 1.5rem;
-  color: #666;
-}
-
 .aboutSection {
-  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 7rem 3rem;
+}
+
+.aboutIntro {
+  max-width: 750px;
+  margin: 0 auto 5rem;
   text-align: center;
 }
 
-.aboutHeading {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: black;
+.eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #777;
 }
 
-.aboutContent {
-  max-width: 700px;
-  margin: 0 auto;
-  color: black;
-  line-height: 1.6;
+.aboutIntro h2 {
+  margin: 0;
+  color: #111;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.aboutIntro p {
+  margin: 1rem auto 0;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .funFacts {
@@ -44,63 +40,6 @@
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.factCard {
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(6px);
-  color: black;
-  font-weight: 700;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-  text-align: center;
-  min-width: 140px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.factCard:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  border-color: white;
-  background: rgba(0, 0, 0, 0.4); /* Darker background on hover */
-}
-
-.danceCard:hover {
-  background: rgba(255, 105, 180, 0.3); /* Hot Pink for Dance */
-  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-}
-
-.djCard:hover {
-  background: rgba(0, 191, 255, 0.3); /* Electric Blue for DJ */
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
-}
-
-.bikeCard:hover {
-  background: rgba(34, 139, 34, 0.3); /* Forest Green for Mountain Biking */
-  box-shadow: 0 0 15px rgba(34, 139, 34, 0.5);
-}
-
-.animeCard:hover {
-  background: rgba(138, 43, 226, 0.3); /* Purple for Anime */
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.bounceIcon {
-  animation: bounce 1.2s infinite;
 }
 
 /* Grid */
@@ -127,7 +66,7 @@
 .flipInner {
   position: relative;
   width: 100%;
-  height: 116px;
+  height: 175px;
   transform-style: preserve-3d;
 }
 
@@ -142,40 +81,382 @@
   backface-visibility: hidden;
   box-shadow: 0 8px 28px rgba(0,0,0,0.15);
 }
+
 .front { transform: rotateY(0deg); }
 .back  { transform: rotateY(180deg); font-weight: 500; opacity: 0.95; }
 
-.cardIcon { margin-right: 8px; font-size: 1.2rem; }
 
-/* Animated gradient utility */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Individual personality colors */
+.danceCard {
+  --accent: #ff4d67;
 }
 
-/* Theme gradients (tweak as you like) */
-.danceCard .face {
-  background: linear-gradient(135deg, #FF8A00, #FF2D55, #FFC300);
-  background-size: 200% 200%;
-  animation: gradientShift 8s ease infinite;
-  color: #0b0b0b;
+.djCard {
+  --accent: #6c8cff;
 }
-.djCard .face {
-  background: linear-gradient(135deg, #7F7FD5, #86A8E7, #91EAE4);
-  background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
-  color: #0b0b0b;
+
+.bikeCard {
+  --accent: #55b938;
 }
-.bikeCard .face {
-  background: linear-gradient(135deg, #00C853, #64DD17, #AEEA00);
-  background-size: 200% 200%;
-  animation: gradientShift 9s ease infinite;
-  color: #0b0b0b;
+
+.animeCard {
+  --accent: #a855f7;
 }
+
+/* Shared card design */
+.danceCard .face,
+.djCard .face,
+.bikeCard .face,
 .animeCard .face {
-  background: linear-gradient(135deg, #6A00F4, #C300FF, #FF4D6D);
-  background-size: 200% 200%;
-  animation: gradientShift 11s ease infinite;
-  color: white;
+  background: rgba(255, 255, 255, 0.96);
+  color: #1a1a1a;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 4px solid var(--accent);
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Desktop hover */
+.danceCard:hover .face,
+.djCard:hover .face,
+.bikeCard:hover .face,
+.animeCard:hover .face {
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.12),
+    0 0 20px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.flip {
+  margin-top: 10px;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.iconBubble {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 10%, white);
+}
+
+.cardIcon {
+  font-size: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.cardTagline {
+  font-size: 0.76rem;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.flip {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.backTitle {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.backDetail {
+  max-width: 220px;
+  color: #666;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.animationArea {
+  height: 72px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.equalizer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.equalizer span {
+  width: 5px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--accent);
+  animation: equalize 0.8s ease-in-out infinite alternate;
+}
+
+.equalizer span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.equalizer span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.equalizer span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.equalizer span:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+@keyframes equalize {
+  from {
+    height: 8px;
+  }
+
+  to {
+    height: 36px;
+  }
+}
+
+.vinylPlayer {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+}
+
+.vinylRecord {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  top: 3px;
+  left: 3px;
+
+  border-radius: 50%;
+  background: #222;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: spinVinyl 2.5s linear infinite;
+}
+
+.vinylRecord::before,
+.vinylRecord::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #555;
+}
+
+.vinylRecord::before {
+  width: 38px;
+  height: 38px;
+}
+
+.vinylRecord::after {
+  width: 28px;
+  height: 28px;
+}
+
+.vinylRing {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.vinylCenter {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+}
+
+.vinylMarker {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+
+  width: 12px;
+  height: 3px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+
+  transform: rotate(-35deg);
+}
+
+.vinylToneArm {
+  position: absolute;
+  z-index: 2;
+  width: 3px;
+  height: 35px;
+
+  right: 3px;
+  top: 2px;
+
+  border-radius: 4px;
+  background: #777;
+
+  transform: rotate(25deg);
+  transform-origin: top center;
+}
+
+@keyframes spinVinyl {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.trailAnimation {
+  position: relative;
+  width: 160px;
+  height: 60px;
+  margin: 0;
+}
+
+.trailLine {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 100%;
+  height: 40px;
+}
+
+.movingBike {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  font-size: 1.35rem;
+  animation: rideTrail 3s ease-in-out infinite alternate;
+}
+
+.trailLine path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+
+  animation: drawTrail 1.8s ease forwards;
+}
+
+@keyframes drawTrail {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rideTrail {
+  0% {
+    transform: translate(0, 18px) rotate(-8deg);
+  }
+
+  35% {
+    transform: translate(45px, 2px) rotate(6deg);
+  }
+
+  65% {
+    transform: translate(90px, 15px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translate(130px, 7px) rotate(8deg);
+  }
+}
+
+.filmWindow {
+  width: 130px;
+  height: 52px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.filmStrip {
+  display: flex;
+  width: max-content;
+
+  padding: 6px 0;
+
+  border-top: 4px dotted var(--accent);
+  border-bottom: 4px dotted var(--accent);
+
+  animation: moveFilm 4s linear infinite;
+}
+
+.filmFrame {
+  width: 42px;
+  height: 32px;
+  flex-shrink: 0;
+
+  margin: 0 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--accent);
+  border-radius: 3px;
+
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+@keyframes moveFilm {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-96px);
+  }
+}
+
+@media (max-width: 992px) {
+  .flipInner {
+    height: 220px;
+  }
 }

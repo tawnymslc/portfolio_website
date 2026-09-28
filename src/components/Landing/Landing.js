@@ -19,7 +19,6 @@ const floatingWords = [
     skills: [
       'Customer Discovery',
       'Implementation Strategy',
-      'Product Adoption',
       'Enterprise Accounts'
     ],
     description:

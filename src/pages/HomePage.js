@@ -56,7 +56,6 @@ const HomePage = () => {
       </section>
       <FadeInSection delay={0.2}>
         <section id="about" className="section"> 
-           <h2 className="section-heading">About Me</h2>
           <About />
         </section>
       </FadeInSection>
