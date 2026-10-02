@@ -301,14 +301,17 @@ const WorkdayIntegration = () => {
                                     </div>
                                 )}
                             </div>
-                                <div className={styles.previewHeader}>
+                            <div className={styles.transformHeader}>
                                 <span>Worker</span>
-                                <span>New Department</span>
-                                <span>New Payroll Dept</span>
-                                <span>Role Created for Learning</span>
+                                <span className={styles.desktopLabel}>New Department</span>
+                                <span className={styles.mobileLabel}>New Dept</span>
+                                <span className={styles.desktopLabel}>New Payroll Dept</span>
+                                <span className={styles.mobileLabel}>Payroll Dept</span>
+                                <span className={styles.desktopLabel}>Role Created for Learning</span>
+                                <span className={styles.mobileLabel}>Learning Role</span>
                             </div>
                             {workerTransfer.map((run) => (
-                                <div className={styles.previewRow}>
+                                <div className={styles.transformRow}>
                                         <strong>{run.worker.full_name}</strong>
                                         <span> {run.worker.department}</span>
                                         <span> {run.payroll.department_code}</span>
