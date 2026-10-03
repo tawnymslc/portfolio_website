@@ -41,7 +41,7 @@
 }
 
 .card {
-   background-color: #1e1e2f;
+    background-color: #1e1e2f;
     border: 1px solid #2a2a2a;
     border-radius: 16px;
     padding: 1.25rem;
@@ -181,4 +181,98 @@
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+
+  .card {
+    padding: 0.25rem;
+  }
+
+  .transformationFlow {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) 38px minmax(0, 1.1fr);
+    gap: 0.35rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .transformColumn {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .transformArrow {
+    width: 38px;
+    min-width: 38px;
+    text-align: center;
+  }
+
+  .transformArrow span {
+    font-size: 0.52rem;
+  }
+
+  .transformArrow div {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .transformCard {
+    width: 100%;
+    padding: 0.65rem;
+    box-sizing: border-box;
+  }
+
+  .transformHeader {
+    margin-bottom: 0.5rem;
+  }
+
+  .transformHeader span {
+    font-size: 0.8rem;
+  }
+
+  .transformHeader small {
+    font-size: 0.65rem;
+  }
+
+  .field {
+    padding: 0.45rem 0;
+  }
+
+  .field span {
+    font-size: 0.62rem;
+  }
+
+  .field strong {
+    font-size: 0.72rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+  
+  .transformationSection {
+    padding: 1rem 0.65rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+
+  .codeBlock {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 0.60rem;
+    line-height: 1.5;
+    padding: 0.75rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: pre;
+  }
+
 }
