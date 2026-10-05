@@ -361,6 +361,9 @@ const EmployeeMigrationTool = () => {
                                     <h3 className={styles.resultTitle}>
                                         Migration Run #{migrationResult.migration_run_id}
                                     </h3>
+                                    <h3 className={styles.mobileLabel}>
+                                        Migration #{migrationResult.migration_run_id}
+                                    </h3>
                                     <span className={styles.justCreatedBadge}>
                                         Just Created
                                     </span>
@@ -452,7 +455,15 @@ const EmployeeMigrationTool = () => {
                                 <div className={styles.historyHeader} >
                                     <div>
                                         <h4 className={styles.historyTitle}>Migration Run: #{run.migration_run_id}</h4>
-                                        <span className={styles.historyDate}>{run.started_at}&nbsp;</span>
+                                        <h4 className={styles.mobileLabel}>Migration #{run.migration_run_id}</h4>
+                                        <span className={styles.historyDate}>{new Date(run.started_at).toLocaleDateString('en-US', 
+                                                {
+                                                    month: 'short',
+                                                    day: 'numeric',
+                                                    year: 'numeric'
+                                                }
+                                            )}&nbsp;
+                                        </span>
                                         {isCurrentRun && (
                                             <span span className={styles.justCreatedBadge}>
                                                 Just Created

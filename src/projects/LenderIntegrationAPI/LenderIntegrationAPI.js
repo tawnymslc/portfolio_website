@@ -115,147 +115,147 @@ const LenderIntegrationAPI = () => {
         </div>
 
         <div className={styles.card}>
-        <div className={styles.transformationSection}>
-          <h3 className={styles.cardTitle}>2. Deal Transformation Preview</h3>
-          <p className={styles.sectionDescription}>
-            See how the source deal is mapped and transformed into the
-            schema expected by the lender's Loan Origination System.
-          </p>
-          <div className={styles.transformationFlow}>
-            {/* SOURCE */}
-            <div className={styles.transformColumn}>
-              <div className={styles.transformHeader}>
-                <span>Source Deal</span>
-                <small>Partner API</small>
+          <div className={styles.transformationSection}>
+            <h3 className={styles.cardTitle}>2. Deal Transformation Preview</h3>
+            <p className={styles.sectionDescription}>
+              See how the source deal is mapped and transformed into the
+              schema expected by the lender's Loan Origination System.
+            </p>
+            <div className={styles.transformationFlow}>
+              {/* SOURCE */}
+              <div className={styles.transformColumn}>
+                <div className={styles.transformHeader}>
+                  <span>Source Deal</span>
+                  <small>Partner API</small>
+                </div>
+
+                <div className={styles.transformCard}>
+                  <div className={styles.field}>
+                    <span>id</span>
+                    <strong>1</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>name</span>
+                    <strong>Leanne Graham</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>email</span>
+                    <strong>Sincere@april.biz</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>street</span>
+                    <strong>Kulas Light</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>suite</span>
+                    <strong>Apt. 556</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>city</span>
+                    <strong>Salt Lake City</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>zipcode</span>
+                    <strong>92998-3874</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>phone</span>
+                    <strong>1-770-736-8031 x56442</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>website</span>
+                    <strong>hildegard.org</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>company</span>
+                    <strong>Romaguera-Crona</strong>
+                  </div>
+
+                </div>
               </div>
 
-              <div className={styles.transformCard}>
-                <div className={styles.field}>
-                  <span>id</span>
-                  <strong>1</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>name</span>
-                  <strong>Leanne Graham</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>email</span>
-                  <strong>Sincere@april.biz</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>street</span>
-                  <strong>Kulas Light</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>suite</span>
-                  <strong>Apt. 556</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>city</span>
-                  <strong>Salt Lake City</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>zipcode</span>
-                  <strong>92998-3874</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>phone</span>
-                  <strong>1-770-736-8031 x56442</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>website</span>
-                  <strong>hildegard.org</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>company</span>
-                  <strong>Romaguera-Crona</strong>
-                </div>
-
+              {/* TRANSFORMATION ARROW */}
+              <div className={styles.transformArrow}>
+                <span>Transform</span>
+                <div>→</div>
               </div>
+
+              {/* DESTINATION */}
+              <div className={styles.transformColumn}>
+                <div className={styles.transformHeader}>
+                  <span>Lender LOS</span>
+                  <small>Destination Schema</small>
+                </div>
+
+                <div className={styles.transformCard}>
+                  <div className={styles.field}>
+                    <span>deal Id</span>
+                    <strong>1</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>status</span>
+                    <strong>Condtionally Approved</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>First Name</span>
+                    <strong>Leanne</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>Last Name</span>
+                    <strong>Graham</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>Email Address</span>
+                    <strong>Sincere@april.biz</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>Full Address</span>
+                    <strong>Kulas Light Apt. 556</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>City</span>
+                    <strong>Salt Lake City</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>Zip Code</span>
+                    <strong>92998</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>phone</span>
+                    <strong>(770) 736-8031 ext 56442</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>Company Website</span>
+                    <strong>hildegard.org</strong>
+                  </div>
+
+                  <div className={styles.field}>
+                    <span>Company Name</span>
+                    <strong>Romaguera-Crona</strong>
+                  </div>
+                </div>
+              </div>
+
             </div>
-
-            {/* TRANSFORMATION ARROW */}
-            <div className={styles.transformArrow}>
-              <span>Transform</span>
-              <div>→</div>
-            </div>
-
-            {/* DESTINATION */}
-            <div className={styles.transformColumn}>
-              <div className={styles.transformHeader}>
-                <span>Lender LOS</span>
-                <small>Destination Schema</small>
-              </div>
-
-              <div className={styles.transformCard}>
-                <div className={styles.field}>
-                  <span>deal Id</span>
-                  <strong>1</strong>
-                </div>
-
-                 <div className={styles.field}>
-                  <span>status</span>
-                  <strong>Condtionally Approved</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>First Name</span>
-                  <strong>Leanne</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>Last Name</span>
-                  <strong>Graham</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>Email Address</span>
-                  <strong>Sincere@april.biz</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>Full Address</span>
-                  <strong>Kulas Light Apt. 556</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>City</span>
-                  <strong>Salt Lake City</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>Zip Code</span>
-                  <strong>92998</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>phone</span>
-                  <strong>(770) 736-8031 ext 56442</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>Company Website</span>
-                  <strong>hildegard.org</strong>
-                </div>
-
-                <div className={styles.field}>
-                  <span>Company Name</span>
-                  <strong>Romaguera-Crona</strong>
-                </div>
-              </div>
-            </div>
-
           </div>
-        </div>
         </div>
 
         <div className={styles.card}>

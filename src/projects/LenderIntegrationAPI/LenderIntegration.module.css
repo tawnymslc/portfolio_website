@@ -186,7 +186,11 @@
 @media (max-width: 768px) {
 
   .card {
-    padding: 0.25rem;
+    padding: 1rem 0.25rem;
+  }
+
+  .cardTitle {
+    padding: 0.5rem;
   }
 
   .transformationFlow {
@@ -250,7 +254,8 @@
   }
   
   .transformationSection {
-    padding: 1rem 0.65rem;
+    padding: 0.1rem 0.65rem;
+    margin: 0.5rem 0rem;
   }
 
   .sectionDescription {
