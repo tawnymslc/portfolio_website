@@ -374,7 +374,7 @@ const EmployeeMigrationTool = () => {
                             </div>
                             <div className={styles.historyStats}>
                                     <div className={styles.transferredStat}>
-                                        <span>Transferred</span>
+                                        <span className={styles.transferredText}>Transferred</span>
                                         <strong>{migrationResult.summary.transferred}</strong>
                                     </div>
                                     <div className={styles.skippedStat}>

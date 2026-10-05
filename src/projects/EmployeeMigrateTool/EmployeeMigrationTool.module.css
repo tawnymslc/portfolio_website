@@ -597,6 +597,14 @@
         font-size: 0.8rem;
     }
 
+    .historyStats {
+        gap: 0.25rem;
+    }
+
+    .historyStats span {
+        font-size: 0.65rem;
+    }
+
     .historyTitle {
         display: none;
     }
@@ -615,6 +623,9 @@
     .historyDate {
         font-size: 0.75rem;
     }
+
+    .historyStats > div {
+        padding: 0.5rem;}
 
     .statusBadge {
         font-size: 0.7rem;
