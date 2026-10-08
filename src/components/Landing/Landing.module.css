@@ -194,7 +194,7 @@
 
 .rolePanel h2 {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1rem;
   line-height: 1.35;
   color: #111;
 }
@@ -202,6 +202,7 @@
 .rolePanel p {
   margin: 1rem 0;
   color: #555;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -324,15 +325,23 @@
   }
 
   .landingPrompt {
-    top: 70%;
+    top: 72%;
     left: 50%;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .rolePanel {
     position: absolute;
-    top: 32%;
-    left: 2%;
+    top: 25%;
+    left: 1%;
+  }
+
+  .rolePanel h2 {
+      font-size: 0.8rem;
+  }
+
+  .rolePanel p {
+    font-size: 0.7rem;
   }
 
   .iconCircle {

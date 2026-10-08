@@ -611,6 +611,61 @@
       padding: 7rem 1.5rem;
   }
 
+
+    .solutionReveal {
+        width: 100%;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .solutionTitle {
+        font-size: 1.6rem;
+        line-height: 1.2;
+        margin: 0.5rem auto 1rem;
+        max-width: 320px;
+    }
+
+    .solutionFlow {
+        flex-direction: column;
+        gap: 0.25rem;
+        width: 100%;
+    }
+
+    .solutionStep {
+        min-width: 0;
+        width: 220px;
+        padding: 0.4rem 0.5rem;
+    }
+
+    .solutionStep:hover {
+        transform: none;
+    }
+
+    .solutionArrow {
+        transform: rotate(90deg);
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .solutionStep:hover + .solutionArrow {
+        transform: rotate(90deg);
+    }
+
+    .stepNumber {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .solutionStep strong {
+        font-size: 0.95rem;
+    }
+
+    .solutionStep span {
+        font-size: 0.72rem;
+    }
+
+
   @keyframes rideTrail {
     0% {
       transform: translate(0, 18px) rotate(-8deg);
