@@ -1,10 +1,31 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import IntrestCards from './IntrestCards';
 import styles from './About.module.css';
 
 const About = () => {
+
+  const [exploredCards, setExploredCards] = useState([]);
+
+  const handleExplore = (card) => {
+    setExploredCards((current) => {
+      if (current.includes(card)) {
+        return current;
+      }
+
+      return [...current, card];
+
+    });
+  };
+
+  const profileComplete = exploredCards.length === 4;
+
   return (
-    <section className={styles.aboutSection}>
+    <section   className={`${styles.aboutSection} ${
+
+    profileComplete ? styles.profileCompleteSection : ''
+
+  }`}>
       <div className={styles.aboutIntro}>
         <span className={styles.eyebrow}>ABOUT ME</span>
         <h2>The person behind the integrations.</h2>
@@ -30,6 +51,7 @@ const About = () => {
             detail="I teach weekly high-energy classes at EOS"
             gradientClass={styles.danceCard}
             animation="equalizer"
+            onActivate={() => handleExplore('dance')}
           />
           <IntrestCards
             icon="🎧"
@@ -38,6 +60,7 @@ const About = () => {
             detail="From hip-hop to afrobeats to reggaeton, I’m in"
             gradientClass={styles.djCard}
             animation="record"
+            onActivate={() => handleExplore('music')}
           />
           <IntrestCards
             icon="🚵"
@@ -46,6 +69,7 @@ const About = () => {
             detail="Flow trails and desert lines are my happy place"
             gradientClass={styles.bikeCard}
             animation="trail"
+            onActivate={() => handleExplore('bike')}
           />
           <IntrestCards
             icon="🎬"
@@ -54,9 +78,70 @@ const About = () => {
             detail="Shonen arcs fuel my builder mindset"
             gradientClass={styles.animeCard}
             animation="film"
+            onActivate={() => handleExplore('anime')}
           />
         </div>
       </motion.div>
+      {profileComplete && (
+        <motion.div
+          className={styles.solutionReveal}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className={styles.profileComplete}>
+            ✓ PROFILE COMPLETE
+          </div>
+
+          <span className={styles.solutionEyebrow}>
+            HOW I APPROACH A SOLUTION
+          </span>
+
+          <h3 className={styles.solutionTitle}>
+            From customer problem to working solution.
+          </h3>
+
+          <div className={styles.solutionFlow}>
+            <div className={styles.solutionStep}>
+              <span className={styles.stepNumber}>01</span>
+              <strong>Understand</strong>
+              <span>Customer needs</span>
+            </div>
+
+            <span className={styles.solutionArrow}>→</span>
+
+            <div className={styles.solutionStep}>
+              <span className={styles.stepNumber}>02</span>
+              <strong>Design</strong>
+              <span>Technical approach</span>
+            </div>
+
+            <span className={styles.solutionArrow}>→</span>
+
+            <div className={styles.solutionStep}>
+              <span className={styles.stepNumber}>03</span>
+              <strong>Build</strong>
+              <span>Integration logic</span>
+            </div>
+
+            <span className={styles.solutionArrow}>→</span>
+
+            <div className={styles.solutionStep}>
+              <span className={styles.stepNumber}>04</span>
+              <strong>Validate</strong>
+              <span>Test & refine</span>
+            </div>
+
+            <span className={styles.solutionArrow}>→</span>
+
+            <div className={styles.solutionStep}>
+              <span className={styles.stepNumber}>05</span>
+              <strong>Deliver</strong>
+              <span>Launch & support</span>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </div>
     </section>
   );

@@ -4,7 +4,6 @@ import Landing from '../components/Landing/Landing'
 import ProjectGrid from '../components/Projects/ProjectGrid';
 import SkillsExperience from '../components/SkillsExperience/SkillsExperience';
 import About from '../components/About/About'
-import FadeInSection from '../components/FadeInSection';
 import SectionDots from '../components/SectionDots';
 
 const HomePage = () => {
@@ -70,11 +69,9 @@ const HomePage = () => {
       <section id="skills" className="expSkills">
           <SkillsExperience />
       </section>
-      <FadeInSection delay={0.2}>
-        <section id="about" className="section"> 
+      <section id="about" className="about">
           <About />
-        </section>
-      </FadeInSection>
+      </section>
       </div>
     </>
   );

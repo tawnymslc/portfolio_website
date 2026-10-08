@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  padding: 7rem 3rem;
+  padding: 1rem 3rem;
 }
 
 .aboutIntro {
@@ -382,6 +382,104 @@
   animation: drawTrail 1.8s ease forwards;
 }
 
+.profileCompleteSection .aboutIntro {
+  margin-bottom: 1rem;
+}
+
+.profileCompleteSection .funFacts {
+  margin-top: 1rem;
+}
+
+.profileCompleteSection .solutionReveal {
+  margin-top: 1rem;
+}
+
+.aboutIntro,
+.funFacts {
+    transition: margin 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.solutionFlow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.solutionStep {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 130px;
+    padding: 0.75rem 0.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.solutionStep:hover {
+    transform: translateY(-4px);
+    background: rgba(0, 0, 0, 0.035);
+}
+
+.solutionStep strong {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.solutionStep span {
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
+    color: #777;
+}
+
+.solutionArrow {
+    font-size: 1.2rem;
+    color: #aaa;
+    transition: transform 0.25s ease;
+}
+
+.solutionStep:hover + .solutionArrow {
+    transform: translateX(3px);
+}
+
+.stepNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+    margin-bottom: 0.4rem !important;
+
+    border: 1px solid #ccc;
+    border-radius: 50%;
+
+    font-size: 0.6rem !important;
+    font-weight: 700;
+    color: #777 !important;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.solutionStep:hover .stepNumber {
+    background: #222;
+    border-color: #222;
+    color: white !important;
+    transform: scale(1.08);
+}
+
 @keyframes drawTrail {
   to {
     stroke-dashoffset: 0;
@@ -443,6 +541,50 @@
 
   color: var(--accent);
   font-size: 1rem;
+}
+
+.solutionReveal {
+  width: 100%;
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.profileComplete,
+.solutionEyebrow {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #777;
+}
+
+.solutionEyebrow {
+  margin-top: 1rem;
+}
+
+.solutionTitle {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.solutionFlow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.solutionStep {
+  display: flex;
+  flex-direction: column;
+}
+
+.solutionStep span {
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.solutionArrow {
+  color: #aaa;
 }
 
 @keyframes moveFilm {
