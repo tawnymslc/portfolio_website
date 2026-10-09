@@ -13,7 +13,7 @@ const floatingWords = [
   {
     text: 'Consultant',
     top: '1%',
-    left: '47%',
+    left: '46%',
     glow: 'rgba(0, 132, 255, 0.5)',
     headline: 'I help customers turn complex products into successful outcomes.',
     skills: [
@@ -59,7 +59,7 @@ const floatingWords = [
   {
     text: 'Leader',
     top: '73%',
-    left: '48%',
+    left: '46%',
     glow: 'rgba(255, 0, 153, 0.5)',
     headline: 'I help teams move complex projects forward.',
     skills: [
@@ -80,10 +80,47 @@ const iconMap = {
   Leader: leaderIcon
 };
 
+const rolePanelVariants = {
+  hidden: {
+    opacity: 0,
+    y: 12
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.25,
+      staggerChildren: 0.06,
+      delayChildren: 0.05
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: -8,
+    transition: {
+      duration: 0.18
+    }
+  }
+};
+
+const roleItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 8
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.25
+    }
+  }
+};
+
 const Landing = () => {
+
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const isMobile = useIsMobile();
-
 
   return (
     <div className={styles.floatingLabelsWrapper}>
@@ -120,7 +157,7 @@ const Landing = () => {
             whileTap={{ scale: 0.97 }}
 
             animate={{
-              scale: hoveredIndex === index ? 1.08 : 1,
+              scale: hoveredIndex === index ? 1.04 : 1,
               opacity:
                 hoveredIndex !== null && hoveredIndex !== index
                   ? 0.4
@@ -158,61 +195,58 @@ const Landing = () => {
             </span>
           </motion.button>
         ))}
-        <AnimatePresence mode="wait">
-          {hoveredIndex !== null && (
-            <motion.div
-              key={floatingWords[hoveredIndex].text}
-              className={styles.rolePanel}
-              initial={{ opacity: 0, y: 20, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.97 }}
-              transition={{ duration: 0.3 }}
-            >
+        <div className={styles.roleContentArea}>
+          <AnimatePresence mode="wait">
+            {hoveredIndex !== null ? (
+              <motion.div
+                key={floatingWords[hoveredIndex].text}
+                className={styles.rolePanel}
+  variants={rolePanelVariants}
 
-              <button
-                type="button"
-                className={styles.closeRolePanel}
-                onClick={() => setHoveredIndex(null)}
-                aria-label="Close role details"
+  initial="hidden"
+
+  animate="visible"
+
+  exit="exit"
               >
-                ×
-              </button>
+                <span className={styles.roleEyebrow}>
+                  {floatingWords[hoveredIndex].text}
+                </span>
 
-              <span className={styles.roleEyebrow}>
-                {floatingWords[hoveredIndex].text}
-              </span>
+                <motion.h2 variants={roleItemVariants}>
+                  {floatingWords[hoveredIndex].headline}
+                </motion.h2>
 
-              <h2>
-                {floatingWords[hoveredIndex].headline}
-              </h2>
+                <motion.p variants={roleItemVariants}>
+                  {floatingWords[hoveredIndex].description}
+                </motion.p>
 
-              <p>
-                {floatingWords[hoveredIndex].description}
-              </p>
+                <motion.div variants={roleItemVariants} className={styles.skillTags}>
+                  {floatingWords[hoveredIndex].skills.map((skill) => (
+                    <span key={skill}>
+                      {skill}
+                    </span>
+                  ))}
+                </motion.div>
 
-              <div className={styles.skillTags}>
-                {floatingWords[hoveredIndex].skills.map((skill) => (
-                  <span key={skill}>
-                    {skill}
-                  </span>
-                ))}
-              </div>
-              <a href="#projects" className={styles.exploreLink}>
-                Explore my work ↓
-              </a>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        {hoveredIndex === null && (
-          <motion.p
-            className={styles.landingPrompt}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.65 }}
-          >
-            Select a role to explore how I work
-          </motion.p>
-
-        )}
+                <motion.a href="#projects" variants={roleItemVariants} className={styles.exploreLink}>
+                  Explore my work ↓
+                </motion.a>
+              </motion.div>
+            ) : (
+              <motion.p
+                key="prompt"
+                className={styles.landingPrompt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.65 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                Select a role to explore how I work
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
