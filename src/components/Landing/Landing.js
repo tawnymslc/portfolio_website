@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState} from 'react';
+import { motion, AnimatePresence, } from 'framer-motion';
+import { useState, useRef, useEffect} from 'react';
 import useIsMobile from '../useIsMobile'; 
 
 import architectIcon from '../../assets/icons/architect.png';
@@ -122,6 +122,23 @@ const Landing = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const isMobile = useIsMobile();
 
+  const roleAreaRef = useRef(null);
+
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (
+          roleAreaRef.current &&
+          !roleAreaRef.current.contains(event.target)
+        ) {
+          setHoveredIndex(null);
+        }
+      };
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, []);
+
   return (
     <div className={styles.floatingLabelsWrapper}>
         <div className={styles.introCard}>
@@ -137,7 +154,7 @@ const Landing = () => {
             I work where customers, business needs, APIs, and engineering meet.
           </p>
       </div>
-      <div className={styles.labelGrid}>
+      <div ref={roleAreaRef} className={styles.labelGrid}>
         {floatingWords.map((word, index) => (
           <motion.button
             key={index}
@@ -201,13 +218,10 @@ const Landing = () => {
               <motion.div
                 key={floatingWords[hoveredIndex].text}
                 className={styles.rolePanel}
-  variants={rolePanelVariants}
-
-  initial="hidden"
-
-  animate="visible"
-
-  exit="exit"
+                variants={rolePanelVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
               >
                 <span className={styles.roleEyebrow}>
                   {floatingWords[hoveredIndex].text}
