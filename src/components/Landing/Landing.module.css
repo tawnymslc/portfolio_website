@@ -239,6 +239,53 @@
   color: #111;
 }
 
+.connectorLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+.engineerPath {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.18);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.engineerPulse {
+  fill: rgb(0, 210, 220);
+
+  filter: drop-shadow(0 0 5px rgba(0, 210, 220, 0.8));
+}
+
+.consultantPath,
+.architectPath,
+.leaderPath {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.18);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.consultantPulse {
+  fill: rgb(0, 132, 255);
+  filter: drop-shadow(0 0 5px rgba(0, 132, 255, 0.8));
+}
+
+.architectPulse {
+  fill: rgb(0, 210, 130);
+  filter: drop-shadow(0 0 5px rgba(0, 210, 130, 0.8));
+}
+
+.leaderPulse {
+  fill: rgb(255, 0, 153);
+  filter: drop-shadow(0 0 5px rgba(255, 0, 153, 0.8));
+}
+
 .skillTags {
   display: flex;
   justify-content: center;
@@ -313,6 +360,7 @@
   }
 
   .labelGrid {
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;

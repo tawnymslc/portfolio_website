@@ -12,8 +12,8 @@ import styles from './Landing.module.css';
 const floatingWords = [
   {
     text: 'Consultant',
-    top: '1%',
-    left: '46%',
+    top: '4%',
+    left: '66%',
     glow: 'rgba(0, 132, 255, 0.5)',
     headline: 'I help customers turn complex products into successful outcomes.',
     skills: [
@@ -26,8 +26,8 @@ const floatingWords = [
   },
   {
     text: 'Engineer',
-    top: '35%',
-    left: '74%',
+    top: '47%',
+    left: '76%',
     glow: 'rgba(0, 255, 255, 0.5)',
     headline: 'I build and troubleshoot the integrations behind the solution.',
     skills: [
@@ -43,8 +43,8 @@ const floatingWords = [
   },
   {
     text: 'Architect',
-    top: '35%',
-    left: '20%',
+    top: '38%',
+    left: '12%',
     glow: 'rgba(0, 255, 160, 0.5)',
     headline: 'I translate business requirements into technical solutions.',
     skills: [
@@ -58,8 +58,8 @@ const floatingWords = [
   },
   {
     text: 'Leader',
-    top: '73%',
-    left: '46%',
+    top: '68%',
+    left: '25%',
     glow: 'rgba(255, 0, 153, 0.5)',
     headline: 'I help teams move complex projects forward.',
     skills: [
@@ -155,6 +155,110 @@ const Landing = () => {
           </p>
       </div>
       <div ref={roleAreaRef} className={styles.labelGrid}>
+        <svg
+          className={styles.connectorLayer}
+          viewBox="0 0 1000 600"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            id="engineerPath"
+            className={styles.engineerPath}
+            d="M 810 330 L 860 330 L 860 220 L 650 220"
+          />
+          {hoveredIndex === 1 && (
+            <motion.circle
+              r="5"
+              className={styles.engineerPulse}
+
+              initial={{
+                cx: 810,
+                cy: 330
+              }}
+
+              animate={{
+                cx: [810, 860, 860, 650],
+                cy: [330, 330, 220, 220]
+              }}
+
+              transition={{
+                duration: 1.5,
+                times: [0, 0.15, 0.45, 1],
+                ease: "linear"
+              }}
+            />
+          )}
+          {/* Consultant */}
+{/* Consultant — LEFT → DOWN */}
+<path
+  className={styles.consultantPath}
+  d="M 660 70 L 425 70 L 425 130"
+/>
+
+{hoveredIndex === 0 && (
+  <motion.circle
+    r="5"
+    className={styles.consultantPulse}
+    initial={{ cx: 670, cy: 150 }}
+    animate={{
+      cx: [660, 425, 425],
+      cy: [70, 70, 130]
+    }}
+    transition={{
+      duration: 1.2,
+      times: [0, 0.73, 1],
+      ease: "linear"
+    }}
+  />
+)}
+
+{/* Architect */}
+{/* Architect — DOWN → RIGHT → UP → RIGHT */}
+<path
+  className={styles.architectPath}
+  d="M 185 330 L 185 370 L 335 370 L 335 300 L 380 300"
+/>
+
+{hoveredIndex === 2 && (
+  <motion.circle
+    r="5"
+    className={styles.architectPulse}
+    initial={{ cx: 185, cy: 330 }}
+    animate={{
+      cx: [185, 185, 335, 335, 380],
+      cy: [330, 370, 370, 300, 300]
+    }}
+    transition={{
+      duration: 1.5,
+      times: [0, 0.15, 0.55, 0.8, 1],
+      ease: "linear"
+    }}
+  />
+)}
+
+{/* Leader — RIGHT → UP */}
+<path
+  className={styles.leaderPath}
+  d="M 315 485 L 390 485 L 390 395"
+/>
+
+{hoveredIndex === 3 && (
+  <motion.circle
+    r="5"
+    className={styles.leaderPulse}
+    initial={{ cx: 315, cy: 485 }}
+    animate={{
+      cx: [315, 390, 390],
+      cy: [485, 485, 395]
+    }}
+    transition={{
+      duration: 1.2,
+      times: [0, 0.45, 1],
+      ease: "linear"
+    }}
+  />
+)}
+        </svg>
         {floatingWords.map((word, index) => (
           <motion.button
             key={index}
