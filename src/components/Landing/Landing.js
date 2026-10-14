@@ -121,6 +121,7 @@ const Landing = () => {
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const isMobile = useIsMobile();
+  const [showRoleContent, setShowRoleContent] = useState(false);
 
   const roleAreaRef = useRef(null);
 
@@ -164,100 +165,91 @@ const Landing = () => {
           <path
             id="engineerPath"
             className={styles.engineerPath}
-            d="M 810 330 L 860 330 L 860 220 L 650 220"
+            d="M 820 330 L 860 330 L 860 220 L 670 220"
           />
           {hoveredIndex === 1 && (
             <motion.circle
               r="5"
               className={styles.engineerPulse}
-
-              initial={{
-                cx: 810,
-                cy: 330
-              }}
-
+              initial={{ cx: 820, cy: 330}}
               animate={{
-                cx: [810, 860, 860, 650],
+                cx: [820, 860, 860, 670],
                 cy: [330, 330, 220, 220]
               }}
-
               transition={{
                 duration: 1.5,
                 times: [0, 0.15, 0.45, 1],
                 ease: "linear"
               }}
+              onAnimationComplete={() => setShowRoleContent(true)}
             />
           )}
           {/* Consultant */}
-{/* Consultant — LEFT → DOWN */}
-<path
-  className={styles.consultantPath}
-  d="M 660 70 L 425 70 L 425 130"
-/>
-
-{hoveredIndex === 0 && (
-  <motion.circle
-    r="5"
-    className={styles.consultantPulse}
-    initial={{ cx: 670, cy: 150 }}
-    animate={{
-      cx: [660, 425, 425],
-      cy: [70, 70, 130]
-    }}
-    transition={{
-      duration: 1.2,
-      times: [0, 0.73, 1],
-      ease: "linear"
-    }}
-  />
-)}
-
-{/* Architect */}
-{/* Architect — DOWN → RIGHT → UP → RIGHT */}
-<path
-  className={styles.architectPath}
-  d="M 185 330 L 185 370 L 335 370 L 335 300 L 380 300"
-/>
-
-{hoveredIndex === 2 && (
-  <motion.circle
-    r="5"
-    className={styles.architectPulse}
-    initial={{ cx: 185, cy: 330 }}
-    animate={{
-      cx: [185, 185, 335, 335, 380],
-      cy: [330, 370, 370, 300, 300]
-    }}
-    transition={{
-      duration: 1.5,
-      times: [0, 0.15, 0.55, 0.8, 1],
-      ease: "linear"
-    }}
-  />
-)}
-
-{/* Leader — RIGHT → UP */}
-<path
-  className={styles.leaderPath}
-  d="M 315 485 L 390 485 L 390 395"
-/>
-
-{hoveredIndex === 3 && (
-  <motion.circle
-    r="5"
-    className={styles.leaderPulse}
-    initial={{ cx: 315, cy: 485 }}
-    animate={{
-      cx: [315, 390, 390],
-      cy: [485, 485, 395]
-    }}
-    transition={{
-      duration: 1.2,
-      times: [0, 0.45, 1],
-      ease: "linear"
-    }}
-  />
-)}
+          <path
+            className={styles.consultantPath}
+            d="M 675 70 L 425 70 L 425 130"
+          />
+          {hoveredIndex === 0 && (
+            <motion.circle
+              r="5"
+              className={styles.consultantPulse}
+              initial={{ cx: 675, cy: 70 }}
+              animate={{
+                cx: [675, 425, 425],
+                cy: [70, 70, 130]
+              }}
+              transition={{
+                duration: 1.2,
+                times: [0, 0.73, 1],
+                ease: "linear"
+              }}
+              onAnimationComplete={() => setShowRoleContent(true)}
+            />
+          )}
+          {/* Architect */}
+          <path
+            className={styles.architectPath}
+            d="M 155 315 L 155 350 L 300 350 L 300 275 L 350 275"
+          />
+          {hoveredIndex === 2 && (
+            <motion.circle
+              r="5"
+              className={styles.architectPulse}
+              initial={{ cx: 155, cy: 315 }}
+              animate={{
+                cx: [155, 155, 300, 300, 350],
+                cy: [315, 350, 350, 275, 275]
+              }}
+              transition={{
+                duration: 1.5,
+                times: [0, 0.15, 0.55, 0.85, 1],
+                ease: "linear"
+              }}
+              onAnimationComplete={() => setShowRoleContent(true)}
+            />
+          )}
+          {/* Leader */}
+          <path
+            className={styles.leaderPath}
+            d="M 290 495 290 520 L 490 520 L 490 395"
+          />
+          {hoveredIndex === 3 && (
+            <motion.circle
+              r="5"
+              className={styles.leaderPulse}
+              initial={{ cx: 290, cy: 495 }}
+              animate={{
+                cx: [290, 290, 490, 490],
+                cy: [495, 520, 520, 395]
+              }}
+              transition={{
+                duration: 1.2,
+                times: [0, 0.15, 0.65, 1],
+                ease: "linear"
+              }}
+              onAnimationComplete={() => setShowRoleContent(true)}
+            />
+          )}
         </svg>
         {floatingWords.map((word, index) => (
           <motion.button
@@ -297,11 +289,12 @@ const Landing = () => {
                   : '#222'
             }}
 
-            onClick={() =>
+            onClick={() => {
+              setShowRoleContent(false);
               setHoveredIndex(
                 hoveredIndex === index ? null : index
               )
-            }
+            }}
           >
             <span className={styles.labelContent}>
               <span className={styles.iconCircle}>
@@ -318,7 +311,7 @@ const Landing = () => {
         ))}
         <div className={styles.roleContentArea}>
           <AnimatePresence mode="wait">
-            {hoveredIndex !== null ? (
+            {hoveredIndex !== null && showRoleContent ? (
               <motion.div
                 key={floatingWords[hoveredIndex].text}
                 className={styles.rolePanel}

@@ -402,7 +402,10 @@
 
   .landingPrompt {
     font-size: 0.8rem;
+  }
 
+  .connectorLayer {
+    display: none;
   }
 
   .roleEyebrow {
