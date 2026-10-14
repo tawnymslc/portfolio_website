@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
-import { Button} from 'reactstrap';
 import { useMediaQuery } from 'react-responsive';
 import styles from './ETLDashboard.module.css'
 import SubHeader from '../../components/SubHeader'
@@ -129,11 +128,37 @@ const ETLDashboard = () => {
                   </div>
                 </div>  
                 {/* View Toggle Buttons */}
-                <div className={styles.viewToggle}>
-                  <Button color={view === "chart" ? "primary" : "secondary"} onClick={() => setView("chart")} className="me-2">Visualization</Button>
-                  <Button color={view === "raw" ? "primary" : "secondary"} onClick={() => setView("raw")} className="me-2">Raw Data</Button>
-                  <Button color={view === "transformed" ? "primary" : "secondary"} onClick={() => setView("transformed")}>Transformed Data</Button>
-                </div>
+<div className={styles.viewToggle}>
+  <button
+    type="button"
+    className={`${styles.viewButton} ${
+      view === "chart" ? styles.activeViewButton : ""
+    }`}
+    onClick={() => setView("chart")}
+  >
+    Visualization
+  </button>
+
+  <button
+    type="button"
+    className={`${styles.viewButton} ${
+      view === "raw" ? styles.activeViewButton : ""
+    }`}
+    onClick={() => setView("raw")}
+  >
+    Raw Data
+  </button>
+
+  <button
+    type="button"
+    className={`${styles.viewButton} ${
+      view === "transformed" ? styles.activeViewButton : ""
+    }`}
+    onClick={() => setView("transformed")}
+  >
+    Transformed Data
+  </button>
+</div>
                 {/* Conditional Views */}
                 {view === "chart" && (
                   <>

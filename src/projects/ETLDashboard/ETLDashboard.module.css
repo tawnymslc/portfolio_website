@@ -90,7 +90,39 @@
 }
 
 .viewToggle {
-    margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.viewButton {
+  padding: 0.6rem 1.1rem;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  background: white;
+  color: #555;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewButton:hover {
+  border-color: #999;
+  color: #111;
+}
+
+.activeViewButton {
+  background: #111;
+  border-color: #111;
+  color: white;
+}
+
+.activeViewButton:hover {
+  background: #111;
+  border-color: #111;
+  color: white;
 }
 
 .chartHeading {
@@ -107,4 +139,13 @@
     color: white;
     font-size: 0.8rem;
     overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+
+    .viewButton {
+        font-size: 0.73rem;
+        padding: 0.3rem 0.8rem;
+    }
+
 }

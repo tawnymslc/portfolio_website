@@ -165,7 +165,7 @@ const WorkdayIntegration = () => {
                             </div>
                         </div>
                         <div className={styles.sourceHeader}>
-                            <h2 className={styles.activityDemoHeading}>Demo Workers</h2>
+                            <h2 className={styles.demoHeading}>Demo Workers</h2>
                         </div>
                         <p className={styles.architectureText}>
                             These Workday worker transfer events are processed through the integration platform.
@@ -264,7 +264,7 @@ const WorkdayIntegration = () => {
                                 </select>
                                 <h2 className={styles.transferHeading}>Transformation Details</h2>
                                 {selectedWorker && (
-                                    <div>
+                                    <div className={styles.architectureDiagram}>
                                         <div className={styles.destinationRow}>
                                             <div className={styles.destinationColumn}>
                                                 <div className={styles.architectureBox}>
@@ -281,7 +281,7 @@ const WorkdayIntegration = () => {
                                                         <div className={styles.architectureBox}>
                                                             <strong>Payroll User</strong>
                                                             <span className={styles.boxSubtext}>
-                                                                Payroll Deptartment Code Created:{" "}
+                                                                Payroll Dept Code Created:{" "}
                                                                 <strong>{selectedWorker.payroll.department_code}</strong>
                                                             </span>
                                                         </div>
