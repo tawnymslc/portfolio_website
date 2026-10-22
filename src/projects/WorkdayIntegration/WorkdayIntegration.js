@@ -111,14 +111,14 @@ const WorkdayIntegration = () => {
                             <div className={styles.arrow}>↓</div>
                             <div className={styles.destinationRow}>
                                 <div className={styles.destinationColumn}>
-                                    <div className={styles.architectureBox}>
+                                    <div className={styles.destinationBox}>
                                         <strong>Payroll Transform</strong>
                                         <span className={styles.boxSubtext}>
                                             Payroll Contract
                                         </span>
                                     </div>
                                     <div className={styles.arrow}>↓</div>
-                                    <div className={styles.architectureBox}>
+                                    <div className={styles.destinationBox}>
                                         <strong>Retry & Error Handling</strong>
                                             <span className={styles.boxSubtext}>
                                                 Retryable vs. Non-Retryable Failures
@@ -130,14 +130,14 @@ const WorkdayIntegration = () => {
                                     </div>
                                 </div>
                                 <div className={styles.destinationColumn}>
-                                    <div className={styles.architectureBox}>
+                                    <div className={styles.destinationBox}>
                                         <strong>Learning Transform</strong>
                                         <span className={styles.boxSubtext}>
                                             Learning Contract
                                         </span>
                                     </div>
                                     <div className={styles.arrow}>↓</div>
-                                        <div className={styles.architectureBox}>
+                                        <div className={styles.destinationBox}>
                                             <strong>Retry & Error Handling</strong>
                                                 <span className={styles.boxSubtext}>
                                                     Retryable vs. Non-Retryable Failures
@@ -267,7 +267,7 @@ const WorkdayIntegration = () => {
                                     <div className={styles.architectureDiagram}>
                                         <div className={styles.destinationRow}>
                                             <div className={styles.destinationColumn}>
-                                                <div className={styles.architectureBox}>
+                                                <div className={styles.transferBoxMain}>
                                                     <strong><p>{selectedWorker.event.first_name} {selectedWorker.event.last_name}</p></strong>
                                                     <p className={styles.boxSubtext}>
                                                         {selectedWorker.event.old_department}
@@ -278,7 +278,7 @@ const WorkdayIntegration = () => {
                                                 <div className={styles.arrow}>↓</div>
                                                 <div className={styles.destinationRow}>
                                                     <div className={styles.destinationColumn}>
-                                                        <div className={styles.architectureBox}>
+                                                        <div className={styles.transferBox}>
                                                             <strong>Payroll User</strong>
                                                             <span className={styles.boxSubtext}>
                                                                 Payroll Dept Code Created:{" "}
@@ -287,7 +287,7 @@ const WorkdayIntegration = () => {
                                                         </div>
                                                     </div>
                                                     <div className={styles.destinationColumn}>
-                                                        <div className={styles.architectureBox}>
+                                                        <div className={styles.transferBox}>
                                                             <strong>Learning User</strong>
                                                             <span className={styles.boxSubtext}>
                                                                 Learning Role Created:{" "}

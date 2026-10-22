@@ -288,12 +288,17 @@ const Landing = () => {
                   ? '#fff'
                   : '#222'
             }}
-
             onClick={() => {
-              setShowRoleContent(false);
-              setHoveredIndex(
-                hoveredIndex === index ? null : index
-              )
+              
+              const isClosing = hoveredIndex === index;
+
+              if (isClosing) {
+                setHoveredIndex(null);
+                setShowRoleContent(false);
+              } else {
+                setHoveredIndex(index);
+                setShowRoleContent(isMobile);
+              }
             }}
           >
             <span className={styles.labelContent}>
