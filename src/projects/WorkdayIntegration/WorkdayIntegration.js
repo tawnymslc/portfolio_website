@@ -164,16 +164,48 @@ const WorkdayIntegration = () => {
                                 </span>
                             </div>
                         </div>
+                        <div>
+                            <h4 className={styles.whyArchitectureHeading}>Why this architecture?</h4>
+                            <div className={styles.architectureDecision}>
+                                <span className={styles.decisionNumber}>01</span>
+                                <div>
+                                    <h4>Normalize once, transform per destination</h4>
+                                    <p>
+                                    Workday events are converted into a canonical worker model so
+                                    downstream systems aren't coupled directly to the source format.
+                                    </p>
+                                </div>
+                                <span className={styles.decisionNumber}>02</span>
+                                <div>
+                                    <h4>Isolate downstream failures</h4>
+                                    <p>
+                                    Payroll and Learning are processed independently. A failure in one 
+                                    destination doesn’t change the data contract for the other.
+                                    </p>
+                                </div>
+                                <span className={styles.decisionNumber}>03</span>
+                                <div>
+                                    <h4>Design for operational visibility</h4>
+                                    <p>
+                                        Every delivery records status, attempts, errors, and latency so 
+                                        integration health can be monitored and failures investigated.
+                                    </p>
+                            </div>
+                        </div>
+                        </div>
                         <div className={styles.sourceHeader}>
                             <h2 className={styles.demoHeading}>Demo Workers</h2>
                         </div>
                         <p className={styles.architectureText}>
                             These Workday worker transfer events are processed through the integration platform.
+                            The demo includes controlled <strong>API failures</strong> to validate retry behavior, 
+                            non-retryable errors, and integration logging in addition to successful deliveries.
                         </p>
                          <div className={styles.previewHeader}>
                             <span>Worker</span>
                             <span>Old Department</span>
                             <span>New Department</span>
+                            <span>Scenario</span>
                         </div>
                         <div className={styles.previewRow}>
                             <div>
@@ -182,6 +214,7 @@ const WorkdayIntegration = () => {
                             </div>
                             <span>Sales</span>
                             <span>Engineering</span>
+                            <span>Standard</span>
                         </div>
                         <div className={styles.previewRow}>
                             <div>
@@ -190,6 +223,7 @@ const WorkdayIntegration = () => {
                             </div>
                             <span>Engineering</span>
                             <span>Sales</span>
+                            <span>Standard</span>
                         </div>
                         <div className={styles.previewRow}>
                             <div>
@@ -198,6 +232,7 @@ const WorkdayIntegration = () => {
                             </div>
                             <span>Sales</span>
                             <span>Marketing</span>
+                            <span>Standard</span>
                         </div>
                         <div className={styles.previewRow}>
                             <div>
@@ -206,6 +241,7 @@ const WorkdayIntegration = () => {
                             </div>
                             <span>Marketing</span>
                             <span>Engineering</span>
+                            <span>Standard</span>
                         </div>
                         <div className={styles.previewRow}>
                             <div>
@@ -214,6 +250,7 @@ const WorkdayIntegration = () => {
                             </div>
                             <span>Account Executive</span>
                             <span>Team Lead AE Team</span>
+                            <span>Retry → Success</span>
                         </div>
                         <div className={styles.previewRow}>
                             <div>
@@ -222,6 +259,7 @@ const WorkdayIntegration = () => {
                             </div>
                             <span>Engineering</span>
                             <span>Sales Engineering</span>
+                            <span>503 Service Unavailable</span>
                         </div>
                         <div className={styles.previewRow}>
                             <div>
@@ -230,6 +268,7 @@ const WorkdayIntegration = () => {
                             </div>
                             <span>Product</span>
                             <span>Engineering</span>
+                            <span>400 Bad Request</span>
                         </div>
                     </div>
                 </div>
