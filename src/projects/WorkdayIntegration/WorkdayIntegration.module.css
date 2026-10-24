@@ -248,12 +248,6 @@
     color: #999;
 }
 
-.previewRow > div span {
-    margin-top: 0.2rem;
-    color: #999;
-    font-size: 0.75rem;
-}
-
 .workerSelect {
     width: 260px;
     padding: 10px 12px;
@@ -287,7 +281,7 @@
 
 .previewHeader,
 .previewRow {
-    grid-template-columns: 1fr 1fr 1fr 200px;
+    grid-template-columns: 1fr 1fr 1fr minmax(0, 200px);
 }
 
 .previewHeader {
@@ -310,6 +304,16 @@
     gap: 1rem;
     padding: 0.9rem 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.previewRow > div span {
+    margin-top: 0.2rem;
+    color: #999;
+    font-size: 0.75rem;
+}
+
+.engMobile {
+    display: none;
 }
 
 .transformHeader,
@@ -462,7 +466,7 @@
     }
 
 /* --------------------------------
-     DEMO WORKERS - 3 COLUMNS
+     DEMO WORKERS - 4 COLUMNS
   -------------------------------- */
 
     .previewHeader,
@@ -497,6 +501,18 @@
 
     .previewRow > div span {
         font-size: 0.68rem;
+    }
+
+    .scenario {
+        display: none;
+    }
+
+    .engDesktop {
+        display: none;
+    }
+
+    .engMobile{
+        display: block;
     }
 
 /* Transformation Details */
@@ -587,24 +603,24 @@
 
   -------------------------------- */
 
-  .table {
-    width: 100%;
-    table-layout: fixed;
-  }
+    .table {
+        width: 100%;
+        table-layout: fixed;
+    }
 
-  .tableHeader {
-    font-size: 0.45rem;
-    padding: 0.65rem 0.35rem;
-  }
+    .tableHeader {
+        font-size: 0.45rem;
+        padding: 0.65rem 0.35rem;
+    }
 
-  .tableCell {
-    font-size: 0.61rem;
-    padding: 0.65rem 0.35rem;
-    overflow-wrap: anywhere;
+    .tableCell {
+        font-size: 0.61rem;
+        padding: 0.65rem 0.35rem;
+        overflow-wrap: anywhere;
 
-  }
+    }
 
-  /* table header width*/
+    /* table header width*/
     .table {
         width: 100%;
         table-layout: fixed;

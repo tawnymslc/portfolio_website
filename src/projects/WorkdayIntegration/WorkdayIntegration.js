@@ -203,8 +203,10 @@ const WorkdayIntegration = () => {
                         </p>
                          <div className={styles.previewHeader}>
                             <span>Worker</span>
-                            <span>Old Department</span>
-                            <span>New Department</span>
+                            <span className={styles.engDesktop}>Old Department</span>
+                            <span className={styles.engMobile}>Old Dept</span>
+                            <span className={styles.engDesktop}>New Department</span>
+                            <span className={styles.engMobile}>New Dept</span>
                             <span>Scenario</span>
                         </div>
                         <div className={styles.previewRow}>
@@ -213,7 +215,8 @@ const WorkdayIntegration = () => {
                                 <span> WD-2001</span>
                             </div>
                             <span>Sales</span>
-                            <span>Engineering</span>
+                            <span className={styles.engDesktop}>Engineering</span>
+                            <span className={styles.engMobile}>ENG</span>
                             <span>Standard</span>
                         </div>
                         <div className={styles.previewRow}>
@@ -221,7 +224,8 @@ const WorkdayIntegration = () => {
                                 <strong>Ethan Brooks</strong>
                                 <span> WD-2002</span>
                             </div>
-                            <span>Engineering</span>
+                            <span className={styles.engDesktop}>Engineering</span>
+                            <span className={styles.engMobile}>ENG</span>
                             <span>Sales</span>
                             <span>Standard</span>
                         </div>
@@ -231,7 +235,8 @@ const WorkdayIntegration = () => {
                                 <span> WD-2003</span>
                             </div>
                             <span>Sales</span>
-                            <span>Marketing</span>
+                            <span className={styles.engDesktop}>Marketing</span>
+                            <span className={styles.engMobile}>MRKT</span>
                             <span>Standard</span>
                         </div>
                         <div className={styles.previewRow}>
@@ -239,8 +244,10 @@ const WorkdayIntegration = () => {
                                 <strong>Noah Williams</strong>
                                 <span> WD-2004</span>
                             </div>
-                            <span>Marketing</span>
-                            <span>Engineering</span>
+                            <span className={styles.engDesktop}>Marketing</span>
+                            <span className={styles.engMobile}>MRKT</span>
+                            <span className={styles.engDesktop}>Engineering</span>
+                            <span className={styles.engMobile}>ENG</span>
                             <span>Standard</span>
                         </div>
                         <div className={styles.previewRow}>
@@ -248,8 +255,10 @@ const WorkdayIntegration = () => {
                                 <strong>Retry Success</strong>
                                 <span> WD-2005</span>
                             </div>
-                            <span>Account Executive</span>
-                            <span>Team Lead AE Team</span>
+                            <span className={styles.engDesktop}>Account Executive</span>
+                            <span className={styles.engMobile}>AE</span>
+                            <span className={styles.engDesktop}>Team Lead AE Team</span>
+                            <span className={styles.engMobile}>TL AE</span>
                             <span>Retry → Success</span>
                         </div>
                         <div className={styles.previewRow}>
@@ -257,8 +266,10 @@ const WorkdayIntegration = () => {
                                 <strong>Test Fail 400</strong>
                                 <span> WD-2006</span>
                             </div>
-                            <span>Engineering</span>
-                            <span>Sales Engineering</span>
+                            <span className={styles.engDesktop}>Engineering</span>
+                            <span className={styles.engMobile}>ENG</span>
+                            <span className={styles.engDesktop}>Sales Engineering</span>
+                            <span className={styles.engMobile}>Sales ENG</span>
                             <span>503 Service Unavailable</span>
                         </div>
                         <div className={styles.previewRow}>
@@ -267,7 +278,8 @@ const WorkdayIntegration = () => {
                                 <span> WD-2007</span>
                             </div>
                             <span>Product</span>
-                            <span>Engineering</span>
+                            <span className={styles.engDesktop}>Engineering</span>
+                            <span className={styles.engMobile}>ENG</span>
                             <span>400 Bad Request</span>
                         </div>
                     </div>
