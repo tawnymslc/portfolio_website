@@ -202,9 +202,20 @@ const EmployeeMigrationTool = () => {
                 </div>
                 <div className={styles.overviewHeader}>
                     <div>
-                        <h3>Migration Overview</h3>
+                        <h4>PROJECT BRIEF</h4>
+                        <br/>
+                        <h6>The Challenge</h6>
                         <p>
-                            This demo simulates an employee migration from Workstream to Toast using predefined employee records and customer-configured mappings.
+                            A restaurant group needs to migrate active employees from Workstream
+                            into Toast while handling incomplete employee data, differences between
+                            the two systems, and existing employees that shouldn't be duplicated.
+                        </p>
+                        <br/>
+                        <h6>My Approach</h6>
+                        <p>
+                            I designed a controlled migration workflow that validates source data,
+                            applies customer-approved mappings, checks for existing employees,
+                            transfers valid records, and records every outcome.
                         </p>
                     </div>
                     <span className={styles.demoBadge}>
@@ -212,7 +223,7 @@ const EmployeeMigrationTool = () => {
                     </span>
                 </div>
                 <div className={styles.requirementsSection}>
-                    <h4>Business Requirements</h4>
+                    <h4>KEY TECHNICAL DECISIONS</h4>
                     <div className={styles.requirementsGrid}>
                         <div>
                             <strong>Validate Employee Data</strong>
@@ -664,6 +675,15 @@ const EmployeeMigrationTool = () => {
                             {error && (
                                 <p className={styles.errorAlert}>{error}</p>
                             )}
+                </div>
+                <div className={styles.footer}>
+                <div className={styles.overviewHeader}>
+                    <div>
+                        <h4>NEXT ITERATION</h4>
+                        <p>Extend the workflow with CSV uploads, selective retry of failed employees, 
+                            automated synchronization, and stronger transaction handling.</p>
+                    </div>
+                </div>
                 </div>
             </section>
         </div>
